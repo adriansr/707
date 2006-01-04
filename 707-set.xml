@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<PropertyList>
+ <sim>
+
+  <description>Boeing 707</description>
+
+  <flight-model>jsb</flight-model>
+  <aero>707</aero>
+  <virtual-cockpit archive="y">false</virtual-cockpit> 
+  <systems>
+   <!--
+   <autopilot>
+    <path>Aircraft/737/systems/737-autopilot.xml</path>
+   </autopilot>
+   -->
+   <electrical>
+    <path>Aircraft/Generic/generic-electrical.xml</path>
+   </electrical>
+  </systems> 
+  
+  <sound>
+   <audible>true</audible>
+   <path>Aircraft/737/Sounds/737-sound.xml</path>
+  </sound>
+
+  <panel>
+   <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
+   <visibility>true</visibility>
+  </panel>
+  
+  <model>
+   <path>Aircraft/707/Models/707.xml</path>
+  </model>
+   
+  <view>
+   <internal archive="y">true</internal>
+   <config>
+     <!-- x/y/z == right/up/back -->
+     <x-offset-m archive="y">-0.36</x-offset-m>
+     <y-offset-m archive="y">0.25</y-offset-m>
+     <z-offset-m archive="y">-18.36</z-offset-m>
+     <pitch-offset-deg archive="y">-8.0</pitch-offset-deg>
+   </config>
+  </view>
+  <view n="1">
+   <config>
+     <!-- big plane, so extend chase view offset a bit -->
+     <z-offset-m type="double" archive="y">-12.0</z-offset-m>
+   </config>
+  </view>
+
+  <chase-distance-m>-45</chase-distance-m>
+
+  <!-- turns off GA tower communications -->
+  <ATC>
+   <enabled type="bool">false</enabled>
+  </ATC>
+
+  <!-- turns off GA traffic -->
+  <ai-traffic>
+   <enabled type="bool">false</enabled>
+  </ai-traffic>
+
+  <flaps>
+   <setting>0.000</setting>
+   <setting>0.125</setting> 
+   <setting>0.250</setting> 
+   <setting>0.375</setting> 
+   <setting>0.500</setting> 
+   <setting>0.625</setting> 
+   <setting>0.750</setting> 
+   <setting>0.875</setting> 
+   <setting>1.000</setting> 
+  </flaps>
+
+ </sim>
+
+ <engines>
+  <engine n="0">
+    <running>true</running>
+  </engine>
+  <engine n="1">
+    <running>true</running>
+  </engine>
+  <engine n="2">
+    <running>true</running>
+  </engine>
+  <engine n="3">
+    <running>true</running>
+  </engine>
+ </engines>
+
+ <radios>
+  <dme>
+    <switch-position>1</switch-position>
+  </dme>
+ </radios>
+
+
+<!--
+ <autopilot>
+  <locks>
+   <heading    type="string">off</heading>
+   <altitude   type="string">off</altitude>
+   <speed      type="string">off</speed>
+   <vert-speed type="string">off</vert-speed>
+  </locks>
+  <settings>
+   <target-altitude-ft type="double">10000.0</target-altitude-ft>
+   <target-speed-kt type="double">150.0</target-speed-kt>
+   <target-n1 type="double">93.0</target-n1>
+  </settings>
+ </autopilot>
+-->
+
+ <controls>
+  <autoflight>
+   <display-mach type="bool">false</display-mach>
+  </autoflight>
+ </controls>
+
+</PropertyList>
