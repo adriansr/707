@@ -3,6 +3,8 @@
  <sim>
 
   <description>Boeing 707</description>
+  <author>Innis Cunningham</author>
+  <status>alpha</status>
 
   <flight-model>jsb</flight-model>
   <aero>707</aero>
