@@ -22,11 +22,11 @@
   
   <sound>
    <audible>true</audible>
-   <path>Aircraft/737/Sounds/737-sound.xml</path>
+   <path>Aircraft/737-300/Sounds/737-sound.xml</path>
   </sound>
 
   <panel>
-   <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
+   <path>Aircraft/737-300/Panels/737-ifr-panel.xml</path>
    <visibility>true</visibility>
   </panel>
   
@@ -47,21 +47,11 @@
   <view n="1">
    <config>
      <!-- big plane, so extend chase view offset a bit -->
-     <z-offset-m type="double" archive="y">-12.0</z-offset-m>
+     <z-offset-m type="double"  archive="y">-50.0</z-offset-m>
    </config>
   </view>
 
   <chase-distance-m>-45</chase-distance-m>
-
-  <!-- turns off GA tower communications -->
-  <ATC>
-   <enabled type="bool">false</enabled>
-  </ATC>
-
-  <!-- turns off GA traffic -->
-  <ai-traffic>
-   <enabled type="bool">false</enabled>
-  </ai-traffic>
 
   <flaps>
    <setting>0.000</setting>
