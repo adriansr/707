@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+
+<PropertyList>
+
+<key n="127">
+	<name>Delete</name>
+	<desc>Toggle Reversers</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.togglereverser();</script>
+  </binding>
+</key>
+<key n="60">
+  <name> > </name>
+  <desc>toggle pilot engineer view</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>b707.changeView(9);</script>
+  </binding>
+</key>
+<key n="108">
+  <name>L</name>
+  <desc>toggle landing lights</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.toggleLandingLights();</script>
+  </binding>
+</key>
+<key n="121">
+  <name>y</name>
+  <desc>toggle yokes</desc>
+  <binding>
+      <command>property-toggle</command>
+      <property>sim/yokes-visible</property>
+  </binding>
+</key>
+
+<key n="94"> <!-- ^ -->
+    <name>short start</name>
+    <desc>Test startup</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.short_startup();</script>
+  </binding>
+</key>
+
+<key n="265">
+    <name>F9</name>
+    <desc>Pop up Fuel and Weight dialog</desc>
+    <binding>
+        <command>nasal</command>
+        <script>b707.WeightFuelDialog()</script>
+    </binding>
+</key>
+
+<key n="267">
+  <name>F11</name>
+  <desc>Pop up autopilot dialog</desc>
+  <binding>
+		  <command>nasal</command>
+		  <script>b707.changeView(11);</script>
+  </binding>
+</key>
+
+
+</PropertyList>

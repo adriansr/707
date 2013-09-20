@@ -1,47 +1,76 @@
 <?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Boeing 707 for Flightgear Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
 <PropertyList>
  <sim>
-
   <description>Boeing 707</description>
-  <author>Innis Cunningham</author>
-  <status>alpha</status>
-
+  <author>707 revamp by the Lake of Constance Hangar [Original from Innis Cunningham]</author>
+  <status>1.1.8</status>
   <flight-model>jsb</flight-model>
   <aero>707</aero>
-  <virtual-cockpit archive="y">false</virtual-cockpit> 
-  <systems>
-   <!--
-   <autopilot>
-    <path>Aircraft/737/systems/737-autopilot.xml</path>
-   </autopilot>
-   -->
-   <electrical>
-    <path>Aircraft/Generic/generic-electrical.xml</path>
-   </electrical>
-  </systems> 
+  <virtual-cockpit archive="y">true</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+	<startup>
+		<splash-texture>Aircraft/707/splash.png</splash-texture>
+	</startup>
+  <rating>
+      <FDM type="int">5</FDM>
+      <systems type="int">5</systems>
+      <cockpit type="int">5</cockpit>
+      <model type="int">5</model>
+  </rating>
   
-  <sound>
-   <audible>true</audible>
-   <path>Aircraft/737-300/Sounds/737-sound.xml</path>
-  </sound>
+  <systems n="0">
+    <autopilot n="0">
+        <path>Aircraft/707/Systems/autopilot.xml</path>
+    </autopilot>
+	</systems>
 
-  <panel>
-   <path>Aircraft/737-300/Panels/737-ifr-panel.xml</path>
-   <visibility>true</visibility>
-  </panel>
+	<instrumentation>
+    <path>Aircraft/707/Systems/instrumentation.xml</path>
+  </instrumentation>
   
   <model>
-   <path>Aircraft/707/Models/707.xml</path>
+   	 <path>Aircraft/707/Models/707.xml</path>
+      <livery>
+        <file type="string">707</file>
+      </livery>
+		 <pushback>
+			<kp type="double">500</kp>
+			<ki type="double">100</ki>
+			<kd type="double">0</kd>
+			<position-norm type="double">0</position-norm>
+		 </pushback>
   </model>
+
+  <sound>
+      <path>Aircraft/707/Sounds/707-sound.xml</path>
+      <switch type = "bool">0</switch>
+      <stall-horn type="bool">0</stall-horn>
+  </sound> 
+  
+	<tutorials>
+		<tutorial include="Tutorials/707-startup-german.xml"/>
+		<tutorial include="Tutorials/707-startup-english.xml"/>
+		<tutorial include="Tutorials/707-startup-spanish.xml"/>
+	</tutorials>
    
   <view>
    <internal archive="y">true</internal>
    <config>
+     <limits>
+        <enabled archive="y" type="bool">false</enabled>
+     </limits>
      <!-- x/y/z == right/up/back -->
-     <x-offset-m archive="y">-0.36</x-offset-m>
-     <y-offset-m archive="y">0.25</y-offset-m>
-     <z-offset-m archive="y">-18.36</z-offset-m>
-     <pitch-offset-deg archive="y">-8.0</pitch-offset-deg>
+		 <x-offset-m archive="y">-0.46</x-offset-m>
+		 <y-offset-m archive="y">1.19</y-offset-m>
+		 <z-offset-m archive="y">-18.2</z-offset-m>
+		 <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
+		 <default-field-of-view-deg type="double">72</default-field-of-view-deg>
    </config>
   </view>
   <view n="1">
@@ -50,65 +79,475 @@
      <z-offset-m type="double"  archive="y">-50.0</z-offset-m>
    </config>
   </view>
-
+  <view n="101">
+    <name>Copilot View</name>
+    <enabled type="bool">true</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+     <from-model type="bool">true</from-model>
+		 <from-model-idx type="int">true</from-model-idx>
+     <!-- x/y/z == right/up/back -->
+		 <x-offset-m archive="y"> 0.46</x-offset-m>
+		 <y-offset-m archive="y">1.19</y-offset-m>
+		 <z-offset-m archive="y">-18.2</z-offset-m>
+		 <pitch-offset-deg archive="y">-16.0</pitch-offset-deg>
+		 <default-pitch-deg type="double">-16.0</default-pitch-deg>
+		 <default-field-of-view-deg type="double">72</default-field-of-view-deg>
+    </config>
+	</view>
+  <view n="102">
+    <name>Engineer View</name>
+    <enabled type="bool">true</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+			<from-model type="bool">true</from-model>
+			<from-model-idx type="int">true</from-model-idx>
+			<!-- x/y/z == right/up/back -->
+			<x-offset-m archive="y"> 0.17</x-offset-m>
+			<y-offset-m archive="y"> 1.21</y-offset-m>
+			<z-offset-m archive="y">-17.5</z-offset-m>
+			<heading-offset-deg type="double">-90.0</heading-offset-deg>
+			<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
+			<from-model-idx type="int">0</from-model-idx>
+			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+			<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+			<default-pitch-deg type="double">-2.0</default-pitch-deg>
+			<default-heading-deg type="double">0</default-heading-deg>
+			<front-direction-deg type="double">0</front-direction-deg>
+			<front-left-direction-deg type="double">45</front-left-direction-deg>
+			<left-direction-deg type="double">90</left-direction-deg>
+			<back-left-direction-deg type="double">135</back-left-direction-deg>
+			<back-direction-deg type="double">180</back-direction-deg>
+			<back-right-direction-deg type="double">225</back-right-direction-deg>
+			<right-direction-deg type="double">270</right-direction-deg>
+			<front-right-direction-deg type="double">315</front-right-direction-deg>
+			<dynamic-view type="bool">true</dynamic-view>
+    </config>
+	</view> 
+	<view n="103">
+    <name>Officer View</name>
+    <enabled type="bool">true</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+			<from-model type="bool">true</from-model>
+			<from-model-idx type="int">true</from-model-idx>
+			<!-- x/y/z == right/up/back -->
+			<x-offset-m archive="y"> 0.0</x-offset-m>
+			<y-offset-m archive="y"> 1.27</y-offset-m>
+			<z-offset-m archive="y">-17.6</z-offset-m>
+			<heading-offset-deg type="double"> 0.0</heading-offset-deg>
+			<pitch-offset-deg type="double">-5.0</pitch-offset-deg>
+			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+			<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
+			<default-pitch-deg type="double">-5.0</default-pitch-deg>
+			<default-heading-deg type="double">0</default-heading-deg>
+			<front-direction-deg type="double">0</front-direction-deg>
+			<dynamic-view type="bool">true</dynamic-view>
+    </config>
+	</view>
+	<view n="104">
+    <name>Autopilot View</name>
+    <enabled type="bool">true</enabled>
+    <type>lookfrom</type>
+    <internal type="bool">true</internal>
+    <config>
+			<from-model type="bool">true</from-model>
+			<from-model-idx type="int">true</from-model-idx>
+			<!-- x/y/z == right/up/back -->
+			<x-offset-m archive="y"> 0.0</x-offset-m>
+			<y-offset-m archive="y"> 0.9</y-offset-m>
+			<z-offset-m archive="y">-18.45</z-offset-m>
+			<heading-offset-deg type="double"> 0.0</heading-offset-deg>
+			<pitch-offset-deg type="double">-75.0</pitch-offset-deg>
+			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+			<default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
+			<default-pitch-deg type="double">-5.0</default-pitch-deg>
+			<default-heading-deg type="double">0</default-heading-deg>
+			<front-direction-deg type="double">0</front-direction-deg>
+			<dynamic-view type="bool">true</dynamic-view>
+    </config>
+	</view>
+		
   <chase-distance-m>-45</chase-distance-m>
 
-  <flaps>
-   <setting>0.000</setting>
-   <setting>0.125</setting> 
-   <setting>0.250</setting> 
-   <setting>0.375</setting> 
-   <setting>0.500</setting> 
-   <setting>0.625</setting> 
-   <setting>0.750</setting> 
-   <setting>0.875</setting> 
-   <setting>1.000</setting> 
-  </flaps>
+	<menubar>
+		<default>
+			<menu n="100">
+				<label>Boeing 707</label>
+				<enabled type="bool">true</enabled>
+				<item>
+					<label>Autostart / shutdown</label>
+					<binding>
+						<command>property-toggle</command>
+						<property>sim/model/start-idling</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Selection ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Select livery</label>
+					<binding>
+						<command>nasal</command>
+						<script>aircraft.livery.dialog.open()</script>
+					</binding>
+				</item>
+				<item>
+					<label>Show/hide yokes</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>sim/yokes-visible</property>
+					</binding>
+				</item>
+				<item>
+					<label>--- Equipment ---</label>
+					<enabled>false</enabled>
+				</item>
+				<item>
+					<label>Pushback</label>
+					<name>pushback</name>
+					<binding>
+						 <command>dialog-show</command>
+						 <dialog-name>pushback</dialog-name>
+					</binding>
+				</item>
+				<item>
+					<label>External Power Unit</label>
+					<binding>
+						<command>property-toggle</command>
+		    		<property>b707/external-power-connected</property>
+					</binding>
+				</item>
+			</menu>
+		</default>
+	</menubar>
+	
+	<multiplay>
+    <generic>
+			<int n="0" alias="/controls/lighting/landing-light"/> 												<!-- landing light nose wheel -->
+			<int n="1" alias="/controls/lighting/landing-light[1]"/> 											<!-- landing light left and right -->
+			<int n="2" alias="/controls/lighting/landing-light[2]"/> 											<!-- landing light tail -->
+			<int n="3" alias="/controls/lighting/nav-lights"/> 														<!-- wings green and red -->
+			<int n="4" alias="/controls/lighting/beacon-state/state"/>										<!-- beacon -->
+			<int n="5" alias="/controls/lighting/strobe-state/state"/>										<!-- Strobe -->
+			<int n="6" alias="/controls/special/tyresmoke"/>															<!-- tyresmoke -->
+			<int n="7" alias="/controls/lighting/logo-lights"/> 													<!-- logo-light -->
+			<int n="8" type="int">0</int>																									<!-- select engines type -->
+			<int n="9" type="int">0</int>																									<!-- cargo aircraft -->
+			<!-- int [7] - [13] was for the old registration system. -->
+			<int n="14" alias="/b707/external-power-connected"/>													<!-- External Power-VW Kombi -->
+      <int n="15" type="int">0</int> <!-- jettison fuel 1 = left, 2 = right, 3 = both -->
+      <int n="16" type="int">0</int> <!-- immat on the rudder or on fuselage -->
+      <int n="17" type="int">0</int> <!-- fire 1 = eng 1, 2 = eng 2, 3 = both -->
+      <int n="18" type="int">0</int> <!-- fire 1 = eng 3, 2 = eng 4, 3 = both -->
+      <int n="19" alias="/b707/crashed"/>
+			<float n="0" alias="/systems/electrical/outputs/cabin-dim"/> 									<!-- cabin light dimmer -->
+			<float n="1" alias="/gear/gear[0]/compression-norm"/> 												<!-- multiplayer see the wheels turning -->
+			<float n="2" alias="/gear/gear[0]/rollspeed-ms"/> 												    <!-- multiplayer see the hanging backwheels -->
+			<float n="3" alias="/gear/gear[1]/compression-norm"/>
+			<float n="4" alias="/instrumentation/doors/pilotwin/position-norm"/>					<!-- Cockpit - left -->
+			<float n="5" alias="/instrumentation/doors/copilotwin/position-norm"/>				<!-- Cockpit - right -->
+			<float n="6" alias="/instrumentation/doors/pasfront/position-norm"/>					<!-- Passenger - front -->
+			<float n="7" alias="/instrumentation/doors/pasrear/position-norm"/>						<!-- Passenger - back -->
+      <float n="8" alias="/position/altitude-agl-ft"/>    <!-- for the kind of fire or lights -->
+      <float n="9" alias="/controls/special/wiper-deg"/>
+      <float n="10" alias="/b707/anti-ice/window-alpha-fo"/> <!-- the icing on the windshield -->
+      <float n="11" alias="/b707/anti-ice/window-alpha-capt"/> <!-- the icing on the windshield -->
+			<float n="12" alias="/instrumentation/doors/nose/position-norm"/>							<!-- Nose -->
+			<float n="13" alias="/b707/ground-service/state"/>							<!-- iluminate the groundservice -->
+			<float n="14" alias="/engines/engine/reverser-pos-norm"/>							<!-- multiplayer see the cowl flaps -->
+			<float n="15" alias="/instrumentation/doors/cargo/position-norm"/>						<!-- Cargo door -->
+			<float n="16" alias="/instrumentation/doors/belly/position-norm"/>						<!-- Belly door -->
+			<string n="0" alias="/sim/multiplay/callsign"/>					<!-- registration -->
+    </generic>
+  </multiplay>
+	
+	<help include="Systems/help.xml"/>  
+	<flight-recorder include="Systems/flightrecorder.xml"/>
 
+  <flaps>
+    <setting>0.0</setting>
+    <setting>0.2</setting>	<!-- 20% -->
+    <setting>0.4</setting>	<!-- 40% takeoff-->
+    <setting>0.6</setting>	<!-- 60% approach-->
+    <setting>1.0</setting>	<!-- 100% landing -->
+  </flaps>
+  
+	<aircraft-data>
+		<path>/instrumentation/operating-time/total</path>
+	</aircraft-data>
+	
  </sim>
 
- <engines>
-  <engine n="0">
-    <running>true</running>
-  </engine>
-  <engine n="1">
-    <running>true</running>
-  </engine>
-  <engine n="2">
-    <running>true</running>
-  </engine>
-  <engine n="3">
-    <running>true</running>
-  </engine>
- </engines>
-
- <radios>
-  <dme>
-    <switch-position>1</switch-position>
-  </dme>
- </radios>
-
-
-<!--
- <autopilot>
-  <locks>
-   <heading    type="string">off</heading>
-   <altitude   type="string">off</altitude>
-   <speed      type="string">off</speed>
-   <vert-speed type="string">off</vert-speed>
-  </locks>
-  <settings>
-   <target-altitude-ft type="double">10000.0</target-altitude-ft>
-   <target-speed-kt type="double">150.0</target-speed-kt>
-   <target-n1 type="double">93.0</target-n1>
-  </settings>
- </autopilot>
--->
+	<engines>
+		<APU>
+			<rpm type="double">0</rpm>
+			<amp-v type="double">0</amp-v>
+			<on-fire type="bool">false</on-fire>
+			<running type="bool">false</running>
+			<serviceable type="bool">true</serviceable>
+		</APU>
+		<engine n="0">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+			<rpm type="double">0</rpm>
+			<started type="bool">false</started>
+			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
+		</engine>
+		<engine n="1">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+			<rpm type="double">0</rpm>
+			<started type="bool">false</started>
+			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
+		</engine>
+		<engine n="2">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+			<rpm type="double">0</rpm>
+			<started type="bool">false</started>
+			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
+		</engine>
+		<engine n="3">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+			<rpm type="double">0</rpm>
+			<started type="bool">false</started>
+			<failed type="bool">false</failed>
+			<kw type="double">0</kw>
+		</engine>
+	</engines>
+ 
+	<input>
+		<keyboard include="Systems/keyboard.xml"/>
+	</input>
+ 
+	<autopilot>
+		<settings>
+		    <target-speed-kt type="double">220</target-speed-kt>
+		    <target-pitch-deg type="double">0</target-pitch-deg>
+		    <target-altitude-ft type="int">0</target-altitude-ft>
+		    <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+		    <heading-bug-deg type="int">0</heading-bug-deg>
+		</settings>
+		<switches>
+		  <ap type="bool">0</ap>
+		  <hdg type="bool">0</hdg>
+		  <alt type="bool">0</alt>
+		  <ias type="bool">0</ias>
+		  <nav type="bool">0</nav>
+		  <appr type="bool">0</appr>
+		  <gps type="bool">0</gps>
+		  <selected-nav type="bool">1</selected-nav>
+		</switches> 
+		<constant>
+			<flare-base type="double">0.2</flare-base>
+			<derate-lowalt type="double">0.77</derate-lowalt>
+			<descent-profile-high-base type="double">0.18</descent-profile-high-base>
+			<descent-profile-high-rate type="double">-0.00096774</descent-profile-high-rate>
+			<descent-profile-low-base type="double">0.13</descent-profile-low-base>
+			<descent-profile-low-rate type="double">-0.00029032</descent-profile-low-rate>
+		</constant> 
+		<Bendix-PB-20>
+			<controls>
+				<mode-selector type="int">2</mode-selector>	  <!-- 2 is manual control-->
+				<active type="bool">0</active>	  						<!-- the AP engage switch -->	
+			</controls>	
+		</Bendix-PB-20> 
+	</autopilot>
 
  <controls>
-  <autoflight>
-   <display-mach type="bool">false</display-mach>
-  </autoflight>
+		<APU>
+			<off-start-run type="double">2</off-start-run>
+		</APU>
+		<engines>
+			<engine-start-switch type="int">1</engine-start-switch>
+			<engine n="0">
+				<cutoff type="bool">true</cutoff>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>
+			</engine>
+			<engine n="1">
+				<cutoff type="bool">true</cutoff>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>
+			</engine>
+			<engine n="2">
+				<cutoff type="bool">true</cutoff>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>
+			</engine>
+			<engine n="3">
+				<cutoff type="bool">true</cutoff>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+				<out-of-fuel type="bool">false</out-of-fuel>
+			</engine>
+		</engines>
+		<lighting>
+			<beacon type="bool">false</beacon>
+			<strobe type="bool">false</strobe>
+			<nav-lights type="bool">false</nav-lights>
+			<cabin-lights type="bool">false</cabin-lights>
+			<cabin-dim type="double">0.0</cabin-dim>
+		</lighting>
+		<special>
+			<wiper-switch type="int">0</wiper-switch>
+			<wiper-deg type="double">0.0</wiper-deg>
+			<slats-switch type="double">0.0</slats-switch>
+		</special>
+		<switches>
+			<dme type="bool">0</dme>
+		</switches>
+		<!-- only for tiller steering -->
+    <gear>
+        <brake-parking type="bool">1</brake-parking>
+        <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+        <tiller-enabled type="bool">true</tiller-enabled>
+        <nosegear-steering-cmd-norm type="double">0</nosegear-steering-cmd-norm>
+        <maingear-steering-cmd-norm type="double">0</maingear-steering-cmd-norm>
+    </gear>
  </controls>
+ 
+ <!-- the b707 folder most properties set in other files. These we need for the tutorial-->
+ <b707>
+ 		<hydraulic>
+				<rudder type="double">0</rudder>
+				<system type="double">0</system>
+				<brake-valve type="double">0</brake-valve>
+				<ac-aux-pump n="0" type="bool">0</ac-aux-pump>
+				<ac-aux-pump n="1" type="bool">0</ac-aux-pump>
+				<hyd-fluid-shutoff-cover n="0" type="bool">0</hyd-fluid-shutoff-cover>
+				<hyd-fluid-shutoff-cover n="1" type="bool">0</hyd-fluid-shutoff-cover>
+				<hyd-fluid-shutoff n="0" type="bool">0</hyd-fluid-shutoff>
+				<hyd-fluid-shutoff n="1" type="bool">0</hyd-fluid-shutoff>
+				<hyd-fluid-pump n="0" type="bool">0</hyd-fluid-pump>
+				<hyd-fluid-pump n="1" type="bool">0</hyd-fluid-pump>
+				<spoiler-switch n="0" type="bool">1</spoiler-switch>
+				<spoiler-switch n="1" type="bool">1</spoiler-switch>
+				<rudder-switch type="bool">1</rudder-switch>
+		</hydraulic>
+		<anti-ice>
+		    <drag-coefficient type="double">1.0</drag-coefficient>
+		</anti-ice>
+		<trim>
+			<spoiler-nose-down type="double">0.0</spoiler-nose-down>
+			<spoiler-nose-up type="double">0.0</spoiler-nose-up>
+		</trim>
+		<ap-loop type="bool">0</ap-loop>
+		<compass-pos type="double">1.0</compass-pos> <!-- compass is closed -->
+		<over-water type="bool">0</over-water>
+		<manual>
+			<board type="double">0.0</board>
+			<page type="int">0</page>
+			<title type="string">BOEING</title>
+			<subtitle1 type="string">OPERATION MANUAL</subtitle1>
+			<text1 type="string"></text1>
+			<subtitle2 type="string"></subtitle2>
+			<text2 type="string"></text2>
+			<subtitle3 type="string">MODEL 707 - 420/430</subtitle3>
+			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
+			<subtitle4 type="string"></subtitle4>
+			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
+			<content include="Aircraft/707/Models/Cockpit/Manual/manual.xml"/>
+		</manual>
+  </b707>
+
+	<payload>
+		<weight>
+			<name type="string">Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<min-lb type="double"> 540.0</min-lb>
+			<max-lb type="double">1810.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">First-class</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<min-lb type="double"> 0.0</min-lb>
+			<max-lb type="double"> 6000.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Second-class / wing</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">9940.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Second-class / rear</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+			<min-lb type="double">0.0</min-lb>
+			<max-lb type="double">13250.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Luggage 1 - front</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
+			<min-lb type="double"> 0.0</min-lb>
+			<max-lb type="double"> 6000.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Luggage 2 - center</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[5]"/>
+			<min-lb type="double"> 0.0</min-lb>
+			<max-lb type="double">10000.0</max-lb>
+		</weight>
+		<weight>
+			<name type="string">Luggage 3 - rear</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[6]"/>
+			<min-lb type="double">  0.0</min-lb>
+			<max-lb type="double"> 10000.0</max-lb>
+		</weight>
+	</payload>
+	
+	<instrumentation include="Systems/instrumentation-init.xml"/>	
+	
+	<limits>
+		<mass-and-balance>
+			<maximum-takeoff-mass-lbs>311000</maximum-takeoff-mass-lbs>
+			<maximum-takeoff-mass-lbs-jt4>333000</maximum-takeoff-mass-lbs-jt4>
+			<maximum-landing-mass-lbs>215000</maximum-landing-mass-lbs>
+		</mass-and-balance>
+	</limits>
+	
+	 <nasal>
+			<b707>
+				<file>Aircraft/707/Nasal/autostart.nas</file>
+				<file>Aircraft/707/Nasal/liveries.nas</file>
+				<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
+				<file>Aircraft/707/Nasal/electrical.nas</file>
+				<file>Aircraft/707/Nasal/mk-707.nas</file>
+				<file>Aircraft/707/Nasal/mk-agl-radar.nas</file>
+				<!--<file>Aircraft/707/Nasal/mk-ap-helper.nas</file>-->
+				<file>Aircraft/707/Nasal/mk-frw.nas</file>
+				<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
+				<file>Aircraft/707/Nasal/mk-rmi.nas</file>
+				<file>Aircraft/707/Nasal/mk-wiper.nas</file>    
+				<file>Aircraft/707/Nasal/doors.nas</file>
+				<file>Aircraft/707/Nasal/tyresmoke.nas</file>
+				<file>Aircraft/707/Nasal/brakesystem.nas</file>
+				<file>Aircraft/707/Nasal/autopilot-routemanager.nas</file>
+				<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
+				<file>Aircraft/707/Nasal/tcas.nas</file>
+				<file>Aircraft/707/Nasal/registration.nas</file>
+				<file>Aircraft/707/Nasal/manual.nas</file>
+		    <!-- <script><![CDATA[ gui.menuEnable("autopilot",0); ]]></script> -->
+			</b707> 
+			<view>
+        <file>Aircraft/707/Nasal/view.nas</file>
+      </view> 
+		</nasal>
 
 </PropertyList>

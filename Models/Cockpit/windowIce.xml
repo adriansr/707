@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+<PropertyList>
+ <path>windowIce.ac</path>
+
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>windowIceCapt</object-name>
+		<object-name>windowIceFO</object-name>
+  </effect>
+  
+	<animation>
+		<type>select</type>
+		<object-name>windowIceCapt</object-name>
+		<condition>		
+			<less-than>
+				<property>sim/multiplay/generic/float[11]</property>
+				<value>0.9</value>
+			</less-than>
+		</condition>
+	</animation>
+  
+	<animation>
+		<type>select</type>
+		<object-name>windowIceFO</object-name>
+		<condition>		
+			<less-than>
+				<property>sim/multiplay/generic/float[10]</property>
+				<value>0.9</value>
+			</less-than>
+		</condition>
+	</animation>
+	 
+	<!-- the ice effect -->
+	<animation>
+		<type>blend</type>
+		<object-name>windowIceCapt</object-name>
+		<property>sim/multiplay/generic/float[11]</property>
+		<factor>1</factor>
+	</animation> 
+
+	<animation>
+		<type>blend</type>
+		<object-name>windowIceFO</object-name>
+		<property>sim/multiplay/generic/float[10]</property>
+		<factor>1</factor>
+	</animation>  
+ 
+ </PropertyList>

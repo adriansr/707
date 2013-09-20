@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!--###################################################################################
+		Lake of Constance Hangar :: M.Kraus
+		Septemper 2013
+		This file is licenced under the terms of the GNU General Public Licence V2 or later
+		###################################################################################
+-->
+<PropertyList>
+	<title>BOEING</title>
+	<subtitle1 n="0">OPERATION MANUAL</subtitle1>
+	<text1 n="0"></text1>
+	<subtitle2 n="0"></subtitle2>
+	<text2 n="0"></text2>
+	<subtitle3 n="0">MODEL 707 - 420/430</subtitle3>
+	<text3 n="0">FOR FLIGHTGEAR SIMULATION ONLY</text3>
+	<subtitle4 n="0"></subtitle4>
+	<text4 n="0">Lake of Constance Hangar Vol. 1.1.5</text4>
+	
+	<title n="1"></title>
+	<subtitle1 n="1"></subtitle1>
+	<text1 n="1">English ........... page  2 ff</text1>
+	<subtitle2 n="1"></subtitle2>
+	<text2 n="1">German .......... page 20 ff</text2>
+	<subtitle3 n="1"></subtitle3>
+	<text3 n="1"></text3>
+	<subtitle4 n="1"></subtitle4>
+	<text4 n="1"></text4>
+	
+	<!-- empty layout
+	
+	<title n="1">xxx</title>
+	<subtitle1 n="1">xxx</subtitle1>
+	<text1 n="1">xxx</text1>
+	<subtitle2 n="1">xxx</subtitle2>
+	<text2 n="1">xxx</text2>
+	<subtitle3 n="1">xxx</subtitle3>
+	<text3 n="1">xxx</text3>
+	<subtitle4 n="1">xxx</subtitle4>
+	<text4 n="1">xxx</text4>
+	
+	-->
+	
+	<!-- ####################### english ##################### -->
+	<!-- page 2 -->
+	<title n="2">EMERGENCY 707</title>
+	<subtitle1 n="2">ENGINE FIRE</subtitle1>
+	<text1 n="2">
+		Thrust Lever - CLOSE
+		Essential Power Source - CHECK
+		Generator Drive - DISCONNECTED
+		Start Lever - CUTOFF
+		Engine Fire Switch - PULL
+		If fire warning switch extinguished:
+		Engine Fire Switch - PUSH
+	</text1>
+	<subtitle2 n="2"></subtitle2>
+	<text2 n="2"></text2>
+	<subtitle3 n="2">RESTART ENGINE/FLIGHT</subtitle3>
+	<text3 n="2">
+		Do not reconnect Generator Drive
+		Overhead Start Switch - ON
+		Start Lever - ON
+	</text3>
+	<subtitle4 n="2"></subtitle4>
+	<text4 n="2">
+		If you reconnect Generator Drive in 
+		flight you ruin your generator and in 
+		worst case your engine, too.
+	</text4>
+	
+	<!-- page 3 -->	
+	<title n="3">EMERGENCY 707</title>
+	<subtitle1 n="3">ICE WARNING</subtitle1>
+	<text1 n="3">
+		--------- Overhead Panel ----------
+		Wing Anti-Ice - ON
+		Nacelle Anti-Ice - ALL ON
+		Window Heat - BOTH HIGH
+		--------- Engineer Panel ----------
+		Fuel Heaters - ALL ON
+	</text1>
+	<subtitle2 n="3"></subtitle2>
+	<text2 n="3"></text2>
+	<subtitle3 n="3"></subtitle3>
+	<text3 n="3">
+		Control the Total Air-Temperature
+		TAT - Instrument at Copilot Panel.
+		Minus degree requires ANTI-ICE
+		settings.
+	</text3>
+	<subtitle4 n="3"></subtitle4>
+	<text4 n="3"></text4>
+	
+	<!-- page 4 -->	
+	<title n="4">EMERGENCY 707</title>
+	<subtitle1 n="4">PRESSURIZATION WARNING</subtitle1>
+	<text1 n="4">
+		--------- Overhead Panel ----------
+		Oxygen - ON
+		Seat Belts - ON
+		No Smoking - ON
+		Emer Exit Lights - ON
+	</text1>
+	<subtitle2 n="4"></subtitle2>
+	<text2 n="4">
+		--------- Engineer Panel ----------
+		Air Compressors - CHECK
+		Air Cond Unit - BOTH ON
+		Saftey Valve Override - NORMAL
+		Pressurization right switch - AUTO
+		Pressurization left switch - LANDING
+		Rate - MAX DECR
+		Fwd/Aft Valve - NORMAL
+	</text2>
+	<subtitle3 n="4"></subtitle3>
+	<text3 n="4">
+	</text3>
+	<subtitle4 n="4"></subtitle4>
+	<text4 n="4">		
+		------------------------------------------
+		Emergency Descent - INITIATE
+	</text4>	
+	
+	<!-- ################## german ################### -->
+	<!-- page 20 -->
+	<title n="20">NOTFALL 707</title>
+	<subtitle1 n="20">TRIEBWERK FEUER</subtitle1>
+	<text1 n="20">
+		Schubhebel - ZURUECK
+		Essential Power  - KONTROLLE
+		Generator Drive - AUS
+		Cutoff Hebel - AUS
+		Triebwerk Feuerhebel - ZIEHEN
+		Wenn Lampe erlischt:
+		Triebwerk Feuerhebel - DRUECKEN
+	</text1>
+	<subtitle2 n="20"></subtitle2>
+	<text2 n="20"></text2>
+	<subtitle3 n="20">NEUSTART TRIEBWERK</subtitle3>
+	<text3 n="20">
+		Niemals Generator Drive einschalten
+		Overhead Start Schalter - EIN
+		Cutoff Hebel - EIN
+	</text3>
+	<subtitle4 n="20"></subtitle4>
+	<text4 n="20">
+		Ein Wiedereinschalten des Generatoren-
+		getriebes im Flug, bei rotierender
+		Turbine, zerstoert das Getriebe und
+		eventuell das Triebwerk. 
+	</text4>
+	
+	<!-- page 21 -->	
+	<title n="21">NOTFALL 707</title>
+	<subtitle1 n="21">EIS WARNUNG</subtitle1>
+	<text1 n="21">
+		--------- Overhead Panel ----------
+		Wing Anti-Ice - EIN
+		Nacelle Anti-Ice - ALLE EIN
+		Window Heat - BEIDE AUF HIGH
+		--------- Engineer Panel ----------
+		Fuel Heaters - ALLE EIN
+	</text1>
+	<subtitle2 n="21"></subtitle2>
+	<text2 n="21"></text2>
+	<subtitle3 n="21"></subtitle3>
+	<text3 n="21">
+		Beobachten Sie waehrend des Fluges
+		das TAT (Total Air-Temperature)
+		Instrument im Copiloten Panel.
+		Minus Temperaturen erfordern die 
+		Enteisungseinstellungen.
+	</text3>
+	<subtitle4 n="21"></subtitle4>
+	<text4 n="21"></text4>	
+	
+	<!-- page 22 -->	
+	<title n="22">NOTFALL 707</title>
+	<subtitle1 n="22">KABINENDRUCK WARNUNG</subtitle1>
+	<text1 n="22">
+		--------- Overhead Panel ----------
+		Oxygen - EIN
+		Seat Belts - EIN
+		No Smoking - EIN
+		Emer Exit Lights - EIN
+	</text1>
+	<subtitle2 n="22"></subtitle2>
+	<text2 n="22">
+		--------- Engineer Panel ----------
+		Air Compressors - KONTROLLIEREN
+		Air Cond Unit - BEIDE AN
+		Saftey Valve Override - NORMAL
+		Pressurization right switch - AUTO
+		Pressurization left switch - LANDING
+		Rate - max. DECR
+		Fwd/Aft Valve - NORMAL
+	</text2>
+	<subtitle3 n="22"></subtitle3>
+	<text3 n="22">
+	</text3>
+	<subtitle4 n="22"></subtitle4>
+	<text4 n="22">		
+		------------------------------------------
+		Notfall Sinkflug - EINLEITEN
+		Druckausgleich kann je nach Hoehe
+		bis zu 10min dauern.
+	</text4>		
+	
+</PropertyList>
