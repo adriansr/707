@@ -16,6 +16,10 @@
 		<object-name>pages</object-name>
 		<object-name>pages.001</object-name>
 		<object-name>saddle</object-name>
+		<object-name>flagGB</object-name>
+		<object-name>flagGER</object-name>
+		<object-name>flagES</object-name>
+		<object-name>flagCZ</object-name>
 		<condition>	
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -106,6 +110,78 @@
 		  </action>
 	</animation> 
 
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagGB</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>2</value>
+        </binding> 
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	         
+		  </action>
+	</animation> 	
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagES</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>11</value>
+        </binding>
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	          
+		  </action>
+	</animation>
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagGER</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>20</value>
+        </binding> 
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	         
+		  </action>
+	</animation> 	 	
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagCZ</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>30</value>
+        </binding> 
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	         
+		  </action>
+	</animation> 
+	
 	<animation>
 		<type>pick</type>
 		<object-name>pages</object-name>

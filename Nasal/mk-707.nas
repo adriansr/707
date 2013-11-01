@@ -133,7 +133,7 @@ var toggleLandingLights = func {
 }
 
 ################## Little Help Window on bottom of screen #################
-var help_win = screen.window.new( 0, 0, 1, 3 );
+var help_win = screen.window.new( 0, 0, 1, 5 );
 help_win.fg = [1,1,1,1];
 
 var messenger = func{
@@ -302,7 +302,7 @@ var show_mp_info = func (i){
 	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
 	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
 
-  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
 } 
 
 var show_ai_info = func (i){
@@ -311,7 +311,30 @@ var show_ai_info = func (i){
 	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
 	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
 
-  help_win.write(sprintf(cs~" %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+}
+
+var show_mp_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
+	var bg = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/course-to-mp") or 0;
+	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg /  %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", bg, ct, al, as, dis) ); 
+} 
+
+var show_ai_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }
 
 #################################### helper for the standby ADI ############################################
@@ -356,8 +379,12 @@ operating_time_counter();
 ####################################### speedbrake helper #######################################
 var stepSpeedbrakes = func(step) {
     # Hard-coded speedbrakes movement in 4 equal steps:
-    var val = 0.25 * step + getprop("/controls/flight/speedbrake");
-    setprop("/controls/flight/speedbrake", val > 1 ? 1 : val < 0 ? 0 : val);
+    var val = 0.25 * step + getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", val > 1 ? 1 : val < 0 ? 0 : val);
+}
+var fullSpeedbrakes = func {
+    var val = getprop("/controls/flight/spoilers");
+    setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
 }
 
 ######################################## compass control #######################################
@@ -690,8 +717,15 @@ var calc_oil_temp = func{
 	}
 
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
-		var n = e.getNode("oil-pressure-psi").getValue() or 0;
-		var r = e.getNode("running").getValue() or 0;
+	  var n = 0;
+	  if(e.getNode("oil-pressure-psi")!= nil and e.getNode("oil-pressure-psi").getValue()){
+			n = e.getNode("oil-pressure-psi").getValue();
+		}
+		var r = 0;
+		if(e.getNode("running") != nil){
+			r = e.getNode("running").getValue();
+		}
+		
 		var t = n * 2.148;
 		if(r){
 			# the oil temp calculation
@@ -728,8 +762,14 @@ var nacelle_deicing = func {
   
 	# if engines running show me the temperature near the wing anti ice valve
 	foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
-		var r = e.getNode("running").getValue() or 0;
-		var deg = e.getNode("egt-degf").getValue() or 0;
+		var r = 0;
+	  if(e.getNode("running") != nil and e.getNode("running").getValue()){
+			r = e.getNode("running").getValue();
+		}
+		var deg = 0;
+	  if(e.getNode("egt-degf") != nil and e.getNode("egt-degf").getValue()){
+			deg = e.getNode("egt-degf").getValue();
+		}		
 		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
 		
 		if (!engineInlet) {
@@ -1123,6 +1163,8 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
   	 setprop("/controls/gear/bake-parking", 0);
+  	 setprop("/b707/refuelling/probe-right", 0);
+  	 setprop("/b707/refuelling/probe-left", 0);
 	}
 },0,1);
 
@@ -1143,4 +1185,54 @@ setlistener("controls/gear/gear-down", func
     }
   }
  });
+ 
+# only for Tanker but don't worry if its no Tanker aircraft
+var toggleProbeLeft = func(){
+		var hose = getprop("/b707/refuelling/probe-left") or 0;
+		if(!hose){
+			setprop("/b707/refuelling/probe-left", 1);
+			interpolate("/b707/refuelling/probe-left-lever", 1, 1);
+		}else{
+			setprop("/b707/refuelling/probe-left", 0);
+			interpolate("/b707/refuelling/probe-left-lever", 0, 1);
+		}
+}
+var toggleProbeRight = func(){
+		var hose = getprop("/b707/refuelling/probe-right") or 0;
+		if(!hose){
+			setprop("/b707/refuelling/probe-right", 1);
+			interpolate("/b707/refuelling/probe-right-lever", 1, 1);
+		}else{
+			setprop("/b707/refuelling/probe-right", 0);
+			interpolate("/b707/refuelling/probe-right-lever", 0, 1);
+		}
+}
+var toggleRefuelling = func{
+  var somethingOut = 0;
+  var lD = getprop("/b707/refuelling/probe-left") or 0;
+  var rD = getprop("/b707/refuelling/probe-right") or 0;
+  var bo = getprop("/instrumentation/doors/refuel-boom/position-norm") or 0;
+  
+  if(lD){
+  	somethingOut = 1;
+  } 
+  if(rD){
+  	somethingOut = 1;
+  }
+  if(bo > 0){
+  	somethingOut = 1;
+  }
+  
+  if(somethingOut){
+  	setprop("/tanker", 0);
+  	if(rD) toggleProbeRight();
+  	if(lD) toggleProbeLeft();
+		if(bo) b707.doorsystem.refuelexport();  
+  }else{
+  	setprop("/tanker", 1);
+  	if(!rD) toggleProbeRight();
+  	if(!lD) toggleProbeLeft();
+		if(!bo) b707.doorsystem.refuelexport();
+  }
+}
 

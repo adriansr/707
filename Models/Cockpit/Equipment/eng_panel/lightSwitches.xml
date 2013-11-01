@@ -22,6 +22,9 @@
 		<object-name>LampAmber.009</object-name>
 		<object-name>LampAmber.010</object-name>
 		<object-name>LampAmber.011</object-name>
+		<object-name>LampAmber.012</object-name>
+		<object-name>LampAmber.013</object-name>
+		<object-name>LampAmber.014</object-name>
 		<object-name>switch</object-name>
 		<object-name>sockle</object-name>
 		<object-name>sockle.001</object-name>
@@ -67,6 +70,9 @@
 		<object-name>LampAmberON.009</object-name>
 		<object-name>LampAmberON.010</object-name>
 		<object-name>LampAmberON.011</object-name>
+		<object-name>LampAmberON.012</object-name>
+		<object-name>LampAmberON.013</object-name>
+		<object-name>LampAmberON.014</object-name>
 		<emission>
 		  <red>   1.0 </red>
 		  <green> 0.2 </green>
@@ -178,8 +184,14 @@
 		<type>select</type>
 		<object-name>LampAmber.010</object-name>
 		<object-name>LampAmber.011</object-name>
-		<condition>		
-       <property>sim/multiplay/generic/int[9]</property>
+		<condition>
+		   <or>		
+       		<property>sim/multiplay/generic/int[9]</property>
+					<equals>
+						<property>sim/model/path</property>
+						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+					</equals>	
+       </or>
 		</condition>
 	</animation>
 	
@@ -191,7 +203,13 @@
 				<property>/b707/ess-bus</property>
 				<value>20</value>
 			</greater-than>
-      <property>sim/multiplay/generic/int[9]</property>
+		   <or>		
+       		<property>sim/multiplay/generic/int[9]</property>
+					<equals>
+						<property>sim/model/path</property>
+						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+					</equals>	
+       </or>
 		  <or>
 		  	<property>/instrumentation/doors/cargo/position-norm</property>
 		    <property>/controls/test/warn-knob</property>
@@ -208,9 +226,70 @@
 				<property>/b707/ess-bus</property>
 				<value>20</value>
 			</greater-than>
-      <property>sim/multiplay/generic/int[9]</property>
+		   <or>		
+       		<property>sim/multiplay/generic/int[9]</property>
+					<equals>
+						<property>sim/model/path</property>
+						<value type="string">Aircraft/707/Models/707-TT.xml</value>
+					</equals>	
+       </or>
 		  <or>
 		  	<property>/instrumentation/doors/belly/position-norm</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<!-- if it is an AAR aircraft -->
+	<animation>
+		<type>select</type>	
+		<object-name>LampAmber.012</object-name>
+		<object-name>LampAmber.013</object-name>
+		<object-name>LampAmber.014</object-name>
+		<condition>
+		   <equals>
+		   		<property>sim/model/path</property>
+		   		<value type="string">Aircraft/707/Models/707-TT.xml</value>
+		   </equals>		
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.012</object-name>
+		<object-name>LampAmberON.013</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<equals>
+				<property>sim/model/path</property>
+				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+			</equals>	
+		  <or>
+		  	<property>/b707/refuelling/hose-out</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampAmberON.014</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<equals>
+				<property>sim/model/path</property>
+				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+			</equals>	
+		  <or>
+		  	<property>/instrumentation/doors/refuel-hose/position-norm</property>
 		    <property>/controls/test/warn-knob</property>
 		    <property>/b707/warning/door-test</property>
 		  </or>

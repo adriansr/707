@@ -11,7 +11,7 @@
  <path>707.ac</path>
  
   <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
- 
+
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/707/Models/Liveries", 10);
@@ -70,6 +70,18 @@
     <object-name>elevwing</object-name>
 		<object-name>rhfiletflap</object-name>
 		<object-name>lhfiletflap</object-name>
+		<object-name>rhibflap</object-name>
+		<object-name>lhibflap</object-name>
+		<object-name>rhobflap</object-name>
+		<object-name>lhobflap</object-name>
+		<object-name>rhsp1</object-name>
+		<object-name>lhsp1</object-name>
+		<object-name>rhsp3</object-name>
+		<object-name>lhsp3</object-name>
+		<object-name>rhibail</object-name>
+		<object-name>lhibail</object-name>
+		<object-name>rhobail</object-name>
+		<object-name>lhobail</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>707.png</texture>
@@ -173,6 +185,7 @@
 		<object-name>ExternalPowerUnit</object-name>
 		<condition>
 		  <property>sim/multiplay/generic/int[14]</property>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>
 	</animation>
 	
@@ -188,7 +201,7 @@
     		<property>b707/external-power-connected</property>
 		  </binding>
 		</action>
-  </animation>	
+  </animation>
 	
 	<!-- Stairways -->
 	<model>
@@ -217,6 +230,7 @@
 		<type>select</type>
 		<object-name>frontStair</object-name>
 		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		  <or>
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
@@ -231,6 +245,7 @@
 		<type>select</type>
 		<object-name>rearStair</object-name>
 		<condition>
+		  <not><property>sim/multiplay/generic/int[19]</property></not>
 		  <or>
       	<property>sim/multiplay/generic/float[6]</property>
       	<property>sim/multiplay/generic/float[7]</property>
@@ -315,6 +330,7 @@
 		<object-name>Loader1</object-name>
 		<condition>
 		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
 		    <property>sim/multiplay/generic/int[9]</property>
 				<or>
 		    	<property>sim/multiplay/generic/float[6]</property>
@@ -372,6 +388,7 @@
 		<object-name>Loader2</object-name>
 		<condition>
 		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
 		    <property>sim/multiplay/generic/int[9]</property>
 				<or>
 		    	<property>sim/multiplay/generic/float[6]</property>
@@ -411,7 +428,63 @@
 		   <script>b707.doorsystem.bellyexport();</script>
 		  </binding>
 		</action>
-  </animation>		
+  </animation>
+  
+  	<model>
+	 <name>Loader3</name>
+	 <path>Aircraft/707/Models/bellyLoader.xml</path>
+	 <offsets>
+		<x-m>0</x-m>
+		<y-m>6.2</y-m>
+		<z-m>0</z-m>
+	 </offsets>
+	</model>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Loader3</object-name>
+		<condition>
+		  <and>
+		  	<not><property>sim/multiplay/generic/int[19]</property></not>
+		    <not><property>sim/multiplay/generic/int[9]</property></not>
+				<or>
+		    	<property>sim/multiplay/generic/float[6]</property>
+		    	<property>sim/multiplay/generic/float[7]</property>
+		    	<property>sim/multiplay/generic/float[12]</property>
+		    	<property>sim/multiplay/generic/float[16]</property>
+		    </or>
+		  </and>
+		</condition>
+	</animation>
+	
+  <animation>
+      <type>translate</type>
+      <object-name>Loader3</object-name>
+      <property>sim/multiplay/generic/float[16]</property>
+			<interpolation>
+				<entry><ind>    0.0</ind><dep>   0.0</dep></entry>
+				<entry><ind>    1.0</ind><dep>  -7.0</dep></entry>
+			</interpolation>
+      <axis>
+          <x> 0.0</x>
+          <y> 1.0</y>
+          <z> 0.0</z>
+      </axis>
+  </animation>
+  
+  <animation>
+		<type>pick</type>
+		<object-name>Loader3</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+		  <binding>
+		   <command>nasal</command>
+		   <script>b707.doorsystem.bellyexport();</script>
+		  </binding>
+		</action>
+  </animation>
 
   <!-- if crashed -->
 	<animation>
@@ -426,7 +499,24 @@
 			<not><property>sim/multiplay/generic/int[19]</property></not>
 		</condition>	
 	</animation>
+	
+  <!-- shadow without rembrandt -->
+	<model>
+		<name>NewShadow</name>
+		<path>Aircraft/707/Models/shadow.xml</path>
+	</model>
 
+	<animation>
+		<type>select</type>
+		<object-name>NewShadow</object-name>
+		<condition>
+			<and>
+				<not><property>sim/multiplay/generic/int[19]</property></not>
+				<not><property>/sim/rendering/rembrandt/enabled</property></not>
+			</and>
+		</condition>
+	</animation>v
+  
 	<!-- animate the doors and the nose -->
 	<animation>
       <type>rotate</type>
@@ -614,8 +704,8 @@
 			<and>
 				<property>sim/multiplay/generic/int[19]</property>
 				<less-than>
-						<property>/velocities/groundspeed-kt</property>
-						<value>0.2</value>
+						<property>/velocities/vertical-speed-fps</property>
+						<value>0.1</value>
 				</less-than>
 			</and>
 		</condition>	
@@ -2573,6 +2663,43 @@
   </overlay>
 </model>
 
+<!-- Registration fuselage upper back -->
+<model>
+	<name>registrationFuselageRightBack</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>1.55</y-m>
+    <z-m>1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>-1.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
+<model>
+	<name>registrationFuselageLeftBack</name>
+  <path>Aircraft/707/Models/Registration/registration.xml</path>
+  <offsets>
+    <x-m>11.5</x-m>
+    <y-m>-1.55</y-m>
+    <z-m> 1.62</z-m>
+    <roll-deg>34</roll-deg>
+    <heading-deg>179.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.5</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
+
 <animation>
 	<type>select</type>
 	<object-name>registrationRudderRight</object-name>
@@ -2580,8 +2707,23 @@
 	<object-name>registrationWingTop</object-name>
 	<object-name>registrationWingBottom</object-name>
 	<condition>
-		<property>sim/multiplay/generic/int[16]</property>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>3</value>
+		</equals>
 	</condition>	
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>registrationFuselageRightBack</object-name>
+	<object-name>registrationFuselageLeftBack</object-name>
+	<condition>
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>2</value>
+		</equals>
+	</condition>
 </animation>
 
 <animation>
@@ -2589,8 +2731,11 @@
 	<object-name>registrationFuselageRight</object-name>
 	<object-name>registrationFuselageLeft</object-name>
 	<condition>
-		<not><property>sim/multiplay/generic/int[16]</property></not>
-	</condition>	
+		<equals>
+			<property>sim/multiplay/generic/int[16]</property>
+			<value>1</value>
+		</equals>
+	</condition>
 </animation>
   
 </PropertyList>

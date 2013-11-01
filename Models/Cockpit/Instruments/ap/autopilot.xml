@@ -240,9 +240,8 @@
         <repeatable>true</repeatable>
         <binding>
             <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
@@ -252,7 +251,10 @@
         </binding>
         <binding>
             <condition>
+               <or>
                 <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
@@ -266,9 +268,8 @@
         <repeatable>true</repeatable>
         <binding>
             <condition>
-                <not>
-                    <property>devices/status/keyboard/shift</property>
-                </not>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
@@ -278,7 +279,10 @@
         </binding>
         <binding>
             <condition>
+               <or>
                 <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
             </condition>
             <command>property-adjust</command>
             <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>

@@ -18,6 +18,27 @@
 </model>
 
 <model>
+  <name>refuel_Lamp</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.612</y-m>
+    <z-m>0.806</z-m>
+  </offsets>
+</model>
+
+<animation>
+	<type>select</type>
+	<object-name>refuel_Lamp</object-name>
+	<condition>		
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">EC-137D</value>
+		</equals>
+	</condition>
+</animation>
+
+<model>
   <name>asi</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/asi/asi.xml</path>
   <offsets>

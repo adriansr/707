@@ -15,6 +15,7 @@ Doors.new = func {
 		   		 cargo : aircraft.door.new("instrumentation/doors/cargo", 12.0, 0),
 		   		 belly : aircraft.door.new("instrumentation/doors/belly", 4.0, 0),
 		   		 nose : aircraft.door.new("instrumentation/doors/nose", 2.0, 0),
+		   		 refuel : aircraft.door.new("instrumentation/doors/refuel-boom", 14.0, 0),
          };
    return obj;
 };
@@ -84,14 +85,35 @@ Doors.noseexport = func {
 
 Doors.bellyexport = func {
 	var alt = getprop("/position/altitude-agl-ft") or 0;
-	var cargoliner = getprop("sim/multiplay/generic/int[9]") or 0;
-	if(alt < 7.0 and cargoliner){
+	if(alt < 7.0){
    	me.belly.toggle();
    	setprop("/b707/ground-service/enabled", 1);
   }else{
   	setprop("/instrumentation/doors/belly/position-norm", 0);
   }
 }
+
+Doors.refuelexport = func {
+  me.refuel.toggle();
+	var rh = getprop("/instrumentation/doors/refuel-boom/position-norm") or 0;
+	if(rh){
+		setprop("/b707/refuelling/boom-telescope-lever",0);
+   	interpolate("/b707/refuelling/boom-telescope-lever", -17.0, 0.5);
+  }else{
+		setprop("/b707/refuelling/boom-telescope-lever",0);
+   	interpolate("/b707/refuelling/boom-telescope-lever",  17.0, 0.5);
+  }
+  
+  var the_boom_state = setlistener("/instrumentation/doors/refuel-boom/position-norm", func(bstate)
+	{
+	if (bstate.getValue() < 0.02 or bstate.getValue() > 0.98)
+	 {
+		setprop("/b707/refuelling/boom-telescope-lever",0);
+	 }
+	}, 0, 0);
+
+}
+
 
 # ==============
 # Initialization

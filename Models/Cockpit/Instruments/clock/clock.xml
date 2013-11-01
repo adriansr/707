@@ -253,9 +253,8 @@
             <button>3</button>
             <binding>
                 <condition>
-                    <not>
-                        <property>devices/status/keyboard/shift</property>
-                    </not>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
                 </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/clock/offset-sec</property>
@@ -266,7 +265,10 @@
             </binding>
             <binding>
                 <condition>
-                    <property>devices/status/keyboard/shift</property>
+               <or>
+                <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
                 </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/clock/offset-sec</property>
@@ -289,9 +291,8 @@
             <button>4</button>
             <binding>
                 <condition>
-                    <not>
-                        <property>devices/status/keyboard/shift</property>
-                    </not>
+                <not><property>devices/status/keyboard/shift</property></not>
+                <not><property>devices/status/keyboard/super</property></not>
                 </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/clock/offset-sec</property>
@@ -302,7 +303,10 @@
             </binding>
             <binding>
                 <condition>
-                    <property>devices/status/keyboard/shift</property>
+               <or>
+                <property>devices/status/keyboard/shift</property>
+                <property>devices/status/keyboard/super</property>
+               </or>
                 </condition>
                 <command>property-adjust</command>
                 <property>instrumentation/clock/offset-sec</property>

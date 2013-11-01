@@ -626,6 +626,7 @@
 			<object-name>pedestal</object-name>		
 			<object-name>door</object-name>	
 			<object-name>book</object-name>
+			<object-name>canvasBook</object-name>
 			<condition>
 		    <property>sim/current-view/internal</property>
 			</condition>

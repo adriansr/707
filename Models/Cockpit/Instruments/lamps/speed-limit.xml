@@ -74,7 +74,7 @@
 				<and>
 					<less-than>
 						<property>/velocities/airspeed-kt</property>
-						<value>160.0</value>
+						<value>120.0</value>
 					</less-than>
 					<greater-than>
 						<property>/position/altitude-agl-ft</property>

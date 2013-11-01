@@ -109,7 +109,7 @@
   <animation>
 		<type>rotate</type>
 		<object-name>BrkLever</object-name>
-		<property>/controls/flight/speedbrake</property>
+		<property>/controls/flight/spoilers</property>
 		<factor> 60</factor>
 		<center>
 		  <x-m>-18.6285</x-m>
@@ -679,9 +679,8 @@
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
@@ -692,7 +691,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
@@ -708,9 +710,8 @@
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
@@ -721,7 +722,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/aileron-trim</property>
@@ -791,9 +795,8 @@
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/elevator-trim</property>
@@ -804,7 +807,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/elevator-trim</property>
@@ -820,9 +826,8 @@
         <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/elevator-trim</property>
@@ -833,7 +838,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/elevator-trim</property>
@@ -931,9 +939,8 @@
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>
@@ -944,7 +951,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>
@@ -960,9 +970,8 @@
 		  <interval-sec>0.2</interval-sec>
 		  <binding>
         <condition>
-            <not>
-                <property>devices/status/keyboard/shift</property>
-            </not>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>
@@ -973,7 +982,10 @@
 		  </binding>
 		  <binding>
         <condition>
+           <or>
             <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
         </condition>
 		    <command>property-adjust</command>
 		    <property>/controls/flight/rudder-trim</property>

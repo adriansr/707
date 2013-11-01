@@ -13,7 +13,7 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>1.1.8</version>
+  <version>2.1.1</version>
   <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
  </fileheader>
 
@@ -580,22 +580,7 @@
                 </setting>
             </traverse>
             <output>gear/gear-pos-norm</output>
-        </kinematic>
-
-        <kinematic name="Speedbrake Control">
-            <input>fcs/speedbrake-cmd-norm</input>
-            <traverse>
-                <setting>
-                    <position>0</position>
-                    <time>0</time>
-                </setting>
-                <setting>
-                    <position>1</position>
-                    <time>1</time>
-                </setting>
-            </traverse>
-            <output>fcs/speedbrake-pos-norm</output>
-        </kinematic>        
+        </kinematic>       
         
         <switch name="Leading Edge Flaps">
             <default value="0"/>
@@ -626,6 +611,37 @@
         </kinematic>
 			
      </channel>
+     
+      <channel name="Speedbrake">
+
+            <kinematic name="Spoiler Control">
+              <input>fcs/spoiler-cmd-norm</input>
+              <traverse>
+                <setting>
+                  <position>0</position>
+                  <time>0</time>
+                </setting>  
+                <setting>
+                  <position>0.25</position>
+                  <time>1.0</time>
+                </setting>
+                <setting>
+                  <position>0.5</position>
+                  <time>1.0</time>
+                </setting> 
+                <setting>
+                  <position>0.75</position>
+                  <time>1.0</time>
+                </setting>
+                <setting>
+                  <position>1</position>
+                  <time>1.0</time>
+                </setting>
+              </traverse>
+              <output>fcs/speedbrake-pos-norm</output>
+            </kinematic>
+
+        </channel>
     </flight_control>
 
  <aerodynamics>
@@ -1095,7 +1111,6 @@
  
  <system name="crash-detect">
 		<channel name="impact-ground">
-
 		   <switch name="impact">
 		   		  <test logic="AND" value="1">
 		              velocities/mach gt 0.2

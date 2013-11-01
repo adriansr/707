@@ -116,30 +116,68 @@
     <object-name>ASI.Face</object-name>
     <visible>true</visible>
     <action>
-      <name>small increase (scrollwheel)</name>
-      <button>3</button>
-      <repeatable>true</repeatable>
-      <binding>
+        <button>3</button>
+        <repeatable>true</repeatable>
+        <binding>		          
+	          <condition>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
+	          <command>property-adjust</command>
+	          <property>/autopilot/settings/target-speed-kt</property>
+	          <step>1</step>
+	          <min>0</min>
+	          <max>500</max>
+	          <wrap>1</wrap>
+        </binding>
+        <binding>		          
+	          <condition>
+           <or>
+            <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
+		        </condition>
+	          <command>property-adjust</command>
+	          <property>/autopilot/settings/target-speed-kt</property>
+	          <step>5</step>
+	          <min>0</min>
+	          <max>500</max>
+	          <wrap>1</wrap>
+        </binding>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/sound/switch3</property>
+        </binding>
+    </action>
+    <action>
+        <button>4</button>
+        <repeatable>true</repeatable>
+        <binding>		          
+	          <condition>
+            <not><property>devices/status/keyboard/shift</property></not>
+            <not><property>devices/status/keyboard/super</property></not>
+		        </condition>
         <command>property-adjust</command>
         <property>/autopilot/settings/target-speed-kt</property>
-        <step>5</step>
+        <step>-1</step>
         <min>0</min>
         <max>500</max>
         <wrap>1</wrap>
-      </binding>
-    </action>
-    <action>
-      <name>small decrease (scrollwheel)</name>
-      <button>4</button>
-      <repeatable>true</repeatable>
-      <binding>
+        </binding>            
+        <binding>		          
+	          <condition>
+           <or>
+            <property>devices/status/keyboard/shift</property>
+            <property>devices/status/keyboard/super</property>
+           </or>
+		        </condition>
         <command>property-adjust</command>
         <property>/autopilot/settings/target-speed-kt</property>
         <step>-5</step>
         <min>0</min>
         <max>500</max>
         <wrap>1</wrap>
-      </binding>
+        </binding>
     </action>
     <action>
       <name>increase</name>

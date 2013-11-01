@@ -1,7 +1,8 @@
 AC3Db
 MATERIAL "dme" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
+MATERIAL "shadow" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 50 trans 0
 OBJECT world
-kids 32
+kids 33
 OBJECT poly
 name "Bezel"
 loc -0.00022 0 -0
@@ -1244,6 +1245,28 @@ refs 4
 0 0.132808893919 0.01505061239
 3 0.132808893919 0.088456064463
 2 0.030040558428 0.088456064463
+kids 0
+OBJECT poly
+name "shadow"
+loc 0.000747 0.000347 -0
+data 6
+shadow
+texture "shadow.png"
+texrep 1 1
+crease 30.000001
+numvert 4
+0.000521 0.046649 -0.049962
+0.000521 -0.048519 -0.049962
+0.000521 -0.048519 0.049962
+0.000521 0.046649 0.049962
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+0 0.996855914593 0.998528718948
+3 0.001157045364 0.998528718948
+2 0.001157045364 0.002820670605
+1 0.996855914593 0.002820670605
 kids 0
 OBJECT poly
 name "sockle"

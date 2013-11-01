@@ -1629,6 +1629,11 @@ var short_startup = func
 			setprop("/b707/pressurization/mode-switch",1);
 			setprop("/b707/air-conditioning/air-cond-unit-left-start",1);
 			setprop("/b707/air-conditioning/air-cond-unit-right-start",1);
+			setprop("/b707/air-conditioning/wing-valve[0]",1);
+			setprop("/b707/air-conditioning/wing-valve[1]",1);
+			setprop("/b707/air-conditioning/cabin-temp-selector[0]",4);
+			setprop("/b707/air-conditioning/cabin-temp-selector[1]",4);
+			setprop("/b707/emergency/oxygen-switch",2);
     }, 34);
 
 		

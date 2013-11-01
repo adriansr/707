@@ -121,22 +121,31 @@
             <command>nasal</command>
             <script>
             	var bt = getprop("/b707/start/ground-start") or 0;
+            	var lsl = getprop("/b707/start/low-start-left") or 0;
+            	var lsr = getprop("/b707/start/low-start-right") or 0;
             	if(bt > 0){
             		setprop("/b707/start/ground-start", 0);
+            		setprop("/b707/start/low-start-left", 0);
+            		setprop("/b707/start/low-start-right", 0);
             	}else{
-            		setprop("/b707/start/ground-start", 1);
-            		<!-- fall back, if ess-bus to low -->
-            		
-            		if(getprop("/b707/ess-bus") != nil and getprop("/b707/ess-bus") &lt; 20.0){
-            			settimer(func{
-            				setprop("/b707/start/ground-start", 0);
-									}, 0.5);
+            		if(lsl or lsr){
+		          		setprop("/b707/start/ground-start", 1);
+		          	  b707.short_startup();
+		        			settimer(func{
+		        				setprop("/b707/start/ground-start", 0);
+									}, 10);
 								 	if(getprop("/sim/sound/switch2") == 1){
 										 setprop("/sim/sound/switch2", 0); 
 									}else{
 										 setprop("/sim/sound/switch2", 1);
 									}
-            		}
+								}else{
+		          		setprop("/b707/start/ground-start", 1);
+		          		settimer(func{
+		        				setprop("/b707/start/ground-start", 0);
+									}, 0.5);
+									screen.log.write(" No ALTERNATE LOW PRESS START selected in Engineer panel! ", 1, 0, 0);
+								}
             	}
             </script>
         </binding>
@@ -162,18 +171,15 @@
             		setprop("/b707/start/ground-start", 0);
             	}else{
             		setprop("/b707/start/ground-start", 2);
-            		<!-- fall back, if ess-bus to low -->
-            		
-            		if(getprop("/b707/ess-bus") != nil and getprop("/b707/ess-bus") &lt; 20.0){
-            			settimer(func{
-            				setprop("/b707/start/ground-start", 0);
-									}, 0.5);
-								 	if(getprop("/sim/sound/switch2") == 1){
-										 setprop("/sim/sound/switch2", 0); 
-									}else{
-										 setprop("/sim/sound/switch2", 1);
-									}
-            		}
+		          	b707.short_startup();
+          			settimer(func{
+          				setprop("/b707/start/ground-start", 0);
+								}, 10);
+							 	if(getprop("/sim/sound/switch2") == 1){
+									 setprop("/sim/sound/switch2", 0); 
+								}else{
+									 setprop("/sim/sound/switch2", 1);
+								}
             	}
             </script>
         </binding>

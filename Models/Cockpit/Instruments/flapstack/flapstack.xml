@@ -136,7 +136,10 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		    <property>/controls/special/slats-switch</property>
+		    <and>
+		    	<property>/controls/special/slats-switch</property>
+		    	<property>surface-positions/wing-fold-pos-norm</property>
+		    </and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>

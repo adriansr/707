@@ -3,7 +3,7 @@
 #		Boeing 707 for Flightgear Septemper 2013
 #		This file is licenced under the terms of the GNU General Public Licence V2 or later
 #######################################################################################
-var manual = func(){
+var manual = func{
   var page = getprop("/b707/manual/page") or 0;
   var nt = getprop("/b707/manual/content/title["~page~"]") or "";
   var st1 = getprop("/b707/manual/content/subtitle1["~page~"]") or "";

@@ -24,7 +24,7 @@
 	<subtitle3 n="1"></subtitle3>
 	<text3 n="1"></text3>
 	<subtitle4 n="1"></subtitle4>
-	<text4 n="1"></text4>
+	<text4 n="1">Engine Start Procedure you will find in the Flightgear-Menu /Help/Tutorials</text4>
 	
 	<!-- empty layout
 	
@@ -119,7 +119,437 @@
 	<text4 n="4">		
 		------------------------------------------
 		Emergency Descent - INITIATE
+	</text4>
+	
+	<!-- page 5 -->	
+	<title n="5">Normal Porcedures</title>
+	<subtitle1 n="5">APU Start</subtitle1>
+	<text1 n="5">
+		--------- Engineer Panel ----------
+		Battery - ON
+		--------- Auxiliary Panel ----------
+		APU Master - START
+		APU Generator - ON
+		APU Bleed Valve - OPEN
+		--------- Engineer Panel ----------
+		AC Paralleling - APU
+		Essential Power - APU
+	</text1>
+	<subtitle2 n="5"></subtitle2>
+	<text2 n="5">
+	</text2>
+	<subtitle3 n="5">APU Shutdown</subtitle3>
+	<text3 n="5">		
+		--------- Engineer Panel ----------
+		Essential Power - CHECK
+		--------- Auxiliary Panel ----------
+		APU Bleed Valve - CLOSE
+		APU Generator - OFF
+		APU Master - OFF
+	</text3>
+	<subtitle4 n="5"></subtitle4>
+	<text4 n="5">		
+	</text4>
+	
+	<!-- page 6 -->	
+	<title n="6">Normal Porcedures</title>
+	<subtitle1 n="6">After Start Engines</subtitle1>
+	<text1 n="6">
+		--------- Auxiliary Panel ----------
+		APU Bleed Valve - CLOSE
+		--------- Engineer Panel ----------
+		Power - ESTABLISH		
+		AC Paralleling - CHECK ALL
+		All Breakers - CLOSE
+	</text1>
+	<subtitle2 n="6"></subtitle2>
+	<text2 n="6">
+		RAM Air - OPEN
+		Air Compressor 2,3,4 - RUN/START
+		Boost Pumps - ALL ON
+		Hydraulic System - CHECK
+		Air Compressor 2,3,4 Indications - CHECK
+	</text2>
+	<subtitle3 n="6"></subtitle3>
+	<text3 n="6">
+		Air Conditioning Wing Valve - OPEN
+		Air Conditioning Unit - BOTH ON
+		Galley Power - ON
+		APU Master Switch - OFF
+	</text3>
+	<subtitle4 n="6"></subtitle4>
+	<text4 n="6">
+		Doors - CLOSED
+		Ground Equipment - DISCONNECT
+	</text4>
+	
+	<!-- page 7 -->	
+	<title n="7">Normal Porcedures</title>
+	<subtitle1 n="7">Before Takeoff</subtitle1>
+	<text1 n="7">
+		--------- Engineer Panel ----------
+		All lights - ENTIGUISHED
+		Pressurization right switch - AUTO
+		Pressurization left switch - TAKEOFF
+		Altitude - CHECK
+		Cabin Alitude - CHECK
+	</text1>
+	<subtitle2 n="7"></subtitle2>
+	<text2 n="7">
+		Crew/Main Temp - SELECTED
+		Fuel Heat - ON/OFF
+	</text2>
+	<subtitle3 n="7"></subtitle3>
+	<text3 n="7">
+		--------- Overhead Panel ----------
+		Transponder - SET
+		Wing Anti-Ice - ON/OFF
+		Nacelle Anti-Ice - ALL ON/OFF
+		Oxygen - NORM
+		Compass Controller - SET LAT
+		Yaw Dumper - OFF
+		--> continue page 8
+	</text3>
+	<subtitle4 n="7"></subtitle4>
+	<text4 n="7">
+	</text4>
+	
+	<!-- page 8 -->	
+	<title n="8">Normal Porcedures</title>
+	<subtitle1 n="8">Before Takeoff</subtitle1>
+	<text1 n="8">
+		page 7 - COMPLETE
+		--------- Center Pedestal ----------
+		All Trimwheels - ZERO
+		Radios - SET FOR DEPARTURE
+		Speedbrake Lever - FULL FORWARD
+		Flaps - TAKEOFF
+	</text1>
+	<subtitle2 n="8"></subtitle2>
+	<text2 n="8">
+		Thrust Lever - IDLE DETENT
+		Lights - ON
+		Cockpit Door - LOCKED
+		Before Takeoff Checklist - COMPLETE
+	</text2>
+	<subtitle3 n="8"></subtitle3>
+	<text3 n="8">
+	</text3>
+	<subtitle4 n="8"></subtitle4>
+	<text4 n="8">
+	</text4>
+	
+	<!-- page 9 -->	
+	<title n="9">Normal Porcedures</title>
+	<subtitle1 n="9">Takeoff</subtitle1>
+	<text1 n="9">
+		------- Airplane on runway --------
+		Transponder - ON
+		Thrust lever - FULL
+		Engines Instruments - MONITOR
+		Call out any abnormailties
+	</text1>
+	<subtitle2 n="9"></subtitle2>
+	<text2 n="9">
+		Verify 80kts - CALL "80 KNOTS"
+		Verify takeoff kts - CALL "... KNOTS"
+		Verify Vertical Speed - CALL "VS ..."
+	</text2>
+	<subtitle3 n="9"></subtitle3>
+	<text3 n="9">
+		Call for "GEAR UP" when positive rate
+		of climb is established.
+	</text3>
+	<subtitle4 n="9"></subtitle4>
+	<text4 n="9">
 	</text4>	
+	
+	<!-- page 10 -->	
+	<title n="10">Flightgear only</title>
+	<subtitle1 n="10">Autopilot</subtitle1>
+	<text1 n="10">
+		------- Note --------
+		Use only one type of autopilot
+		either the regular autopilot
+		in Flightgear Menu
+
+	</text1>
+	<subtitle2 n="10"></subtitle2>
+	<text2 n="10">		
+		or - the green knobs in center panel
+		or - the original BENDIX PB 20 in
+		center pedestal.
+		If you use all together, its your
+		own responsibility :-))
+	</text2>
+	<subtitle3 n="10"></subtitle3>
+	<text3 n="10">
+		GPS and autoroute have sometimes
+		problems on win systems with latest
+		Flightgear development versions.
+	</text3>
+	<subtitle4 n="10"></subtitle4>
+	<text4 n="10">
+		- So switch back to stable release -
+	</text4>
+
+
+	<!-- ####################### spanish ##################### -->
+	<!-- pagina 11 -->
+	<title n="11">EMERGENCIA 707</title>
+	<subtitle1 n="11">FUEGO EN MOTOR</subtitle1>
+	<text1 n="11">
+		Palanca de Empuje - CERRADA
+		Fuente Esenc. de pot. - COMPROBAR
+		Via del Generador - DESCONECTADA
+		Palanca de Arranque - CORTADA
+		Interr. de Fuego en el Motor - TIRAR
+		Con el interr. de alarma exting.:
+		Interr. de Fuego en el Motor - PRESIONAR
+	</text1>
+	<subtitle2 n="11"></subtitle2>
+	<text2 n="11"></text2>
+	<subtitle3 n="11">REINICIAR MOTOR/EN VUELO</subtitle3>
+	<text3 n="11">
+		No conectar la via del Generador
+		Interr. Arranque panel superior - ON
+		Palanca de Arranque - ON
+	</text3>
+	<subtitle4 n="11"></subtitle4>
+	<text4 n="11">
+		Si reconectas la pista del Generador
+		en vuelo estropearas tu generador
+		y en el peor de los casos el motor
+		tambien.
+	</text4>
+	
+	<!-- pagina 12 -->	
+	<title n="12">EMERGENCICA 707</title>
+	<subtitle1 n="12">ALERTA DE HIELO</subtitle1>
+	<text1 n="12">
+		--------- Panel Superior ----------
+		Wing Anti-Ice - ENCENDIDO
+		Canasta Anti hielo - TODOS en ON
+		Calentador de ventana - AMBOS ARRIBA
+		--------- Panel de Ingeniero ----------
+		Fuel Heaters - TODOS en ON
+	</text1>
+	<subtitle2 n="12"></subtitle2>
+	<text2 n="12"></text2>
+	<subtitle3 n="12"></subtitle3>
+	<text3 n="12">
+		Controlar el instrumento del TAT
+		Temperatura Total del Aire
+		en el panel de Copiloto.
+		Con grados negativos se requiere
+		ajustar el Sistema Anti Hielo.
+	</text3>
+	<subtitle4 n="12"></subtitle4>
+	<text4 n="12"></text4>
+	
+	<!-- page 13 -->	
+	<title n="13">EMERGENCIA 707</title>
+	<subtitle1 n="13">ALERTA DE PRESURIZACION</subtitle1>
+	<text1 n="13">
+		--------- Panel Superior ----------
+		Oxigeno - ENCENDIDO
+		Seat Belts - ENCENDIDO
+		No Smoking - ENCENDIDO
+		Emer Exit Lights - ENCENDIDO
+		
+	</text1>
+	<subtitle2 n="13"></subtitle2>
+	<text2 n="13">
+		--------- Panel de Ingeniero ----------
+		Air Compressors - COMPROBAR
+		Air Cond Unit - AMBOS en ON
+		Safety Valve Override - NORMAL
+		Interr. presur. derecho - AUTO
+		Interr. presur. izquierdo - LANDING
+		Rate - max. DECR
+		Fwd/Aft Valve - NORMAL
+	</text2>
+	<subtitle3 n="13"></subtitle3>
+	<text3 n="13">
+	</text3>
+	<subtitle4 n="13"></subtitle4>
+	<text4 n="13">		
+		------------------------------------------
+		Descenso de Emergencia - INICIAR
+		La compensación de presión puede variar 
+		dependiendo de la altura y tardar hasta 10 minutos.
+	</text4>
+	
+	<!-- page 14 -->	
+	<title n="14">Procedimientos Normales</title>
+	<subtitle1 n="14">Arranque del APU</subtitle1>
+	<text1 n="14">
+		--------- Panel de Ingeniero ----------
+		Bateria - ENCENDIDO
+		--------- Panel Auxiliar ----------
+		APU Master - START
+		APU Generator - ENCENDIDO
+		APU Bleed Valve - ABRIR
+		--------- Panel de Ingeniero ----------
+		AC Paralleling - APU
+		Essential Power - APU
+	</text1>
+	<subtitle2 n="14"></subtitle2>
+	<text2 n="14">
+	</text2>
+	<subtitle3 n="14">Parada de APU</subtitle3>
+	<text3 n="14">		
+		--------- Panel de Ingeniero ----------
+		Essential Power - COMPROBAR
+		--------- Panel Auxiliar ----------
+		APU Bleed Valve - CERRAR
+		APU Generator - APAGADO
+		APU Master - APAGADO
+	</text3>
+	<subtitle4 n="14"></subtitle4>
+	<text4 n="14">		
+	</text4>
+	
+	<!-- page 15 -->	
+	<title n="15">Procedimientos Normales</title>
+	<subtitle1 n="15">Despues de Arrancar Motores</subtitle1>
+	<text1 n="15">
+		--------- Panel Auxiliar ----------
+		APU Bleed Valve - CERRAR
+		--------- Panel de Ingeniero ----------
+		Power - ESTABLECER		
+		AC Paralleling - COMPROBAR
+		All Breakers - CERRAR
+	</text1>
+	<subtitle2 n="15"></subtitle2>
+	<text2 n="15">
+		RAM Air - ABIERTO
+		Air Compressor 2,3,4 - RUN/START
+		Boost Pumps - TODAS EN ON
+		Hydraulic System - COMPROBAR
+		Indicadores Air Compressor 2,3,4 - COMPROBAR
+	</text2>
+	<subtitle3 n="15"></subtitle3>
+	<text3 n="15">
+		Air Conditioning Wing Valve - ABRIR
+		Air Conditioning Unit - AMBOS en ON
+		Galley Power - ENCENDIDO
+		APU Master Switch - APAGADO
+	</text3>
+	<subtitle4 n="15"></subtitle4>
+	<text4 n="15">
+		Puertas - CERRADAS
+		Equipamiento en Tierra - DESCONECTADO
+	</text4>
+	
+	<!-- page 16 -->	
+	<title n="16">Procedimientos Normales</title>
+	<subtitle1 n="16">Antes de Despegar</subtitle1>
+	<text1 n="16">
+		--------- Panel de Ingeniero ----------
+		Todas las luces - APAGADAS
+		Interr. de presur. derecho - AUTO
+		Interr. de presur. izquierdo - TAKEOFF
+		Altitud - COMPROBAR
+		Cabin Altitud - COMPROBAR
+	</text1>
+	<subtitle2 n="16"></subtitle2>
+	<text2 n="16">
+		Crew/Main Temp - SELECCIONADO
+		Fuel Heat - ON/OFF
+	</text2>
+	<subtitle3 n="16"></subtitle3>
+	<text3 n="16">
+		--------- Panel Superior ----------
+		Transpondedor - AJUSTAR
+		Wing Anti-Ice - ON/OFF
+		Nacelle Anti-Ice - Todos ON/OFF
+		Oxigeno - NORM
+		Compass Controller - AJUSTAR LAT
+		Yaw Dumper - APAGADO
+		--> continua en pagina 17
+	</text3>
+	<subtitle4 n="16"></subtitle4>
+	<text4 n="16">
+	</text4>
+	
+	<!-- page 17 -->	
+	<title n="17">Procedimientos Normales</title>
+	<subtitle1 n="17">Antes del despegue</subtitle1>
+	<text1 n="17">
+		page 16 - COMPLETA
+		--------- Center Pedestal ----------
+		Ruedas de Trimado - TODAS A CERO
+		Radios - AJUSTAR PARA SALIDA
+		Palanca de Aerofreno - AVANTE TODA
+		Flaps - TAKEOFF
+	</text1>
+	<subtitle2 n="17"></subtitle2>
+	<text2 n="17">
+		Palanca de Empuje - MANTENER EN IDLE
+		Luces - ENCENDIDAS
+		Puerta de Cabina - CERRADA
+		Chequeo previo al despegue - COMPLETADO
+	</text2>
+	<subtitle3 n="17"></subtitle3>
+	<text3 n="17">
+	</text3>
+	<subtitle4 n="17"></subtitle4>
+	<text4 n="17">
+	</text4>
+	
+	<!-- page 18 -->	
+	<title n="18">Procedimientos Normales</title>
+	<subtitle1 n="18">Despegue</subtitle1>
+	<text1 n="18">
+		------- Con aeronave en pista --------
+		Transpondedor - ENCENDIDO
+		Palanca de Empuje - A TOPE
+		Indicadores de motor - MONITORIZAR
+		Gritar si hay alguna anomalia
+	</text1>
+	<subtitle2 n="18"></subtitle2>
+	<text2 n="18">
+		Verificar 80kts - GRITAR "80 KNOTS"
+		Verificar V de despegue - GRITAR "... KNOTS"
+		Verificar  Velocidad Vertical - GRITAR "VS ..."
+	</text2>
+	<subtitle3 n="18"></subtitle3>
+	<text3 n="18">
+		Gritar "TREN ARRIBA" cuando se establezca
+		una tasa positiva de ascenso.
+	</text3>
+	<subtitle4 n="18"></subtitle4>
+	<text4 n="18">
+	</text4>	
+	<!-- page 19 -->	
+	
+	<title n="19">Solo en Flightgear</title>
+	<subtitle1 n="19">Autopiloto</subtitle1>
+	<text1 n="19">
+		------- Nota --------
+		Puedes usar solo el Autopiloto
+		normal de Flightgear
+		del Menu Flightgear.
+		o - los botones verdes del panel central
+	</text1>
+	<subtitle2 n="19"></subtitle2>
+	<text2 n="19">
+		o - el BENDIX PB 20 original en el pedestal central.
+		Si utilizas todos juntos, es tu
+		responsabilidad :-))
+	</text2>
+	<subtitle3 n="19"></subtitle3>
+	<text3 n="19">
+		GPS y Autoroute a veces tienen
+		problemas en sistemas windows
+		con la última version de desarrollo
+		de Flightgear.
+	</text3>
+	<subtitle4 n="19"></subtitle4>
+	<text4 n="19">
+		- Por tanto cambia a una version estable -
+	</text4>		
 	
 	<!-- ################## german ################### -->
 	<!-- page 20 -->
@@ -187,7 +617,7 @@
 	<subtitle2 n="22"></subtitle2>
 	<text2 n="22">
 		--------- Engineer Panel ----------
-		Air Compressors - KONTROLLIEREN
+		Air Compressors - KONTROLLE
 		Air Cond Unit - BEIDE AN
 		Saftey Valve Override - NORMAL
 		Pressurization right switch - AUTO
@@ -204,6 +634,426 @@
 		Notfall Sinkflug - EINLEITEN
 		Druckausgleich kann je nach Hoehe
 		bis zu 10min dauern.
-	</text4>		
+	</text4>
+	
+	<!-- page 23 -->	
+	<title n="23">Normale Prozeduren</title>
+	<subtitle1 n="23">APU einschalten</subtitle1>
+	<text1 n="23">
+		--------- Engineer Panel ----------
+		Batterie - AN
+		--------- Auxiliary Panel ----------
+		APU Master - START
+		APU Generator - ON
+		APU Bleed Valve - OPEN
+		--------- Engineer Panel ----------
+		AC Paralleling - APU
+		Essential Power - APU
+	</text1>
+	<subtitle2 n="23"></subtitle2>
+	<text2 n="23">
+	</text2>
+	<subtitle3 n="23">APU abschalten</subtitle3>
+	<text3 n="23">		
+		--------- Engineer Panel ----------
+		Essential Power - KONTROLLE
+		--------- Auxiliary Panel ----------
+		APU Bleed Valve - CLOSE
+		APU Generator - OFF
+		APU Master - OFF
+	</text3>
+	<subtitle4 n="23"></subtitle4>
+	<text4 n="23">		
+	</text4>
+	
+	<!-- page 24 -->	
+	<title n="24">Normale Prozeduren</title>
+	<subtitle1 n="24">Nach Triebwerk-Start</subtitle1>
+	<text1 n="24">
+		--------- Auxiliary Panel ----------
+		APU Bleed Valve - CLOSE
+		--------- Engineer Panel ----------
+		Power - BESTEHEND		
+		AC Paralleling - KONTROLLE
+		All Breakers - CLOSE
+	</text1>
+	<subtitle2 n="24"></subtitle2>
+	<text2 n="24">
+		RAM Air - OPEN
+		Air Compressor 2,3,4 - RUN/START
+		Boost Pumps - ALL ON
+		Hydraulic System - KONTROLLE
+		Air Compressor 2,3,4 Indications - KONTROLLE
+	</text2>
+	<subtitle3 n="24"></subtitle3>
+	<text3 n="24">
+		Air Conditioning Wing Valve - OPEN
+		Air Conditioning Unit - BEIDE AN
+		Galley Power - ON
+		APU Master Switch - OFF
+	</text3>
+	<subtitle4 n="24"></subtitle4>
+	<text4 n="24">
+		Tueren - GESCHLOSSEN
+		Boden Equipment - ENTFERNT
+	</text4>
+	
+	<!-- page 25 -->	
+	<title n="25">Normale Prozeduren</title>
+	<subtitle1 n="25">Vor dem TAKEOFF</subtitle1>
+	<text1 n="25">
+		--------- Engineer Panel ----------
+		Alle Kontrollleuchten - AUS
+		Pressurization rechts - AUTO
+		Pressurization links - TAKEOFF
+		Altitude - KONTROLLE
+		Cabin Alitude - KONTROLLE
+	</text1>
+	<subtitle2 n="25"></subtitle2>
+	<text2 n="25">
+		Crew/Main Temp - WAEHLEN
+		Fuel Heat - ON/OFF
+	</text2>
+	<subtitle3 n="25"></subtitle3>
+	<text3 n="25">
+		--------- Overhead Panel ----------
+		Transponder - EINGESTELLT
+		Wing Anti-Ice - ON/OFF
+		Nacelle Anti-Ice - ALLE ON/OFF
+		Oxygen - NORM
+		Compass Controller - LAT EINSTELLEN
+		Yaw Dumper - OFF
+		--> weiter auf Seite 26
+	</text3>
+	<subtitle4 n="25"></subtitle4>
+	<text4 n="25">
+	</text4>
+	
+	<!-- page 26 -->	
+	<title n="26">Normale Prozeduren</title>
+	<subtitle1 n="26">Vor dem TAKEOFF</subtitle1>
+	<text1 n="26">
+		page 26 - OK
+		--------- Center Pedestal ----------
+		All Trimwheels - NULL
+		Radios - EINGESTELLT
+		Speedbrake Lever - VOLL
+		Flaps - TAKEOFF
+	</text1>
+	<subtitle2 n="26"></subtitle2>
+	<text2 n="26">
+		Thrust Lever - IDLE HALTEN
+		Lights - ON
+		Cockpit Door - VERSCHLOSSEN
+		Before Takeoff Checklist - BEENDET
+	</text2>
+	<subtitle3 n="26"></subtitle3>
+	<text3 n="26">
+	</text3>
+	<subtitle4 n="26"></subtitle4>
+	<text4 n="26">
+	</text4>
+	
+	<!-- page 27 -->	
+	<title n="27">Normale Prozeduren</title>
+	<subtitle1 n="27">Takeoff</subtitle1>
+	<text1 n="27">
+		----- Flugzeug auf Startbahn ------
+		Transponder - ON
+		Schubhebel - VOLL
+		Triebwerk Instrumente - BEACHTEN
+		Jede Ausnahme laut ausrufen.
+	</text1>
+	<subtitle2 n="27"></subtitle2>
+	<text2 n="27">
+		Beachte 80kts - AUSRUF "80 KNOTS"
+		Beachte Abhebe kts - AUSRUF "... KNOTS"
+		Beachte Steigrate - AUSRUF "VS ..."
+	</text2>
+	<subtitle3 n="27"></subtitle3>
+	<text3 n="27">
+		AUSRUF "GEAR UP" wenn positive
+		Steigrate erreicht ist.
+	</text3>
+	<subtitle4 n="27"></subtitle4>
+	<text4 n="27">
+	</text4>	
+	
+	<!-- page 28 -->	
+	<title n="28">Flightgear speziell</title>
+	<subtitle1 n="28">Autopilot</subtitle1>
+	<text1 n="28">
+		------- Hinweis --------
+		Benutzen Sie nur entweder - oder ...
+		den regulaeren Flightgear
+		Autopilot im Flightgear Menue.
+
+	</text1>
+	<subtitle2 n="28"></subtitle2>
+	<text2 n="28">		
+		oder - die gruenen Knoepfe im Panel
+		oder - den original BENDIX PB 20 im
+		center pedestal.
+		Wenn Sie alles durcheinander nutzen,
+		kann es zu Fehlern fuehren :-))
+	</text2>
+	<subtitle3 n="28"></subtitle3>
+	<text3 n="28">
+		GPS und Autorouten haben manchmal
+		Probleme mit den letzen Flightgear
+		Versionen unter Windows.
+	</text3>
+	<subtitle4 n="28"></subtitle4>
+	<text4 n="28">
+		- Nutzen Sie dann die letzte FG Version -
+	</text4>
+	
+	<!-- ####################### czech ##################### -->
+	<!-- page 30 -->
+	<title n="30">PRIPAD NOUZE 707</title>
+	<subtitle1 n="30">POZAR MOTORU</subtitle1>
+	<text1 n="30">
+		Pripuste motoru - ZAVRENO
+		Nezbytny zdroj  - ZKONTROLUJ
+		Generator- ODPOJENO
+		Paka napojeni paliva - ODPOJENO
+		Tahlo pozaru motoru- POTAHNI
+		Jestlize tahlo pozaru zhasne a pozar je uhasen:
+		Tahlo pozaru motoru - POTLAC
+	</text1>
+	<subtitle2 n="30"></subtitle2>
+	<text2 n="30"></text2>
+	<subtitle3 n="30">RESTARTOVANI MOTORU ZA LETU</subtitle3>
+	<text3 n="30">
+		Nezapinejte znovu generator
+		Starter  - ZAPNUTO
+		Paka napojeni paliva - ZAPNUTO
+	</text3>
+	<subtitle4 n="30"></subtitle4>
+	<text4 n="30">
+		Jestlize zapnete za letu generator, muzete jej znicit a v nejhorsim pripade i znicit motor.
+	</text4>
+	
+	<!-- page 31 -->	
+	<title n="31">PRIPAD NOUZE 707</title>
+	<subtitle1 n="31">VAROVANI PRED NAMRAZOU</subtitle1>
+	<text1 n="31">
+		--------- NAHLAVNI PANEL----------
+		Namraza na kridlech- ZAPNUTO
+		Namraza motoru – VSECHNY ZAPNUTO
+		 Vyhrivani oken - VYSOKÝ VÝKON
+		--------- Inzenyrsky panel ----------
+		Vyhrivani paliva - ZAPNUTO
+	</text1>
+	<subtitle2 n="31"></subtitle2>
+	<text2 n="31"></text2>
+	<subtitle3 n="31"></subtitle3>
+	<text3 n="31">
+		Kontroluj teplotu venkovniho vzduchu
+		TAT – zarizeni na panelu kopilota
+		V pripade minusovych hodnot je vyzadovano nastaveni proti namraze
+	</text3>
+	<subtitle4 n="31"></subtitle4>
+	<text4 n="31"></text4>
+	
+	<!-- page 32 -->	
+	<title n="32">PRIPAD NOUZE 707</title>
+	<subtitle1 n="32">VAROVANI PRI POKLESU TLAKU V KABINE</subtitle1>
+	<text1 n="32">
+		--------- Nahlavni panel ----------
+		Kyslik - ZAPNUTO
+		Bezpecnostni pasy - ZAPNUTO
+		Zakaz koureni- ZAPNUTO
+		Nouzova únikova svetla - ZAPNUTO
+	</text1>
+	<subtitle2 n="32"></subtitle2>
+	<text2 n="32">
+		--------- Inzenyrsky panel----------
+		Kyslikovy kompresor - ZKONTROLUJ
+		Klimatizace – OBE ZAPNUTO
+		Bezpecnostni ventil – NORMALNI
+		Natlakovani, pravy prepinac - AUTO
+		Natlakovani, levy prepinac - PRISTANI
+		Hodnota tlaku – MAXIMALNI SNIZENI
+		Predni/zadni ventil - NORMALNI
+	</text2>
+	<subtitle3 n="32"></subtitle3>
+	<text3 n="32">
+	</text3>
+	<subtitle4 n="32"></subtitle4>
+	<text4 n="32">		
+		------------------------------------------
+		Nouzovy sestup - INICIOVAT
+	</text4>
+	
+	<!-- page 33 -->	
+	<title n="33">Normalni procedury</title>
+	<subtitle1 n="33">APU Start</subtitle1>
+	<text1 n="33">
+		--------- Inzenyrsky panel----------
+		Baterie - ZAPNUTO
+		--------- Pomocny panel----------
+		APU Hlavni vypinac - START
+		APU Generator - ZAPNUTO
+		APU Pruchozi ventil - OTEVENO
+		--------- Inzenyrsky panel ----------
+		AC Paralelni - APU
+		Nezbytny zdroj energie - APU
+	</text1>
+	<subtitle2 n="33"></subtitle2>
+	<text2 n="33">
+	</text2>
+	<subtitle3 n="33">APU Vypnuti</subtitle3>
+	<text3 n="33">		
+		--------- Inzenyrsky panel----------
+		Nezbytny zdroj energie - ZKONTROLUJ
+		--------- Pomocny panel ----------
+		APU Pruchozi ventil - ZAVRI
+		APU Generator - VYPNUTO
+		APU Hlavni vypinac - VYPNUTO
+	</text3>
+	<subtitle4 n="33"></subtitle4>
+	<text4 n="33">		
+	</text4>
+	
+	<!-- page 34 -->	
+	<title n="34">Normalni procedury</title>
+	<subtitle1 n="34">Po nastartovani motoru</subtitle1>
+	<text1 n="34">
+		--------- Pomocny panel----------
+		APU Pruchozi ventil - ZAVRENO
+		--------- Inzenyrsky panel----------
+		Zdroj energie- USTALEN		
+		AC Paralelni – VSECHNY ZKONTROL
+		Vsechny pojistky - ZAVRENO
+	</text1>
+	<subtitle2 n="34"></subtitle2>
+	<text2 n="34">
+		RAM kyslik - OTEV?ENO
+		Kyslikovy kompresor 2,3,4 - BEZI/START
+		Pidavne pumpy – VSECHNY ZAPNUTY
+		Hydraulicke systemy- ZKONTROLUJ
+		Kyslikovy kompresor 2,3,4 Indikovano - 
+	</text2>
+	<subtitle3 n="34"></subtitle3>
+	<text3 n="34">
+		ZKONTROL
+		Ventil klimatizace v kridle - OTEVRENO
+		Klimatizace- OBE ZAPNUTY
+	</text3>
+	<subtitle4 n="34"></subtitle4>
+	<text4 n="34">
+		Zavisly zdroj - ZAPNUTO
+		APU hlavni vypinac - VYPNUTO
+		Dvere - ZAVRENY
+		Pozemni vybaveni  - ODPOJENO
+	</text4>
+	
+	<!-- page 35 -->	
+	<title n="35">Normalni procedury</title>
+	<subtitle1 n="35">Before Takeoff</subtitle1>
+	<text1 n="35">
+		--------- Inzenyrsky panel ----------
+		Vsechny svetla - ZAPNUTY
+		Natlakovani, pravy prepinac - AUTOMATICKY
+		Natlakovani, levy prepinac - VZLET
+		Vyskomer - ZKONTROLUJ
+	</text1>
+	<subtitle2 n="35"></subtitle2>
+	<text2 n="35">
+		Vyska kabiny - ZKONTROLUJ
+		Posadka/Hlavni topeni - VYBRANO
+		Vyhrivani paliva – ZAPNUTO/VYPNUTO
+	</text2>
+	<subtitle3 n="35"></subtitle3>
+	<text3 n="35">
+		--------- Nahlavni panel----------
+		Transponder - NASTAVEN
+		Vyhrivani kridla- ZAPNUTO/VYPNUTO
+		Vyhrivani motoru - VSECHNY ZAPNUTO/VYPNUTO
+		Kyslik-  NASTAVENO NA - NORMALNE
+		Kompas – NASTAVENO LAT.
+		Yaw Dumper - VYPNUTO
+		-> pokracuj stranka 36
+	</text3>
+	<subtitle4 n="35"></subtitle4>
+	<text4 n="35">
+	</text4>
+	
+	<!-- page 36 -->	
+	<title n="36">Normalni procedury</title>
+	<subtitle1 n="36">Pred vzletem</subtitle1>
+	<text1 n="36">
+		stranka 35 - KOMPLETNI
+		--------- Centralni pedestal ----------
+		Vsechny trimy- NULA
+		Radio – NASTAVENO PRO ODLET
+		Brzdove paky – PLNE VPREDU
+		Klapky - VZLET
+	</text1>
+	<subtitle2 n="36"></subtitle2>
+	<text2 n="36">
+		Pripuste motoru- VOLNOBEH
+		Svetla - ZAPNUTO
+		Dvere kokpitu - ZAMKNUTY
+		Kontrola pred vzletem - KOMPLETNI
+	</text2>
+	<subtitle3 n="36"></subtitle3>
+	<text3 n="36">
+	</text3>
+	<subtitle4 n="36"></subtitle4>
+	<text4 n="36">
+	</text4>
+	
+	<!-- page 37 -->	
+	<title n="37">Normalni procedury</title>
+	<subtitle1 n="37">Vzlet</subtitle1>
+	<text1 n="37">
+		------- Letadlo na ranveji --------
+		Transponder - ZAPNUTO
+		Pripuste motoru – PLNÝ TAH
+		Pristroje motoru- MONITORUJ
+		Upozorni na jakoukoli abnormalitu!
+	</text1>
+	<subtitle2 n="37"></subtitle2>
+	<text2 n="37">
+		Over 80 uzlu - ZVOLEJ "80 KNOTS"
+		Over vzletova rychlost - ZVOLEJ"... KNOTS"
+		Over vertikalni rychlost- ZVOLEJ "VS ..."
+	</text2>
+	<subtitle3 n="37"></subtitle3>
+	<text3 n="37">
+		Zvolej "ZATAHNOUT PODVOZEK" kdyz je potvrzeno stoupani 
+		
+	</text3>
+	<subtitle4 n="37"></subtitle4>
+	<text4 n="37">
+	</text4>	
+	
+	<!-- page 38 -->	
+	<title n="38">Flightgear pouze</title>
+	<subtitle1 n="38">Autopilot</subtitle1>
+	<text1 n="38">
+		------- Mej na pameti --------
+		Pouzij buď
+		bezny autopilot ve Flightgearu
+		v Menu.
+
+	</text1>
+	<subtitle2 n="38"></subtitle2>
+	<text2 n="38">		
+		nebo – nebo zelene tlacitka na centralnim panelu
+		nebo – originalni BENDIX PB 20 na centralnim panelu
+		Jestlize pouzijes vsechny naraz, je to
+	</text2>
+	<subtitle3 n="38"></subtitle3>
+	<text3 n="38">
+		na tvoji zodpovednost. :-)
+		GPS a auto trasa maji nekdy problem s posledni verzi FG a Windows
+	</text3>
+	<subtitle4 n="38"></subtitle4>
+	<text4 n="38">
+		- Tak pouzij posledni stabilni verzi -
+	</text4>			
 	
 </PropertyList>

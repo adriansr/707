@@ -198,4 +198,31 @@
 	<on type="bool">0</on>
 </mptcas>
 
+<tacan n="0">
+  <name>tacan</name>
+  <number>0</number>
+	<serviceable type="bool" archive="y">true</serviceable>
+	<switch-position type="int" archive="y">1</switch-position>
+</tacan>
+
+<radar n="0">
+ <!-- Used for Air-to-Air Refueling -->
+ <range type="int" archive="y">20</range>
+ <range-factor type="double" archive="n">20</range-factor>
+ <minimized type="bool" archive="y">false</minimized>
+</radar>
+
+<mptcas n="0">
+  <table>
+  	<row n="0">
+  		<col n="0">CALLSIGN</col>
+  		<col n="1">DISTANCE</col>
+  		<col n="2">ALTITUDE</col>
+  		<col n="3">HDG / DIR</col>
+  		<col n="4">TAS</col>
+  		<col n="5">AIRCRAFT</col>
+  	</row>
+  </table>
+</mptcas>
+
 </PropertyList>
