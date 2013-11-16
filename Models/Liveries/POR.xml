@@ -10,14 +10,15 @@
 <sim>
     <model>
         <livery>
-            <name type="string">B.O.A.C</name>
-            <texture>Liveries/BOAC.png</texture>
+            <name type="string">Air Portugal</name>
+            <texture>Liveries/POR.png</texture>
+            <texture-container>container.png</texture-container>
         </livery>
-    </model>    
+    </model>
     <multiplay>
     	<generic>
-    		<int n="8">0</int>   <!-- engine type -->
-    		<int n="9">0</int>   <!-- cargo aircraft -->
+    		<int n="8">1</int>   <!-- engine type -->
+    		<int n="9">1</int>   <!-- cargo aircraft -->
     		<int n="16">2</int>  <!-- immat position -->
 			<!-- 0 no immat, 1 on fuselage down, 2 on fuselage upper back, 3 on rudder and wings --> 
     	</generic>

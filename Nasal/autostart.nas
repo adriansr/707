@@ -1126,24 +1126,69 @@ var startup = func
 		}, t); t += 0.5;	  
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-		 		b707.air_compressor(0);
+				setprop("/b707/air-conditioning/compressor-start[0]", 2);
+				setprop("/b707/air-conditioning/compressor-rpm[0]", 110);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;	
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-		 		b707.air_compressor(1);
+				setprop("/b707/air-conditioning/compressor-start[1]", 2);
+				setprop("/b707/air-conditioning/compressor-rpm[1]", 95);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;		
 	  settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){
-		 		b707.air_compressor(2);
+				setprop("/b707/air-conditioning/compressor-start[2]", 2);
+				setprop("/b707/air-conditioning/compressor-rpm[2]", 104);
 				toggle_switch2();
 			}
 		}, t); t += 0.5;
 
-	
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/air-cond-unit-left-start",1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;		
+
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/air-cond-unit-right-start",1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;			
+
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/wing-valve[0]",1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;			
+
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/wing-valve[1]",1);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;			
+
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/cabin-temp-selector[0]",4);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;			
+
+	  settimer( func{ 		
+			if(step == 14 and auto_procedure.getValue()){
+				setprop("/b707/air-conditioning/cabin-temp-selector[1]",4);
+				setprop("/b707/emergency/oxygen-switch",2);
+				toggle_switch2();
+			}
+		}, t); t += 0.5;			
+
 		# safety-valve switch
 	 	settimer( func{ 		
 			if(step == 14 and auto_procedure.getValue()){

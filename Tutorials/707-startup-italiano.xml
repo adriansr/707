@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--###################################################################################
 		Lake of Constance Hangar :: M.Kraus
 		Boeing 707 for Flightgear Septemper 2013
@@ -6,8 +6,8 @@
 		###################################################################################
 -->
 <PropertyList>
-	<name>Engines: Start-up [spanish]</name>
-	<description>Arranque de motores con unidad de alimentacion externa.</description>
+	<name>Engines: Start-up [italiano]</name>
+	<description>Motores avviare (with external Power Unit)</description>
 
 	<init>
 		<set>
@@ -243,8 +243,9 @@
 
 	<step>
 		<message>
-			Conectar a la unidad de alimentacion externa.
-			En el menu principal B707 / Unidad de alimentacion externa
+			Collegare l'unita di alimentazione esterna.
+			Nel menu principale: Boeing 707 / Unita di alimentazione esterna
+			(o External Power Unit).
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -272,7 +273,7 @@
 	
 	<step>
 		<message>
-			La unidad de alimentacion externa ha sido conectada.
+			L'unita di alimentazione esterna e stata collegata.
 		</message>
 		<view>
 		    <view-number>1</view-number>
@@ -293,7 +294,7 @@
 	
 	<step>
 		<message>
-			Conectar la bateria.
+			Aprire il coperchio, collegare la batteria, poi richiudere il coperchio.
 		</message>
 		<view>
 				<heading-offset-deg>235.4</heading-offset-deg>
@@ -313,7 +314,8 @@
 		</marker>
 
 		<error>
-			<message>Abra la tapa y encienda la bateria.</message>
+			<message>Aprire il coperchio, porre su ON (alzare la levetta)
+			         e richiudere il coperchio.</message>
 			<condition>
 				<not><property>/b707/battery-switch</property></not>
 			</condition>
@@ -327,7 +329,7 @@
 	
 	<step>
 		<message>
-			Poner el SELECTOR DE GARGA AND VOLTI0S en posicion BUS-TIE. Regulador Automatico de sincronizacion
+			Porre il selettore LOAD &amp; VOLTS su BUS TIE.
 		</message>
 		<view>
 				<heading-offset-deg>234.0</heading-offset-deg>
@@ -346,7 +348,7 @@
 				<scale>3.0000</scale>
 		</marker>
 		<error>
-			<message>Utilice solo BUS TIE por el momento.</message>
+			<message>Selezionare BUS TIE.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -372,7 +374,7 @@
 	
 	<step>
 		<message>
-			POTENCIA BASICA iniciar POTENCIA EXTERNA.
+			Porre il selettore ESSENTIAL POWER su EXT PWR.
 		</message>
 		<view>
 				<heading-offset-deg>238.1</heading-offset-deg>
@@ -391,7 +393,7 @@
 				<scale>1.3967</scale>
 		</marker>
 		<error>
-			<message>Iniciar POTENCIA EXTERNA.</message>
+			<message>Selezionare EXT PWR.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -417,8 +419,8 @@
 	
 	<step>
 		<message>
-			SELECTOR AC PARALELO ajustado a la alimentacion externa.
-			La fuente AC se sincronizara a 400Hz.
+			Porre il selettore AC PARALLELING su EXTERNAL POWER
+			(la sorgente AC verra poi sincronizzata a 400Hz).
 		</message>
 		<view>
 				<heading-offset-deg>241.4</heading-offset-deg>
@@ -437,7 +439,7 @@
 				<scale>1.3967</scale>
 		</marker>
 		<error>
-			<message>Seleccione la alimentacion externa.</message>
+			<message>Selezionare EXTERNAL POWER.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -463,8 +465,8 @@
 
 	<step>
 		<message>
-			BOMBAS AUXILIARES activadas.
-			Presion hidraulica para timon, tren y sistema de apoyo.
+			AUXILIARY PUMPS: porre su ON
+			(pressione idraulica per il funzionamento di timone, carrello e alcuni sistemi).
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -484,7 +486,9 @@
 		</marker>
 
 		<error>
-			<message>Activar ambos y esperar hasta ALCANZAR 3000 PSI de PRESION HIDRAULICA DEL TIMON.</message>
+			<message>Porre entrambi su ON e attendere che lo strumento
+                     RUD HYD PRESS (pressione idraulica timone) raggiunga 3000 PSI.
+			</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/ac-aux-pump[0]</property></not>
@@ -512,8 +516,8 @@
 	
 	<step>
 		<message>
-			VALVULA DE INTERCONEXION ACTIVADA
-			Sistema de apoyo en BOMBAS AUXILIARES AC
+			INTER CONNECT VALVE: porre su SYSTEM
+			(sistema di sostegno delle pompe ausiliarie AC).
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -533,7 +537,7 @@
 		</marker>
 		
 		<error>
-			<message>Baje este control</message>
+			<message>Abbassare questa leva.</message>
 			<condition>
 				<not>
 					<equals>
@@ -555,7 +559,7 @@
 	
 	<step>
 		<message>
-			VALVULAS DE CIERRE DE FLUIDO HIDRAULICO activadas.
+			HYD FLUID SHUTOFF: porre su OPEN.
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -575,7 +579,7 @@
 		</marker>
 
 		<error>
-			<message>Abra las tapas y active las palancas.</message>
+			<message>Aprire i coperchi, alzare le leve e richiudere i coperchi.</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-shutoff[0]</property></not>
@@ -595,8 +599,8 @@
 	
 	<step>
 		<message>
-			BOMBAS DE MOTOR activadas
-			Soporte Hidraulico para el resto de sistemas residuales.
+			ENGINE PUMPS: porre su ON
+			(supporto idraulico per tutti gli altri sistemi).
 		</message>
 		<view>
 				<heading-offset-deg>230.5</heading-offset-deg>
@@ -616,7 +620,9 @@
 		</marker>
 
 		<error>
-			<message>Activar ambos y esperar hasta ALCANZAR 2200 PSI de PRESION HIDRAULICA DEL SISTEMA</message>
+			<message>Porre entrambi su ON e attendere che lo strumento
+			         HYD SYS PRESS (pressione idraulica sistema) raggiunga 2200 PSI.
+			</message>
 			<condition>
 				<or>
 					<not><property>/b707/hydraulic/hyd-fluid-pump[0]</property></not>
@@ -644,7 +650,7 @@
 	
 	<step>
 		<message>
-			Conecte la Unidad de Alimentaci0n Externa al BUS DE SINCRONIZACION.
+			Porre il selettore EXTERNAL POWER su ON.
 		</message>
 		<view>
 				<heading-offset-deg>237.8</heading-offset-deg>
@@ -664,7 +670,7 @@
 		</marker>
 		<error>
 			<message>
-				Activelo
+				Porre su ON.
 			</message>
 			<condition>
 				<not><property>/b707/ground-connect</property></not>
@@ -679,9 +685,9 @@
 
 	<step>
 		<message>
-			Conecte las unidades del generador
-			Abra la tapa roja y encienda las unidades.
-			Luego Cierre la tapa.
+			Attivare le unita GEN DRIVE. Aprire i coperchi rossi
+			e alzare le levette. Richiudere i coperchi.
+			ATTENZIONE: non e possibile farlo in volo!
 		</message>
 		<view>
 				<heading-offset-deg>241.8</heading-offset-deg>
@@ -701,8 +707,8 @@
 		</marker>
 		<error>
 			<message>
-				Conecte todos las unidades de generacion y a continuacion cierre todas las tapas.
-				Es imposible reconectarlas en vuelo.
+				Attivare tutte le unita GEN DRIVE e richiudere i coperchi.
+				ATTENZIONE: non e possibile farlo in volo!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-drive[0]</property></not>
@@ -727,9 +733,9 @@
 
 	<step>
 		<message>
-			BUS del Regulador Automatico de sincronizacion
-			Abra todas las cubiertas y ajuste el regulador automatico para sincronizar el bus.
-			Luego cierre las cubiertas.
+			BUS-TIE BREAKER:
+			Aprire tutti i coperchi e porre su CLOSE
+			(alzare ogni levetta).
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -749,7 +755,7 @@
 		</marker>
 		<error>
 			<message>
-				Encienda todos los buses y cierre todas las tapas!
+				Attivare tutti i bus (sollevare ogni levetta)!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
@@ -774,9 +780,9 @@
 	
 	<step>
 		<message>
-			CONTROL DEL GENERADOR
-			Abra todas las cubiertas y active los controladores del generador.
-			Luego cierre las cubiertas.
+			GEN CONTROL:
+			Aprire tutti i coperchi e attivare i regolatori dei generatori
+			(sollevare ogni levetta). Richiudere i coperchi.
 		</message>
 		<view>
 				<heading-offset-deg>246.5</heading-offset-deg>
@@ -796,7 +802,7 @@
 		</marker>
 		<error>
 			<message>
-				Encienda todos los controladores y cierre las tapas!
+				Attivare tutti i regolatori (sollevare ogni levetta) e richiudere i coperchi!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-control[0]</property></not>
@@ -821,8 +827,8 @@
 	
 	<step>
 		<message>
-			REGULADOR AUTOMATICO DEL GENERADOR
-			Cierre todos los circuitos.
+			GEN BREAKER:
+			Chiudere tutti i circuiti (porre su CLOSE).
 		</message>
 		<view>
 				<heading-offset-deg>246.5</heading-offset-deg>
@@ -842,7 +848,7 @@
 		</marker>
 		<error>
 			<message>
-				Cierre todos los circuitos del REGULADOR AUTOMATICO DEL GENERADOR, ahora!
+				Porre tutti i circuiti GEN BREAKER su CLOSE, ora!
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-breaker[0]</property></not>
@@ -863,8 +869,9 @@
 	
 	<step>
 		<message>
-			Sincronizar todos las VaLVULAS DE ALIMENTACION CRUZADA hasta su cierre (luces azules fuera)
-			Encender y apagar todas las valvulas unos segundos.
+			Commutare ogni valvola di percorso del carburante fino a
+			attuazione completata (luci blu spente) e riportarla alla
+			posizione precedente.
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -885,7 +892,8 @@
 
 		<error>
 			<message>
-				!Abra y cierre las Valvulas de Alimentacion Cruzada - una vez!
+			    Commutare per qualche secondo le 6 valvole di
+				percorso del carburante e rimetterle come prima!
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/valve-pos[0]</property></not>
@@ -910,7 +918,7 @@
 	
 	<step>
 		<message>
-			Encienda las BOMBAS DEL ALIMENTADOR DE PRESION
+			BOOST PUMPS: porre su ON (10 interruttori).
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -931,7 +939,7 @@
 
 		<error>
 			<message>
-				Encienda TODAS LAS BOMBAS DEL ALIMENTADOR DE PRESION
+				Porre BOOST PUMPS su ON (10 interruttori)!
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/boost-pump[0]</property></not>
@@ -964,7 +972,8 @@
 	
 	<step>
 		<message>
-			Encienda TODAS LAS VALVULAS DE PARADA DE MOTOR
+			Aprire le valvole di spegnimento dei motori
+			(porre i 4 interruttori su OPEN).
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -985,7 +994,8 @@
 
 		<error>
 			<message>
-				TODAS LAS VALVULAS DE PARADA DE MOTOR deben estar encendidas!
+				Le 4 valvole di spegnimento dei motori
+				devono essere aperte (porre su OPEN).
 			</message>
 			<condition>
 				<not><property>/b707/fuel/valves/fuel-shutoff[0]</property></not>
@@ -1005,7 +1015,7 @@
 	</step>
 		
 	<step>
-		<message>Abra la tapa de arranque 3</message>
+		<message>ENGINES STARTER: aprire il coperchio del 3.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1029,7 +1039,8 @@
 	</step>
 
 	<step>
-		<message>Pulse arranque 3 y luego tirar de la palanca para cortarlo.</message>
+		<message>Attivare lo starter 3 e poi
+		         sollevare la leva 3 per disattivarlo.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1054,7 +1065,7 @@
 	
 	<step>
 		<message>
-			Suba la palanca para cortar el 3.
+			Sollevare la leva 3 per disattivare lo starter.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1075,7 +1086,7 @@
 
 		<error>
 			<message>
-				Suba la palanca la palanca 3!
+				Alzare la leva 3!
 			</message>
 			<condition>
 				<property>controls/engines/engine[2]/cutoff</property>
@@ -1089,7 +1100,7 @@
 	</step>
 
 	<step>
-		<message>Controle el N2 y el otro instrumento de este motor</message>
+		<message>Controllare N2 e gli altri strumenti di questo motore.</message>
 		<view>
 				<heading-offset-deg>319.3</heading-offset-deg>
 				<pitch-offset-deg>-28.3</pitch-offset-deg>
@@ -1117,7 +1128,8 @@
 	</step>
 	
 	<step>
-		<message>Arranque 3 - esta la luz verde apagada?</message>
+		<message>Starter 3: la luce verde 
+		         (in alto vicino al coperchio) e spenta?</message>
 		<view>
 				<heading-offset-deg>315.9</heading-offset-deg>
 				<pitch-offset-deg>-29.3</pitch-offset-deg>
@@ -1143,7 +1155,7 @@
 	</step>
 	
 	<step>
-		<message>Cierre la tapa 3, abra la cubierta 4</message>
+		<message>Richiudere il coperchio 3, aprire il 4.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1162,7 +1174,8 @@
 	</step>
 
 	<step>
-		<message>Pulse arranque 4 y luego tirar de la palanca para cortarlo.</message>
+		<message>Attivare lo starter 4 e poi
+		         sollevare la leva 4 per disattivarlo.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1187,7 +1200,7 @@
 	
 	<step>
 		<message>
-			Suba la palanca para cortar el 4
+			Sollevare la leva 4 per disattivare lo starter.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1208,7 +1221,7 @@
 
 		<error>
 			<message>
-				Suba la palanca 4!
+				Alzare la leva 4!
 			</message>
 			<condition>
 				<property>controls/engines/engine[3]/cutoff</property>
@@ -1222,7 +1235,7 @@
 	</step>
 	
 	<step>
-		<message>Controle el N2 y el otro instrumento de este motor.</message>
+		<message>Controllare N2 e gli altri strumenti di questo motore.</message>
 		<view>
 				<heading-offset-deg>319.3</heading-offset-deg>
 				<pitch-offset-deg>-28.3</pitch-offset-deg>
@@ -1251,7 +1264,7 @@
 	</step>
 	
 	<step>
-		<message>Arranque 4 - espere hasta que se apague la luz verde</message>
+		<message>Starter 4: aspettare che si spenga la luce verde.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1269,7 +1282,7 @@
 	</step>
 	
 	<step>
-		<message>Cierre la tapa 4, abra la cubierta 2</message>
+		<message>Richiudere il coperchio 4, aprire il 2.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1288,7 +1301,8 @@
 	</step>
 
 	<step>
-		<message>Pulse arranque 2 y luego subir la palanca para cortarlo.</message>
+		<message>Attivare lo starter 2 e poi
+		         sollevare la leva 2 per disattivarlo.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1313,7 +1327,7 @@
 		
 	<step>
 		<message>
-			Suba la palanca para cortar el 2.
+			Sollevare la leva 2 per disattivare lo starter.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1334,7 +1348,7 @@
 
 		<error>
 			<message>
-				Suba la palanca 2!
+				Alzare la leva 2!
 			</message>
 			<condition>
 				<property>controls/engines/engine[1]/cutoff</property>
@@ -1348,7 +1362,7 @@
 	</step>
 	
 	<step>
-		<message>Controle el N2 y el otro instrumento de este motor.</message>
+		<message>Controllare N2 e gli altri strumenti di questo motore.</message>
 		<view>
 				<heading-offset-deg>319.3</heading-offset-deg>
 				<pitch-offset-deg>-28.3</pitch-offset-deg>
@@ -1377,7 +1391,7 @@
 	</step>
 	
 	<step>
-		<message>Arranque 2 - espere hasta que se apague la luz verde</message>
+		<message>Starter 2: aspettare che si spenga la luce verde.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1395,7 +1409,7 @@
 	</step>	
 	
 	<step>
-		<message>Cierre la tapa 2, abra la cubierta 1</message>
+		<message>Richiudere il coperchio 2, aprire il coperchio 1.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1414,7 +1428,8 @@
 	</step>
 
 	<step>
-		<message>Pulse arranque 1 y luego tirar de la palanca para cortarlo.</message>
+		<message>Attivare lo starter 1 e poi
+		         sollevare la leva 1 per disattivarlo.</message>
 		<view>
 				<heading-offset-deg>292.9</heading-offset-deg>
 				<pitch-offset-deg>27.5</pitch-offset-deg>
@@ -1439,7 +1454,7 @@
 	
 	<step>
 		<message>
-			Suba la palanca para cortar el 1
+			Sollevare la leva 1 per disattivare lo starter.
 		</message>
 		<view>
 				<heading-offset-deg>300.2</heading-offset-deg>
@@ -1460,7 +1475,7 @@
 
 		<error>
 			<message>
-				Suba la palanca de la palanca 1!
+				Alzare la leva 1!
 			</message>
 			<condition>
 				<property>controls/engines/engine[0]/cutoff</property>
@@ -1474,7 +1489,7 @@
 	</step>
 	
 	<step>
-		<message>Controle el N2 y el otro instrumento de este motor</message>
+		<message>Controllare N2 e gli altri strumenti di questo motore.</message>
 		<view>
 				<heading-offset-deg>319.3</heading-offset-deg>
 				<pitch-offset-deg>-28.3</pitch-offset-deg>
@@ -1503,7 +1518,7 @@
 	</step>
 	
 	<step>
-		<message>Arranque 1 - espere hasta que se apague la luz verde</message>
+		<message>Starter 1: aspettare che si spenga la luce verde.</message>
 		<view>
 			<heading-offset-deg>-75</heading-offset-deg>
 			<pitch-offset-deg>30.0</pitch-offset-deg>
@@ -1521,7 +1536,7 @@
 	</step>	
 
 	<step>
-		<message>Cierre la tapa 1</message>
+		<message>Richiudere il coperchio 1.</message>
 		<view>
 			<heading-offset-deg>-75</heading-offset-deg>
 			<pitch-offset-deg>30.0</pitch-offset-deg>
@@ -1539,7 +1554,7 @@
 	</step>
 	
 	<step>
-		<message>controle si la N2 esta en rango verde.</message>
+		<message>Controllare che gli strumenti N2 stiano in zona verde.</message>
 		<view>
 			<heading-offset-deg>-40.0</heading-offset-deg>
 			<pitch-offset-deg>-20.0</pitch-offset-deg>
@@ -1573,9 +1588,8 @@
 		
 	<step>
 		<message>
-			SELECTOR AC PARALELO seleccione GEN I
-			Ahora sincronizaremos los generadores.
-			
+			Porre il selettore AC PARALLELING su GEN 1.
+			Ora sincronizzeremo i generatori.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1595,7 +1609,7 @@
 		</marker>
 
 		<error>
-			<message>Seleccione GEN I</message>
+			<message>Selezionare GEN 1.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1621,7 +1635,7 @@
 	
 	<step>
 		<message>
-			Prestar atencion a este instrumento durante la sincronizacion.
+			Vogliamo regolare a 400 la frequenza dei generatori.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1643,7 +1657,7 @@
 
 	<step>
 		<message>
-			Gire la manilla de CONTROL DE FRECUENCIA hasta que las luces blancas desaparezcan
+			Girare la manopola FREQ CONTROL fino allo spegnimento delle luci bianche di controllo.
 		</message>
 		<view>
 				<heading-offset-deg>247.7</heading-offset-deg>
@@ -1662,7 +1676,7 @@
 				<scale>1.7934</scale>
 		</marker>
 		<error>
-			<message>ahora sincronize el generador 1</message>
+			<message>Sincronizzare il generatore 1 adesso.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1688,7 +1702,7 @@
 
 	<step>
 		<message>
-			Seleccione GEN 2 en el SELECTOR AC PARALELO
+			Porre il selettore AC PARALLELING su GEN 2.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1708,7 +1722,7 @@
 		</marker>
 
 		<error>
-			<message>Seleccione GEN 2</message>
+			<message>Selezionare GEN 2.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1734,7 +1748,7 @@
 	
 	<step>
 		<message>
-			Gire la manilla de CONTROL DE FRECUENCIA hasta que las luces blancas desaparezcan
+			Girare la manopola FREQ CONTROL fino allo spegnimento delle luci bianche di controllo.
 		</message>
 		<view>
 				<heading-offset-deg>247.7</heading-offset-deg>
@@ -1753,7 +1767,7 @@
 				<scale>1.7934</scale>
 		</marker>
 		<error>
-			<message>ahora sincronize el generador 2</message>
+			<message>Sincronizzare il generatore 2 adesso.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1779,7 +1793,7 @@
 	
 	<step>
 		<message>
-			Seleccione GEN 3 en el SELECTOR AC PARALELO   
+			Porre il selettore AC PARALLELING su GEN 3.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1799,7 +1813,7 @@
 		</marker>
 
 		<error>
-			<message>Seleccione GEN 3</message>
+			<message>Selezionare GEN 3.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1825,7 +1839,7 @@
 	
 	<step>
 		<message>
-			Gire la manilla de CONTROL DE FRECUENCIA hasta que las luces blancas desaparezcan
+			Girare la manopola FREQ CONTROL fino allo spegnimento delle luci bianche di controllo.
 		</message>
 		<view>
 				<heading-offset-deg>247.7</heading-offset-deg>
@@ -1844,7 +1858,7 @@
 				<scale>1.7934</scale>
 		</marker>
 		<error>
-			<message>ahora sincronize el generador 3</message>
+			<message>Sincronizzare il generatore 3 adesso.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1870,7 +1884,7 @@
 	
 	<step>
 		<message>
-			Seleccione GEN 4 en el SELECTOR AC PARALELO
+			Porre il selettore AC PARALLELING su GEN 4.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1890,7 +1904,7 @@
 		</marker>
 
 		<error>
-			<message>Seleccione GEN 4</message>
+			<message>Selezionare gen 4.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1916,7 +1930,7 @@
 	
 	<step>
 		<message>
-			Gire la manilla de CONTROL DE FRECUENCIA hasta que las luces blancas desaparezcan
+			Girare la manopola FREQ CONTROL fino allo spegnimento delle luci bianche di controllo.
 		</message>
 		<view>
 				<heading-offset-deg>247.7</heading-offset-deg>
@@ -1935,7 +1949,7 @@
 				<scale>1.7934</scale>
 		</marker>
 		<error>
-			<message>ahora sincronize el generador 4</message>
+			<message>Sincronizzare il generatore 4 adesso.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -1961,7 +1975,7 @@
 	
 	<step>
 		<message>
-			Para controlar, seleccione GEN 1 en el SELECTOR AC PARALELO
+			Riporre il selettore AC PARALLELING su GEN 1.
 		</message>
 		<view>
 				<heading-offset-deg>244.2</heading-offset-deg>
@@ -1981,7 +1995,7 @@
 		</marker>
 
 		<error>
-			<message>Seleccione GEN 1</message>
+			<message>Selezionare GEN 1.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -2007,7 +2021,8 @@
 	
 	<step>
 		<message>
-			Cierre todos los buses del Regulador Automatico de sincronizacion
+			Chiudere tutti i BUS-TIE BREAKER, ora (alzare ogni levetta).
+			Richiudere i coperchi.
 		</message>
 		<view>
 				<heading-offset-deg>244.9</heading-offset-deg>
@@ -2027,7 +2042,8 @@
 		</marker>
 		<error>
 			<message>
-				cierre todos los buses!
+				Chiudere tutti i BUS (muovere su CLOSE, verso l'alto)!
+				Richiudere i coperchi.
 			</message>
 			<condition>
 				<not><property>/b707/generator/gen-bus-tie[0]</property></not>
@@ -2048,8 +2064,8 @@
 	
 	<step>
 		<message>
-			Ahora nuestra fuente de energia esencial es el generador 1
-			Gire la manilla a la posicion GEN I
+			La nostra fonte principale di energia sara adesso il generatore 1.
+			Girare il selettore su GEN 1.
 		</message>
 		<view>
 				<heading-offset-deg>238.1</heading-offset-deg>
@@ -2068,7 +2084,7 @@
 				<scale>1.3967</scale>
 		</marker>
 		<error>
-			<message>Seleccione GEN 1!</message>
+			<message>Selezionare GEN 1.</message>
 			<condition>
 				<or>
 					<less-than>
@@ -2094,7 +2110,9 @@
 	
 	<step>
 		<message>
-			Cortar la conexion con la unidad de potencia
+			Interrompere la connessione all'unita di alimentazione esterna.
+			Nel menu principale: Boeing 707 / Unita di alimentazione esterna
+			(o External Power Unit).
 		</message>
 		<view>
 				<heading-offset-deg>237.8</heading-offset-deg>
@@ -2114,7 +2132,7 @@
 		</marker>
 		<error>
 			<message>
-				seleccione OFF, para cortarla
+				Porre su OFF
 			</message>
 			<condition>
 				<property>/b707/ground-connect</property>
@@ -2129,8 +2147,9 @@
 
 	<step>
 		<message>
-			Ahora desconecte la unidad de alimentacion externa
-			Seleccione en el menu principal: Boeing 707 / Unidad de Potencia Externa
+			Scollegare il generatore esterno ora.
+			Nel menu principale: B707 / Unita di alimentazione esterna
+			(o External Power Unit).
 		</message>
 		<view>
 				<heading-offset-deg>240.8</heading-offset-deg>
@@ -2158,7 +2177,7 @@
 	
 	<step>
 		<message>
-			La unidad de alimentacion externa ha sido desconectada
+			L'unita di alimentazione esterna e stata scollegata.
 		</message>
 		<view>
 			<view-number>1</view-number>
@@ -2176,11 +2195,11 @@
 			</condition>
 		</exit>
 	</step>
-		
+	
+	
 	<step>
 		<message>
-			40 Hertz Converter - Controls 115Volt 60 cycle power to the stateroom and the number two galley areas.
-			40 Hertz Converter - Controles 115Volt de ciclo 60 del camarote y el numero dos de las cocinas.
+			Attivare il convertitore 115 Volt 40 Hz per la cabina privata e la cucina.
 		</message>
 		<view>
 			<heading-offset-deg>239.9</heading-offset-deg>
@@ -2200,7 +2219,7 @@
 		</marker>
 		<error>
 			<message>
-				Switch to ON.
+				Porre su ON.
 			</message>
 			<condition>
 				<not><property>/b707/generator/hertz-converter</property></not>
@@ -2215,7 +2234,7 @@
 	
 	<step>
 		<message>
-			Establezca las Bombas de Refrigeracion del Equipo en posicion ON.
+			Equipment Cooling Pumps: porre su NORM.
 		</message>
 		<view>
 				<heading-offset-deg>239.9</heading-offset-deg>
@@ -2236,7 +2255,7 @@
 
 		<error>
 			<message>
-				Ponga ambos interruptores en posicion ON.
+				Porre entrambi gli interruttori su NORM.
 			</message>
 			<condition>
 				<not><property>/b707/equipment/ovbd-dump</property></not>
@@ -2253,7 +2272,8 @@
 	
 	<step>
 		<message>
-			Abra la tapa de la RAM Air y enciendala.
+			RAM AIR: aprire il coperchio e porre su OPEN (verso l'alto).
+			Richiudere il coperchio.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2274,7 +2294,7 @@
 
 		<error>
 			<message>
-				Coloque el selector en la posicion OPEN.
+				Porre su OPEN e richiudere il coperchio.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/ram-air-switch</property></not>
@@ -2289,7 +2309,9 @@
 
 	<step>
 		<message>
-			Inicie el Compresor de Aire en el motor 2.
+			Attivare il compressore d'aria sul motore 2.
+			Porre su START. Se l'indicazione RPM (giri al minuto)
+			supera il 115% riavviare il compressore.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2309,7 +2331,8 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
+				Porre su START. Se l'indicazione RPM (giri al minuto)
+				supera il 115% riavviare il compressore.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[0]</property></not>
@@ -2336,7 +2359,9 @@
 
 	<step>
 		<message>
-			Inicie el Compresor de Aire en el motor 3.
+			Attivare il compressore d'aria sul motore 3.
+			Porre su START. Se l'indicazione RPM supera il 115% riattivare il compressore.
+			Controllare anche le luci ambra del compressore 1 e riavviarlo se necessario.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2356,8 +2381,8 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
-				Tambien tenga cuidado con las luces ambar del compresor 1. Si es necesario reinicie la primera.
+				Porre su START. Se l'indicazione RPM supera il 115% riattivare il compressore.
+				Controllare anche le luci ambra del compressore 1 e riavviarlo se necessario.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[1]</property></not>
@@ -2390,7 +2415,9 @@
 
 	<step>
 		<message>
-			Inicie el Compresor de Aire en el motor 4.
+			Attivare il compressore d'aria sul motore 4.
+			Porre su START. Se l'indicazione RPM supera il 115% riattivare il compressore.
+			Controllare anche le luci ambra dei compressori 1 e 2 e riavviarli se necessario.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2410,8 +2437,8 @@
 		</marker>
 		<error>
 			<message>
-				Pongalo en posicion START. Si el regimen de RPM sobrepasa el 115% reinicie el compresor.
-				Tambien tenga cuidado con las luces ambar de los compresores 1 y 2. Si es necesario reinicielos.
+				Porre su START. Se l'indicazione RPM supera il 115% riattivare il compressore.
+				Controllare anche le luci ambra dei compressori 1 e 2 e riavviarli se necessario.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/compressor-start[2]</property></not>
@@ -2448,7 +2475,8 @@
 
 	<step>
 		<message>
-			Conecte las valvulas de mariposa.
+			WING VALVE (condotto trasversale):
+			porre entrambi su OPEN.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2468,7 +2496,8 @@
 		</marker>
 		<error>
 			<message>
-				Abra el conducto cruzado, L y R para ABRIR.
+				WING VALVE (condotto trasversale):
+				porre L e R su OPEN.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/wing-valve[0]</property></not>
@@ -2485,7 +2514,8 @@
 
 	<step>
 		<message>
-			Abra los interruptores de la unidad de aire acondicionado. Primero levante la tapa.
+			Attivare le unita di aria condizionata, dopo aver aperto il coperchio.
+			Richiudere il coperchio.
 		</message>
 		<view>
 				<heading-offset-deg>229.9</heading-offset-deg>
@@ -2505,7 +2535,8 @@
 		</marker>
 		<error>
 			<message>
-				Abra las dos unidades de aire acondicionado. Coloquelas en la posicion ON.
+				Attivare entrambe le unita di aria condizionata, porre su ON.
+				Richiudere il coperchio.
 			</message>
 			<condition>
 				<not><property>/b707/air-conditioning/air-cond-unit-left-start</property></not>
@@ -2522,8 +2553,8 @@
 
 	<step>
 		<message>
-			Abra la tapa de la Aerovalvula de Seguridad, Safety-Air-valve.
-			Cambie el mando a su posicion inferior.
+			SAFETY air VALVE OVERRIDE:
+			Aprire il coperchio, abbassare la levetta e richiudere il coperchio.
 		</message>
 		<view>
 				<heading-offset-deg>227.6</heading-offset-deg>
@@ -2544,7 +2575,7 @@
 
 		<error>
 			<message>
-				Baje la palanca para cerrar la valvula de seguridad, la luz ambar se apagara.
+				Abbassare la levetta e richiudere il coperchio.
 			</message>
 			<condition>
 				<not><property>/b707/pressurization/safety-valve</property></not>
@@ -2559,7 +2590,7 @@
 	
 	<step>
 		<message>
-			Ahora encienda el Modo Automatico de Presurizacion.
+			Ora attivare la modalita AUTO della pressurizzazione. 
 		</message>
 		<view>
 				<heading-offset-deg>227.6</heading-offset-deg>
@@ -2579,7 +2610,7 @@
 		</marker>
 		<error>
 			<message>
-				Coloquelo en la posicion ON.
+				Porre l'interruttore su AUTO.
 			</message>
 			<condition>
 				<not><property>/b707/pressurization/manual-mode-switch</property></not>
@@ -2594,7 +2625,7 @@
 
 	<step>
 		<message>
-			Seleccione posicion de despegue. 
+			Selezionare la posizione TAKE OFF (in alto). 
 		</message>
 		<view>
 				<heading-offset-deg>235.3</heading-offset-deg>
@@ -2614,7 +2645,7 @@
 		</marker>
 		<error>
 			<message>
-				Coloquelo en la posicion ON.
+				Porre l'interruttore su TAKE OFF (in alto).
 			</message>
 			<condition>
 				<not><property>/b707/pressurization/mode-switch</property></not>
@@ -2628,7 +2659,7 @@
 	</step>	
 			
 	<end>
-		<message>Encendidos todos los motores. Generadores cerrados. Que tenga un buen vuelo!</message>
+		<message>Tutti i motori avviati. Generatori chiusi. Buon viaggio!</message>
 		<view>
 			<heading-offset-deg>0</heading-offset-deg>
 			<pitch-offset-deg>-16</pitch-offset-deg>

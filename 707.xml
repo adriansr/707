@@ -13,7 +13,7 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>2.1.1</version>
+  <version>2.1.2</version>
   <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
  </fileheader>
 
@@ -869,7 +869,7 @@
 	  			 <property>/b707/crashed</property> <!-- if airplane crashed -->
            <value>10</value>
          </product>
-    </function>    
+    </function>  
 
   </axis>
 
@@ -920,7 +920,7 @@
            <property>metrics/bw-ft</property>
            <property>aero/bi2vel</property>
            <property>velocities/r-aero-rad_sec</property>
-           <value>0.15</value>
+           <value>0.005</value>
        </product>
     </function>
 
@@ -1112,20 +1112,20 @@
  <system name="crash-detect">
 		<channel name="impact-ground">
 		   <switch name="impact">
-		   		  <test logic="AND" value="1">
+		   		<test logic="AND" value="1">
 		              velocities/mach gt 0.2
 		              position/h-agl-ft lt 6.0 
-		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
+		              position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              simulation/sim-time-sec gt 1.0
 		        </test>
-		   		  <test logic="AND" value="1">
+		   		<test logic="AND" value="1">
 		              position/h-agl-ft lt 5.0
-		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
+		              position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              simulation/sim-time-sec gt 1.0
 		        </test>
-		   		  <test logic="AND" value="1">
+		   		<test logic="AND" value="1">
 		              position/h-agl-ft lt 6.5
-		              position/h-agl-ft gt 1.0   <!-- between EHAM and England there is h-agl-ft to 0 -->
+		              position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              /b707/over-water != 0
 		              simulation/sim-time-sec gt 1.0
 		        </test>

@@ -9,10 +9,9 @@
 ##############################################################################
 
 var kpForHeadingDeg = -2.6;
+var headingMaxRoll = 20;
 var kpForHeading = 0.1;
 var tiForHeading = 6.0;
-var headingMaxRoll = 20;
-var kpForWingLeveler = 0.85;
 var kpForAltHold = -0.01;
 var kpForPitchHold = -0.05;
 var kpForGSHold = -0.018;
@@ -43,15 +42,16 @@ var listenerApRouteManagerInitFunc = func {
 	setprop("autopilot/locks/passive-mode", 0);
 
 	setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
+	setprop("/autopilot/internal/heading-min-roll", (headingMaxRoll * (-1)));
+	setprop("/autopilot/internal/heading-max-roll", headingMaxRoll);
 	setprop("/autopilot/internal/target-kp-for-heading-hold", kpForHeading);
 	setprop("/autopilot/internal/target-ti-for-heading-hold", tiForHeading);
-	setprop("/autopilot/internal/heading-max-roll", headingMaxRoll);
-	setprop("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler);
 	setprop("/autopilot/internal/gs-rate-of-climb-near-far-filtered", 0.0);
 	setprop("/autopilot/internal/VOR-near-by", 0);
 	setprop("/autopilot/internal/target-roll-deg-for-VOR-near-by", 0.0);
 	setprop("/autopilot/internal/target-kp-for-alt-hold", kpForAltHold);
 	setprop("/autopilot/internal/target-kp-for-gs-hold", kpForGSHold);
+	setprop("/autopilot/internal/target-kp-for-pitch-hold", kpForPitchHold);
 	setprop("/autopilot/internal/gs-in-range", 0);
 
 	setprop("/autopilot/internal/yaw-damper", 0);
@@ -114,20 +114,10 @@ var listenerApPitchHoldSwitchFunc = func {
 }
 setlistener("/autopilot/locks/altitude", listenerApPitchHoldSwitchFunc);
 
-var listenerApWingLevelerSwitchFunc = func {
-
-	if (getprop("/autopilot/locks/heading") == "wing-leveler") {
-
-		#print ("-> listenerApWingLevelerSwitchFunc -> installed");
-		setprop("/autopilot/internal/target-kp-for-wing-leveler", (kpForWingLeveler * 0.05));
-		interpolate("/autopilot/internal/target-kp-for-wing-leveler", kpForWingLeveler, 1);
-	}
-}
-setlistener("/autopilot/locks/heading", listenerApWingLevelerSwitchFunc);
-
 var listenerApHeadingSwitchFunc = func {
 
-	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+	if (	getprop("/autopilot/locks/heading") == "wing-leveler" or
+		getprop("/autopilot/locks/heading") == "nav1-hold" or
 		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
 		((getprop("/autopilot/locks/heading") == "true-heading-hold") and (getprop("/autopilot/route-manager/active") == 0))) {
 
@@ -138,6 +128,7 @@ var listenerApHeadingSwitchFunc = func {
 		interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg, 1);
 	}
 }
+setlistener("/autopilot/internal/wing-leveler-target-roll-deg", listenerApHeadingSwitchFunc);
 setlistener("/autopilot/settings/heading-bug-deg", listenerApHeadingSwitchFunc);
 setlistener("/instrumentation/nav[0]/radials/selected-deg", listenerApHeadingSwitchFunc);
 setlistener("/autopilot/locks/heading", listenerApHeadingSwitchFunc);
@@ -158,7 +149,8 @@ setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
 
 # switch-functions
 var listenerApHeadingFunc = func {
-	if (	getprop("/autopilot/locks/heading") == "nav1-hold" or
+	if (	getprop("/autopilot/locks/heading") == "wing-leveler" or
+		getprop("/autopilot/locks/heading") == "nav1-hold" or
 		getprop("/autopilot/locks/heading") == "dg-heading-hold" or
 		getprop("/autopilot/locks/heading") == "true-heading-hold") {
 
@@ -216,11 +208,11 @@ var listenerApHeadingFunc = func {
 		setprop("/autopilot/internal/heading-min-roll", headingMaxRollCurrent * (-1));
 
 
-#		print("");
-#		print ("heading-bug-error-deg=", getprop("/autopilot/internal/heading-bug-error-deg")); 
-#		print ("target-roll-deg      =", getprop("/autopilot/internal/target-roll-deg")); 
-#		print ("target-kp-for-heading-hold=", getprop("/autopilot/internal/target-kp-for-heading-hold")); 
-#		print ("target-ti-for-heading-hold=", getprop("/autopilot/internal/target-ti-for-heading-hold")); 
+		#print("");
+		#print ("indicated-heading-deg=", getprop("/instrumentation/heading-indicator/indicated-heading-deg"));
+		#print ("heading-bug-error-deg=", getprop("/autopilot/internal/heading-bug-error-deg")); 
+		#print ("true-heading-error-deg=", getprop("/autopilot/internal/true-heading-error-deg")); 
+		#print ("target-roll-deg      =", getprop("/autopilot/internal/target-roll-deg")); 
 
 		settimer(listenerApHeadingFunc, timerGap);
 	}

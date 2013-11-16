@@ -20,6 +20,8 @@
 		<object-name>flagGER</object-name>
 		<object-name>flagES</object-name>
 		<object-name>flagCZ</object-name>
+		<object-name>flagPOR</object-name>
+		<object-name>flagITA</object-name>
 		<condition>	
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		</condition>
@@ -137,7 +139,7 @@
         <binding>
 				  <command>property-assign</command>
 				  <property>/b707/manual/page</property>
-				  <value>11</value>
+				  <value>13</value>
         </binding>
 				<binding>
 				  <command>nasal</command>
@@ -155,7 +157,7 @@
         <binding>
 				  <command>property-assign</command>
 				  <property>/b707/manual/page</property>
-				  <value>20</value>
+				  <value>24</value>
         </binding> 
 				<binding>
 				  <command>nasal</command>
@@ -173,7 +175,7 @@
         <binding>
 				  <command>property-assign</command>
 				  <property>/b707/manual/page</property>
-				  <value>30</value>
+				  <value>35</value>
         </binding> 
 				<binding>
 				  <command>nasal</command>
@@ -181,7 +183,43 @@
 				</binding>	         
 		  </action>
 	</animation> 
-	
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagPOR</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>46</value>
+        </binding> 
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	         
+		  </action>
+	</animation> 
+
+	<animation>
+		  <type>pick</type>
+		  <object-name>flagITA</object-name>
+		  <action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+        <binding>
+				  <command>property-assign</command>
+				  <property>/b707/manual/page</property>
+				  <value>56</value>
+        </binding> 
+				<binding>
+				  <command>nasal</command>
+				  <script>b707.manual();</script>
+				</binding>	         
+		  </action>
+	</animation> 
+		
 	<animation>
 		<type>pick</type>
 		<object-name>pages</object-name>

@@ -106,6 +106,10 @@
 			<desc>toggle Pilot - Engineer view</desc>
 		</key>
 		<key>
+			<name>Shift + ></name>
+			<desc>toggle Pilot - Autopilot view</desc>
+		</key>
+		<key>
 		  <name>F9</name>
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
@@ -119,12 +123,20 @@
 		 Military named KC-135x
 		 
 		 Startup engines:
-	
 		 follow the tutorials or use Autostart
+		 
+		 Quick startup engines:
+		 Switch GRD START at the Overhead Panel to HIGH PRESS
 	
 		 Shutdown engines:
-	
 		 with autostart / shutdown menu 
+		 or cutoff levers down
+		 
+		 WARNING: It's very importand to control the air compressors 
+		 in the engineer panel. You need them for the Anti-Ice System
+		 and Presszuriasation. Often they fall back or overspeed at 
+		 startup procedure. Restart them and wait that all control 
+		 lamps extinguished.
 	
 		 _______________________________________________________
 		 The first 707 for Flightgear was from Innis Cunningham. 

@@ -68,23 +68,23 @@
     <object-name>rhmgdoorc</object-name>
     <object-name>wing</object-name>
     <object-name>elevwing</object-name>
-		<object-name>rhfiletflap</object-name>
-		<object-name>lhfiletflap</object-name>
-		<object-name>rhibflap</object-name>
-		<object-name>lhibflap</object-name>
-		<object-name>rhobflap</object-name>
-		<object-name>lhobflap</object-name>
-		<object-name>rhsp1</object-name>
-		<object-name>lhsp1</object-name>
-		<object-name>rhsp3</object-name>
-		<object-name>lhsp3</object-name>
-		<object-name>rhibail</object-name>
-		<object-name>lhibail</object-name>
-		<object-name>rhobail</object-name>
-		<object-name>lhobail</object-name>
-		<object-name>doorRefuel</object-name>
-		<object-name>Radome</object-name>
-		<object-name>RadomeSup</object-name>
+	<object-name>rhfiletflap</object-name>
+	<object-name>lhfiletflap</object-name>
+	<object-name>rhibflap</object-name>
+	<object-name>lhibflap</object-name>
+	<object-name>rhobflap</object-name>
+	<object-name>lhobflap</object-name>
+	<object-name>rhsp1</object-name>
+	<object-name>lhsp1</object-name>
+	<object-name>rhsp3</object-name>
+	<object-name>lhsp3</object-name>
+	<object-name>rhibail</object-name>
+	<object-name>lhibail</object-name>
+	<object-name>rhobail</object-name>
+	<object-name>lhobail</object-name>
+	<object-name>doorRefuel</object-name>
+	<object-name>Radome</object-name>
+	<object-name>RadomeSup</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>EC-137.png</texture>
@@ -146,6 +146,9 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Radome</object-name>
+		<condition>
+			<property>sim/multiplay/generic/int[13]</property>
+		</condition>
 		<property>/sim/time/elapsed-sec</property>
 		<factor>20</factor>
 		<center>
