@@ -1554,6 +1554,7 @@ var short_startup = func
 	setprop("b707/ac/ac-para-select", 0);
  	setprop("b707/apu/starter", 1);
 	setprop("b707/load-volt-selector", 1);
+	setprop("instrumentation/transponder/inputs/knob-mode", 4);
 	
    settimer(func
     {	

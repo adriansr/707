@@ -43,6 +43,8 @@
 
 <marker-beacon>
   <test type="int">0</test>
+  <audio-btn type="bool">0</audio-btn>
+  <power-btn type="bool">0</power-btn>
 </marker-beacon>
 
 <nav n="0">
@@ -163,13 +165,13 @@
 
 <!-- B707 Compass Controll  -->
 <compass-control>
-  <mag type="bool">0</mag>
+  <mag type="bool">1</mag>
   <lat-knob type="bool">0</lat-knob>
   <lat-turn type="double">0</lat-turn>
 </compass-control>
 
 <compass-control n="1">
-  <mag type="bool">0</mag>
+  <mag type="bool">1</mag>
   <lat-knob type="bool">0</lat-knob>
   <lat-turn type="double">0</lat-turn>
 </compass-control>
@@ -198,11 +200,14 @@
 	<on type="bool">0</on>
 </mptcas>
 
-<tacan n="0">
+<tacan>
   <name>tacan</name>
   <number>0</number>
 	<serviceable type="bool" archive="y">true</serviceable>
-	<switch-position type="int" archive="y">1</switch-position>
+	<switch-position type="int" archive="y">0</switch-position>      
+	<xy-position type="int" archive="y">0</xy-position>
+    <volume type="double" archive="y">0.0</volume>
+	<display n="0"><correction type="double">0.0</correction></display>
 </tacan>
 
 <radar n="0">
@@ -224,5 +229,9 @@
   	</row>
   </table>
 </mptcas>
+
+<transponder>
+  <inputs><knob-mode type="int">0</knob-mode></inputs>
+</transponder>
 
 </PropertyList>

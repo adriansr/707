@@ -151,7 +151,7 @@
   <type>rotate</type>
   <object-name>turn.001</object-name>
   <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
-  <factor>3</factor>
+  <factor>12</factor>
   <center>
     <x-m> 0.0</x-m>
     <y-m> 0.0</y-m>
@@ -178,6 +178,11 @@
       <min>-30.0</min>
       <max>30.0</max>
     </binding>
+	<binding>
+		<command>property-assign</command>
+			<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+		<value>0</value>
+	</binding>
   </action>
   <action>
     <name>small decrease (scrollwheel)</name>
@@ -190,6 +195,11 @@
       <min>-30.0</min>
       <max>30.0</max>
     </binding>
+	<binding>
+		<command>property-assign</command>
+			<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+		<value>0</value>
+	</binding>
   </action>
   <action>
     <name>reset</name>
@@ -200,6 +210,11 @@
 			 <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
   		<value>0</value>
 			<time>1</time>
+		</binding>
+		<binding>
+			<command>property-assign</command>
+				<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+			<value>0</value>
 		</binding>
   </action>
 </animation>
@@ -226,14 +241,14 @@
     <type>pick</type>
     <object-name>turn</object-name>
     <action>
-        <button>0</button>
-        <repeatable>true</repeatable>
-				<binding>
-					 <command>property-interpolate</command>
-					 <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
-					 <value>0</value>
-					 <time>0.5</time>
-				</binding>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			 <command>property-interpolate</command>
+			 <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+			 <value>0</value>
+			 <time>0.5</time>
+		</binding>
     </action>
     <action>
         <button>3</button>

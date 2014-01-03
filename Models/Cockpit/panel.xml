@@ -20,23 +20,18 @@
 <model>
   <name>refuel_Lamp</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/lamps/refuel_lamp_pilot.xml</path>
+  <condition>		
+	<equals>
+		<property>sim/aircraft</property>
+		<value type="string">EC-137D</value>
+	</equals>
+  </condition>
   <offsets>
     <x-m>-18.916</x-m>
     <y-m>-0.612</y-m>
     <z-m>0.806</z-m>
   </offsets>
 </model>
-
-<animation>
-	<type>select</type>
-	<object-name>refuel_Lamp</object-name>
-	<condition>		
-		<equals>
-			<property>sim/aircraft</property>
-			<value type="string">EC-137D</value>
-		</equals>
-	</condition>
-</animation>
 
 <model>
   <name>asi</name>
@@ -141,10 +136,60 @@
 <model>
   <name>clock</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
+	<condition>	
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">707</value>
+		</equals>
+	</condition>
   <offsets>
     <x-m>-18.916</x-m>
     <y-m>-0.25</y-m>
     <z-m>0.80</z-m>
+  </offsets>
+</model>
+
+<model>
+    <name>tancan_dme</name>
+    <path>Aircraft/707/Models/Cockpit/Instruments/tacan/dme/dme.xml</path>
+	<condition>
+		<or>		
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">EC-137D</value>
+		</equals>
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">707-TT</value>
+		</equals>
+		</or>
+	</condition>
+    <offsets>
+        <x-m>-18.916</x-m>
+        <y-m>-0.286</y-m>
+        <z-m> 0.961</z-m>
+    </offsets>
+</model>
+
+<model>
+  <name>tancan_rmi</name>
+  <path>Aircraft/707/Models/Cockpit/Instruments/tacan/ci/ci.xml</path>
+	<condition>
+		<or>		
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">EC-137D</value>
+		</equals>
+		<equals>
+			<property>sim/aircraft</property>
+			<value type="string">707-TT</value>
+		</equals>
+		</or>
+	</condition>
+  <offsets>
+    <x-m>-18.916</x-m>
+    <y-m>-0.25</y-m>
+    <z-m>0.8</z-m>
   </offsets>
 </model>
 
@@ -707,8 +752,6 @@
   </offsets>
 </model>
 
-
-
 <!-- middle pedestal -->
   	<model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/comm1.xml</path>
@@ -746,8 +789,9 @@
           <pitch-deg>-70</pitch-deg>
       </offsets>
     </model>
+	
     <model>
-      <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf1.xml</path>
+      <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf1.xml</path>		
         <offsets>
             <x-m>-18.782</x-m>
           	<y-m>-0.12</y-m>
@@ -755,6 +799,7 @@
             <pitch-deg>-70</pitch-deg>
         </offsets>
     </model>
+	
     <model>
       <path>Aircraft/707/Models/Cockpit/Instruments/radio/adf2.xml</path>
         <offsets>
@@ -764,16 +809,38 @@
             <pitch-deg>-70</pitch-deg>
         </offsets>
     </model>
+	
+	 <model>
+	    <path>Aircraft/707/Models/Cockpit/Instruments/radio/tacan.xml</path>
+		<condition>
+			<or>		
+			<equals>
+				<property>sim/aircraft</property>
+				<value type="string">EC-137D</value>
+			</equals>
+			<equals>
+				<property>sim/aircraft</property>
+				<value type="string">707-TT</value>
+			</equals>
+			</or>
+		</condition>
+		<offsets>   
+		  <x-m>-18.325</x-m>
+		  <y-m>  0.0675</y-m>
+		  <z-m>  0.625</z-m>
+	      <pitch-deg>-90</pitch-deg>
+		</offsets>
+	 </model>
 
-		<model>
-			<path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
-			<offsets>
-				<x-m>-18.85</x-m>
-				<y-m>-0.0</y-m>
-				<z-m>0.729</z-m>
-				<pitch-deg>-70</pitch-deg>
-			</offsets>
-		</model>
+	<model>
+		<path>Aircraft/707/Models/Cockpit/Instruments/radar/radar.xml</path>
+		<offsets>
+			<x-m>-18.85</x-m>
+			<y-m>-0.0</y-m>
+			<z-m>0.729</z-m>
+			<pitch-deg>-70</pitch-deg>
+		</offsets>
+	</model>
 
 </PropertyList>
 

@@ -33,17 +33,6 @@ var airplaneCrashed  = props.globals.initNode("/b707/crashed", 0,"BOOL");
 
 ################################ Reverser ####################################
 
-# The heading offset to 0
-var turn_offset_deg = setlistener("b707/ess-bus", func(volt)
-{
-if (volt.getValue() >= 23.0)
- {
-  interpolate("/instrumentation/heading-indicator/offset-deg", 0, 2.4);
-  interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 3.2);
-  removelistener(turn_offset_deg);
- }
-}, 0, 0);
-
 var togglereverser = func {
 	r1 = "/fdm/jsbsim/propulsion/engine";
 	r2 = "/fdm/jsbsim/propulsion/engine[1]";
@@ -152,7 +141,7 @@ var h_altimeter = func {
 var h_heading = func {
 	var press_hdg = getprop("/autopilot/settings/heading-bug-deg");
 	if(  press_hdg == nil ) press_hdg = 0.0;
-	help_win.write(sprintf("Target heading: %.0f ", press_hdg) );
+	help_win.write(sprintf("Heading bug: %.0f ", press_hdg) );
 }
 
 var h_course = func {
@@ -225,7 +214,17 @@ var show_alti = func {
 var show_lat_lon = func {
 	var lat = getprop("/position/latitude-string");
 	var lon = getprop("/position/longitude-string");
-	help_win.write(sprintf("lat: "~lat~" lon: "~lon)); 
+	var mv = getprop("/environment/magnetic-variation-deg") or 0;
+	var f1 = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
+	var f2 = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
+	f1 = (!f1)? 1 : -1;
+	f2 = (!f2)? 1 : -1;
+	var dgc1 = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
+	var dgc2 = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
+	dgc1 = dgc1*f1;
+	dgc2 = dgc2*f2;
+	mv = int(mv);
+	help_win.write(sprintf("lat: "~lat~" lon: "~lon~" / Magnetic variation is "~mv~" / Compass Controller 1 lat: "~dgc1~" / Compass Controller 2 lat: "~dgc2)); 
 }
 
 var show_tat = func {
@@ -265,6 +264,36 @@ var show_dme = func {
   }
 }
 
+var show_tacan = func {
+	var tacan_freq = getprop("/instrumentation/tacan/display/channel");
+	help_win.write("Tacan: "~tacan_freq); 
+}
+
+var show_tacan_dme = func {
+    var tacan_miles = getprop("/instrumentation/tacan/indicated-distance-nm") or 0;
+    var tacan_in_range = getprop("/instrumentation/tacan/in-range") or 0;
+    var tacan_is_on = getprop("/instrumentation/tacan/switch-position") or 0;
+
+    var decToString = func(x){
+      var d = int(math.mod((x*100),100));
+
+      return (int(x)~"."~d);  
+    }
+
+      var x = decToString(tacan_miles);
+      var freq = getprop("/instrumentation/tacan/frequencies/selected-channel") or 0;
+      var frex = getprop("/instrumentation/tacan/frequencies/selected-channel[4]");
+	  if(tacan_is_on){
+		  if(tacan_in_range){
+		     help_win.write("Distance to TACAN \""~freq ~ frex~"\" " ~ x ~" nm");
+		  }else{
+		     help_win.write("TACAN \""~freq ~ frex~"\" not in range!");
+		  }
+      }else{
+     	help_win.write("Switch on TACAN first and select an active frequency!");
+	  }
+}
+
 var show_fuel_consumption = func {
   var engineType = getprop("sim/multiplay/generic/int[8]") or 0;
 	var used = getprop("/b707/fuel/fuel-per-hour-lbs") or 0;
@@ -281,7 +310,7 @@ var show_fuel_consumption = func {
 	}
 	
 	if(kg > 0){
-		help_win.write(sprintf("Total Fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", fueltotal, kg, hours, minutes));
+		help_win.write(sprintf("Total Fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
 	}else{
 		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
 	}
@@ -314,6 +343,15 @@ var show_ai_info = func (i){
   help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
 }
 
+var show_ta_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
+}
+
 var show_mp_awacs_info = func (i){
 	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
 	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
@@ -333,6 +371,17 @@ var show_ai_awacs_info = func (i){
 	var bg = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
 	var ct = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
 	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+
+  help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
+}
+
+var show_ta_awacs_info = func (i){
+	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }
@@ -387,41 +436,103 @@ var fullSpeedbrakes = func {
     setprop("/controls/flight/spoilers", val > 0 ? 0 : 1);
 }
 
-######################################## compass control #######################################
-# if compass control is set to MAG (directional gyro slaved to flux valve) and not DG (compass indicate directional gyro heading)
+################# compass controllers and the magnetic compass up or down #####################################
 
-# the offset will be set automatically
+props.globals.initNode("/instrumentation/compass-control[0]/justify",0,"BOOL");
+props.globals.initNode("/instrumentation/compass-control[1]/justify",0,"BOOL");
 
-var mag_control = func {
-	var mag_selected = getprop("/instrumentation/compass-control/mag") or 0;
-	if( mag_selected ) {
-		interpolate("/instrumentation/heading-indicator/offset-deg", 0, 0.25);
-		settimer( mag_control, 122.5);
+setlistener( "/instrumentation/compass-control[0]/mag", func(state){ 
+	var value = state.getValue();
+	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
+	nIndicatedHeading.unalias();
+	if(value){
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
-}
+},1,0);
 
-var mag_control2 = func {
-	var mag_selected2 = getprop("/instrumentation/compass-control[1]/mag") or 0;
-	if( mag_selected2 ) {
-		interpolate("/instrumentation/heading-indicator[1]/offset-deg", 0, 0.20);
-		settimer( mag_control2, 121.5);
-	}
-}
-
-setlistener( "/instrumentation/compass-control/mag", func(state){ 
-		var compos = getprop("/b707/compass-pos") or 0;
-		var state = state.getValue();
-		mag_control(); 
-		if (state and compos) {toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
-});
 setlistener( "/instrumentation/compass-control[1]/mag", func(state){ 
-		var compos = getprop("/b707/compass-pos") or 0;
-		var state = state.getValue();
-		mag_control2(); 
-		if (state and compos) {b707.toggle_switch2(); interpolate("/b707/compass-pos", 0, 0.8);} # 0 is out
-});
+	var value = state.getValue();
+	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
+	nIndicatedHeading.unalias();
+	if(value){
+		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+	}else{
+		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+	}
+},1,0);
 
-############################## the magnetic compass up or down #####################################
+
+setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){ 
+	var latCorr = state.getValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
+	var nS = getprop("/instrumentation/compass-control[0]/lat-knob") or 0;
+	var f = (nS) ? -1 : 1;
+	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[0]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[0]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
+	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	show_lat_lon();
+},1,0);
+
+setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){ 
+	var latCorr = state.getValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
+	var nS = getprop("/instrumentation/compass-control[1]/lat-knob") or 0;
+	var f = (nS) ? -1 : 1;
+	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[1]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[1]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
+	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
+	show_lat_lon();
+},1,0);
+
+setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){ 
+	var nS = state.getBoolValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
+	var latCorr = getprop("/instrumentation/compass-control[0]/lat-turn") or 0;
+	var f = (nS) ? -1 : 1;	
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[0]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[0]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
+	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
+	show_lat_lon();
+},1,0);
+
+setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){ 
+	var nS = state.getBoolValue() or 0;
+	var latPos = getprop("/position/latitude-deg") or 0;
+	var magVar = getprop("/environment/magnetic-variation-deg") or 0;
+	var latCorr = getprop("/instrumentation/compass-control[1]/lat-turn") or 0;
+	var f = (nS) ? -1 : 1;	
+	var latJustify = latPos - latCorr * f;
+	if (latJustify >= -1 and latJustify <= 1) {
+		setprop("instrumentation/compass-control[1]/justify",1);
+	}else{
+		setprop("instrumentation/compass-control[1]/justify",0);
+	}
+	var offset = -magVar + (latJustify/90.0) * 40.0;
+	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
+	show_lat_lon();
+},1,0);
 
 var compass_swing = func{
 	var state = getprop("/b707/compass-pos") or 0;
@@ -772,7 +883,7 @@ var nacelle_deicing = func {
 		}		
 		var engineInlet = getprop("/b707/anti-ice/engine-inlet["~e.getIndex()~"]") or 0;
 		
-		if (!engineInlet) {
+		if (!engineInlet and e.getIndex() < 4) {
 		  var n = e.getIndex() + 1;
 		  if(tat <= -10) iceAlertEngines = 1;
 		  if(tat <= -30) setprop("/controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
@@ -902,17 +1013,26 @@ var calc_pressurization	= func{
 	var calt = getprop("/b707/pressurization/cabin-altitude") or 0;
 	var max = getprop("/b707/pressurization/cabin-max") or 0;
 	var mode = getprop("/b707/pressurization/mode-switch") or 0; # true is take off / false for landing
+	var engBleedAir1 = getprop("/b707/air-conditioning/eng-bleed-air[0]") or 0;
+	var engBleedAir2 = getprop("/b707/air-conditioning/eng-bleed-air[1]") or 0;
+	var engBleedAir3 = getprop("/b707/air-conditioning/eng-bleed-air[2]") or 0;
+	var engBleedAir4 = getprop("/b707/air-conditioning/eng-bleed-air[3]") or 0;
+	engBleedAir1 = (engBleedAir1) ? getprop("engines/engine[0]/n1") : 0;
+	engBleedAir2 = (engBleedAir2) ? getprop("engines/engine[1]/n1") : 0;
+	engBleedAir3 = (engBleedAir3) ? getprop("engines/engine[2]/n1") : 0;
+	engBleedAir4 = (engBleedAir4) ? getprop("engines/engine[3]/n1") : 0;
 	
 	# this is a fake calculation for psi in air supply and the control for the overheat of the compressors
-	if(comrpm1.getValue() > 115) settimer(func{air_compressor(0)}, 0);
-	if(comrpm2.getValue() > 115) settimer(func{air_compressor(1)}, 0);
-	if(comrpm3.getValue() > 115) settimer(func{air_compressor(2)}, 0);
+	var overspeedMach = getprop("/velocities/mach") or 0;
+	if(comrpm1.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(0)}, 0);
+	if(comrpm2.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(1)}, 0);
+	if(comrpm3.getValue() > 115 or overspeedMach > 0.93) settimer(func{air_compressor(2)}, 0);
 	
-	var airSupplyDuct = (comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
+	var airSupplyDuct = (engBleedAir1 + engBleedAir2 + engBleedAir3 + engBleedAir4 + comrpm1.getValue() + comrpm2.getValue() + comrpm3.getValue()) / 30 * 6;
 	airSupplyDuct = (airSupplyDuct >= 0) ? airSupplyDuct : 0;
 	interpolate("/b707/air-conditioning/air-supply-psi", airSupplyDuct, t);
 	
-	if(svp and airSupplyDuct > 10){
+	if(svp and airSupplyDuct > 18){
 	
 		if(ms){
 		
@@ -1130,7 +1250,7 @@ setlistener("/b707/emergency/emer-flap-outbd", func(state){
 	}
 },0,1);
 
-######################### very bad control to the rudder ############################################
+#########################  control to the rudder ############################################
 
 var rudder_hyd_negativ_control = func{
 	#overwrite the rudder control since I will found a better solution

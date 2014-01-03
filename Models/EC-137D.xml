@@ -9,6 +9,79 @@
 <PropertyList>
 
  <path>EC-137.ac</path>
+
+<animation>
+	<type>select</type>		
+    <object-name>fuselage</object-name>
+    <object-name>doorFL</object-name>
+    <object-name>doorRL</object-name>
+    <object-name>doorCargo</object-name>
+    <object-name>doorBelly</object-name>
+    <object-name>nose</object-name>
+    <object-name>vertstab</object-name>
+    <object-name>rudder</object-name>
+    <object-name>nonones</object-name>
+    <object-name>lhaftfairing</object-name>
+    <object-name>lhdoorinner</object-name>
+    <object-name>lhdoorouter</object-name>
+    <object-name>lhfwdfairing</object-name>
+    <object-name>rhaftfairing</object-name>
+    <object-name>rhdoorinner</object-name>
+    <object-name>rhdoorouter</object-name>
+    <object-name>rhfwdfairing</object-name>
+    <object-name>engineOne</object-name>
+    <object-name>engineTwo</object-name>
+    <object-name>engineThree</object-name>
+    <object-name>engineFour</object-name>
+    <object-name>engineOnePW</object-name>
+    <object-name>engineTwoPW</object-name>
+    <object-name>engineThreePW</object-name>
+    <object-name>engineFourPW</object-name>
+    <object-name>engineSupport</object-name>
+    <object-name>lhngdoor</object-name>
+    <object-name>lhngdooraft</object-name>
+    <object-name>rhngdoor</object-name>
+    <object-name>rhngdooraft</object-name>
+    <object-name>mgdoora</object-name>
+    <object-name>mgdoorb</object-name>
+    <object-name>mgdoorc</object-name>
+    <object-name>rhmgdoora</object-name>
+    <object-name>rhmgdoorb</object-name>
+    <object-name>rhmgdoorc</object-name>
+    <object-name>wing</object-name>
+    <object-name>elevwing</object-name>
+	<object-name>rhfiletflap</object-name>
+	<object-name>lhfiletflap</object-name>
+	<object-name>rhibflap</object-name>
+	<object-name>lhibflap</object-name>
+	<object-name>rhobflap</object-name>
+	<object-name>lhobflap</object-name>
+	<object-name>rhobail</object-name>
+	<object-name>lhobail</object-name>
+	<object-name>rhsp1</object-name>
+	<object-name>lhsp1</object-name>
+	<object-name>rhsp3</object-name>
+	<object-name>lhsp3</object-name>
+	<object-name>rhibail</object-name>
+	<object-name>lhibail</object-name>
+	<object-name>rhobail</object-name>
+	<object-name>lhobail</object-name>
+    <object-name>slatsR</object-name>
+    <object-name>slatsL</object-name>
+	<object-name>RightGear</object-name>
+	<object-name>RightGear.001</object-name>
+	<object-name>RightGearBase</object-name>
+	<object-name>RightGearCompressor</object-name>
+	<object-name>RightGearCompressor1</object-name>
+	<object-name>LeftGear</object-name>
+	<object-name>LeftGear.001</object-name>
+	<object-name>LeftGearBase</object-name>
+	<object-name>LeftGearCompressor</object-name>
+	<object-name>LeftGearCompressor1</object-name>
+	<condition>
+    	<not><property>sim/current-view/internal</property></not>
+	</condition>
+</animation> 
  
   <sound><path>Aircraft/707/Sounds/mp-sound.xml</path></sound>
   
@@ -35,8 +108,6 @@
     <object-name>fuselage</object-name>
     <object-name>vertstab</object-name>
     <object-name>rudder</object-name>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
     <object-name>nonones</object-name>
     <object-name>lhaftfairing</object-name>
     <object-name>lhdoorinner</object-name>
@@ -89,48 +160,14 @@
     <texture-prop>texture</texture-prop>
     <texture>EC-137.png</texture>
   </animation>
-	
-	<!-- ##########  rembrandt do not work together with this effect ############ -->
-	<effect>
-		<inherits-from>Effects/lightmap</inherits-from>
-		<parameters>
-			<texture n="1">
-				<image>Aircraft/707/Models/Lights/logolight.png</image>
-			</texture>
-			<condition><use>/controls/lighting/logo-lights</use></condition>
-			<factor>1</factor>
-		</parameters>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
-	</effect>
-	
+
 	<animation>
 		<type>noshadow</type>
     <object-name>fuselage.inner</object-name>
     <object-name>fuselage.belly</object-name>
     <object-name>cockpit</object-name>    
 	</animation>
-	
-	<!-- objects without rembrandt -->
-	<animation>
-		<type>select</type>
-    <object-name>vertstabWithLight</object-name>
-    <object-name>rudderWithLight</object-name>
-		<condition>	
-		  <not><property>/sim/rendering/rembrandt/enabled</property></not>
-		</condition>
-	</animation>
-	<!-- objects for rembrandt -->	
-	<animation>
-		<type>select</type>
-    <object-name>vertstab</object-name>
-    <object-name>rudder</object-name>
-		<condition>	
-		  <property>/sim/rendering/rembrandt/enabled</property>
-		</condition>
-	</animation>
-	
-	<!-- ############ end of rudder illumination ############ --> 
+
   <animation>
       <type>translate</type>
       <object-name>doorRefuel</object-name>
@@ -257,6 +294,46 @@
 				<command>property-toggle</command>
     		<property>b707/external-power-connected</property>
 		  </binding>
+		</action>
+  </animation> 
+   
+  <!-- Fuel Truck -->
+  <model>
+  	<name>FuelTruck</name>
+	<path>Aircraft/707/Models/fuel-truck.xml</path>
+	<offsets>
+	  <x-m>0.0</x-m>
+	  <y-m>0.0</y-m>
+	  <z-m>0.0</z-m>
+	</offsets>
+  </model>
+  
+<animation>
+	<type>select</type>
+	<object-name>FuelTruck</object-name>
+	<condition>
+	  <property>sim/multiplay/generic/float[13]</property>
+	  <not><property>sim/multiplay/generic/int[19]</property></not>
+	</condition>
+</animation> 
+  
+  <animation>
+		<type>pick</type>
+		<object-name>FuelTruck</object-name>
+		<action>
+		  <button>0</button>
+		  <repeatable>true</repeatable>
+		  <interval-sec>0.2</interval-sec>
+          <binding>
+            <command>nasal</command>
+            <script><![CDATA[ 
+				setprop("/b707/ground-service/fuel-truck/transfer", 0);
+				setprop("/b707/ground-service/fuel-truck/connect", 0);
+				setprop("/b707/ground-service/fuel-truck/enable", 0);
+				setprop("/b707/ground-service/fuel-truck/clean", 0);
+				setprop("/b707/ground-service/fuel-truck/state", 0);
+            ]]></script>
+          </binding>
 		</action>
   </animation>
   
@@ -2725,7 +2802,7 @@
     <y-m>-1.55</y-m>
     <z-m> 1.62</z-m>
     <roll-deg>34</roll-deg>
-    <heading-deg>179.0</heading-deg>
+    <heading-deg>181.0</heading-deg>
   </offsets>
   <overlay>
     <params>
@@ -2772,6 +2849,23 @@
 		</equals>
 	</condition>
 </animation>
+
+<model>
+	<name>registrationCockpitPanel</name>
+  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
+  <offsets>
+      <x-m>-18.91</x-m>
+      <y-m>-0.425</y-m>
+      <z-m>0.952</z-m>
+    <heading-deg>-90.0</heading-deg>
+  </offsets>
+  <overlay>
+    <params>
+      <size>0.013</size>
+      <alignment>reversed-xz-plane</alignment>
+    </params>
+  </overlay>
+</model>
   
 </PropertyList>
 

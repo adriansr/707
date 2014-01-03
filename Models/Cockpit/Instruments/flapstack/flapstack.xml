@@ -129,7 +129,7 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>LampBlueON</object-name>
+		<object-name>LampBlueON</object-name>  <!-- but its a green lamp now :-)) -->
 		<condition>		
 			<greater-than>
 				<property>/b707/ess-bus</property>
@@ -138,7 +138,10 @@
 		  <or>
 		    <and>
 		    	<property>/controls/special/slats-switch</property>
-		    	<property>surface-positions/wing-fold-pos-norm</property>
+				<greater-than>
+		    		<property>surface-positions/wing-fold-pos-norm</property>
+					<value>0.9</value>
+				</greater-than>
 		    </and>
 		    <property>/controls/test/warn-knob</property>
 		  </or>

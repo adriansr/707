@@ -134,7 +134,11 @@
 		<condition>
 			<and>
 				<property>sim/multiplay/generic/int[0]</property>
-				<property>gear/gear[0]/position-norm</property>
+				<property>gear/gear[0]/position-norm</property>		          
+				<greater-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>15</value>
+		          </greater-than>	
 			</and>
 		</condition>
 	</animation>
@@ -145,7 +149,11 @@
  		<object-name>Cone-texture.002</object-name>
 		<condition>
 			<and>
-				<property>sim/multiplay/generic/int[1]</property>
+				<property>sim/multiplay/generic/int[1]</property>		          
+				<greater-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>15</value>
+		          </greater-than>	
 			</and>
 		</condition>
 	</animation>
@@ -159,7 +167,15 @@
 					<property>/sim/rendering/rembrandt/enabled</property>
 				</not>
 				<property>sim/multiplay/generic/int[0]</property>
-				<property>gear/gear[0]/position-norm</property>				
+				<property>gear/gear[0]/position-norm</property>						  
+				<less-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>15</value>
+		          </less-than>
+		          <greater-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>0</value>
+		          </greater-than>			
 			</and>
 		</condition>
 	</animation>
@@ -174,7 +190,15 @@
 					<property>/sim/rendering/rembrandt/enabled</property>
 				</not>
 				<property>sim/multiplay/generic/int[1]</property>				
-				<property>gear/gear[0]/position-norm</property>	
+				<property>gear/gear[0]/position-norm</property>					 
+				<less-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>15</value>
+		          </less-than>
+		          <greater-than>
+		            <property>sim/multiplay/generic/float[8]</property>
+		            <value>0</value>
+		          </greater-than>			
 			</and>
 		</condition>
 	</animation>

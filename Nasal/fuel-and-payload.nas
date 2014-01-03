@@ -349,16 +349,20 @@ var WeightFuelDialog = func {
     kg.set("label", "kg");
     kg.set("halign", "left");
     
-    var tnames = ["Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1", "Res 4"];
+    var tnames = ["Res 4", "Main 4", "Main 3", "Center", "Main 2", "Main 1", "Res 1"];
 
     var tanks = props.globals.getNode("/consumables/fuel").getChildren("tank");
-    for(var i=0; i<size(tanks); i+=1) {
-        var t = tanks[i];
-        var tname = tnames[i-1] ~ "";
+    for(var ti=0; ti<7; ti+=1) {
+        var t = tanks[ti];
+        var tname = tnames[ti] ~ "";
+
+		#print("Tanks in for:"~ti);
+		#print("Tank name: "~tnames[ti]);
+		
         var tnode = t.getNode("name");
         if(tnode != nil) { tname = tnode.getValue(); }
 
-        var tankprop = "/consumables/fuel/tank["~i~"]";
+        var tankprop = "/consumables/fuel/tank["~ti~"]";
 
         var cap = t.getNode("capacity-gal_us", 0);
 
@@ -369,33 +373,33 @@ var WeightFuelDialog = func {
         # Ignore tanks of capacity 0
         if (cap == 0) { continue; }
 
-        var title = tcell(fuelTable, "text", i+1, 0);
+        var title = tcell(fuelTable, "text", ti+1, 0);
         title.set("label", tname);
         title.set("halign", "left");
 
         var selected = props.globals.initNode(tankprop ~ "/selected", 1, "BOOL");
         if (selected.getAttribute("writable")) {
-            var sel = tcell(fuelTable, "checkbox", i+1, 1);
+            var sel = tcell(fuelTable, "checkbox", ti+1, 1);
             sel.set("property", tankprop ~ "/selected");
             sel.set("live", 1);
             sel.setBinding("dialog-apply");
         }
 
-        var slider = tcell(fuelTable, "slider", i+1, 2);
+        var slider = tcell(fuelTable, "slider", ti+1, 2);
         slider.set("property", tankprop ~ "/level-gal_us");
         slider.set("live", 1);
         slider.set("min", 0);
         slider.set("max", cap);
         slider.setBinding("dialog-apply");
 
-        var lbs = tcell(fuelTable, "text", i+1, 3);
+        var lbs = tcell(fuelTable, "text", ti+1, 3);
         lbs.set("property", tankprop ~ "/level-lbs");
 				lbs.set("label", "0123456");
 				lbs.set("format", "%.1f" );
 				lbs.set("halign", "right");
 				lbs.set("live", 1);
 
-        var kg = tcell(fuelTable, "text", i+1, 4);
+        var kg = tcell(fuelTable, "text", ti+1, 4);
         kg.set("property", tankprop ~ "/level-kg");
 				kg.set("label", "0123456");
 				kg.set("format", "%.1f" );
@@ -693,9 +697,13 @@ setlistener("/fdm/jsbsim/inertia/weight-lbs", func(wlbs){
 },1,0);
 
 #################### CROSSFEED VALVES IN ENGINEER PANEL and FUEL DUMP valves #################################
-var valve_pos = func(nr) {
-	setprop("b707/fuel/valves/valve-pos["~nr~"]", 0);
-	settimer( func { setprop("b707/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );
+var valve_pos = func(nr){ 
+	if(getprop("b707/ess-bus") > 24){
+		setprop("b707/fuel/valves/valve-pos["~nr~"]", 0);
+		settimer( func { setprop("b707/fuel/valves/valve-pos["~nr~"]", 1) }, 1.8 );	
+	}else{
+		screen.log.write("No electrical power!", 1, 0, 0);
+	}
 }
 var shutoff_pos = func(nr) {
 	setprop("b707/fuel/valves/fuel-shutoff-pos["~nr~"]", 0);
@@ -931,6 +939,7 @@ var crossfeed_action = func {
   # which engine is selected?
   # Pratt and Whitney TJ4 or Conway RCo10
   var tj4 = getprop("sim/multiplay/generic/int[8]") or 0;
+  var refuelAction = getprop("/b707/ground-service/fuel-truck/connect") or 0;
 	var bogFac = (tj4 > 0) ? 48 : 36;
 
 	var pow = getprop("/b707/ess-bus") or 0;
@@ -938,7 +947,7 @@ var crossfeed_action = func {
 	var bog = 0;
 	
 
-	if(pow > 20 and v0.getBoolValue() and vp0.getBoolValue() and tfR1.getValue()){
+	if(pow > 20 and v0.getBoolValue() and vp0.getBoolValue() and tfR1.getValue() and !refuelAction){
 	  # R1 flow into M1
 	  diff = 15564 - tfM1.getValue(); #15564 is the capaticy of the Main Tank 1 and 4
 	  
@@ -956,7 +965,7 @@ var crossfeed_action = func {
 	  interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, 7);
 	}
 	
-	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 100){
+	if(pow > 20 and v1.getBoolValue() and vp1.getBoolValue() and tfM1.getValue() < 100 and !refuelAction){
 		# M1 ask the other tanks
 		bog = tfM2.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -984,7 +993,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 100){
+	if(pow > 20 and v2.getBoolValue() and vp2.getBoolValue() and tfM2.getValue() < 100 and !refuelAction){
 		# M2 ask the other tanks
 		bog = tfM1.getValue() + tfM3.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -1012,7 +1021,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 100){
+	if(pow > 20 and v3.getBoolValue() and vp3.getBoolValue() and tfM3.getValue() < 100 and !refuelAction){
 		# M3 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM4.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -1040,7 +1049,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 100){
+	if(pow > 20 and v4.getBoolValue() and vp4.getBoolValue() and tfM4.getValue() < 100 and !refuelAction){
 		# M4 ask the other tanks
 		bog = tfM1.getValue() + tfM2.getValue() + tfM3.getValue();
 		# Center Tank will only deliver, if his boost pumps on
@@ -1068,7 +1077,7 @@ var crossfeed_action = func {
 		}
 	}
 
-	if(pow > 20 and v5.getBoolValue() and vp5.getBoolValue() and tfR4.getValue()){
+	if(pow > 20 and v5.getBoolValue() and vp5.getBoolValue() and tfR4.getValue() and !refuelAction){
 	  # R1 flow into M1
 	  diff = 15564 - tfM4.getValue(); #15564 is the capaticy of the Main Tank 1 and 4
 	  
@@ -1217,8 +1226,118 @@ var dump_loop_r = func{
 settimer( func { engines_alive(); } , 6);
 settimer( func { crossfeed_action(); } , 7);
 
+############################################# external fuel service action ###########################################
+var fuel_truck = props.globals.getNode("b707/ground-service/fuel-truck/state");
+var fuel_truck_enable = props.globals.getNode("b707/ground-service/fuel-truck/enable");
+var fuel_truck_connect = props.globals.getNode("b707/ground-service/fuel-truck/connect");
+var fuel_truck_transfer = props.globals.getNode("b707/ground-service/fuel-truck/transfer");
+var fuel_truck_clean = props.globals.getNode("b707/ground-service/fuel-truck/clean");
 
+var loop_id = 0;
 
+var clean_or_refuel = func{
+	
+	#print("ID:"~loop_id);
+	loop_id += 1;
+	
+	# Fuel Truck Controls
+	var request_kg = getprop("/b707/ground-service/fuel-truck/request-kg") or 0;
+	var total_fuel = getprop("consumables/fuel/total-fuel-kg") or 0; 
+
+	if (fuel_truck_enable.getBoolValue()) {
+
+		if(!getprop("engines/engine[0]/running") and !getprop("engines/engine[1]/running") and
+		   !getprop("engines/engine[2]/running") and !getprop("engines/engine[3]/running")){
+		   	fuel_truck.setValue(1.0);
+		}else{
+			screen.log.write("Please shutdown engines before Re-fueling Service call!", 1, 0, 0);
+			setprop("/b707/ground-service/fuel-truck/enable", 0);
+			setprop("/b707/ground-service/fuel-truck/connect", 0);
+			setprop("/b707/ground-service/fuel-truck/transfer", 0);
+			setprop("/b707/ground-service/fuel-truck/clean", 0);
+			setprop("/b707/ground-service/fuel-truck/state", 0);
+		}
+
+		if(fuel_truck_connect.getBoolValue()){
+
+	   		fuel_truck.setValue(1.1);
+
+			if (fuel_truck_transfer.getBoolValue()) {
+			
+				if (!getprop("/b707/fuel/valves/valve[0]") and
+					!getprop("/b707/fuel/valves/valve[1]") and !getprop("/b707/fuel/valves/valve[2]") and
+					!getprop("/b707/fuel/valves/valve[3]") and !getprop("/b707/fuel/valves/valve[4]") and
+					!getprop("/b707/fuel/valves/valve[5]")) {
+
+					if (total_fuel < request_kg and total_fuel < 72485.0) {
+						setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") + 0.5);
+						setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") + 3);
+						setprop("/consumables/fuel/tank[2]/level-kg", getprop("/consumables/fuel/tank[2]/level-kg") + 3);
+						setprop("/consumables/fuel/tank[3]/level-kg", getprop("/consumables/fuel/tank[3]/level-kg") + 6);
+						setprop("/consumables/fuel/tank[4]/level-kg", getprop("/consumables/fuel/tank[4]/level-kg") + 3);
+						setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") + 3);
+						setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") + 0.5);
+
+						if(loop_id > 3) fuel_truck.setValue(1.2); 
+
+					} else {
+						setprop("/b707/ground-service/fuel-truck/transfer", 0);
+						screen.log.write("Re-fueling complete! Have a nice flight... :)", 1, 1, 1);
+					}				
+
+				}else{
+					setprop("/b707/ground-service/fuel-truck/transfer", 0);
+					screen.log.write("ABORT! Please CLOSE your crossfeed valves before Re-fueling!", 1, 0, 0);
+				}
+
+			}
+
+			if (fuel_truck_clean.getBoolValue()) {
+
+				if (getprop("/b707/fuel/valves/valve[0]") and
+					getprop("/b707/fuel/valves/valve[1]") and getprop("/b707/fuel/valves/valve[2]") and
+					getprop("/b707/fuel/valves/valve[3]") and getprop("/b707/fuel/valves/valve[4]") and
+					getprop("/b707/fuel/valves/valve[5]")) {
+
+					if (getprop("consumables/fuel/total-fuel-kg")) {
+
+						setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") - 0.5);
+						setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") - 3);
+						setprop("/consumables/fuel/tank[2]/level-kg", getprop("/consumables/fuel/tank[2]/level-kg") - 3);
+						setprop("/consumables/fuel/tank[3]/level-kg", getprop("/consumables/fuel/tank[3]/level-kg") - 6);
+						setprop("/consumables/fuel/tank[4]/level-kg", getprop("/consumables/fuel/tank[4]/level-kg") - 3);
+						setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") - 3);
+						setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") - 0.5);
+
+						if(loop_id > 3) fuel_truck.setValue(1.2);
+
+					} else {
+						setprop("/b707/ground-service/fuel-truck/clean", 0);
+						screen.log.write("Finished draining the fuel tanks...", 1, 1, 1);
+					}
+				}else{
+					setprop("/b707/ground-service/fuel-truck/clean", 0);
+					screen.log.write("ABORT! Please OPEN your crossfeed valves before draining!", 1, 0, 0);
+				}
+			}
+
+		}
+
+		if(loop_id > 6) {
+		loop_id = 0;
+		}
+		settimer(clean_or_refuel, 0.12);
+	}else{
+		setprop("/b707/ground-service/fuel-truck/transfer", 0);
+		setprop("/b707/ground-service/fuel-truck/connect", 0);
+		setprop("/b707/ground-service/fuel-truck/clean", 0);
+		setprop("/b707/ground-service/fuel-truck/state", 0);
+	}
+};
+
+setlistener("/b707/ground-service/fuel-truck/enable", func{
+	clean_or_refuel();
+},1,0);
 
 
 

@@ -49,6 +49,33 @@
   </binding>
 </key>
 
+<key n="257">
+    <name>F1</name>
+    <desc>Checklists</desc>
+    <binding>
+      <command>dialog-show</command>
+      <dialog-name>checklist</dialog-name>
+    </binding>
+</key>
+
+<key n="263">
+	<name>F7</name>
+	<desc>Show map</desc>
+	<binding>
+	<command>dialog-show</command>
+	<dialog-name>map</dialog-name>
+	</binding>
+</key>
+
+<key n="264">
+	<name>F8</name>
+	<desc>Show map</desc>
+	<binding>
+	<command>dialog-show</command>
+	<dialog-name>route-manager</dialog-name>
+	</binding>
+</key>
+
 <key n="265">
     <name>F9</name>
     <desc>Pop up Fuel and Weight dialog</desc>
@@ -57,7 +84,6 @@
         <script>b707.WeightFuelDialog()</script>
     </binding>
 </key>
-
 <!--
 <key n="267">
   <name>F11</name>

@@ -13,7 +13,7 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>2.1.2</version>
+  <version>2.1.7</version>
   <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
  </fileheader>
 
@@ -31,7 +31,7 @@
     # engines:     4
     engine type:   turbine
     engine layout: wings
-    yaw damper?    not any more :-) mk
+    yaw damper:    smooth yoke behaviour
   Outputs:
     wing loading:  109.57 lb/sq-ft
     payload:       45108.5 lbs
@@ -734,8 +734,25 @@
  					 <property>/engines/engine[2]/n1</property> <!--only with the stronger TJ4 engines-->
  					 <property>/engines/engine[3]/n1</property> <!--only with the stronger TJ4 engines-->
  					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
-           <value>0.000000001</value>
+           <value>0.000000002</value>
        </product>
+    </function>
+	
+    <function name="aero/coefficient/CLground">
+        <description>Lift_due_ground_reactions</description>
+        <product>
+            <table>
+                <independentVar>position/h-agl-ft</independentVar>
+                <tableData>
+                  0             0.105        
+                  10            0.149        
+                  20            0.203        
+                  27            0       
+                </tableData>
+            </table>
+            <property>aero/qbar-psf</property>
+            <property>metrics/Sw-sqft</property>
+        </product>
     </function>
 
   </axis>
@@ -977,7 +994,7 @@
           <table>
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
-              0.0     -1.300
+              0.0     -1.900
               2.0     -0.325
             </tableData>
           </table>

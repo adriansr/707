@@ -72,21 +72,17 @@ The only reason it's here is to specify a second ADF.
         <name>clock</name>
         <number>0</number>
     </clock> 
-    
-    <!-- Pilot -->
-		<heading-indicator-dg>
-		  <name>heading-indicator</name>
-		  <number>0</number>
-		  <suction>/systems/vacuum/suction-inhg</suction>
-		</heading-indicator-dg>
 
-		<!-- Copilot -->
-		<heading-indicator-dg>
-		  <name>heading-indicator</name>
-		  <number>1</number>
-		  <suction>/systems/vacuum/suction-inhg</suction>
-		</heading-indicator-dg>
+    <heading-indicator-fg>
+        <name>heading-indicator-fg</name>
+        <number>0</number>
+    </heading-indicator-fg>
 
+    <heading-indicator-fg>
+        <name>heading-indicator-fg</name>
+        <number>1</number>
+    </heading-indicator-fg>
+	
     <magnetic-compass>
         <name>magnetic-compass</name>
         <number>0</number>
@@ -97,20 +93,20 @@ The only reason it's here is to specify a second ADF.
         <number>0</number>
     </slip-skid-ball>
 
-		<turn-indicator>
-			<name>turn-indicator</name>
-			<number>0</number>
-		</turn-indicator>
+	<turn-indicator>
+		<name>turn-indicator</name>
+		<number>0</number>
+	</turn-indicator>
 
-    <tacan n="0">
+    <tacan>
       <name>tacan</name>
       <number>0</number>
       <serviceable type="bool" archive="y">true</serviceable>
-      <switch-position type="int" archive="y">1</switch-position>
+      <switch-position type="int" archive="y">0</switch-position>
     </tacan>
 
     <radar>
-		  <name>radar</name>
+		<name>radar</name>
 		  <number>0</number>
       <!-- Used for Air-to-Air Refueling -->
       <range type="int" archive="y">20</range>

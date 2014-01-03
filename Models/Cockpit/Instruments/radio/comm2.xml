@@ -14,20 +14,6 @@
   <object-name>Panel</object-name>
   <texture>comm.png</texture>
 </animation>
-
-	<animation>
-		<type>material</type>
-  		<object-name>Panel</object-name>
-		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
-		</condition>
-		<emission>
-			<red>0.05</red>
-			<green>0.05</green>
-			<blue>0.05</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
-		</emission>
-	</animation>
 	
 	<animation>
 		<type>material</type>
@@ -221,7 +207,7 @@
   <object-name>ActKnob1</object-name>
   <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
@@ -237,7 +223,7 @@
   </action>
   <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
@@ -308,7 +294,7 @@
   <object-name>ActKnob2</object-name>
   <action>
     <button>0</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
@@ -324,7 +310,7 @@
   </action>
   <action>
     <button>1</button>
-    <repeatable>false</repeatable>
+    <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>

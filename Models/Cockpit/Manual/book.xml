@@ -211,7 +211,7 @@
         <binding>
 				  <command>property-assign</command>
 				  <property>/b707/manual/page</property>
-				  <value>56</value>
+				  <value>57</value>
         </binding> 
 				<binding>
 				  <command>nasal</command>

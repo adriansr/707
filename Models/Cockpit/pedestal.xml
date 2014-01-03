@@ -50,7 +50,7 @@
 		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
-	
+
 	 <!-- Autopilot controller -->
 	 <model>
 		<path>Aircraft/707/Models/Cockpit/Instruments/ap/autopilot.xml</path>
@@ -894,7 +894,7 @@
 		<factor>-45</factor>
 		<center>
 		  <x-m>-18.288</x-m>
-		  <y-m>-0.02424</y-m>
+		  <y-m>-0.04924</y-m>
 		  <z-m> 0.0</z-m>
 		</center>
 		<axis>
@@ -911,7 +911,7 @@
 		<factor>-4680</factor>
 		<center>
 		  <x-m>-18.288</x-m>
-		  <y-m>-0.02424</y-m>
+		  <y-m>-0.04924</y-m>
 		  <z-m> 0.0</z-m>
 		</center>
 		<axis>

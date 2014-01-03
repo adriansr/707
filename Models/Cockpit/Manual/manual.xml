@@ -28,6 +28,8 @@
 		Czech ............. page 35 ff
 		
 		Portugues ...... page 46 ff
+		
+		Italiano ........... page 57 ff
 	</text1>
 	<subtitle2 n="1"></subtitle2>
 	<text2 n="1"></text2>
@@ -1476,5 +1478,281 @@
 	<subtitle4 n="55"></subtitle4>
 	<text4 n="55">
 		- Entao retorne a versao estavel -
+	</text4>
+	
+	<!-- ####################### italiano ##################### -->
+	<!-- page 57 -->	
+	<title n="57">MANUALE 707</title>
+	<subtitle1 n="57">Italiano</subtitle1>
+	<text1 n="57">
+		     PROCEDURE D'EMERGENZA
+		INCENDIO MOTORE.....................pag. 58
+		RIAVVIAMENTO MOTORE...........pag. 58
+		ALLARME GHIACCIO....................pag. 59
+		ALLARME PRESSURIZZAZIONE.pag. 60
+	</text1>
+	<text2 n="57">
+		     PROCEDURE NORMALI
+		Avviamento APU
+		(unita energia ausiliare)..........pag. 61
+		Post-avviamento motori...........pag. 62
+		Prima del decollo....................pag. 63/64
+	</text2>
+	<subtitle3 n="57"></subtitle3>
+	<text3 n="57">
+		Decollo......................................pag. 65
+		Pilota automatico.....................pag. 66
+	</text3>
+	<subtitle4 n="57"></subtitle4>
+	<text4 n="57"></text4>
+	
+	<!-- page 58 -->
+	<title n="58">EMERGENZA 707</title>
+	<subtitle1 n="58">INCENDIO MOTORE</subtitle1>
+	<text1 n="58">
+		Leva propulsione - CHIUSA (indietro)
+		Essential Power Source - CHECK
+		Generator Drive - SCOLLEGATO
+		Cutoff Lever - INTERROTTO 
+		Engine Fire Switch - TIRARE
+		Se l'allarme incendio cessa:
+		Engine Fire Switch - SPINGERE
+	</text1>
+	<subtitle2 n="58"></subtitle2>
+	<text2 n="58"></text2>
+	<subtitle3 n="58">RIAVVIAMENTO MOTORE/VOLO</subtitle3>
+	<text3 n="58">
+		Non ripristinare Generator Drive (connessione al generatore)
+		Overhead Start Switch - ON
+		Cutoff Lever - ON (abbassata)
+	</text3>
+	<subtitle4 n="58"></subtitle4>
+	<text4 n="58">
+	    Ricollegando il Generator Drive in
+		volo, si rovinerebbe il generatore e
+		nel peggiore dei casi anche il motore.
+	</text4>
+	
+	<!-- page 59 -->	
+	<title n="59">EMERGENZA 707</title>
+	<subtitle1 n="59">ALLARME GHIACCIO</subtitle1>
+	<text1 n="59">
+		--------- Pannello soffitto cabina ----------
+		Wing Anti-Ice  - ON
+		Nacelle Anti-Ice  - tutti ON
+		Window Heat  - entrambi HIGH
+		--------- Pannello motorista ----------
+		Fuel Heaters  - tutti ON
+	</text1>
+	<subtitle2 n="59"></subtitle2>
+	<text2 n="59"></text2>
+	<subtitle3 n="59"></subtitle3>
+	<text3 n="59">
+		Controllare lo strumento TAT nel pannello
+		del copilota (Total Air Temperature).
+		In caso di valore negativo sono necessarie
+		regolazioni ANTI-ICE (antighiaccio).
+	</text3>
+	<subtitle4 n="59"></subtitle4>
+	<text4 n="59"></text4>
+	
+	<!-- page 60 -->	
+	<title n="60">EMERGENZA 707</title>
+	<subtitle1 n="60">ALLARME PRESSURIZZAZIONE</subtitle1>
+	<text1 n="60">
+		--------- Pannello soffitto cabina ----------
+		Oxygen (ossigeno) - ON
+		Seat Belts (cinture di sicurezza) - ON
+		No Smoking (non fumare) - ON
+		Emer Exit Lights (luci di salita d'emergenza) - ON
+	</text1>
+	<subtitle2 n="60"></subtitle2>
+	<text2 n="60">
+		--------- Pannello motorista ----------
+		Air Compressors - CHECK
+		Air Cond Unit - entrambi ON
+		Saftey Valve Override - NORMAL
+		Pressurization: interruttore destro - AUTO
+		Pressurization: interruttore sinistro - LANDING
+		Rate (tasso) - MAX DECR
+		Fwd/Aft Valve - NORMAL
+	</text2>
+	<subtitle3 n="60"></subtitle3>
+	<text3 n="60">
+	</text3>
+	<subtitle4 n="60"></subtitle4>
+	<text4 n="60">		
+		------------------------------------------
+		Discesa d'emergenza - INIZIARE
+	</text4>
+	
+	<!-- page 61 -->	
+	<title n="61">Procedure Normali</title>
+	<subtitle1 n="61">Avviamento APU (unità di energia ausiliare)</subtitle1>
+	<text1 n="61">
+		--------- Pannello motorista ----------
+		Battery - ON
+		--------- Pannello ausiliario ----------
+		APU Master - START
+		APU Generator - ON
+		APU Bleed Valve - OPEN
+		--------- Pannello motorista ----------
+		AC Paralleling - APU
+		Essential Power - APU
+	</text1>
+	<subtitle2 n="61"></subtitle2>
+	<text2 n="61">
+	</text2>
+	<subtitle3 n="61">APU Shutdown</subtitle3>
+	<text3 n="61">		
+		--------- Pannello motorista ----------
+		Essential Power - CHECK
+		--------- Pannello ausiliario ----------
+		APU Bleed Valve - CLOSE
+		APU Generator - OFF
+		APU Master - OFF
+	</text3>
+	<subtitle4 n="61"></subtitle4>
+	<text4 n="61">		
+	</text4>
+	
+	<!-- page 62 -->	
+	<title n="62">Procedure Normali</title>
+	<subtitle1 n="62">Post-avviamento motori</subtitle1>
+	<text1 n="62">
+		--------- Pannello ausiliario ----------
+		APU Bleed Valve - CLOSE
+		--------- Pannello motorista ----------
+		Elettricità - ATTIVARE		
+		AC Paralleling - tutti CHECK
+		Breakers - tutti CLOSE
+	</text1>
+	<subtitle2 n="62"></subtitle2>
+	<text2 n="62">
+		RAM Air - OPEN
+		Air Compressor 2,3,4 - RUN/START
+		Boost Pumps - tutte ON
+		Hydraulic System - CHECK
+		Air Compressor 2,3,4 indicazioni - CHECK
+	</text2>
+	<subtitle3 n="62"></subtitle3>
+	<text3 n="62">
+		Air Conditioning Wing Valve - OPEN
+		Air Conditioning Unit - entrambe ON
+		Galley Power (elettricita cambusa) - ON
+		APU Master Switch - OFF
+	</text3>
+	<subtitle4 n="62"></subtitle4>
+	<text4 n="62">
+		Porte - CHIUSE
+		Equipaggiamento sulla pista - SCOLLEGARE
+	</text4>
+	
+	<!-- page 63 -->	
+	<title n="63">Procedure Normali</title>
+	<subtitle1 n="63">Prima del decollo</subtitle1>
+	<text1 n="63">
+		--------- Pannello motorista ----------
+		Tutte le luci - SPENTE
+		Pressuriz. interr. destro - AUTO
+		Pressuriz. interr. sinistro - TAKEOFF
+		Altimetro - CHECK
+		Altimetro di cabina - CHECK
+	</text1>
+	<subtitle2 n="63"></subtitle2>
+	<text2 n="63">
+		Crew/Main Temp - SELECTED
+		Fuel Heat - ON/OFF
+	</text2>
+	<subtitle3 n="63"></subtitle3>
+	<text3 n="63">
+		--------- Pannello soffitto ----------
+		Transponder - SET
+		Wing Anti-Ice - ON/OFF
+		Nacelle Anti-Ice - ALL ON/OFF
+		Oxygen - NORM
+		Compass Controller - SET LAT
+		Yaw Damper - OFF
+		--> continue page 64
+	</text3>
+	<subtitle4 n="63"></subtitle4>
+	<text4 n="63">
+	</text4>
+	
+	<!-- page 64 -->	
+	<title n="64">Procedure Normali</title>
+	<subtitle1 n="64">Prima del decollo</subtitle1>
+	<text1 n="64">
+		page 63 - COMPLETE
+		--------- Colonna centrale ----------
+		Tutti i comandi TRIM - ZERO
+		Radio - REGOLARE PER LA PARTENZA
+		Comando aerofreno - TUTTO AVANTI
+	</text1>
+	<subtitle2 n="64"></subtitle2>
+	<text2 n="64">
+		Flaps - TAKEOFF
+		Leva propulsione - IDLE DETENT
+		Luci - ON
+	</text2>
+	<subtitle3 n="64"></subtitle3>
+	<text3 n="64">
+		Porta cabina pilotaggio - CHIUSA
+		Checklist pre decollo - COMPLETA
+	</text3>
+	<subtitle4 n="64"></subtitle4>
+	<text4 n="64">
+	</text4>
+	
+	<!-- page 65 -->	
+	<title n="65">Procedure Normali</title>
+	<subtitle1 n="65">Decollo</subtitle1>
+	<text1 n="65">
+		------- Aeroplano in pista --------
+		Transponder - ON
+		Leva propulsione - AL MASSIMO
+		Strumenti dei motori - CONTROLLARE
+		Menzionare a voce alta qualunque anormaliltà.
+	</text1>
+	<subtitle2 n="65"></subtitle2>
+	<text2 n="65">
+		Verifica 80kts - DIRE "80 NODI"
+		Verifica velocità decollo - DIRE "... KNOTS"
+		Verifica velocità verticale - DIRE "VS ..."
+	</text2>
+	<subtitle3 n="65"></subtitle3>
+	<text3 n="65">
+		Dire "GEAR UP" (ritrarre carrello) quando si sia stabilito un tasso di ascesa positivo.
+	</text3>
+	<subtitle4 n="65"></subtitle4>
+	<text4 n="65">
+	</text4>	
+	
+	<!-- page 66 -->	
+	<title n="66">Solo FlightGear</title>
+	<subtitle1 n="66">Pilota automatico</subtitle1>
+	<text1 n="66">
+		------- Note --------
+		Usare solo un tipo alla volta di pilota
+		automatico, o il pilota automatico
+		standard del menu FlightGear
+		oppure - la manopola verde nel pannello centrale
+	</text1>
+	<subtitle2 n="66"></subtitle2>
+	<text2 n="66">		
+		oppure - il BENDIX PB 20 originale nella
+		colonna centrale.
+		Se li usi insieme, e sotto la tua
+		responsabilita :-))
+	</text2>
+	<subtitle3 n="66"></subtitle3>
+	<text3 n="66">
+		Il GPS e l'autoroute (itinerario automatico)
+		hanno a volte problemi su sistemi Win con le
+	</text3>
+	<subtitle4 n="66"></subtitle4>
+	<text4 n="66">
+		piu recenti versioni in sviluppo di FlightGear.
+		- In caso, ritorna all'ultima versione stabile.
 	</text4>	
 </PropertyList>

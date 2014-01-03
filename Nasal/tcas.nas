@@ -171,6 +171,72 @@ var tcas = func {
 	
 		}
 		
+	# TCAS for Tanker in refueling_demos
+		
+		for (var n = 0; n < 1; n += 1) {
+		
+			var callsign = getprop("ai/models/tanker[" ~ n ~ "]/callsign") or 0;
+	
+			if (getprop("ai/models/tanker[" ~ n ~ "]/valid") and callsign and run) {
+		
+				var ai_lat = getprop("ai/models/tanker[" ~ n ~ "]/position/latitude-deg") or 0;
+				var ai_lon = getprop("ai/models/tanker[" ~ n ~ "]/position/longitude-deg") or 0;
+				var bearing = getprop("ai/models/tanker[" ~ n ~ "]/radar/bearing-deg") or 0;
+
+				var x = (ai_lon - pos_lon) * display_factor;
+				var y = (ai_lat - pos_lat) * display_factor;
+				var xa = (ai_lon - pos_lon) * display_factor_awacs;
+				var ya = (ai_lat - pos_lat) * display_factor_awacs;			
+				
+				# What is our position to the ai?		
+				var ai_pos 	= geo.Coord.new();
+						ai_pos.set_latlon( ai_lat, ai_lon);
+				var hdg_to_mp = our_pos.course_to(ai_pos);
+				var distance = our_pos.distance_to(ai_pos) * 0.0005399568034557236; # to Nautical Miles
+				var course_to_mp = 360 - geo.normdeg(my_hdg - hdg_to_mp); 
+			  
+				var display = distance * display_factor; # for the range of the selected ai-tankers
+				var displayAwacs = distance * display_factor_awacs; # for the range of the selected ai-tankers
+				
+				var alt_ft = getprop("ai/models/tanker[" ~ n ~ "]/position/altitude-ft") or 0;
+			  	var tas_kt = getprop("ai/models/tanker[" ~ n ~ "]/velocities/true-airspeed-kt") or 0;
+			  
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/dis-x", x);										# for the radar pos
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/dis-y", y);										# for the radar pos
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/dis-xa", xa);									# for the radar pos
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/dis-ya", ya);									# for the radar pos
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/callsign", callsign);					# only info
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/distance-nm", distance);			# only info	
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/bearing-deg", bearing);			  # only info		
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/course-to-mp",course_to_mp);	# only info
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/altitude-ft", alt_ft);				# only info
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/tas-kt", tas_kt);							# only info
+				
+				# fill the Awacs data array
+				if(getprop("sim/aircraft") == "EC-137D"){
+				  var true_hdg = getprop("ai/models/tanker[" ~ n ~ "]/orientation/true-heading-deg") or 0;
+				  aircraft_list[callsign] = {cs: callsign, dis: distance, alt: alt_ft, th: true_hdg, ctm: course_to_mp, tas: tas_kt, at: "TANKER" };
+				}
+				
+				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
+				if (display < 3.23){ 
+					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 1);
+				}else{
+					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);				
+				}
+				if (displayAwacs < 2.0){ 
+					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 1);
+				}else{
+					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);				
+				}				
+			}else{
+			
+				setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);
+				setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);		
+			}
+	
+		}
+		
 		if(getprop("sim/aircraft") == "EC-137D"){
 			# first reset the old inputs
 			foreach(var r; props.globals.getNode("/instrumentation/mptcas/table").getChildren("row")){

@@ -30,7 +30,14 @@
 						<command>property-toggle</command>
 						<property>sim/model/start-idling</property>
 					</binding>
-				</item>
+				</item>      
+				<item>
+			        <label>Checklists</label>
+			        <binding>
+			          <command>dialog-show</command>
+			          <dialog-name>checklist</dialog-name>
+			        </binding>
+			    </item>
 				<item>
 					<label>--- Selection ---</label>
 					<enabled>false</enabled>
@@ -60,6 +67,16 @@
 						 <command>dialog-show</command>
 						 <dialog-name>pushback</dialog-name>
 					</binding>
+				</item>				
+				<item>
+					<label>Fuel Truck Controls</label>
+					<binding>
+						<command>nasal</command>
+							<script>
+						 	   var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/707/Systems/fuel-truck.xml");
+							   fuel.open();
+							</script>
+					</binding>
 				</item>
 				<item>
 					<label>External Power Unit</label>
@@ -67,7 +84,20 @@
 						<command>property-toggle</command>
 		    		<property>b707/external-power-connected</property>
 					</binding>
+				</item>			
+				<item>
+					<label>--- Registration ---</label>
+					<enabled>false</enabled>
 				</item>
+	            <item>
+	              <label>A/C Registration</label>
+	              <binding>
+	                <command>nasal</command>
+	                <script><![CDATA[ 
+	                  b707.registrationDialog.toggle();
+	                ]]></script>
+	              </binding>
+	            </item>
 			</menu>
 		</default>
 	</menubar>
@@ -101,6 +131,18 @@
 		<key>
 			<name>Shift + ></name>
 			<desc>toggle Pilot - Autopilot view</desc>
+		</key>
+		<key>
+		  <name>F1</name>
+		  <desc>Checklists</desc>
+		</key>
+		<key>
+		  <name>F7</name>
+		  <desc>open Map</desc>
+		</key>
+		<key>
+		  <name>F8</name>
+		  <desc>open Route-manager</desc>
 		</key>
 		<key>
 		  <name>F9</name>
@@ -173,8 +215,9 @@
 	<systems>
 		<refuel>
 		 <type>boom</type>
-		 <serviceable type="bool">true</serviceable>
-		 <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+		 <serviceable type="bool">false</serviceable>
+		 <max-fuel-transfer-lbs-min>50000</max-fuel-transfer-lbs-min>
+		 <!-- no realistic behavior. I tried from 6000 to 50000 lbs-min but is nearly the same)-->
 		</refuel>
 	</systems>
 
@@ -204,7 +247,8 @@
 			<file>Aircraft/707/Nasal/mk-frw.nas</file>
 			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
 			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
-			<file>Aircraft/707/Nasal/mk-wiper.nas</file>    
+			<file>Aircraft/707/Nasal/mk-wiper.nas</file>
+			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>    
 			<file>Aircraft/707/Nasal/doors.nas</file>
 			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/707/Nasal/brakesystem.nas</file>

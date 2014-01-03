@@ -258,6 +258,25 @@
 	<animation>
 		<type>select</type>
 		<object-name>LampAmberON.012</object-name>
+		<condition>		
+			<greater-than>
+				<property>/b707/ess-bus</property>
+				<value>20</value>
+			</greater-than>
+			<equals>
+				<property>sim/model/path</property>
+				<value type="string">Aircraft/707/Models/707-TT.xml</value>
+			</equals>	
+		  <or>
+		  	<property>/b707/refuelling/probe-left</property>
+		    <property>/controls/test/warn-knob</property>
+		    <property>/b707/warning/door-test</property>
+		  </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
 		<object-name>LampAmberON.013</object-name>
 		<condition>		
 			<greater-than>
@@ -269,13 +288,13 @@
 				<value type="string">Aircraft/707/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
-		  	<property>/b707/refuelling/hose-out</property>
+		  	<property>/b707/refuelling/probe-right</property>
 		    <property>/controls/test/warn-knob</property>
 		    <property>/b707/warning/door-test</property>
 		  </or>
 		</condition>
 	</animation>
-	
+		
 	<animation>
 		<type>select</type>
 		<object-name>LampAmberON.014</object-name>
@@ -289,7 +308,7 @@
 				<value type="string">Aircraft/707/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
-		  	<property>/instrumentation/doors/refuel-hose/position-norm</property>
+		  	<property>/instrumentation/doors/refuel-boom/position-norm</property>
 		    <property>/controls/test/warn-knob</property>
 		    <property>/b707/warning/door-test</property>
 		  </or>

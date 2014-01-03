@@ -281,6 +281,18 @@
   </animation>
   
 	<!-- Logo light -->
+	<animation>
+		<type>select</type>		
+        <object-name>switch.008</object-name>
+        <object-name>sockle.008</object-name>	
+		    <condition>		
+		  	<equals>
+		  		<property>sim/aircraft</property>
+		  		<value type="string">707</value>
+		  	</equals>
+		    </condition>
+	</animation>	
+	
   <animation>
       <type>rotate</type>
       <object-name>switch.008</object-name>

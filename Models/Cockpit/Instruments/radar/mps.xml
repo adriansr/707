@@ -32,7 +32,6 @@
 		<object-name>mp.017</object-name>
 		<object-name>mp.018</object-name>
 		<object-name>mp.019</object-name>
-		<object-name>mp.020</object-name>
 		<object-name>ai</object-name>
 		<object-name>ai.001</object-name>
 		<object-name>ai.002</object-name>
@@ -53,7 +52,7 @@
 		<object-name>ai.017</object-name>
 		<object-name>ai.018</object-name>
 		<object-name>ai.019</object-name>
-		<object-name>ai.020</object-name>
+		<object-name>ta</object-name>
 		<condition>
 			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
@@ -87,7 +86,6 @@
 		<object-name>mp.017</object-name>
 		<object-name>mp.018</object-name>
 		<object-name>mp.019</object-name>
-		<object-name>mp.020</object-name>
 		<object-name>ai</object-name>
 		<object-name>ai.001</object-name>
 		<object-name>ai.002</object-name>
@@ -108,7 +106,7 @@
 		<object-name>ai.017</object-name>
 		<object-name>ai.018</object-name>
 		<object-name>ai.019</object-name>
-		<object-name>ai.020</object-name>
+		<object-name>ta</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 			<property>/systems/electrical/outputs/cabin-dim</property>
@@ -143,7 +141,6 @@
 		<object-name>mp.017</object-name>
 		<object-name>mp.018</object-name>
 		<object-name>mp.019</object-name>
-		<object-name>mp.020</object-name>
 		<object-name>ai</object-name>
 		<object-name>ai.001</object-name>
 		<object-name>ai.002</object-name>
@@ -164,7 +161,7 @@
 		<object-name>ai.017</object-name>
 		<object-name>ai.018</object-name>
 		<object-name>ai.019</object-name>
-		<object-name>ai.020</object-name>
+		<object-name>ta</object-name>
 	</animation>
 
 	<effect>
@@ -189,7 +186,6 @@
 		<object-name>mp.017</object-name>
 		<object-name>mp.018</object-name>
 		<object-name>mp.019</object-name>
-		<object-name>mp.020</object-name>
 		<object-name>ai</object-name>
 		<object-name>ai.001</object-name>
 		<object-name>ai.002</object-name>
@@ -210,10 +206,59 @@
 		<object-name>ai.017</object-name>
 		<object-name>ai.018</object-name>
 		<object-name>ai.019</object-name>
-		<object-name>ai.020</object-name>
+		<object-name>ta</object-name>
 	</effect>
 
 <!-- TCAS ANIMATIONS -->
+	
+	<!-- TANKER only in air refueling_demo -->
+
+	<!-- ta -->
+
+		<animation>
+			<type>select</type>
+			<object-name>ta</object-name>
+			<condition>
+				<property>instrumentation/mptcas/ta[0]/show</property>
+			</condition>
+		</animation>
+
+		<animation>
+			<type>pick</type>
+			<object-name>ta</object-name>
+			<visible>true</visible>
+			<action>
+				<button>0</button>
+				<repeatable>false</repeatable>			
+				<binding>
+					<command>nasal</command>
+					<script>b707.show_ta_info(0)</script>
+				</binding>
+			</action>
+		</animation>
+	
+		<animation>
+			<type>translate</type>
+			<object-name>ta</object-name>
+			<property>instrumentation/mptcas/ta[0]/dis-x</property>
+			<factor>1</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+				<z>0</z>
+			</axis>
+		</animation>
+		<animation>
+			<type>translate</type>
+			<object-name>ta</object-name>
+			<property>instrumentation/mptcas/ta[0]/dis-y</property>
+			<factor>1</factor>
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>1</z>
+			</axis>
+		</animation>
 
 <!-- MULTIPLAYER -->
 

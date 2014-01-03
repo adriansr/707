@@ -42,7 +42,6 @@ aircraft.light.new("controls/lighting/strobe-state", [0.05, 1.30], strobe_switch
 var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
 aircraft.light.new("controls/lighting/beacon-state", [0.05, 2.0], beacon_switch);
 aircraft.light.new("b707/warning", [1.0, 0.8]);
-aircraft.light.new("b707/ground-service", [1.0, 0.8]);
 
 
 ############## Helper ################
@@ -242,14 +241,19 @@ var update_virtual_bus = func {
 		  power_source = nil;
 		  EssSourceFailure.setBoolValue(1);
 
-		  if(getprop("velocities/groundspeed-kt") > 15){
+		  if(getprop("velocities/groundspeed-kt") > 12 or 
+		  	(getprop("/controls/engines/engine[0]/reverser") and getprop("/controls/engines/engine[0]/throttle") > 0.2)){
 		  		ExternalConnected.setBoolValue(0);
 		    	setprop("/instrumentation/doors/pasfront/position-norm", 0);
 		    	setprop("/instrumentation/doors/pasrear/position-norm", 0);
 		    	setprop("/instrumentation/doors/cargo/position-norm", 0);
 		    	setprop("/instrumentation/doors/belly/position-norm", 0);
 		    	setprop("/instrumentation/doors/nose/position-norm", 0);
-   				setprop("/b707/ground-service/enabled", 0);
+				setprop("/b707/ground-service/fuel-truck/transfer", 0);
+				setprop("/b707/ground-service/fuel-truck/connect", 0);
+				setprop("/b707/ground-service/fuel-truck/enable", 0);
+				setprop("/b707/ground-service/fuel-truck/clean", 0);
+				setprop("/b707/ground-service/fuel-truck/state", 0);
 		  }
 		  
 		  if(battery.switch.getBoolValue()){		  
@@ -333,7 +337,7 @@ var update_virtual_bus = func {
 					  	battery.actual_volts.setDoubleValue(battery.actual_volts.getValue() + 0.0005);
 					  }
 				}
-				
+
 				# bus-tie fall back on freq problems
 				if(generator1.get_output_volts() and EssFreq.getValue() != generator1.frequency.getValue()){
 					generator1.gen_bus_tie.setValue(0);		
@@ -373,11 +377,11 @@ var update_virtual_bus = func {
 				EssSourceFailure.setBoolValue(1);
 				essdcbus_volts = 0;
 			}
-		  
+
 		  if(battery.switch.getBoolValue() and essdcbus_volts < 24){
 		  	EssSourceFailure.setBoolValue(1);
 		  	power_source = "battery";	
-				essdcbus_volts = battery.get_output_volts();	  
+			essdcbus_volts = battery.get_output_volts();	  
 		  }
 		  
 		  if (essdcbus_volts < 20 and count == 60){ 

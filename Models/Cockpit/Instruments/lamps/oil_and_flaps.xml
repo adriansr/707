@@ -92,8 +92,8 @@
 		</greater-than>
     <or>
       <greater-than>
-      	<property>surface-positions/wing-fold-pos-norm</property>
-      	<value>0.5</value>
+      	<property>surface-positions/flap-pos-norm</property>
+      	<value>0.19</value>
       </greater-than>
       <property>/controls/test/warn-knob</property>
     </or>

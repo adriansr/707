@@ -182,6 +182,10 @@
 		  		<property>/b707/air-conditioning/compressor-rpm[0]</property>
 		  		<value>115</value>
 		  	</greater-than>
+		  	<greater-than>
+		  		<property>/velocities/mach</property>
+		  		<value>0.89</value>
+		  	</greater-than>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -200,6 +204,10 @@
 		  		<property>/b707/air-conditioning/compressor-rpm[1]</property>
 		  		<value>115</value>
 		  	</greater-than>
+		  	<greater-than>
+		  		<property>/velocities/mach</property>
+		  		<value>0.89</value>
+		  	</greater-than>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
 		</condition>
@@ -217,6 +225,10 @@
 		  	<greater-than>
 		  		<property>/b707/air-conditioning/compressor-rpm[2]</property>
 		  		<value>115</value>
+		  	</greater-than>
+		  	<greater-than>
+		  		<property>/velocities/mach</property>
+		  		<value>0.89</value>
 		  	</greater-than>
 		    <property>/controls/test/warn-knob</property>
 		  </or>
