@@ -13,7 +13,7 @@
  <fileheader>
   <author>M.Kraus :: Lake of Constance Hangar</author>
   <filecreationdate>2013-04-24</filecreationdate>
-  <version>2.1.7</version>
+  <version>2.2.0</version>
   <description>Boeing 707 with Rolls Royce Conway RCo12/MK508 engines or Pratt and Whitney JT4</description>
  </fileheader>
 
@@ -430,7 +430,7 @@
 
         <aerosurface_scale name="Elevator Control">
             <input>fcs/pitch-trim-sum</input>
-            <gain>0.009</gain>
+            <gain>0.007</gain>
             <range>
                 <min>-15</min>
                 <max>15</max>
@@ -460,7 +460,7 @@
 
         <aerosurface_scale name="Left Aileron Control">
             <input>fcs/roll-trim-sum</input>
-            <gain>0.007</gain>
+            <gain>0.006</gain>
             <range>
                 <min>-20</min>
                 <max>20</max>
@@ -478,7 +478,7 @@
 
         <aerosurface_scale name="Right Aileron Control">
             <input>fcs/roll-trim-sum</input>
-            <gain>0.007</gain>
+            <gain>0.006</gain>
             <range>
                 <min>-20</min>
                 <max>20</max>
@@ -508,7 +508,7 @@
 
         <aerosurface_scale name="Rudder Control">
             <input>fcs/rudder-command-sum</input>
-            <gain>0.01</gain>
+            <gain>0.007</gain>
             <range>
                 <min>-30</min>
                 <max>30</max>
@@ -576,7 +576,7 @@
                 </setting>
                 <setting>
                     <position>1</position>
-                    <time>5</time>
+                    <time>15</time>
                 </setting>
             </traverse>
             <output>gear/gear-pos-norm</output>
@@ -865,17 +865,18 @@
           </table>
        </product>
     </function>
-
-    <function name="aero/coefficient/CDde">
+	
+	<function name="aero/coefficient/CDde">
        <description>Drag_due_to_Elevator_Deflection</description>
        <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
+         <abs>
            <property>fcs/elevator-pos-norm</property>
+         </abs>
            <value>0.04</value>
        </product>
     </function>
-    
     
     <function name="aero/coefficient/CDcrash">
        <description>After_crash_drag</description>
@@ -1141,7 +1142,7 @@
 		              simulation/sim-time-sec gt 1.0
 		        </test>
 		   		<test logic="AND" value="1">
-		              position/h-agl-ft lt 6.5
+		              position/h-agl-ft lt 5.95
 		              position/h-agl-ft gt 0.1   <!-- between EHAM and England there is h-agl-ft to 0 -->
 		              /b707/over-water != 0
 		              simulation/sim-time-sec gt 1.0

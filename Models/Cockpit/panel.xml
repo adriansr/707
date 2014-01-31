@@ -136,11 +136,31 @@
 <model>
   <name>clock</name>
   <path>Aircraft/707/Models/Cockpit/Instruments/clock/clock.xml</path>
-	<condition>	
-		<equals>
-			<property>sim/aircraft</property>
-			<value type="string">707</value>
-		</equals>
+	<condition>
+		<and>
+			<equals>
+				<property>sim/aircraft</property>
+				<value type="string">707</value>
+			</equals>
+			<not>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">USA</value>
+				</equals>
+			</not>
+			<not>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">FAE</value>
+				</equals>
+			</not>
+			<not>
+				<equals>
+					<property>sim/model/livery/file</property>
+					<value type="string">CR</value>
+				</equals>
+			</not>
+		</and>
 	</condition>
   <offsets>
     <x-m>-18.916</x-m>
@@ -161,6 +181,18 @@
 		<equals>
 			<property>sim/aircraft</property>
 			<value type="string">707-TT</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">USA</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">FAE</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">CR</value>
 		</equals>
 		</or>
 	</condition>
@@ -183,6 +215,18 @@
 		<equals>
 			<property>sim/aircraft</property>
 			<value type="string">707-TT</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">USA</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">FAE</value>
+		</equals>
+		<equals>
+			<property>sim/model/livery/file</property>
+			<value type="string">CR</value>
 		</equals>
 		</or>
 	</condition>
@@ -821,6 +865,18 @@
 			<equals>
 				<property>sim/aircraft</property>
 				<value type="string">707-TT</value>
+			</equals>
+			<equals>
+				<property>sim/model/livery/file</property>
+				<value type="string">USA</value>
+			</equals>
+			<equals>
+				<property>sim/model/livery/file</property>
+				<value type="string">FAE</value>
+			</equals>
+			<equals>
+				<property>sim/model/livery/file</property>
+				<value type="string">CR</value>
 			</equals>
 			</or>
 		</condition>
