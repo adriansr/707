@@ -149,34 +149,49 @@
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
 		<text>
-		 _____________ Boeing 707 Tanker Transport _________________
-	
-		 Military named EC-137x
-		 
-		 Startup engines:
-		 follow the tutorials or use Autostart
-		 
-		 Quick startup engines:
-		 Switch GRD START at the Overhead Panel to HIGH PRESS
-	
-		 Shutdown engines:
-		 with autostart / shutdown menu 
-		 or cutoff levers down
-		 
-		 WARNING: It's very importand to control the air compressors 
-		 in the engineer panel. You need them for the Anti-Ice System
-		 and Presszuriasation. Often they fall back or overspeed at 
-		 startup procedure. Restart them and wait that all control 
-		 lamps extinguished. 
-	
-		 _______________________________________________________
-		 The first 707 for Flightgear was from Innis Cunningham. 
-		 This version is a revamp of that original. Nearly 
-		 everthing in 3D models is written and painted new.
-		 Also the jsb fdm and the autopilot.
-		 For development I have used the BOEING 707 document 
-		 no. D6-3071-00
+_______________ Boeing 707 Airborne Warning Control System  ___________________
 
+Military named EC-137x (AWACS)
+
+Startup engines:
+follow the tutorials or use Autostart
+
+Quick startup engines:
+Switch GRD START at the Overhead Panel to HIGH PRESS
+
+Shutdown engines:
+with autostart / shutdown menu
+or cutoff levers down
+
+WARNING: Control the air compressors in the engineer panel. 
+You need them for Anti-Ice System and Pressurization. 
+Often they fall back at startup procedure or 
+to high airspeed. Also if engines goes down by fire or no fuel.
+Restart them and wait that all control lamps extinguished.
+If air compressor won't work, open BLEED AIR valves
+on ENG 2, 3 and 4. This can replace one air compressor.
+
+_____________________ TAKEOFF  _______________________
+
+lightly load, less than 215000 lbs / 14 deg FLAPS + LE FLAPS / 120 - 140 kts
+up to 215000 less than 280000 lbs / 25 deg FLAPS + LE FLAPS / 130 - 140 kts
+max. takeoff weight	/ 25 deg FLAPS + LE FLAPS / 150 - 160 kts
+
+_____________________ LANDING  _______________________
+
+lightly load, less than 170000 lbs / 50 deg FLAPS + LE FLAPS / 120 - 130 kts
+up to 170000 less than 190000 lbs / 50 deg FLAPS + LE FLAPS / 120 - 140 kts
+max. landing weight	/ 50 deg FLAPS + LE FLAPS / 130 - 150 kts
+
+touchdown 120 kts | max. 130 kts
+
+_______________________________________________________
+The first 707 for Flightgear was created by Innis Cunningham.
+This version is a revamp of that original. Nearly
+everthing in 3D models is written and painted new.
+Also the jsb fdm and the autopilot.
+For development I have used the BOEING 707 document
+no. D6-3071-00
 		</text>
 	</help>
   <view n="105">
@@ -237,7 +252,8 @@
  </instrumentation>
 	
 	<nasal> 
-		<b707>
+		<b707>		
+			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
 			<file>Aircraft/707/Nasal/liveriesEC.nas</file>
@@ -258,9 +274,6 @@
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
 		</b707> 
-		<view>
-		  <file>Aircraft/707/Nasal/view.nas</file>
-		</view>
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>

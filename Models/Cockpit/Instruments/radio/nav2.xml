@@ -331,7 +331,7 @@
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>0.05</step>
+      <step>0.01</step>
       <min>107.95</min>
       <max>117.95</max>
       <wrap>true</wrap>
@@ -347,7 +347,7 @@
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>-0.05</step>
+      <step>-0.01</step>
       <min>107.95</min>
       <max>117.95</max>
       <wrap>true</wrap>
@@ -571,7 +571,7 @@
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/nav[1]/frequencies/standby-mhz</property>
-      <step>0.05</step>
+      <step>0.01</step>
       <min>107.95</min>
       <max>117.95</max>
       <wrap>true</wrap>
@@ -587,7 +587,7 @@
     <binding>
       <command>property-adjust</command>
       <property>/instrumentation/nav[1]/frequencies/standby-mhz</property>
-      <step>-0.05</step>
+      <step>-0.01</step>
       <min>107.95</min>
       <max>117.95</max>
       <wrap>true</wrap>

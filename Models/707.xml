@@ -200,16 +200,34 @@
 
 	<animation>
 		<type>select</type>
-		<object-name>fuselage.inner</object-name>
 		<object-name>fuselage.belly</object-name>
 		<condition>
-		  <or>
-      	<property>sim/multiplay/generic/float[6]</property>
-      	<property>sim/multiplay/generic/float[7]</property>
-      	<property>sim/multiplay/generic/float[15]</property>
-      	<property>sim/multiplay/generic/float[16]</property>
-      	<property>sim/multiplay/generic/int[19]</property>
-      </or>
+		<or>
+	      	<property>sim/multiplay/generic/float[6]</property>
+	      	<property>sim/multiplay/generic/float[7]</property>
+	      	<property>sim/multiplay/generic/float[15]</property>
+	      	<property>sim/multiplay/generic/float[16]</property>
+	      	<property>sim/multiplay/generic/int[19]</property>
+        </or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fuselage.inner</object-name>
+		<condition>
+			<or>
+				<property>/sim/multiplay/generic/int[9]</property>
+				<and>
+					<not>
+						<equals>
+							<property>/sim/current-view/name</property>
+							<value type="string">Passengers View</value>
+						</equals>
+					</not>
+					<not><property>/sim/multiplay/generic/int[9]</property></not>
+				</and>
+			</or>
 		</condition>
 	</animation>
 
@@ -2128,6 +2146,74 @@
 		  <z-m>0.0</z-m>
 		</offsets>
 	</model>
+	
+	<model>
+		<name>registrationCockpitPanel</name>
+	  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
+	  <offsets>
+	      <x-m>-18.91</x-m>
+	      <y-m>-0.425</y-m>
+	      <z-m>0.952</z-m>
+	    <heading-deg>-90.0</heading-deg>
+	  </offsets>
+	  <overlay>
+	    <params>
+	      <size>0.013</size>
+	      <alignment>reversed-xz-plane</alignment>
+	    </params>
+	  </overlay>
+	</model>
+
+	<model> 
+		<name>theCabin</name>
+		<path>Aircraft/707/Models/cabin.xml</path>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>theCabin</object-name>
+		<condition>
+			<equals>
+				<property>/sim/current-view/name</property>
+				<value type="string">Passengers View</value>
+			</equals>
+			<not><property>/sim/multiplay/generic/int[9]</property></not>
+		</condition>	
+	</animation>
+
+	<model> 
+		<name>theContainerInside</name>
+		<path>Aircraft/707/Models/container.xml</path>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>theContainerInside</object-name>
+		<condition>
+			<equals>
+				<property>/sim/current-view/name</property>
+				<value type="string">Passengers View</value>
+			</equals>
+			<property>/sim/multiplay/generic/int[9]</property>
+		</condition>	
+	</animation>
+	
+    <animation>
+     <type>translate</type>
+     <object-name>cockpit</object-name>
+	 <object-name>registrationCockpitPanel</object-name>
+	 <object-name>theCabin</object-name>
+	 <object-name>theContainerInside</object-name>  
+     <property>/b707/shake-effect/shaking</property>
+     <axis>
+   		<x1-m>  0</x1-m>
+   		<y1-m>  0</y1-m>
+   		<z1-m>  0</z1-m>
+       <x2-m>  0.5</x2-m>
+       <y2-m> -0.5</y2-m>
+       <z2-m>  0.8</z2-m>
+     </axis>
+    </animation>
 
  <!--Conway RCo.10 engines -->
 	<model>
@@ -2832,23 +2918,6 @@
 		</equals>
 	</condition>
 </animation>
-
-<model>
-	<name>registrationCockpitPanel</name>
-  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
-  <offsets>
-      <x-m>-18.91</x-m>
-      <y-m>-0.425</y-m>
-      <z-m>0.952</z-m>
-    <heading-deg>-90.0</heading-deg>
-  </offsets>
-  <overlay>
-    <params>
-      <size>0.013</size>
-      <alignment>reversed-xz-plane</alignment>
-    </params>
-  </overlay>
-</model>
   
 </PropertyList>
 

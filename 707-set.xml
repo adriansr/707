@@ -18,6 +18,10 @@
         <file type="string">707</file>
       </livery>
   </model>
+  
+  <remote>
+   <pilot-callsign type="string"/>
+  </remote>
 
 	<menubar>
 		<default>
@@ -55,7 +59,7 @@
 						<command>property-toggle</command>
 		    		<property>sim/yokes-visible</property>
 					</binding>
-				</item>
+				</item>			
 				<item>
 					<label>--- Equipment ---</label>
 					<enabled>false</enabled>
@@ -97,7 +101,20 @@
 	                  b707.registrationDialog.toggle();
 	                ]]></script>
 	              </binding>
-	            </item>
+	            </item>			
+				<item>
+					<label>--- Boarding ---</label>
+					<enabled>false</enabled>
+				</item>
+		        <item>
+		         <label>Select Passenger</label>
+		         <binding>
+		          <command>nasal</command>
+		          <script>
+		            dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+		           </script>
+		          </binding>
+		         </item>
 			</menu>
 		</default>
 	</menubar>
@@ -133,6 +150,10 @@
 			<desc>toggle Pilot - Autopilot view</desc>
 		</key>
 		<key>
+			<name>Ctrl + ></name>
+			<desc>toggle Pilot - Officer view</desc>
+		</key>
+		<key>
 		  <name>F1</name>
 		  <desc>Checklists</desc>
 		</key>
@@ -149,38 +170,84 @@
 		  <desc>open Fuel &amp; Weight Menu</desc>
 		</key>
 		<text>
-		 _______________ Boeing 707-420/430 ___________________
-	
-		 Startup engines:
-		 follow the tutorials or use Autostart
-		 
-		 Quick startup engines:
-		 Switch GRD START at the Overhead Panel to HIGH PRESS
-	
-		 Shutdown engines:
-		 with autostart / shutdown menu
-		 or cutoff levers down 	
-		 	 
-		 WARNING: It's very importand to control the air compressors 
-		 in the engineer panel. You need them for the Anti-Ice System
-		 and Presszuriasation. Often they fall back or overspeed at 
-		 startup procedure. Restart them and wait that all control 
-		 lamps extinguished.
-	
-		 _______________________________________________________
-		 The first 707 for Flightgear was from Innis Cunningham. 
-		 This version is a revamp of that original. Nearly 
-		 everthing in 3D models is written and painted new.
-		 Also the jsb fdm and the autopilot.
-		 For development I have used the BOEING 707 document 
-		 no. D6-3071-00
+_______________ Boeing 707-420/430 ___________________
 
+Startup engines:
+follow the tutorials or use Autostart
+
+Quick startup engines:
+Switch GRD START at the Overhead Panel to HIGH PRESS
+
+Shutdown engines:
+with autostart / shutdown menu
+or cutoff levers down
+
+WARNING: Control the air compressors in the engineer panel. 
+You need them for Anti-Ice System and Pressurization. 
+Often they fall back at startup procedure or 
+to high airspeed. Also if engines goes down by fire or no fuel.
+Restart them and wait that all control lamps extinguished.
+If air compressor won't work, open BLEED AIR valves
+on ENG 2, 3 and 4. This can replace one air compressor.
+
+_____________________ TAKEOFF  _______________________
+
+lightly load, less than 215000 lbs / 14 deg FLAPS + LE FLAPS / 120 - 140 kts
+up to 215000 less than 280000 lbs / 25 deg FLAPS + LE FLAPS / 130 - 140 kts
+max. takeoff weight	/ 25 deg FLAPS + LE FLAPS / 150 - 160 kts
+
+_____________________ LANDING  _______________________
+
+lightly load, less than 170000 lbs / 50 deg FLAPS + LE FLAPS / 120 - 130 kts
+up to 170000 less than 190000 lbs / 50 deg FLAPS + LE FLAPS / 120 - 140 kts
+max. landing weight	/ 50 deg FLAPS + LE FLAPS / 130 - 150 kts
+
+touchdown 120 kts | max. 130 kts
+
+_______________________________________________________
+The first 707 for Flightgear was created by Innis Cunningham.
+This version is a revamp of that original. Nearly
+everthing in 3D models is written and painted new.
+Also the jsb fdm and the autopilot.
+For development I have used the BOEING 707 document
+no. D6-3071-00
 		</text>
 	</help>
+    <view n="105">
+      <name>Passengers View</name>
+      <enabled type="bool">true</enabled>
+      <type>lookfrom</type>
+      <internal type="bool">false</internal>
+      <config>
+  			<from-model type="bool">true</from-model>
+  			<from-model-idx type="int">true</from-model-idx>
+  			<!-- x/y/z == right/up/back -->
+  			<x-offset-m archive="y">-1.36</x-offset-m>
+  			<y-offset-m archive="y"> 1.05</y-offset-m>
+  			<z-offset-m archive="y"> 8.85</z-offset-m>
+  			<heading-offset-deg type="double">70.0</heading-offset-deg>
+  			<pitch-offset-deg type="double">-2.0</pitch-offset-deg>
+  			<from-model-idx type="int">0</from-model-idx>
+  			<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+  			<default-field-of-view-deg type="double">90.0</default-field-of-view-deg>
+  			<default-pitch-deg type="double">-2.0</default-pitch-deg>
+  			<default-heading-deg type="double">0</default-heading-deg>
+  			<front-direction-deg type="double">0</front-direction-deg>
+  			<front-left-direction-deg type="double">45</front-left-direction-deg>
+  			<left-direction-deg type="double">90</left-direction-deg>
+  			<back-left-direction-deg type="double">135</back-left-direction-deg>
+  			<back-direction-deg type="double">180</back-direction-deg>
+  			<back-right-direction-deg type="double">225</back-right-direction-deg>
+  			<right-direction-deg type="double">270</right-direction-deg>
+  			<front-right-direction-deg type="double">315</front-right-direction-deg>
+  			<dynamic-view type="bool">true</dynamic-view>
+      </config>
+  	</view> 
  </sim>
 
 	<nasal> 
-		<b707>
+		<b707>		
+			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
 			<file>Aircraft/707/Nasal/liveries.nas</file>
@@ -199,11 +266,22 @@
 			<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
-			<file>Aircraft/707/Nasal/manual.nas</file>
+			<file>Aircraft/707/Nasal/manual.nas</file>	
 		</b707> 
-		<view>
-		  <file>Aircraft/707/Nasal/view.nas</file>
-		</view>
+		
+	    <dual_control_tools>
+	     <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>
+	    </dual_control_tools>
+	    <aircraft_dual_control>
+	     <file>Aircraft/707/Nasal/DualControl/707-dual-control.nas</file>
+	    </aircraft_dual_control>
+	    <dual_control>
+	     <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
+	    </dual_control>
 	</nasal>
+	
+    <dual-control>
+      <active type="bool">0</active>
+    </dual-control>
 
 </PropertyList>

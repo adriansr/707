@@ -196,51 +196,46 @@ var rmiNavInfo = func (needle_nr) {
 # a listener to copy the MHz and KHz portions of a freq string to a separate integer values
 # that are used by the animations.
 #
-
+var nav1sel	= props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz");
+var nav1sby	= props.globals.getNode("/instrumentation/nav[0]/frequencies/standby-mhz");
 var nav1selstr	= props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz-fmt");
-var nav1selmhz	= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sel-mhz");
-var nav1selkhz	= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sel-khz");
-var nav2selstr	= props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz-fmt");
-var nav2selmhz	= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sel-mhz");
-var nav2selkhz	= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sel-khz");
 var nav1sbystr	= props.globals.getNode("/instrumentation/nav[0]/frequencies/standby-mhz-fmt");
-var nav1sbymhz	= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sby-mhz");
-var nav1sbykhz	= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sby-khz");
-var nav2sbystr	= props.globals.getNode("/instrumentation/nav[1]/frequencies/standby-mhz-fmt");
-var nav2sbymhz	= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sby-mhz");
-var nav2sbykhz	= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sby-khz");
+var nav1selmhz= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sel-mhz");
+var nav1selkhz= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sel-khz");
+var nav1sbymhz= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sby-mhz");
+var nav1sbykhz= props.globals.getNode("/instrumentation/nav[0]/frequencies/display-sby-khz");
 
-							# This initializes the values
-var navtemp = split(".",nav1selstr.getValue());
-nav1selmhz.setValue(navtemp[0]);
-nav1selkhz.setValue(navtemp[1]);
-navtemp = split(".",nav2selstr.getValue());
-nav2selmhz.setValue(navtemp[0]);
-nav2selkhz.setValue(navtemp[1]);
-navtemp = split(".",nav1sbystr.getValue());
-nav1sbymhz.setValue(navtemp[0]);
-nav1sbykhz.setValue(navtemp[1]);
-navtemp = split(".",nav2sbystr.getValue());
-nav2sbymhz.setValue(navtemp[0]);
-nav2sbykhz.setValue(navtemp[1]);
-							# And these make sure they're updated
-setlistener(nav1selstr, func {
-  var navtemp = split(".",nav1selstr.getValue());
+var nav2sel	= props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz");
+var nav2sby	= props.globals.getNode("/instrumentation/nav[1]/frequencies/standby-mhz");
+var nav2selstr	= props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz-fmt");
+var nav2sbystr	= props.globals.getNode("/instrumentation/nav[1]/frequencies/standby-mhz-fmt");
+var nav2selmhz= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sel-mhz");
+var nav2selkhz= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sel-khz");
+var nav2sbymhz= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sby-mhz");
+var nav2sbykhz= props.globals.getNode("/instrumentation/nav[1]/frequencies/display-sby-khz");
+
+							# Update support vars on nav change
+setlistener(nav1sel, func {
+  var navstr = sprintf("%.2f",nav1sel.getValue());	# String conversion
+  var navtemp = split(".",navstr);			# Split into MHz and KHz
   nav1selmhz.setValue(navtemp[0]);
   nav1selkhz.setValue(navtemp[1]);
 });
-setlistener(nav2selstr, func {
-  var navtemp = split(".",nav2selstr.getValue());
-  nav2selmhz.setValue(navtemp[0]);
-  nav2selkhz.setValue(navtemp[1]);
-});
-setlistener(nav1sbystr, func {
-  var navtemp = split(".",nav1sbystr.getValue());
+setlistener(nav1sby, func {
+  var navstr = sprintf("%.2f",nav1sby.getValue());
+  var navtemp = split(".",navstr);
   nav1sbymhz.setValue(navtemp[0]);
   nav1sbykhz.setValue(navtemp[1]);
 });
-setlistener(nav2sbystr, func {
-  var navtemp = split(".",nav2sbystr.getValue());
+setlistener(nav2sel, func {
+  var navstr = sprintf("%.2f",nav2sel.getValue());
+  var navtemp = split(".",navstr);
+  nav2selmhz.setValue(navtemp[0]);
+  nav2selkhz.setValue(navtemp[1]);
+});
+setlistener(nav2sby, func {
+  var navstr = sprintf("%.2f",nav2sby.getValue());
+  var navtemp = split(".",navstr);
   nav2sbymhz.setValue(navtemp[0]);
   nav2sbykhz.setValue(navtemp[1]);
 });
@@ -291,9 +286,11 @@ setlistener(comm2sby, func {
 });
 
 							# Set comm support vars to startups
-var update_comms = func {
+var update_comms_navs = func {
   var commstr = "";
   var commtemp = 0;
+  var navstr = "";
+  var navtemp = 0;
 
   commstr = sprintf("%.2f",comm1sel.getValue());
   commtemp = split(".",commstr);
@@ -312,8 +309,26 @@ var update_comms = func {
   commtemp = split(".",commstr);
   comm2sbymhz.setValue(commtemp[0]);
   comm2sbykhz.setValue(commtemp[1]);
+  
+  navstr = sprintf("%.2f",nav1sel.getValue());
+  navtemp = split(".",navstr);
+  nav1selmhz.setValue(navtemp[0]);
+  nav1selkhz.setValue(navtemp[1]);
+  navstr = sprintf("%.2f",nav1sby.getValue());
+  navtemp = split(".",navstr);
+  nav1sbymhz.setValue(navtemp[0]);
+  nav1sbykhz.setValue(navtemp[1]);
 
-  settimer(update_comms, 2);
+  navstr = sprintf("%.2f",nav2sel.getValue());
+  navtemp = split(".",navstr);
+  nav2selmhz.setValue(navtemp[0]);
+  nav2selkhz.setValue(navtemp[1]);
+  navstr = sprintf("%.2f",nav2sby.getValue());
+  navtemp = split(".",navstr);
+  nav2sbymhz.setValue(navtemp[0]);
+  nav2sbykhz.setValue(navtemp[1]);
+
+  settimer(update_comms_navs, 2);
 }
 
-update_comms();
+update_comms_navs();

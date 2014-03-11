@@ -120,6 +120,20 @@
     <standby-mhz-fmt type="string">118.10</standby-mhz-fmt>
 </frequencies>
 </comm>
+
+<comm-radio>
+  <name>comm</name>
+  <number>0</number>
+  <frequencies>
+    <display-sel-khz type="int">0</display-sel-khz>
+    <display-sel-mhz type="int">0</display-sel-mhz>
+    <selected-mhz-fmt type="string">127.32</selected-mhz-fmt>
+    <display-sby-khz type="int">0</display-sby-khz>
+    <display-sby-mhz type="int">0</display-sby-mhz>
+    <standby-mhz-fmt type="string">118.10</standby-mhz-fmt>
+</frequencies>
+</comm-radio>
+
 <comm n="1">
   <frequencies>
     <display-sel-khz type="int">0</display-sel-khz>

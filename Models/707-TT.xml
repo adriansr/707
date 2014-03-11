@@ -2315,6 +2315,40 @@
 		</offsets>
 	</model>
 
+	<model>
+		<name>registrationCockpitPanel</name>
+	  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
+	  <offsets>
+	      <x-m>-18.91</x-m>
+	      <y-m>-0.425</y-m>
+	      <z-m>0.952</z-m>
+	    <heading-deg>-90.0</heading-deg>
+	  </offsets>
+	  <overlay>
+	    <params>
+	      <size>0.013</size>
+	      <alignment>reversed-xz-plane</alignment>
+	    </params>
+	  </overlay>
+	</model>
+	
+    <animation>
+     <type>translate</type>
+     <object-name>cockpit</object-name>
+	 <object-name>registrationCockpitPanel</object-name>
+	 <object-name>operatorRoom</object-name>
+	 <object-name>operationPanel</object-name>
+     <property>/b707/shake-effect/shaking</property>
+     <axis>
+   		<x1-m>  0</x1-m>
+   		<y1-m>  0</y1-m>
+   		<z1-m>  0</z1-m>
+       <x2-m>  0.5</x2-m>
+       <y2-m> -0.5</y2-m>
+       <z2-m>  0.8</z2-m>
+     </axis>
+    </animation>
+
  <!--Conway RCo.10 engines -->
 	<model>
 		<name>engineOne</name>
@@ -3018,23 +3052,6 @@
 		</equals>
 	</condition>
 </animation>
-
-<model>
-	<name>registrationCockpitPanel</name>
-  <path>Aircraft/707/Models/Registration/flightnumber.xml</path>
-  <offsets>
-      <x-m>-18.91</x-m>
-      <y-m>-0.425</y-m>
-      <z-m>0.952</z-m>
-    <heading-deg>-90.0</heading-deg>
-  </offsets>
-  <overlay>
-    <params>
-      <size>0.013</size>
-      <alignment>reversed-xz-plane</alignment>
-    </params>
-  </overlay>
-</model>
   
 </PropertyList>
 

@@ -23,6 +23,7 @@
 		  <script>b707.changeView(9);</script>
   </binding>
 </key>
+
 <key n="108">
   <name>L</name>
   <desc>toggle landing lights</desc>
@@ -95,7 +96,7 @@
 </key>
 -->
 <key n="62">
-  <name>></name>
+  <name>Shift + ></name>
   <desc>Pop up autopilot dialog</desc>
   <binding>
 		  <command>nasal</command>
