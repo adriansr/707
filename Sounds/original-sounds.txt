@@ -1,0 +1,13 @@
+##########################
+Boeing 707-420 and 707-320
+##########################
+
+You will find wonderfull original sounds on my git version.
+In September 2013 the git address is gitorious.org/boeing/707
+On german law there is no problem, cause all the sound peaces are
+less than 30sec and not complete.
+Only to be sure, there is no international problem,
+we have not set these sounds to the official flightgear git version.
+
+Marc Kraus, Lake of Constance Hangar
+info ( at ) marc-kraus ( dot ) de
