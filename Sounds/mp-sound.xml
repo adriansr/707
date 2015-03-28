@@ -12,7 +12,7 @@
 
     <engine>
         <name>left engine</name>
-        <path>/Aircraft/707/Sounds/mpjet.wav</path>
+        <path>Aircraft/707/Sounds/mpjet.wav</path>
         <mode>looped</mode>
         <condition>
             <property>engines/engine[0]/n1</property>
@@ -35,7 +35,7 @@
 
     <engine>
         <name>right engine</name>
-        <path>/Aircraft/707/Sounds/mpjet.wav</path>
+        <path>Aircraft/707/Sounds/mpjet.wav</path>
         <mode>looped</mode>
         <condition>
             <property>engines/engine[2]/n1</property>
@@ -58,7 +58,7 @@
 
     <engine>
         <name>left n1</name>
-        <path>/Aircraft/707/Sounds/mpjet.wav</path>
+        <path>Aircraft/707/Sounds/mpjet.wav</path>
         <mode>looped</mode>
         <property>engines/engine[0]/n1</property>
         <pitch>
@@ -85,7 +85,7 @@
 
     <engine>
         <name>right n1</name>
-        <path>/Aircraft/707/Sounds/mpjet.wav</path>
+        <path>Aircraft/707/Sounds/mpjet.wav</path>
         <mode>looped</mode>
         <property>engines/engine[2]/n1</property>
         <volume>
