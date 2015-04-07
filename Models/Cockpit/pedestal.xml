@@ -17,6 +17,8 @@
 		<object-name>ElevatorScale</object-name>
 		<object-name>ElevatorArrow</object-name>
 		<object-name>ElevatorTab</object-name>    
+		<object-name>ElevatorStab</object-name>   
+		<object-name>ElevatorStabArrow</object-name>   
 		<object-name>ElevatorHelpL</object-name>   
 		<object-name>ElevatorHelpR</object-name>  
 		<object-name>RudderTab</object-name>  
@@ -997,5 +999,40 @@
 		</action>
 	</animation>
 	
+    <!-- stab trim normaly switches ... here in FG for showing up, what level the electrical stab trim is  -->
+    <animation>
+  		<type>rotate</type>
+  		<object-name>ElevatorStabArrow</object-name>
+  		<property>/b707/stabilizer/cutout</property>
+  		<interpolation>
+  		  <entry><ind> 4.0</ind><dep>-4.0</dep></entry>
+  		  <entry><ind>   0</ind><dep>   0</dep></entry>
+  		  <entry><ind>-1.0</ind><dep> 1.8</dep></entry>
+  		</interpolation>
+  		<center>
+  		  <x-m>-18.71</x-m>
+  		  <y-m>0.0</y-m>
+  		  <z-m>0.592</z-m>
+  		</center>
+  		<axis>
+  		  <x>0.0</x>
+  		  <y>1.0</y>
+  		  <z>0.0</z>
+  		</axis>
+  	</animation>
+	
+  	<animation>
+  		<type>pick</type>
+  		<object-name>ElevatorStab</object-name>
+  		<action>
+  		  <button>0</button>
+  		  <repeatable>false</repeatable>
+		  <binding>
+		    <command>property-assign</command>
+		    <property>/b707/stabilizer/cutout</property>
+		    <value>0.0</value>
+		  </binding>
+  		</action>
+  	</animation>
 
 </PropertyList>
