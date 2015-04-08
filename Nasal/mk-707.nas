@@ -1285,7 +1285,7 @@ setlistener("/fdm/jsbsim/systems/crash-detect/crash-on-ground", func(state){
 		 setprop("/b707/crashed", 1);
 		 setprop("/controls/engines/engine[1]/fire", 1);
   	 props.globals.getNode("controls/gear/gear-down").setBoolValue(0);
-  	 setprop("/controls/gear/bake-parking", 0);
+  	 setprop("/controls/gear/brake-parking", 0);
   	 setprop("/b707/refuelling/probe-right", 0);
   	 setprop("/b707/refuelling/probe-left", 0);
 	}
