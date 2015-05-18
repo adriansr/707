@@ -438,7 +438,7 @@
 			<text3 type="string">FOR FLIGHTGEAR SIMULATION ONLY</text3>
 			<subtitle4 type="string"></subtitle4>
 			<text4 type="string">Lake of Constance Hangar Vol. 1.1.5</text4>
-			<content include="Aircraft/707/Models/Cockpit/Manual/manual.xml"/>
+			<content include="Models/Cockpit/Manual/manual.xml"/>
 		</manual>
 		<ground-service>
 			<fuel-truck>
