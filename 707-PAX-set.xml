@@ -7,7 +7,7 @@
 -->
 <PropertyList>
 
-  <sim>
+  <sim n="0">
     <description>Boeing 707 Passenger</description>
     <author>Lake of Constance Hangar</author>
     <status>2.2.4</status>

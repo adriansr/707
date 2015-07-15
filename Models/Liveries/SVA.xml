@@ -11,7 +11,7 @@
     <model>
         <livery>
             <name type="string">Saudi Arabian Airlines</name>
-            <texture>Liveries/SAU.png</texture>
+            <texture>Liveries/SVA.png</texture>
         </livery>
     </model>
     <multiplay>
