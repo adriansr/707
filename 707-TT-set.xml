@@ -11,7 +11,8 @@
 	<startup>
 		<splash-texture>Aircraft/707/splashTT.png</splash-texture>
 	</startup>
-
+  <variant-of>707</variant-of>
+  
   <model n="0">
    	 <path>Aircraft/707/Models/707-TT.xml</path>
       <livery>
