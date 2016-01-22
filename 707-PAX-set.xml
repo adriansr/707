@@ -12,7 +12,8 @@
     <author>Lake of Constance Hangar</author>
     <status>2.2.4</status>
     <flight-model>null</flight-model>
-
+    <variant-of>707</variant-of>
+    
     <model>
       <path archive="y">Aircraft/707/Models/707-PAX.xml</path>
     </model>
