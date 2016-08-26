@@ -11,14 +11,14 @@
 	<startup>
 		<splash-texture>Aircraft/707/splash.png</splash-texture>
 	</startup>
-
+	
   <model n="0">
    	 <path>Aircraft/707/Models/707.xml</path>
       <livery>
         <file type="string">707</file>
       </livery>
   </model>
-
+  
   <remote>
    <pilot-callsign type="string"/>
   </remote>
@@ -34,7 +34,7 @@
 						<command>property-toggle</command>
 						<property>sim/model/start-idling</property>
 					</binding>
-				</item>
+				</item>      
 				<item>
 			        <label>Checklists</label>
 			        <binding>
@@ -59,7 +59,7 @@
 						<command>property-toggle</command>
 		    		<property>sim/yokes-visible</property>
 					</binding>
-				</item>
+				</item>			
 				<item>
 					<label>--- Equipment ---</label>
 					<enabled>false</enabled>
@@ -71,7 +71,7 @@
 						 <command>dialog-show</command>
 						 <dialog-name>pushback</dialog-name>
 					</binding>
-				</item>
+				</item>				
 				<item>
 					<label>Fuel Truck Controls</label>
 					<binding>
@@ -88,7 +88,7 @@
 						<command>property-toggle</command>
 		    		<property>b707/external-power-connected</property>
 					</binding>
-				</item>
+				</item>				
 				<item>
 					<label>--- Registration ---</label>
 					<enabled>false</enabled>
@@ -97,11 +97,11 @@
 	              <label>A/C Registration</label>
 	              <binding>
 	                <command>nasal</command>
-	                <script><![CDATA[
+	                <script><![CDATA[ 
 	                  b707.registrationDialog.toggle();
 	                ]]></script>
 	              </binding>
-	            </item>
+	            </item>			
 				<item>
 					<label>--- Boarding ---</label>
 					<enabled>false</enabled>
@@ -182,9 +182,9 @@ Shutdown engines:
 with autostart / shutdown menu
 or cutoff levers down
 
-WARNING: Control the air compressors in the engineer panel.
-You need them for Anti-Ice System and Pressurization.
-Often they fall back at startup procedure or
+WARNING: Control the air compressors in the engineer panel. 
+You need them for Anti-Ice System and Pressurization. 
+Often they fall back at startup procedure or 
 to high airspeed. Also if engines goes down by fire or no fuel.
 Restart them and wait that all control lamps extinguished.
 If air compressor won't work, open BLEED AIR valves
@@ -226,7 +226,7 @@ no. D6-3071-00
       <internal type="bool">false</internal>
       <config>
   			<from-model type="bool">true</from-model>
-  			<from-model-idx type="int">0</from-model-idx>
+  			<from-model-idx type="int">true</from-model-idx>
   			<!-- x/y/z == right/up/back -->
   			<x-offset-m archive="y">-1.36</x-offset-m>
   			<y-offset-m archive="y"> 1.05</y-offset-m>
@@ -248,11 +248,11 @@ no. D6-3071-00
   			<front-right-direction-deg type="double">315</front-right-direction-deg>
   			<dynamic-view type="bool">true</dynamic-view>
       </config>
-  	</view>
+  	</view> 
  </sim>
 
-	<nasal>
-		<b707>
+	<nasal> 
+		<b707>		
 			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
@@ -264,7 +264,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
 			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
 			<file>Aircraft/707/Nasal/mk-wiper.nas</file>
-			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>
+			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>   
 			<file>Aircraft/707/Nasal/doors.nas</file>
 			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/707/Nasal/brakesystem.nas</file>
@@ -272,9 +272,9 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/autopilot-Bendix-PB-20.nas</file>
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
-			<file>Aircraft/707/Nasal/manual.nas</file>
-		</b707>
-
+			<file>Aircraft/707/Nasal/manual.nas</file>	
+		</b707> 
+		
 	    <dual_control_tools>
 	     <file>Aircraft/707/Nasal/DualControl/dual-control-tools.nas</file>
 	    </dual_control_tools>
@@ -285,7 +285,7 @@ no. D6-3071-00
 	     <file>Aircraft/707/Nasal/DualControl/pilot-dual-control.nas</file>
 	    </dual_control>
 	</nasal>
-
+	
     <dual-control>
       <active type="bool">0</active>
     </dual-control>

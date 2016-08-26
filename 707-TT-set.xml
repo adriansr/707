@@ -11,8 +11,9 @@
 	<startup>
 		<splash-texture>Aircraft/707/splashTT.png</splash-texture>
 	</startup>
-  <variant-of>707</variant-of>
-  
+	
+	<variant-of>707</variant-of>
+	
   <model n="0">
    	 <path>Aircraft/707/Models/707-TT.xml</path>
       <livery>
@@ -31,7 +32,7 @@
 						<command>property-toggle</command>
 						<property>sim/model/start-idling</property>
 					</binding>
-				</item>
+				</item>      
 				<item>
 			        <label>Checklists</label>
 			        <binding>
@@ -68,7 +69,7 @@
 						 <command>dialog-show</command>
 						 <dialog-name>pushback</dialog-name>
 					</binding>
-				</item>
+				</item>				
 				<item>
 					<label>Fuel Truck Controls</label>
 					<binding>
@@ -85,14 +86,14 @@
 						<command>property-toggle</command>
 		    		<property>b707/external-power-connected</property>
 					</binding>
-				</item>
+				</item>	
 				<item>
 					<label>Toggle Refuelling Boom/Drogues</label>
 					<binding>
 							<command>nasal</command>
 							<script>b707.toggleRefuelling();</script>
 					</binding>
-				</item>
+				</item>			
 				<item>
 					<label>--- Registration ---</label>
 					<enabled>false</enabled>
@@ -101,7 +102,7 @@
 	              <label>A/C Registration</label>
 	              <binding>
 	                <command>nasal</command>
-	                <script><![CDATA[
+	                <script><![CDATA[ 
 	                  b707.registrationDialog.toggle();
 	                ]]></script>
 	              </binding>
@@ -175,9 +176,9 @@ Shutdown engines:
 with autostart / shutdown menu
 or cutoff levers down
 
-WARNING: Control the air compressors in the engineer panel.
-You need them for Anti-Ice System and Pressurization.
-Often they fall back at startup procedure or
+WARNING: Control the air compressors in the engineer panel. 
+You need them for Anti-Ice System and Pressurization. 
+Often they fall back at startup procedure or 
 to high airspeed. Also if engines goes down by fire or no fuel.
 Restart them and wait that all control lamps extinguished.
 If air compressor won't work, open BLEED AIR valves
@@ -212,7 +213,7 @@ For development I have used the BOEING 707 document
 no. D6-3071-00
 		</text>
 	</help>
-
+	
   <view n="105">
     <name>Operator Officer</name>
     <enabled type="bool">true</enabled>
@@ -220,7 +221,7 @@ no. D6-3071-00
     <internal type="bool">true</internal>
     <config>
 			<from-model type="bool">true</from-model>
-			<from-model-idx type="int">0</from-model-idx>
+			<from-model-idx type="int">true</from-model-idx>
 			<!-- x/y/z == right/up/back -->
 			<x-offset-m archive="y"> 0.0</x-offset-m>
 			<y-offset-m archive="y">-1.05</y-offset-m>
@@ -242,9 +243,9 @@ no. D6-3071-00
 			<front-right-direction-deg type="double">315</front-right-direction-deg>
 			<dynamic-view type="bool">true</dynamic-view>
     </config>
-	</view>
+	</view> 
  </sim>
-
+ 
 	<tanker type="bool">true</tanker>
 
 	<systems>
@@ -272,9 +273,9 @@ no. D6-3071-00
 			<probe-right-lever type="double">0.0</probe-right-lever>
 		</refuelling>
   </b707>
-
-	<nasal>
-		<b707>
+	
+	<nasal> 
+		<b707>		
 			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
@@ -286,7 +287,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
 			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
 			<file>Aircraft/707/Nasal/mk-wiper.nas</file>
-			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>
+			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>    
 			<file>Aircraft/707/Nasal/doors.nas</file>
 			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/707/Nasal/brakesystem.nas</file>
@@ -295,7 +296,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
-		</b707>
+		</b707> 
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>
