@@ -746,9 +746,13 @@ var startup = func
 				screen.log.write("Look down to your throttle levers on center pedestal.", 1, 1, 1);
 				
 				#cold weather problems start the heating system for windows-fuel-and engines
-				
-				
-				
+				setprop("/b707/anti-ice/switch", 2);
+				setprop("/b707/anti-ice/engine-inlet[0]", 1);
+				setprop("/b707/anti-ice/engine-inlet[1]", 1);
+				setprop("/b707/anti-ice/engine-inlet[2]", 1);
+				setprop("/b707/anti-ice/engine-inlet[3]", 1);
+				setprop("/b707/anti-ice/window-heat-cap-switch", 1);
+				setprop("/b707/anti-ice/window-heat-fo-switch", 1);
 				
 				step = 8;
 			}
