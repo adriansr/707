@@ -11,8 +11,9 @@
 	<startup>
 		<splash-texture>Aircraft/707/splashEC.png</splash-texture>
 	</startup>
-  <variant-of>707</variant-of>
-  
+	
+	<variant-of>707</variant-of>
+	
   <model n="0">
    	 <path>Aircraft/707/Models/EC-137D.xml</path>
       <livery>
@@ -31,7 +32,7 @@
 						<command>property-toggle</command>
 						<property>sim/model/start-idling</property>
 					</binding>
-				</item>
+				</item>      
 				<item>
 			        <label>Checklists</label>
 			        <binding>
@@ -68,7 +69,7 @@
 						 <command>dialog-show</command>
 						 <dialog-name>pushback</dialog-name>
 					</binding>
-				</item>
+				</item>				
 				<item>
 					<label>Fuel Truck Controls</label>
 					<binding>
@@ -85,7 +86,7 @@
 						<command>property-toggle</command>
 		    		<property>b707/external-power-connected</property>
 					</binding>
-				</item>
+				</item>			
 				<item>
 					<label>--- Registration ---</label>
 					<enabled>false</enabled>
@@ -94,7 +95,7 @@
 	              <label>A/C Registration</label>
 	              <binding>
 	                <command>nasal</command>
-	                <script><![CDATA[
+	                <script><![CDATA[ 
 	                  b707.registrationDialog.toggle();
 	                ]]></script>
 	              </binding>
@@ -164,9 +165,9 @@ Shutdown engines:
 with autostart / shutdown menu
 or cutoff levers down
 
-WARNING: Control the air compressors in the engineer panel.
-You need them for Anti-Ice System and Pressurization.
-Often they fall back at startup procedure or
+WARNING: Control the air compressors in the engineer panel. 
+You need them for Anti-Ice System and Pressurization. 
+Often they fall back at startup procedure or 
 to high airspeed. Also if engines goes down by fire or no fuel.
 Restart them and wait that all control lamps extinguished.
 If air compressor won't work, open BLEED AIR valves
@@ -185,6 +186,12 @@ up to 170000 less than 190000 lbs / 50 deg FLAPS + LE FLAPS / 120 - 140 kts
 max. landing weight	/ 50 deg FLAPS + LE FLAPS / 130 - 150 kts
 
 touchdown 120 kts | max. 130 kts
+
+_____________________ STABILIZER TRIM  _______________________
+
+On both yokes there are white switches for the electrical stabilizer system.
+If you reached cruise altitude, you can trim the aircraft pitch independend 
+the mechanical elevator trim system. Its also independed to the autopilot system.
 
 _______________________________________________________
 The first 707 for Flightgear was created by Innis Cunningham.
@@ -206,7 +213,7 @@ no. D6-3071-00
 			<!-- x/y/z == right/up/back -->
 			<x-offset-m archive="y"> 0.25</x-offset-m>
 			<y-offset-m archive="y">1.22</y-offset-m>
-			<z-offset-m archive="y">-10.67</z-offset-m>
+			<z-offset-m archive="y">-10.67</z-offset-m>			
 			<pitch-offset-deg type="double">-7.0</pitch-offset-deg>
 			<default-pitch-deg type="double">-7.0</default-pitch-deg>
 			<from-model-idx type="int">0</from-model-idx>
@@ -223,9 +230,9 @@ no. D6-3071-00
 			<front-right-direction-deg type="double">315</front-right-direction-deg>
 			<dynamic-view type="bool">true</dynamic-view>
     </config>
-	</view>
+	</view> 
  </sim>
-
+ 
 	<tanker type="bool">false</tanker>
 
 	<systems>
@@ -251,9 +258,9 @@ no. D6-3071-00
    </mode>
   </radar>
  </instrumentation>
-
-	<nasal>
-		<b707>
+	
+	<nasal> 
+		<b707>		
 			<file>Aircraft/707/Nasal/shake.nas</file>
 			<file>Aircraft/707/Nasal/autostart.nas</file>
 			<file>Aircraft/707/Nasal/fuel-and-payload.nas</file>
@@ -265,7 +272,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/mk-stopwatch.nas</file>
 			<file>Aircraft/707/Nasal/mk-rmi.nas</file>
 			<file>Aircraft/707/Nasal/mk-wiper.nas</file>
-			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>
+			<file>Aircraft/707/Nasal/mk-ci-tacan.nas</file>    
 			<file>Aircraft/707/Nasal/doors.nas</file>
 			<file>Aircraft/707/Nasal/tyresmoke.nas</file>
 			<file>Aircraft/707/Nasal/brakesystem.nas</file>
@@ -274,7 +281,7 @@ no. D6-3071-00
 			<file>Aircraft/707/Nasal/tcas.nas</file>
 			<file>Aircraft/707/Nasal/registration.nas</file>
 			<file>Aircraft/707/Nasal/manual.nas</file>
-		</b707>
+		</b707> 
 		<aar>
 			<file>Aircraft/Generic/aar.nas</file>
 		</aar>

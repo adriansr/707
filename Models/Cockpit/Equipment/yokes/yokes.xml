@@ -249,10 +249,10 @@
         <interval-sec>0.2</interval-sec>
         <binding>
 		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step>0.005</step>
+		      <property>b707/stabilizer/cutout</property>
+		      <step>0.1</step>
 		      <min>-1.0</min>
-		      <max> 1.0</max>
+		      <max> 4.0</max>
 		      <wrap>false</wrap>
         </binding>      
 		    <binding>
@@ -266,10 +266,10 @@
         <interval-sec>0.2</interval-sec>
         <binding>
 		      <command>property-adjust</command>
-		      <property>/controls/flight/elevator-trim</property>
-		      <step>-0.005</step>
+		      <property>b707/stabilizer/cutout</property>
+		      <step>-0.1</step>
 		      <min>-1.0</min>
-		      <max> 1.0</max>
+		      <max> 4.0</max>
 		      <wrap>false</wrap>
         </binding>              
 		    <binding>
@@ -290,10 +290,10 @@
         <interval-sec>0.2</interval-sec>
         <binding>
         <command>property-adjust</command>
-        <property>/controls/flight/elevator-trim</property>
-        <step>0.005</step>
+        <property>b707/stabilizer/cutout</property>
+        <step>0.1</step>
         <min>-1.0</min>
-        <max> 1.0</max>
+        <max> 4.0</max>
         <wrap>false</wrap>
         </binding>        
         <binding>
@@ -326,10 +326,10 @@
         <interval-sec>0.2</interval-sec>
         <binding>
         <command>property-adjust</command>
-        <property>/controls/flight/elevator-trim</property>
-        <step>-0.005</step>
+        <property>b707/stabilizer/cutout</property>
+        <step>-0.1</step>
         <min>-1.0</min>
-        <max> 1.0</max>
+        <max> 4.0</max>
         <wrap>false</wrap>
         </binding>        
         <binding>

@@ -8,7 +8,6 @@
 <system name="pushback">
  <property>/sim/model/pushback/target-speed-fps</property>
  <channel name="Pushback">
-
    <switch name="systems/pushback/linked">
      <default value="-1"/>
      <test value="0">

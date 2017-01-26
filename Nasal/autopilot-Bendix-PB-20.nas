@@ -382,16 +382,3 @@ setlistener("/controls/special/yoke-switch1", func (s1){
     }
 });
 
-setlistener("/controls/special/yoke-switch2", func (s2){
-    var s2 = s2.getBoolValue();
-    if (s2 == 1){
-      setprop("/autopilot/Bendix-PB-20/controls/active", 0);
-      setprop("/autopilot/Bendix-PB-20/controls/alt-active", 0);
-		  setprop("/autopilot/Bendix-PB-20/controls/mode-selector", 2);
-      setprop("/autopilot/Bendix-PB-20/settings/pitch-wheel-deg", 0);
-			setprop("/autopilot/settings/target-pitch-deg", 0);
-			setprop("/autopilot/locks/altitude", "");
-			setprop("/autopilot/locks/speed", "");
-    }
-});
-

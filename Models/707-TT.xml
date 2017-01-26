@@ -215,6 +215,42 @@
 
 	<!-- see operators Room only on view number 12 -->
 	<model>
+		<name>operationLight1</name>
+		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<offsets>   
+		  <x-m>12.65</x-m>
+		  <y-m>-0.24</y-m>
+		  <z-m>-0.65</z-m>
+		  <pitch-deg>-5.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>operationLight2</name>
+		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<offsets>   
+		  <x-m>12.65</x-m>
+		  <y-m> 0.24</y-m>
+		  <z-m>-0.65</z-m>
+		  <pitch-deg>-5.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>operationLight3</name>
+		<path>Aircraft/707/Models/Lights/lightcone-small-oo.xml</path>
+		<offsets>   
+		  <x-m>11.0</x-m>
+		  <y-m> 0.0</y-m>
+		  <z-m>-0.96</z-m>
+		  <pitch-deg>-95.0</pitch-deg>
+		  <roll-deg> 0.0</roll-deg>
+		</offsets>
+	</model>
+		
+	<model>
 	 <name>operationPanel</name>
 	 <path>Aircraft/707/Models/Cockpit/Equipment/tt_panel/tt_panel.xml</path>
 		<offsets>
@@ -271,6 +307,9 @@
 		<type>select</type>
 		<object-name>operatorRoom</object-name>
 		<object-name>operationPanel</object-name>
+		<object-name>operationLight1</object-name>
+		<object-name>operationLight2</object-name>
+		<object-name>operationLight3</object-name>
 		<condition>
 			<equals>
 		    <property>sim/current-view/view-number</property>
@@ -354,11 +393,11 @@
           <binding>
             <command>nasal</command>
             <script><![CDATA[ 
-				setprop("/b707/ground-service/fuel-truck/transfer", 0);
-				setprop("/b707/ground-service/fuel-truck/connect", 0);
-				setprop("/b707/ground-service/fuel-truck/enable", 0);
-				setprop("/b707/ground-service/fuel-truck/clean", 0);
-				setprop("/b707/ground-service/fuel-truck/state", 0);
+				setprop("b707/ground-service/fuel-truck/transfer", 0);
+				setprop("b707/ground-service/fuel-truck/connect", 0);
+				setprop("b707/ground-service/fuel-truck/enable", 0);
+				setprop("b707/ground-service/fuel-truck/clean", 0);
+				setprop("b707/ground-service/fuel-truck/state", 0);
             ]]></script>
           </binding>
 		</action>
@@ -727,7 +766,7 @@
 		<type>rotate</type>
 		<object-name>refuelBoom</object-name>
 		<object-name>refuelTube</object-name>
-		<property>/b707/refuelling/boom-azimuth</property>
+		<property>b707/refuelling/boom-azimuth</property>
 		<factor>1.5</factor>
 		<axis>
 			<x> 0</x>
@@ -2338,7 +2377,7 @@
 	 <object-name>registrationCockpitPanel</object-name>
 	 <object-name>operatorRoom</object-name>
 	 <object-name>operationPanel</object-name>
-     <property>/b707/shake-effect/shaking</property>
+     <property>b707/shake-effect/shaking</property>
      <axis>
    		<x1-m>  0</x1-m>
    		<y1-m>  0</y1-m>
