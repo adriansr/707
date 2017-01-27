@@ -310,11 +310,33 @@ var show_fuel_consumption = func {
 	}
 	
 	if(kg > 0){
-		help_win.write(sprintf("Total Fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
+		help_win.write(sprintf("Total fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
 	}else{
 		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
 	}
 } 
+
+var show_fuel_quantity = func(i){
+
+	var qua = getprop("/consumables/fuel/tank["~i~"]/level-kg") or 0;
+	var text ="";
+	if(i==0){
+		text="Reserve Tank 4";
+	}else if(i==1){
+		text="Main Tank 4";
+	}else if(i==2){
+		text="Main Tank 3";
+	}else if(i==3){
+		text="Center Tank";
+	}else if(i==4){
+		text="Main Tank 2";
+	}else if(i==5){
+		text="Main Tank 1";
+	}else if(i==6){
+		text="Reserve Tank 1";
+	}
+	help_win.write(sprintf(text~" fuel: %.2fkg",qua));
+}
 
 # real cabin altitude in pressurisatiion cabin alt instrument
 var show_cabin_alt = func {
