@@ -16,9 +16,9 @@ var agl_radar_control = func {
     #only for the MDA AGL instrument in the 707
     var mda = getprop("/instrumentation/aglradar/alt-offset-ft") or 0;
     if(mda > aglft){
-    	setprop("instrumentation/aglradar/mda-lamp", 1);
+    	setprop("/instrumentation/aglradar/mda-lamp", 1);
     }else{
-    	setprop("instrumentation/aglradar/mda-lamp", 0);    
+    	setprop("/instrumentation/aglradar/mda-lamp", 0);    
     }
     interpolate("/instrumentation/aglradar/alt-ft", aglft, 0.5);
 

@@ -41,7 +41,7 @@ var listenerApRouteManagerInitFunc = func {
 	# do initializations of new properties
 
 	setprop("/autopilot/internal/route-manager-waypoint-near-by", 0);
-	setprop("autopilot/locks/passive-mode", 0);
+	setprop("/autopilot/locks/passive-mode", 0);
 
 	setprop("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg);
 	setprop("/autopilot/internal/heading-min-roll", (headingMaxRoll * (-1)));
@@ -158,7 +158,7 @@ var listenerApHeadingPassiveModeFunc = func {
 		interpolate("/autopilot/internal/target-kp-for-heading-deg", kpForHeadingDeg, 1);
 	}
 }
-setlistener("autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
+setlistener("/autopilot/locks/passive-mode", listenerApHeadingSwitchFunc);
 
 # switch-functions
 var listenerApHeadingFunc = func {
@@ -352,8 +352,8 @@ var apHeadingWaypointSetVSpeed_lastCalled = getprop("/sim/time/elapsed-sec");
 
 
 var apHeadingWaypointSetVSpeed = func {
-	if (	getprop("autopilot/locks/passive-mode") == 1 and
-		getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
+	if (	getprop("/autopilot/locks/passive-mode") == 1 and
+		getprop("/autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
 		if (apHeadingWaypointSetVSpeed_force == 0) {
 			var now = getprop("/sim/time/elapsed-sec");
@@ -363,9 +363,9 @@ var apHeadingWaypointSetVSpeed = func {
 			apHeadingWaypointSetVSpeed_lastCalled = now;
 		}
 		
-		var currentWaypointIndex = getprop("autopilot/route-manager/current-wp");
-		var waypointId = getprop("autopilot/route-manager/wp/id");
-		var waypointDistanceNm = getprop("autopilot/route-manager/wp/dist");
+		var currentWaypointIndex = getprop("/autopilot/route-manager/current-wp");
+		var waypointId = getprop("/autopilot/route-manager/wp/id");
+		var waypointDistanceNm = getprop("/autopilot/route-manager/wp/dist");
 		#print("apHeadingWaypointSetVSpeed: waypointDistanceNm=", waypointDistanceNm);
 
 		if (waypointId != nil and waypointId != "" and waypointDistanceNm != nil) {
@@ -373,11 +373,11 @@ var apHeadingWaypointSetVSpeed = func {
 			var groundspeedKt = getprop("velocities/groundspeed-kt");
 			#print("apHeadingWaypointSetVSpeed: groundspeedKt=", groundspeedKt);
 
-			var currentWaypointIndex = getprop("autopilot/route-manager/current-wp");
+			var currentWaypointIndex = getprop("/autopilot/route-manager/current-wp");
 			#print("apHeadingWaypointSetVSpeed: currentWaypointIndex=", currentWaypointIndex);
 			var altitudeFt = getprop("position/altitude-ft");
-			var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
-			var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
+			var autopilotSettingAltitudeFt = getprop("/autopilot/settings/target-altitude-ft");
+			var waypointAlt = getprop("/autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
 
 			if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
 				if (waypointAlt != nil) {
@@ -392,7 +392,7 @@ var apHeadingWaypointSetVSpeed = func {
 
 			# calculate vspeed
 			var vspeed = 0.0;
-			var vspeedPrev = getprop("autopilot/settings/vertical-speed-fpm") or 0;
+			var vspeedPrev = getprop("/autopilot/settings/vertical-speed-fpm") or 0;
 			
 			if (waypointDistanceNm > 0.0) {
 				var substructionNm = (waypointDistanceNm > 4.0 ? 4.0 : 0.0);
@@ -429,31 +429,31 @@ var apHeadingWaypointSetVSpeed = func {
 				waypointVspeedChangedManually = 1;
 			 }
 			 if (waypointVspeedChangedManually == 0 and (abs(vspeed) > abs(vspeedPrev * 0.05))) {
-			 	setprop("autopilot/settings/vertical-speed-fpm", vspeed);
+			 	setprop("/autopilot/settings/vertical-speed-fpm", vspeed);
 			 	waypointVspeedPrev = vspeed;
 			 }
 
-			if (getprop("autopilot/locks/altitude") != "vertical-speed-hold" and
-				getprop("autopilot/locks/altitude") != "altitude-hold") {
-				setprop("autopilot/locks/altitude", "vertical-speed-hold");
+			if (getprop("/autopilot/locks/altitude") != "vertical-speed-hold" and
+				getprop("/autopilot/locks/altitude") != "altitude-hold") {
+				setprop("/autopilot/locks/altitude", "vertical-speed-hold");
 			}
 
-			setprop("autopilot/settings/altitude-ft", autopilotSettingAltitudeFt);
+			setprop("/autopilot/settings/altitude-ft", autopilotSettingAltitudeFt);
 		}
 	}
 }
 
 var apHeadingWaypointSetVSpeedRepeat = func() {
 
-	if (	getprop("autopilot/locks/passive-mode") == 1 and
-		getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
+	if (	getprop("/autopilot/locks/passive-mode") == 1 and
+		getprop("/autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
 		apHeadingWaypointSetVSpeed_force = 0;
 
 		apHeadingWaypointSetVSpeed();
 
 		# settimer for corretion of vspeed each 30 seconds
-		if (waypointVspeedChangedManually == 0 and getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
+		if (waypointVspeedChangedManually == 0 and getprop("/autopilot/locks/altitude") == "vertical-speed-hold") {
 			settimer(apHeadingWaypointSetVSpeedRepeat, 15.0);
 		}
 	}
@@ -473,7 +473,7 @@ var apHeadingWaypointSetVSpeedStart = func() {
 }
 
 var switchedToAltHold = 0;
-setlistener("autopilot/route-manager/current-wp", func {switchedToAltHold = 0;} );
+setlistener("/autopilot/route-manager/current-wp", func {switchedToAltHold = 0;} );
 
 var waypointDistanceNmHold = 1.0;
 var waypointDistanceNm = 36000.0;
@@ -481,17 +481,17 @@ var listenerApPassiveMode = func {
 
 	var routeManagerWaypointNearBy = 0;
 
-	if (getprop("autopilot/locks/passive-mode") == 1) {
+	if (getprop("/autopilot/locks/passive-mode") == 1) {
 
 		var timerInterval = 0.5;
 
 		var groundspeedKt = getprop("velocities/groundspeed-kt");
 
-		if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
+		if (getprop("/autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
-			var currentWaypointIndex = getprop("autopilot/route-manager/current-wp");
-			var waypointId = getprop("autopilot/route-manager/wp/id");
-			var waypointDistanceNmCurrent = getprop("autopilot/route-manager/wp/dist");
+			var currentWaypointIndex = getprop("/autopilot/route-manager/current-wp");
+			var waypointId = getprop("/autopilot/route-manager/wp/id");
+			var waypointDistanceNmCurrent = getprop("/autopilot/route-manager/wp/dist");
 			var waypointDistanceNmIsReal = 0;
 			# workarround: sometimes after switch of current-waypoint the distance isn't
 			# yet updated (FG-bug  ?!?), so wait until there's a major change in distance
@@ -505,18 +505,18 @@ var listenerApPassiveMode = func {
 
 			if (waypointId != nil and waypointId != "" and waypointDistanceNm != nil and waypointDistanceNmIsReal == 1) {
 
-				if (getprop("autopilot/locks/heading") != "true-heading-hold") {
-					setprop("autopilot/locks/heading", "true-heading-hold");
+				if (getprop("/autopilot/locks/heading") != "true-heading-hold") {
+					setprop("/autopilot/locks/heading", "true-heading-hold");
 				}
 
 				if (waypointId == waypointIdPrev) {
 					# 'smoothing' on waypoint-transition:
 					# avoid heading change near active waypoint due to great angle difference -> keep actual heading
-					if (getprop("autopilot/internal/route-manager-waypoint-near-by") == 0) {
+					if (getprop("/autopilot/internal/route-manager-waypoint-near-by") == 0) {
 						waypointDistanceNmHold = 0.5 + (groundspeedKt * 0.001);
 					}
 					if (waypointDistanceNm < waypointDistanceNmHold)  {
-						if (getprop("autopilot/internal/route-manager-waypoint-near-by") == 0) {
+						if (getprop("/autopilot/internal/route-manager-waypoint-near-by") == 0) {
 	
 							# smoothing: interpolate Kp for heading-hold
 							listenerApHeadingPassiveModeFunc();
@@ -525,8 +525,8 @@ var listenerApPassiveMode = func {
 					}
 					# don't need to do this, the route manager does it already
 					#else {
-					#	setprop("autopilot/settings/true-heading-deg",
-					#		getprop("autopilot/route-manager/wp["~currentWaypointIndex~"]/bearing-deg"));
+					#	setprop("/autopilot/settings/true-heading-deg",
+					#		getprop("/autopilot/route-manager/wp["~currentWaypointIndex~"]/bearing-deg"));
 					#}
 				}
 
@@ -534,15 +534,15 @@ var listenerApPassiveMode = func {
 					waypointVspeedPrev = waypointVspeedMaxValue;
 					waypointVspeedChangedManually = 0;
 
-					setprop("autopilot/locks/altitude", "");
+					setprop("/autopilot/locks/altitude", "");
 
 					routeManagerWaypointNearBy = 1;
 					settimer(apHeadingWaypointSetVSpeedStart , 1.0);
 				}
 
 				var altitudeFt = getprop("instrumentation/altimeter/indicated-altitude-ft");
-				var autopilotSettingAltitudeFt = getprop("autopilot/settings/target-altitude-ft");
-				var waypointAlt = getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
+				var autopilotSettingAltitudeFt = getprop("/autopilot/settings/target-altitude-ft");
+				var waypointAlt = getprop("/autopilot/route-manager/route/wp["~currentWaypointIndex~"]/altitude-ft");
 				if (autopilotSettingAltitudeFt == nil or autopilotSettingAltitudeFt < 0) {
 					if (waypointAlt != nil) {
 						autopilotSettingAltitudeFt = waypointAlt;
@@ -560,15 +560,15 @@ var listenerApPassiveMode = func {
 				}
 				var waypointDistanceNmSwitch = 0.5 + (groundspeedKt * 0.001);
 				if (abs(altitudeDistFt) < altitudeDistFtSwitch or waypointDistanceNm < waypointDistanceNmSwitch) {
-					if (switchedToAltHold == 0 and getprop("autopilot/locks/altitude") == "vertical-speed-hold") {
-						setprop("autopilot/locks/altitude", "altitude-hold");
+					if (switchedToAltHold == 0 and getprop("/autopilot/locks/altitude") == "vertical-speed-hold") {
+						setprop("/autopilot/locks/altitude", "altitude-hold");
 						switchedToAltHold = 1;
 					}
 				}
 
 				# switch to next waypoint on short distance in order to smooth the curve to fly (not for last waypoint)
 				if (waypointId == waypointIdPrev
-					and currentWaypointIndex < getprop("autopilot/route-manager/route/num") - 1) {
+					and currentWaypointIndex < getprop("/autopilot/route-manager/route/num") - 1) {
 
 					var groundspeedKt = getprop("velocities/groundspeed-kt");
 
@@ -594,9 +594,9 @@ var listenerApPassiveMode = func {
 						# if current heading fault less than 3 deg: take current heading as reference,
 						# else take the bearing of the former waypoint as reference
 						var currentBearingReference = (trackDiff < 3.0) ? headingDeg :
-							getprop("autopilot/route-manager/route/wp["~(currentWaypointIndex-1)~"]/leg-bearing-true-deg");
+							getprop("/autopilot/route-manager/route/wp["~(currentWaypointIndex-1)~"]/leg-bearing-true-deg");
 						var wptBearingDiff = (abs(currentBearingReference
-							- getprop("autopilot/route-manager/route/wp["~currentWaypointIndex~"]/leg-bearing-true-deg")));
+							- getprop("/autopilot/route-manager/route/wp["~currentWaypointIndex~"]/leg-bearing-true-deg")));
 						wptBearingDiff = ((wptBearingDiff > 180.0) ? (wptBearingDiff - 180.0) : wptBearingDiff);
 
 						#print("wptBearingDiff=", wptBearingDiff);
@@ -629,7 +629,7 @@ var listenerApPassiveMode = func {
 					# waypointDistanceNmSwitchToNext = <distance to waypoint on which to switch to the next waypoint>
 					# (have to switch before reaching waypoint, because we have to take in account the curve the aircraft goes)
 					if (waypointDistanceNm  < waypointDistanceNmSwitchToNext)  {
-						setprop("autopilot/route-manager/current-wp", currentWaypointIndex + 1);
+						setprop("/autopilot/route-manager/current-wp", currentWaypointIndex + 1);
 						waypointDistanceNmHold = 1.0;
 						timerInterval = 3.0;	# wait a bit longer, so FG-route-manager can switch all vars
 					}
@@ -643,17 +643,17 @@ var listenerApPassiveMode = func {
 			timerInterval -= (groundspeedKt * 0.005);
 		}
 
-		setprop("autopilot/internal/route-manager-waypoint-near-by", routeManagerWaypointNearBy);
+		setprop("/autopilot/internal/route-manager-waypoint-near-by", routeManagerWaypointNearBy);
 
 		settimer(listenerApPassiveMode , timerInterval);
 	}
 	else {
 		# we are switched off -> cleanup
 
-		if (getprop("autopilot/locks/heading") == "true-heading-hold") {
-			setprop("autopilot/locks/heading", "");
+		if (getprop("/autopilot/locks/heading") == "true-heading-hold") {
+			setprop("/autopilot/locks/heading", "");
 		}
-		setprop("autopilot/internal/route-manager-waypoint-near-by", 0);
+		setprop("/autopilot/internal/route-manager-waypoint-near-by", 0);
 
 		waypointDistanceNmHold = 1.0;
 		waypointDistanceNm = 36000.0;
@@ -664,7 +664,7 @@ var listenerApPassiveMode = func {
 		apHeadingWaypointSetVSpeed_force = 0;
 	}
 }
-setlistener("autopilot/locks/passive-mode", listenerApPassiveMode);
+setlistener("/autopilot/locks/passive-mode", listenerApPassiveMode);
 
 var listenerApAltitudeClambFunc = func {
 	if (getprop("/autopilot/locks/altitude") == "gs1-hold") {
