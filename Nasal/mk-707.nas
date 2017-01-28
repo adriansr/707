@@ -312,7 +312,7 @@ var show_fuel_consumption = func {
 	if(kg > 0){
 		help_win.write(sprintf("Total fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
 	}else{
-		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
+		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", totalkg));
 	}
 } 
 
