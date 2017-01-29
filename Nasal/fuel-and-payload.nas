@@ -745,7 +745,6 @@ setlistener("/b707/fuel/temperatur-selector", func(nr){
 ########################################### LOOP ENGINES ######################################################
 ###############################################################################################################
 # engines feed only on the main tank. Engine 1 to main 1 etc.
-# if valves are open, the tank is levelling to other tanks
 
 var engines_alive = func {
 

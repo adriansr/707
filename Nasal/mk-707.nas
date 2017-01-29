@@ -984,7 +984,7 @@ var nacelle_deicing = func {
 	  }
 	  
 	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
-	  if(newfuelTemp < -20)  setprop("/controls/engines/engine["~hnr~"]/cutoff", 1);
+	  if(newfuelTemp < -25)  setprop("/controls/engines/engine["~hnr~"]/cutoff", 1);
 	  
 		setprop("/b707/fuel/temp["~tnr~"]", newfuelTemp);
   	if (sel == tnr) interpolate("/b707/fuel/temperature", newfuelTemp, 15);
@@ -1380,6 +1380,3 @@ var toggleRefuelling = func{
 		if(!bo) b707.doorsystem.refuelexport();
   }
 }
-
-
-

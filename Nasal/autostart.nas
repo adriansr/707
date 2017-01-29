@@ -18,7 +18,7 @@ var startup = func
 	 	auto_procedure.setValue(1);
 	 	step = 1;
 	 	t = 0.0;
-	 	
+
 	 	screen.log.write("Have a look on engineers panel - External power pluged-in ", 1, 1, 1);
 		setprop("/controls/engines/engine[0]/cutoff", 1);
 		setprop("/controls/engines/engine[1]/cutoff", 1);
@@ -386,6 +386,7 @@ var startup = func
 		 	if(step == 6 and auto_procedure.getValue()) {
 				setprop("/b707/ground-connect", 1);
 				toggle_switch2();
+				screen.log.write("External Power Unit connected!", 1, 1, 1);
 			}else{
 				step = 0;
 				screen.log.write(" No External Power Unit found on bus - startup interrupted ", 1, 0, 0);
@@ -659,6 +660,8 @@ var startup = func
 			if(step == 7 and auto_procedure.getValue()){
 				setprop("/b707/fuel/valves/boost-pump[0]", 1);
 				toggle_switch2();
+
+				screen.log.write("Boost pumps controll!", 1, 1, 1);
 			}
 		}, t); t += 0.2;
 		settimer( func{
@@ -800,6 +803,8 @@ var startup = func
 			if(step == 9 and auto_procedure.getValue()){
 				setprop("/b707/start/startercover[2]", 1);
 				toggle_switch3();
+
+				screen.log.write("Engine 3!", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 		settimer( func{
@@ -827,6 +832,8 @@ var startup = func
 			if(step == 10 and auto_procedure.getValue()){
 				setprop("/b707/start/startercover[3]", 1);
 				toggle_switch3();
+
+				screen.log.write("Engine 4!", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 		settimer( func{
@@ -834,7 +841,7 @@ var startup = func
 				setprop("/controls/engines/engine[3]/starter", 1);
 				toggle_switch2();
 			}else{
-				screen.log.write("WARNING: startup interrupted at ENGINE 3 ", 1, 0, 0);
+				screen.log.write("WARNING: startup interrupted at ENGINE 4 ", 1, 0, 0);
 			}
 		}, t); t += 6.0;
 		settimer(func{
@@ -854,6 +861,8 @@ var startup = func
 			if(step == 11 and auto_procedure.getValue()){
 				setprop("/b707/start/startercover[1]", 1);
 				toggle_switch3();
+
+				screen.log.write("Engine 2!", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 		settimer( func{
@@ -861,7 +870,7 @@ var startup = func
 				setprop("/controls/engines/engine[1]/starter", 1);
 				toggle_switch2();
 			}else{
-				screen.log.write("WARNING: startup interrupted at ENGINE 4 ", 1, 0, 0);
+				screen.log.write("WARNING: startup interrupted at ENGINE 2 ", 1, 0, 0);
 			}
 		}, t); t += 6.0;
 		settimer(func{
@@ -881,6 +890,8 @@ var startup = func
 			if(step == 12 and auto_procedure.getValue()){
 				setprop("/b707/start/startercover[0]", 1);
 				toggle_switch3();
+
+				screen.log.write("Engine 1!", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 		settimer( func{
@@ -888,7 +899,7 @@ var startup = func
 				setprop("/controls/engines/engine[0]/starter", 1);
 				toggle_switch2();
 			}else{
-				screen.log.write("WARNING: startup interrupted at ENGINE 2 ", 1, 0, 0);
+				screen.log.write("WARNING: startup interrupted at ENGINE 1 ", 1, 0, 0);
 			}
 		}, t); t += 6.0;
 		settimer(func{
@@ -943,6 +954,8 @@ var startup = func
 			if(step == 13 and auto_procedure.getValue()){
 		 		setprop("/b707/ac/ac-para-select", 4);
 				toggle_switch3();
+				
+				screen.log.write("Generators setup.", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 
@@ -991,6 +1004,9 @@ var startup = func
 	 		if(step == 13 and auto_procedure.getValue()){
 		 		setprop("/b707/generator/gen-bus-tie-cover[0]", 1);
 				toggle_switch3();
+				
+				
+				screen.log.write("Generator BUS setup.", 1, 1, 1);
 			}
 		}, t); t += 0.5;
 		settimer( func{
@@ -1095,6 +1111,8 @@ var startup = func
 			if(step == 14 and auto_procedure.getValue()){
 				setprop("/b707/ground-connect", 0);
 				toggle_switch2();
+				
+				screen.log.write("External Power Unit disconnected! Continue the startup procedure.", 1, 1, 1);
 			}
 		}, t); t += 1.0;
 	
@@ -1132,6 +1150,8 @@ var startup = func
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("/b707/air-conditioning/ram-air-switch", 1);
 				toggle_switch2();
+				
+				screen.log.write("Compressors startup.", 1, 1, 1);
 			}
 		}, t); t += 0.5;	  
 	  settimer( func{ 		
@@ -1231,8 +1251,16 @@ var startup = func
 			if(step == 14 and auto_procedure.getValue()){
 		 		setprop("/b707/pressurization/mode-switch", 1);
 				toggle_switch3();
+				
+				#for pilots without knowledge of the compass control system the the compass controler here
+				setprop("/instrumentation/compass-control/mag/", 0);
+				setprop("/instrumentation/compass-control/lat-turn/", math.round(getprop("/position/latitude-deg")));
+
+				screen.log.write("Startup procedure was successful. It is now in your control! Do not forget to inform the Tower about your intentions.", 1, 1, 1);
+				
 			}
-		}, t); t += 0.2;		
+		}, t); t += 0.2;
+				
 
 		 # lights on 
 		 if(getprop("sim/time/sun-angle-rad") > 1.55){
@@ -1292,9 +1320,9 @@ var startup = func
 				auto_procedure.setValue(0);
 			}, t);
 		
-		}else{
-			screen.log.write("The Automatical Start Procedure is allready running. Please wait!", 1, 0, 0);
-		}
+	}else{
+		screen.log.write("The Automatical Start Procedure is allready running. Please wait!", 1, 0, 0);
+	}
  };
 
 var shutdown = func
