@@ -757,6 +757,11 @@ var startup = func
 				setprop("/b707/anti-ice/window-heat-cap-switch", 1);
 				setprop("/b707/anti-ice/window-heat-fo-switch", 1);
 				
+				setprop("/b707/fuel/heater[0]", 1);
+				setprop("/b707/fuel/heater[1]", 1);
+				setprop("/b707/fuel/heater[2]", 1);
+				setprop("/b707/fuel/heater[3]", 1);
+				
 				step = 8;
 			}
 		}, t); t += 2.5;
