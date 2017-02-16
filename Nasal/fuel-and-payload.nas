@@ -765,6 +765,24 @@ var boost_pumps_for_tank_are_on = func (tank)
       or getprop ("/b707/fuel/valves/boost-pump[" ~ boost_pumps_for_tank[tank][1] ~ "]");
 }
 
+var boost_pumps_for_engine = func (engine) {
+  var tank = -1;
+  forindex (index; engine_for_tank) {
+    if (engine_for_tank[index] == engine) {
+      tank = index;
+      break;
+    }
+  }
+  if (tank == -1) {
+    print ("bug: no main tank for engine " ~ engine);
+    return [];
+  }
+  return [
+    getprop ("/b707/fuel/valves/boost-pump[" ~ boost_pumps_for_tank[tank][0] ~ "]"),
+    getprop ("/b707/fuel/valves/boost-pump[" ~ boost_pumps_for_tank[tank][1] ~ "]")
+  ];
+}
+
 var engines_alive = maketimer (8.0, func {
 
   # control the engine dependens
@@ -775,8 +793,7 @@ var engines_alive = maketimer (8.0, func {
 		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
 		  var f = props.globals.initNode("/controls/engines/engine["~e.getIndex()~"]/fire",0,"BOOL");
 		  var w = props.globals.getNode("/b707/warning/enabled");
-		  var b1  = boost_pumps_for_tank[e.getIndex()+1][0] == -1 ? 0 : getprop ("/b707/fuel/valves/boost-pump[" ~ boost_pumps_for_tank[e.getIndex()+1][0] ~ "]");
-		  var b2  = boost_pumps_for_tank[e.getIndex()+1][1] == -1 ? 0 : getprop ("/b707/fuel/valves/boost-pump[" ~ boost_pumps_for_tank[e.getIndex()+1][1] ~ "]");
+                  var b = boost_pumps_for_engine (e.getIndex());
 		  var cfv = getprop ("/b707/fuel/valves/valve-pos[" ~ (e.getIndex()+1) ~ "]");
 		  var fp = 0;
 		  var newfp = 0;
@@ -796,9 +813,9 @@ var engines_alive = maketimer (8.0, func {
 
 		  # fuel pressure calculation
 		  if (cfv) fp = fpsystem.getValue()*39;
-		  if (b1 and !b2) fp = 80;
-		  if (!b1 and b2) fp = 75;
-		  if (b1 and b2) fp = 100;
+		  if (b[0] and !b[1]) fp = 80;
+		  if (!b[0] and b[1]) fp = 75;
+		  if (b[0] and b[1]) fp = 100;
 		  if (!s) fp = 0;
 		  
 		  newfp = (fp*1000-n2*200+600)/1000;
