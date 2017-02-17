@@ -1015,7 +1015,8 @@ var crossfeed_action = maketimer (4.0, func {
 		}else{
 				var mNeu = tfM1.getValue() + tfR1.getValue();
 	    	var rNeu = 0;
-		}	
+		}
+                mNeu -= getprop("/engines/engine[1]/fuel-flow_pph")/3600*4;
 		interpolate("/consumables/fuel/tank[6]/level-lbs", rNeu, 4);
 	  	interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, 4);
                 R1_to_M1 = 1;
@@ -1034,7 +1035,8 @@ var crossfeed_action = maketimer (4.0, func {
 		}else{
 				var mNeu = tfM4.getValue() + tfR4.getValue();
 	    	var rNeu = 0;
-		}	
+		}
+                mNeu -= getprop("/engines/engine[4]/fuel-flow_pph")/3600*4;
 		interpolate("/consumables/fuel/tank[0]/level-lbs", rNeu, 4);
 	    interpolate("/consumables/fuel/tank[1]/level-lbs", mNeu, 4);
             R4_to_M4 = 1;
