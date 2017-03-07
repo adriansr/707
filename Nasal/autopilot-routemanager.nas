@@ -602,17 +602,21 @@ var listenerApPassiveMode = func {
 						#print("wptBearingDiff=", wptBearingDiff);
 
 						# calculate distance to switch (I'm not such a good mathematican, so this may not be all in all correct)
-						var absWptBearingDiff = abs(wptBearingDiff);
-						if (absWptBearingDiff < 90) {
-							waypointDistanceNmSwitchToNext = (radiusMiles * sinus(absWptBearingDiff)) -
-								(cosinus(absWptBearingDiff) * tangens(90 - absWptBearingDiff));
-						}
-						elsif (absWptBearingDiff > 90 and absWptBearingDiff < 180) {
-							absWptBearingDiff = absWptBearingDiff - 90;
-							absWptBearingDiff = (absWptBearingDiff < 120 ? absWptBearingDiff : 120);	# clamp to 120
-							waypointDistanceNmSwitchToNext = waypointDistanceNmSwitchToNext +
-								(radiusMiles * sinus(absWptBearingDiff));
-						}
+						# var absWptBearingDiff = abs(wptBearingDiff);
+						# if (absWptBearingDiff < 90) {
+						# 	waypointDistanceNmSwitchToNext = (radiusMiles * sinus(absWptBearingDiff)) -
+						# 		(cosinus(absWptBearingDiff) * tangens(90 - absWptBearingDiff));
+						#
+						# 		print("waypointDistanceNmSwitchToNext less than 90=", waypointDistanceNmSwitchToNext);
+						# }
+						# elsif (absWptBearingDiff > 90 and absWptBearingDiff < 180) {
+						# 	absWptBearingDiff = absWptBearingDiff - 90;
+						# 	absWptBearingDiff = (absWptBearingDiff < 120 ? absWptBearingDiff : 120);	# clamp to 120
+						# 	waypointDistanceNmSwitchToNext = waypointDistanceNmSwitchToNext +
+						# 		(radiusMiles * sinus(absWptBearingDiff));
+						#
+						# 		print("waypointDistanceNmSwitchToNext between 90 and 180=", waypointDistanceNmSwitchToNext);
+						# }
 
 						# add an inertial-turn offset (the aircraft needs some time to get into 20° turn)
 						waypointDistanceNmSwitchToNext = waypointDistanceNmSwitchToNext + (wpAircraftSpecificTurnInertiaFactor * groundspeedKt);
