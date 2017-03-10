@@ -1187,16 +1187,16 @@ var crossfeed_action = maketimer (4.0, func {
 setlistener("/b707/fuel/valves/dump-retract[0]", func(pos){
 	var pos = pos.getValue();
 	var pwr = getprop("/b707/ess-bus") or 0;
-	if(pos and pwr > 24) dump_loop_l();
+	if(pos and pwr > 24) dump_loop_l.start();
 },1,0);
 
 setlistener("/b707/fuel/valves/dump-retract[1]", func(pos){
 	var pos = pos.getValue();
 	var pwr = getprop("/b707/ess-bus") or 0;
-	if(pos and pwr > 24) dump_loop_r();
+	if(pos and pwr > 24) dump_loop_r.start();
 },1,0);
 
-var dump_loop_l = func{
+var dump_loop_l = maketimer(2.1, func(){
   var is  = getprop("sim/multiplay/generic/int[15]") or 0; # the int[15] is the fuel dust on wings
 	var pwr = getprop("/b707/ess-bus") or 0;
 	
@@ -1233,8 +1233,9 @@ var dump_loop_l = func{
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 2);	
 	}
 	if(pwr > 24 and drL.getValue() and (tfC.getValue() > 1600 or tfM2.getValue() > 4000 or tfM1.getValue() > 4000) and (!v3.getBoolValue() and !v4.getBoolValue() and !v5.getBoolValue())){
-			settimer(dump_loop_l, 2.1);
+			#continue
 	}else{
+			dump_loop_l.stop();
 			setprop("sim/multiplay/generic/int[15]", 0);
 	}	
 	if (dv0.getBoolValue() and tfC.getValue() <= 1750){
@@ -1249,9 +1250,9 @@ var dump_loop_l = func{
 		dv3.setValue(0);
 		screen.log.write("Dumping terminated - minimum reached for Main Tank 2!", 1, 0, 0);
 	}
-}
+});
 
-var dump_loop_r = func{
+var dump_loop_r = maketimer(2.1, func(){
   var is  = getprop("sim/multiplay/generic/int[15]") or 0;
 	var pwr = getprop("/b707/ess-bus") or 0;
 	
@@ -1289,9 +1290,9 @@ var dump_loop_r = func{
 				if(is == 3) setprop("sim/multiplay/generic/int[15]", 1);
 	}
 	if(pwr > 24 and drR.getValue() and (tfC.getValue() > 1600 or tfM4.getValue() > 4000 or tfM3.getValue() > 4000) and (!v3.getBoolValue() and !v4.getBoolValue() and !v5.getBoolValue())){
-	
-			settimer(dump_loop_r, 2.1);
+		# continue
 	}else{
+			dump_loop_r.stop();
 			setprop("sim/multiplay/generic/int[15]", 0);
 	}	
 	
@@ -1307,7 +1308,7 @@ var dump_loop_r = func{
 		dv5.setValue(0);
 		screen.log.write("Dumping terminated - minimum reached for Main Tank 4!", 1, 0, 0);
 	} 
-}
+});
 
 
 ############  Start up the loops ################
@@ -1321,12 +1322,7 @@ var fuel_truck_connect = props.globals.getNode("/b707/ground-service/fuel-truck/
 var fuel_truck_transfer = props.globals.getNode("/b707/ground-service/fuel-truck/transfer");
 var fuel_truck_clean = props.globals.getNode("/b707/ground-service/fuel-truck/clean");
 
-var loop_id = 0;
-
-var clean_or_refuel = func{
-	
-	trace("clean_or_refuel: loop_id="~loop_id);
-	loop_id += 1;
+var clean_or_refuel = maketimer(0.12, func(){
 	
 	# Fuel Truck Controls
 	var request_kg = getprop("/b707/ground-service/fuel-truck/request-kg") or 0;
@@ -1347,9 +1343,7 @@ var clean_or_refuel = func{
 		}
 
 		if(fuel_truck_connect.getBoolValue()){
-
 	   		fuel_truck.setValue(1.1);
-
 			if (fuel_truck_transfer.getBoolValue()) {
 			
 				if (!getprop("/b707/fuel/valves/valve[0]") and
@@ -1366,7 +1360,7 @@ var clean_or_refuel = func{
 						setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") + 3);
 						setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") + 0.5);
 
-						if(loop_id > 3) fuel_truck.setValue(1.2); 
+						fuel_truck.setValue(1.2); 
 
 					} else {
 						setprop("/b707/ground-service/fuel-truck/transfer", 0);
@@ -1379,7 +1373,6 @@ var clean_or_refuel = func{
 				}
 
 			}
-
 			if (fuel_truck_clean.getBoolValue()) {
 
 				if (getprop("/b707/fuel/valves/valve[0]") and
@@ -1388,7 +1381,6 @@ var clean_or_refuel = func{
 					getprop("/b707/fuel/valves/valve[5]")) {
 
 					if (getprop("consumables/fuel/total-fuel-kg")) {
-
 						setprop("/consumables/fuel/tank[0]/level-kg", getprop("/consumables/fuel/tank[0]/level-kg") - 0.5);
 						setprop("/consumables/fuel/tank[1]/level-kg", getprop("/consumables/fuel/tank[1]/level-kg") - 3);
 						setprop("/consumables/fuel/tank[2]/level-kg", getprop("/consumables/fuel/tank[2]/level-kg") - 3);
@@ -1396,8 +1388,7 @@ var clean_or_refuel = func{
 						setprop("/consumables/fuel/tank[4]/level-kg", getprop("/consumables/fuel/tank[4]/level-kg") - 3);
 						setprop("/consumables/fuel/tank[5]/level-kg", getprop("/consumables/fuel/tank[5]/level-kg") - 3);
 						setprop("/consumables/fuel/tank[6]/level-kg", getprop("/consumables/fuel/tank[6]/level-kg") - 0.5);
-
-						if(loop_id > 3) fuel_truck.setValue(1.2);
+						fuel_truck.setValue(1.2);
 
 					} else {
 						setprop("/b707/ground-service/fuel-truck/clean", 0);
@@ -1411,25 +1402,15 @@ var clean_or_refuel = func{
 
 		}
 
-		if(loop_id > 6) {
-		loop_id = 0;
-		}
-		settimer(clean_or_refuel, 0.12);
 	}else{
 		setprop("/b707/ground-service/fuel-truck/transfer", 0);
 		setprop("/b707/ground-service/fuel-truck/connect", 0);
 		setprop("/b707/ground-service/fuel-truck/clean", 0);
 		setprop("/b707/ground-service/fuel-truck/state", 0);
+		clean_or_refuel.stop();
 	}
-};
+});
 
 setlistener("/b707/ground-service/fuel-truck/enable", func{
-	clean_or_refuel();
+	clean_or_refuel.start();
 },1,0);
-
-
-
-
-
-
-
