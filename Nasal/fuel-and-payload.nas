@@ -787,13 +787,19 @@ var engines_alive = maketimer (8.0, func {
 
   # control the engine dependens
   foreach(var e; props.globals.getNode("/engines").getChildren("engine")) {
-		  var n2 = e.getNode("n2").getValue() or 0;
+		  var n2_node = e.getNode("n2");
+		  if (n2_node == nil) {
+			continue;
+			# some buggy aircraft create additional /engines/engine[x] properties over multiplayer;
+			# they lack n2: skip them
+		  }
+		  var n2 = n2_node.getValue() or 0;
 		  var oil = getprop("/b707/oil/quantity["~e.getIndex()~"]") or 0;
 		  var s = getprop("/b707/fuel/valves/fuel-shutoff["~e.getIndex()~"]") or 0;
 		  var c = props.globals.getNode("/controls/engines/engine["~e.getIndex()~"]/cutoff");
 		  var f = props.globals.initNode("/controls/engines/engine["~e.getIndex()~"]/fire",0,"BOOL");
 		  var w = props.globals.getNode("/b707/warning/enabled");
-                  var b = boost_pumps_for_engine (e.getIndex());
+		  var b = boost_pumps_for_engine (e.getIndex());
 		  var cfv = getprop ("/b707/fuel/valves/valve-pos[" ~ (e.getIndex()+1) ~ "]");
 		  var fp = 0;
 		  var newfp = 0;
