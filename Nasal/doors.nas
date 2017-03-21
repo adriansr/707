@@ -26,7 +26,7 @@ Doors.pilotwinexport = func {
    # if sombody open the cockpit windows in flight
    var speed = getprop("/velocities/groundspeed-kt") or 0;
 	 if(speed > 200){	 	 
-	 	 setprop("b707/pressurization/safety-valve", 0);
+	 	 setprop("/b707/pressurization/safety-valve", 0);
 	 	 b707.safety_valv_pos();
 	 }
 }
@@ -36,7 +36,7 @@ Doors.copilotwinexport = func {
    # if sombody open the cockpit windows in flight
    var speed = getprop("/velocities/groundspeed-kt") or 0;
 	 if(speed > 200){
-	 	 setprop("b707/pressurization/safety-valve", 0);
+	 	 setprop("/b707/pressurization/safety-valve", 0);
 	 	 b707.safety_valv_pos();
 	 }
 }

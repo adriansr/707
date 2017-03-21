@@ -4,18 +4,18 @@
 
 ############################ init ENGINE START AIR PRESSURE ##################################
 # used in the autostarts.nas  var starter()
-var stAirRight = props.globals.initNode("b707/start-air-bottle-press[0]",2810,"DOUBLE");
-var stAirLeft  = props.globals.initNode("b707/start-air-bottle-press[1]",2960,"DOUBLE");
+var stAirRight = props.globals.initNode("/b707/start-air-bottle-press[0]",2810,"DOUBLE");
+var stAirLeft  = props.globals.initNode("/b707/start-air-bottle-press[1]",2960,"DOUBLE");
 
-var oT1 = props.globals.initNode("b707/oil/oil-temp[0]",0,"DOUBLE");
-var oT2 = props.globals.initNode("b707/oil/oil-temp[1]",0,"DOUBLE");
-var oT3 = props.globals.initNode("b707/oil/oil-temp[2]",0,"DOUBLE");
-var oT4 = props.globals.initNode("b707/oil/oil-temp[3]",0,"DOUBLE");
+var oT1 = props.globals.initNode("/b707/oil/oil-temp[0]",0,"DOUBLE");
+var oT2 = props.globals.initNode("/b707/oil/oil-temp[1]",0,"DOUBLE");
+var oT3 = props.globals.initNode("/b707/oil/oil-temp[2]",0,"DOUBLE");
+var oT4 = props.globals.initNode("/b707/oil/oil-temp[3]",0,"DOUBLE");
 
-var oil1 = props.globals.initNode("b707/oil/quantity[0]",6400,"DOUBLE");
-var oil2 = props.globals.initNode("b707/oil/quantity[1]",6400,"DOUBLE");
-var oil3 = props.globals.initNode("b707/oil/quantity[2]",6400,"DOUBLE");
-var oil4 = props.globals.initNode("b707/oil/quantity[3]",6400,"DOUBLE");
+var oil1 = props.globals.initNode("/b707/oil/quantity[0]",6400,"DOUBLE");
+var oil2 = props.globals.initNode("/b707/oil/quantity[1]",6400,"DOUBLE");
+var oil3 = props.globals.initNode("/b707/oil/quantity[2]",6400,"DOUBLE");
+var oil4 = props.globals.initNode("/b707/oil/quantity[3]",6400,"DOUBLE");
 
 var acc = props.globals.initNode("/b707/air-conditioning/air-cond-unit-cover",0,"DOUBLE");
 var comrpm1 = props.globals.initNode("/b707/air-conditioning/compressor-rpm[0]",0,"DOUBLE");
@@ -443,7 +443,7 @@ props.globals.initNode("/instrumentation/compass-control[1]/justify",0,"BOOL");
 
 setlistener( "/instrumentation/compass-control[0]/mag", func(state){ 
 	var value = state.getValue();
-	var nIndicatedHeading = props.globals.initNode("b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
+	var nIndicatedHeading = props.globals.initNode("/b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
@@ -454,7 +454,7 @@ setlistener( "/instrumentation/compass-control[0]/mag", func(state){
 
 setlistener( "/instrumentation/compass-control[1]/mag", func(state){ 
 	var value = state.getValue();
-	var nIndicatedHeading = props.globals.initNode("b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
+	var nIndicatedHeading = props.globals.initNode("/b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
 		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
@@ -618,7 +618,7 @@ var changeView = func (n){
 }
 
 ################## hydraulic system and auxilliary pumps #################
-var HydQuant = props.globals.initNode("b707/hydraulic/quantity",5400,"DOUBLE");
+var HydQuant = props.globals.initNode("/b707/hydraulic/quantity",5400,"DOUBLE");
 var rud = props.globals.initNode("/b707/hydraulic/rudder",0,"DOUBLE");
 var sys = props.globals.initNode("/b707/hydraulic/system",0,"DOUBLE");
 var shut1 = props.globals.getNode("/b707/hydraulic/hyd-fluid-shutoff[0]", 1);
@@ -994,11 +994,11 @@ settimer( nacelle_deicing, 12); # start first after 12 sec
 
 ####################### COOLING AND PRESSURIZATION LOOP ###########################
 var safety_valv_pos = func {
-	setprop("b707/pressurization/safety-valve-pos", 0);
+	setprop("/b707/pressurization/safety-valve-pos", 0);
 	setprop("/b707/pressurization/manual-mode-switch", 0);
-	var svs = getprop("b707/pressurization/safety-valve") or 0;
+	var svs = getprop("/b707/pressurization/safety-valve") or 0;
 	if(svs){ 
-		settimer( func { setprop("b707/pressurization/safety-valve-pos", 1) }, 2.1 );
+		settimer( func { setprop("/b707/pressurization/safety-valve-pos", 1) }, 2.1 );
 	}
 }
 
