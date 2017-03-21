@@ -310,11 +310,33 @@ var show_fuel_consumption = func {
 	}
 	
 	if(kg > 0){
-		help_win.write(sprintf("Total Fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
+		help_win.write(sprintf("Total fuel: %.2fkg - fuel consumption/hour: %.2fkg expected flighttime %3dh %02dmin", totalkg, kg, hours, minutes));
 	}else{
-		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", fueltotal));
+		help_win.write(sprintf("NO FUEL CONSUMPTION - Total fuel: %.2fkg", totalkg));
 	}
 } 
+
+var show_fuel_quantity = func(i){
+
+	var qua = getprop("/consumables/fuel/tank["~i~"]/level-kg") or 0;
+	var text ="";
+	if(i==0){
+		text="Reserve Tank 4";
+	}else if(i==1){
+		text="Main Tank 4";
+	}else if(i==2){
+		text="Main Tank 3";
+	}else if(i==3){
+		text="Center Tank";
+	}else if(i==4){
+		text="Main Tank 2";
+	}else if(i==5){
+		text="Main Tank 1";
+	}else if(i==6){
+		text="Reserve Tank 1";
+	}
+	help_win.write(sprintf(text~" fuel: %.2fkg",qua));
+}
 
 # real cabin altitude in pressurisatiion cabin alt instrument
 var show_cabin_alt = func {
@@ -325,63 +347,63 @@ var show_cabin_alt = func {
 # show the mp or ai aircraft information on the radar
 
 var show_mp_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
-	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
-	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
+	var cs  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
+	var code = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
 
   help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", al, as, dis) ); 
 } 
 
 var show_ai_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
-	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+	var cs  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
 }
 
 var show_ta_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
-	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
+	var cs  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fft / %.0fkts / %.2fnm", al, as, dis) );
 }
 
 var show_mp_awacs_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
-	var dis = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
-	var bg = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/bearing-deg") or 0;
-	var ct = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/course-to-mp") or 0;
-	var code = getprop("instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
+	var cs  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/tas-kt") or 0;
+	var dis = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/distance-nm") or 0;
+	var bg = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/course-to-mp") or 0;
+	var code = getprop("/instrumentation/mptcas/mp[" ~ i ~ "]/id-code") or "----";
 
   help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg /  %.0fft / %.0fkts / %.2fnm / Transponder-Code: "~code~" ", bg, ct, al, as, dis) ); 
 } 
 
 var show_ai_awacs_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
-	var bg = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
-	var ct = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
-	var dis = getprop("instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
+	var cs  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("/instrumentation/mptcas/ai[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }
 
 var show_ta_awacs_info = func (i){
-	var cs  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
-	var al  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
-	var as  = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
-	var bg = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/bearing-deg") or 0;
-	var ct = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/course-to-mp") or 0;
-	var dis = getprop("instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
+	var cs  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/callsign") or "";
+	var al  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/altitude-ft") or 0;
+	var as  = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/tas-kt") or 0;
+	var bg = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/bearing-deg") or 0;
+	var ct = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/course-to-mp") or 0;
+	var dis = getprop("/instrumentation/mptcas/ta[" ~ i ~ "]/distance-nm") or 0;
 
   help_win.write(sprintf(cs~" / %.0fhdg / course to %.0fdeg / %.0fft / %.0fkts / %.2fnm", bg, ct, al, as, dis) );
 }
@@ -446,9 +468,9 @@ setlistener( "/instrumentation/compass-control[0]/mag", func(state){
 	var nIndicatedHeading = props.globals.initNode("/b707/hsi[0]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		nIndicatedHeading.alias("/instrumentation/magnetic-compass/indicated-heading-deg");
 	}else{
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+		nIndicatedHeading.alias("/instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 
@@ -457,9 +479,9 @@ setlistener( "/instrumentation/compass-control[1]/mag", func(state){
 	var nIndicatedHeading = props.globals.initNode("/b707/hsi[1]/indicated-heading-deg",0.0,"DOUBLE");
 	nIndicatedHeading.unalias();
 	if(value){
-		nIndicatedHeading.alias("instrumentation/magnetic-compass/indicated-heading-deg");
+		nIndicatedHeading.alias("/instrumentation/magnetic-compass/indicated-heading-deg");
 	}else{
-		nIndicatedHeading.alias("instrumentation/heading-indicator-fg/indicated-heading-deg");
+		nIndicatedHeading.alias("/instrumentation/heading-indicator-fg/indicated-heading-deg");
 	}
 },1,0);
 
@@ -473,9 +495,9 @@ setlistener( "/instrumentation/compass-control[0]/lat-turn", func(state){
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
-		setprop("instrumentation/compass-control[0]/justify",1);
+		setprop("/instrumentation/compass-control[0]/justify",1);
 	}else{
-		setprop("instrumentation/compass-control[0]/justify",0);
+		setprop("/instrumentation/compass-control[0]/justify",0);
 	}
 	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
@@ -491,9 +513,9 @@ setlistener( "/instrumentation/compass-control[1]/lat-turn", func(state){
 	#offset = magnetische Abweichung + ((Knob adjust error percent) * N/S * max error)
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
-		setprop("instrumentation/compass-control[1]/justify",1);
+		setprop("/instrumentation/compass-control[1]/justify",1);
 	}else{
-		setprop("instrumentation/compass-control[1]/justify",0);
+		setprop("/instrumentation/compass-control[1]/justify",0);
 	}
 	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
@@ -508,9 +530,9 @@ setlistener( "/instrumentation/compass-control[0]/lat-knob", func(state){
 	var f = (nS) ? -1 : 1;	
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
-		setprop("instrumentation/compass-control[0]/justify",1);
+		setprop("/instrumentation/compass-control[0]/justify",1);
 	}else{
-		setprop("instrumentation/compass-control[0]/justify",0);
+		setprop("/instrumentation/compass-control[0]/justify",0);
 	}
 	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg/offset-deg", offset);
@@ -525,9 +547,9 @@ setlistener( "/instrumentation/compass-control[1]/lat-knob", func(state){
 	var f = (nS) ? -1 : 1;	
 	var latJustify = latPos - latCorr * f;
 	if (latJustify >= -1 and latJustify <= 1) {
-		setprop("instrumentation/compass-control[1]/justify",1);
+		setprop("/instrumentation/compass-control[1]/justify",1);
 	}else{
-		setprop("instrumentation/compass-control[1]/justify",0);
+		setprop("/instrumentation/compass-control[1]/justify",0);
 	}
 	var offset = -magVar + (latJustify/90.0) * 40.0;
 	setprop("/instrumentation/heading-indicator-fg[1]/offset-deg", offset);
@@ -962,7 +984,7 @@ var nacelle_deicing = func {
 	  }
 	  
 	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
-	  if(newfuelTemp < -20)  setprop("/controls/engines/engine["~hnr~"]/cutoff", 1);
+	  if(newfuelTemp < -25)  setprop("/controls/engines/engine["~hnr~"]/cutoff", 1);
 	  
 		setprop("/b707/fuel/temp["~tnr~"]", newfuelTemp);
   	if (sel == tnr) interpolate("/b707/fuel/temperature", newfuelTemp, 15);
@@ -1358,6 +1380,3 @@ var toggleRefuelling = func{
 		if(!bo) b707.doorsystem.refuelexport();
   }
 }
-
-
-

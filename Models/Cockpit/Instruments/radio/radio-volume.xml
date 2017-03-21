@@ -109,8 +109,12 @@
 		</greater-than>
 	    <or>
 		    <and>
-	      	  <property>/instrumentation/comm[0]/operable</property>
-	      	  <property>/instrumentation/comm[0]/ptt</property>
+	      	  <property>/instrumentation/comm[0]/serviceable</property>
+	      	  <property>/instrumentation/comm[0]/ptt</property>				  
+			<less-than>
+		      	<property>/instrumentation/comm[0]/slant-distance-m</property>
+				<value>105000</value>
+		    </less-than>
 			</and>
 	      <property>/controls/test/warn-knob</property>
 	    </or>
@@ -254,8 +258,11 @@
 			</greater-than>
 		    <or>
 			    <and>
-		      	  <property>/instrumentation/comm[1]/operable</property>
-		      	  <property>/instrumentation/comm[1]/ptt</property>
+		      	  <property>/instrumentation/comm[1]/serviceable</property>
+				  <greater-than>
+		      	  	<property>/instrumentation/comm[1]/signal-quality-norm</property>
+					<value>0.4</value>
+				  </greater-than>
 				</and>
 		      <property>/controls/test/warn-knob</property>
 		    </or>

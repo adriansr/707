@@ -683,9 +683,9 @@
                   <tableData>
                       0.0000	0.000	
                       2.0000	0.040	
-                      4.0000	0.150	
-                      6.0000	0.200	
-                     10.0000	0.400	
+                      4.0000	0.080	
+                      6.0000	0.100	
+                     10.0000	0.200	
                   </tableData>
               </table>
         </product>
@@ -708,8 +708,9 @@
          <product>
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
- 						<property>fcs/wing-fold-pos-norm</property>
-						<value>0.2</value>
+			<property>fcs/wing-fold-pos-norm</property>
+			<!--<value>0.2</value>-->
+			<value>0.1</value>
          </product>
     </function>
 

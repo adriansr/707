@@ -17,7 +17,7 @@
     injected?       no
 -->
 
-<turbine_engine name="MK508">
+<turbine_engine name="RCo12">
   <milthrust> 	19000.0 </milthrust>
   <bypassratio>     1.0 </bypassratio>
   <tsfc>            0.8 </tsfc>
