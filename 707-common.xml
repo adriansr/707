@@ -14,6 +14,19 @@
   <aero>707</aero>
   <virtual-cockpit archive="y">true</virtual-cockpit>
   <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+  <tags>
+    <tag>boeing</tag>
+    <tag>low-wing</tag>
+    <tag>tricycle</tag>
+    <tag>retractable-gear</tag>
+    <tag>four-engine</tag>
+    <tag>jet</tag>
+    <tag>transport</tag>
+    <tag>1960s</tag>
+    <tag>1970s</tag>
+    <tag>ifr</tag>
+  </tags>
   
   <rating>
       <FDM type="int">4</FDM>
