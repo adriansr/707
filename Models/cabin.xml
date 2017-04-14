@@ -69,7 +69,7 @@
 			<z>0.13</z>
 		</direction>
     <dim-factor>
-      <property>/systems/electrical/outputs/cabin-dim</property>
+      <property>systems/electrical/outputs/cabin-dim</property>
       <factor>1.0</factor>
       <offset>0</offset>
       <min>0</min>

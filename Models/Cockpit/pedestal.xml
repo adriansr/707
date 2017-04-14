@@ -49,7 +49,7 @@
 		  <red>0.25</red>
 		  <green>0.25</green>
 		  <blue>0.25</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -68,7 +68,7 @@
 		<animation>
 			<type>translate</type>
 			<object-name>PBrakeLever</object-name>
-      <property>/controls/gear/brake-parking</property>
+      <property>controls/gear/brake-parking</property>
       <factor>0.02</factor>
 			<axis>
 				<x>0</x>
@@ -86,7 +86,7 @@
         <repeatable>false</repeatable>
         <binding>
           <command>property-toggle</command>
-          <property>/controls/gear/brake-parking</property>  
+          <property>controls/gear/brake-parking</property>  
         </binding>
         <binding>
           <command>nasal</command>
@@ -102,7 +102,7 @@
         </binding>
         <binding>
           <command>property-toggle</command>
-          <property>/sim/sound/switch1</property>
+          <property>sim/sound/switch1</property>
         </binding>
       </action>
     </animation>
@@ -111,7 +111,7 @@
   <animation>
 		<type>rotate</type>
 		<object-name>BrkLever</object-name>
-		<property>/controls/flight/spoilers</property>
+		<property>controls/flight/spoilers</property>
 		<factor> 60</factor>
 		<center>
 		  <x-m>-18.6285</x-m>
@@ -223,7 +223,7 @@
 		<condition>
 			<not><property>engines/engine[0]/reversed</property></not>
 		</condition>
-		<property>/controls/engines/engine[0]/throttle</property>
+		<property>controls/engines/engine[0]/throttle</property>
 		<factor>-50</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -245,7 +245,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[0]/throttle</property>
+		    <property>controls/engines/engine[0]/throttle</property>
 		    <step>0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -257,7 +257,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[0]/throttle</property>
+		    <property>controls/engines/engine[0]/throttle</property>
 		    <step>-0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -273,7 +273,7 @@
 		<condition>
 			<not><property>engines/engine[1]/reversed</property></not>
 		</condition>
-		<property>/controls/engines/engine[1]/throttle</property>
+		<property>controls/engines/engine[1]/throttle</property>
 		<factor>-50</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -295,7 +295,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[1]/throttle</property>
+		    <property>controls/engines/engine[1]/throttle</property>
 		    <step>0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -307,7 +307,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[1]/throttle</property>
+		    <property>controls/engines/engine[1]/throttle</property>
 		    <step>-0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -323,7 +323,7 @@
 		<condition>
 			<not><property>engines/engine[2]/reversed</property></not>
 		</condition>
-		<property>/controls/engines/engine[2]/throttle</property>
+		<property>controls/engines/engine[2]/throttle</property>
 		<factor>-50</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -345,7 +345,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[2]/throttle</property>
+		    <property>controls/engines/engine[2]/throttle</property>
 		    <step>0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -357,7 +357,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[2]/throttle</property>
+		    <property>controls/engines/engine[2]/throttle</property>
 		    <step>-0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -373,7 +373,7 @@
 		<condition>
 			<not><property>engines/engine[3]/reversed</property></not>
 		</condition>
-		<property>/controls/engines/engine[3]/throttle</property>
+		<property>controls/engines/engine[3]/throttle</property>
 		<factor>-50</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -395,7 +395,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[3]/throttle</property>
+		    <property>controls/engines/engine[3]/throttle</property>
 		    <step>0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -407,7 +407,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/engines/engine[3]/throttle</property>
+		    <property>controls/engines/engine[3]/throttle</property>
 		    <step>-0.05</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -420,7 +420,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>cutoff.001</object-name>
-		<property>/controls/engines/engine[0]/cutoff</property>
+		<property>controls/engines/engine[0]/cutoff</property>
 		<factor>30</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -442,7 +442,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/controls/engines/engine[0]/cutoff</property>
+		    <property>controls/engines/engine[0]/cutoff</property>
 		  </binding>
 		</action>
 	</animation>
@@ -450,7 +450,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>cutoff.002</object-name>
-		<property>/controls/engines/engine[1]/cutoff</property>
+		<property>controls/engines/engine[1]/cutoff</property>
 		<factor>30</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -472,7 +472,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/controls/engines/engine[1]/cutoff</property>
+		    <property>controls/engines/engine[1]/cutoff</property>
 		  </binding>
 		</action>
 	</animation>
@@ -480,7 +480,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>cutoff.003</object-name>
-		<property>/controls/engines/engine[2]/cutoff</property>
+		<property>controls/engines/engine[2]/cutoff</property>
 		<factor>30</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -502,7 +502,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/controls/engines/engine[2]/cutoff</property>
+		    <property>controls/engines/engine[2]/cutoff</property>
 		  </binding>
 		</action>
 	</animation>
@@ -510,7 +510,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>cutoff.004</object-name>
-		<property>/controls/engines/engine[3]/cutoff</property>
+		<property>controls/engines/engine[3]/cutoff</property>
 		<factor>30</factor>
 		<center>
 		  <x-m>-18.64</x-m>
@@ -532,7 +532,7 @@
 		  <repeatable>false</repeatable>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/controls/engines/engine[3]/cutoff</property>
+		    <property>controls/engines/engine[3]/cutoff</property>
 		  </binding>
 		</action>
 	</animation>
@@ -544,7 +544,7 @@
 		<condition>
 			<property>engines/engine[0]/reversed</property>
 		</condition>
-		<property>/controls/engines/engine[0]/throttle</property>
+		<property>controls/engines/engine[0]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -564,7 +564,7 @@
 		<condition>
 			<property>engines/engine[1]/reversed</property>
 		</condition>
-		<property>/controls/engines/engine[1]/throttle</property>
+		<property>controls/engines/engine[1]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -584,7 +584,7 @@
 		<condition>
 			<property>engines/engine[2]/reversed</property>
 		</condition>
-		<property>/controls/engines/engine[2]/throttle</property>
+		<property>controls/engines/engine[2]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -604,7 +604,7 @@
 		<condition>
 			<property>engines/engine[3]/reversed</property>
 		</condition>
-		<property>/controls/engines/engine[3]/throttle</property>
+		<property>controls/engines/engine[3]/throttle</property>
 		<factor>140</factor>
 		<center>
 		  <x-m>-18.556</x-m>
@@ -638,7 +638,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>AileronArrow</object-name>
-		<property>/controls/flight/aileron-trim</property>
+		<property>controls/flight/aileron-trim</property>
 		<factor>0.02</factor>
 		<axis>
 		  <x>0</x>
@@ -650,7 +650,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AileronTab</object-name>
-		<property>/controls/flight/aileron-trim</property>
+		<property>controls/flight/aileron-trim</property>
 		<factor>-8680</factor>
 		<center>
 		  <x-m>0.0</x-m>
@@ -685,7 +685,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
+		    <property>controls/flight/aileron-trim</property>
 		    <step>0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -699,7 +699,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
+		    <property>controls/flight/aileron-trim</property>
 		    <step>0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -716,7 +716,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
+		    <property>controls/flight/aileron-trim</property>
 		    <step>-0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -730,7 +730,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/aileron-trim</property>
+		    <property>controls/flight/aileron-trim</property>
 		    <step>-0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -788,7 +788,7 @@
 		   </binding>
 			<binding>
 			  <command>property-toggle</command>
-			  <property>/controls/special/elev-trim-help</property>
+			  <property>controls/special/elev-trim-help</property>
 			</binding>
 		</action>
 		<action>
@@ -801,7 +801,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
+		    <property>controls/flight/elevator-trim</property>
 		    <step>0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -815,7 +815,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
+		    <property>controls/flight/elevator-trim</property>
 		    <step>0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -832,7 +832,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
+		    <property>controls/flight/elevator-trim</property>
 		    <step>-0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -846,7 +846,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/elevator-trim</property>
+		    <property>controls/flight/elevator-trim</property>
 		    <step>-0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -858,7 +858,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorHelpL</object-name> 
-		<property>/controls/special/elev-trim-help</property>
+		<property>controls/special/elev-trim-help</property>
 		<factor>-90</factor>
 		<center>
 		  <x-m>  0.0</x-m>
@@ -875,7 +875,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElevatorHelpR</object-name> 
-		<property>/controls/special/elev-trim-help</property>
+		<property>controls/special/elev-trim-help</property>
 		<factor> 90</factor>
 		<center>
 		  <x-m>  0.0</x-m>
@@ -892,7 +892,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RudderArrow</object-name>
-		<property>/controls/flight/rudder-trim</property>
+		<property>controls/flight/rudder-trim</property>
 		<factor>-45</factor>
 		<center>
 		  <x-m>-18.288</x-m>
@@ -909,7 +909,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RudderTab</object-name>
-		<property>/controls/flight/rudder-trim</property>
+		<property>controls/flight/rudder-trim</property>
 		<factor>-4680</factor>
 		<center>
 		  <x-m>-18.288</x-m>
@@ -945,7 +945,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
+		    <property>controls/flight/rudder-trim</property>
 		    <step>0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -959,7 +959,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
+		    <property>controls/flight/rudder-trim</property>
 		    <step>0.01</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -976,7 +976,7 @@
             <not><property>devices/status/keyboard/super</property></not>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
+		    <property>controls/flight/rudder-trim</property>
 		    <step>-0.001</step>
 		    <min>-1</min>
 		    <max>1</max>
@@ -990,7 +990,7 @@
            </or>
         </condition>
 		    <command>property-adjust</command>
-		    <property>/controls/flight/rudder-trim</property>
+		    <property>controls/flight/rudder-trim</property>
 		    <step>-0.01</step>
 		    <min>-1</min>
 		    <max>1</max>

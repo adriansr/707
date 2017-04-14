@@ -67,7 +67,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -128,7 +128,7 @@
 		  		<property>b707/air-conditioning/compressor-rpm[0]</property>
 		  		<value>42</value>
 		  	</less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -146,7 +146,7 @@
 		  		<property>b707/air-conditioning/compressor-rpm[1]</property>
 		  		<value>42</value>
 		  	</less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -164,7 +164,7 @@
 		  		<property>b707/air-conditioning/compressor-rpm[2]</property>
 		  		<value>42</value>
 		  	</less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -183,10 +183,10 @@
 		  		<value>115</value>
 		  	</greater-than>
 		  	<greater-than>
-		  		<property>/velocities/mach</property>
+		  		<property>velocities/mach</property>
 		  		<value>0.89</value>
 		  	</greater-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -205,10 +205,10 @@
 		  		<value>115</value>
 		  	</greater-than>
 		  	<greater-than>
-		  		<property>/velocities/mach</property>
+		  		<property>velocities/mach</property>
 		  		<value>0.89</value>
 		  	</greater-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -227,10 +227,10 @@
 		  		<value>115</value>
 		  	</greater-than>
 		  	<greater-than>
-		  		<property>/velocities/mach</property>
+		  		<property>velocities/mach</property>
 		  		<value>0.89</value>
 		  	</greater-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -245,7 +245,7 @@
 			</greater-than>
 		  <or>
 		  	<property>b707/air-conditioning/crew-overheat</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -260,7 +260,7 @@
 			</greater-than>
 		  <or>
 		  	<property>b707/air-conditioning/main-overheat</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -275,7 +275,7 @@
 			</greater-than>
 		  <or>
 		  	<property>b707/air-conditioning/air-cond-unit-left-overheat</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -290,7 +290,7 @@
 			</greater-than>
 		  <or>
 		  	<property>b707/air-conditioning/air-cond-unit-right-overheat</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -305,7 +305,7 @@
 			</greater-than>
 		  <or>
 		  	<not><property>b707/air-conditioning/air-cond-unit-left-start</property></not>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -320,7 +320,7 @@
 			</greater-than>
 		  <or>
 		  	<not><property>b707/air-conditioning/air-cond-unit-right-start</property></not>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -335,7 +335,7 @@
 			</greater-than>
 		  <or>
 		  	<not><property>b707/air-conditioning/cabin-temp-selector[0]</property></not>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -350,7 +350,7 @@
 			</greater-than>
 		  <or>
 		  	<not><property>b707/air-conditioning/cabin-temp-selector[1]</property></not>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -394,7 +394,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -429,7 +429,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -473,7 +473,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -508,7 +508,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -556,7 +556,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -572,7 +572,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>
@@ -620,7 +620,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -636,7 +636,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>
@@ -733,7 +733,7 @@
         </binding>            
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -772,7 +772,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -811,7 +811,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -847,7 +847,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -882,7 +882,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -917,7 +917,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -952,7 +952,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -988,7 +988,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -1023,7 +1023,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -1059,7 +1059,7 @@
         </binding>         
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -1094,7 +1094,7 @@
         </binding>         
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -1129,7 +1129,7 @@
         </binding>         
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>

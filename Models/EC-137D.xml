@@ -192,7 +192,7 @@
 		<condition>
 			<property>sim/multiplay/generic/int[13]</property>
 		</condition>
-		<property>/sim/time/elapsed-sec</property>
+		<property>sim/time/elapsed-sec</property>
 		<factor>20</factor>
 		<center>
 			<x-m>10.022</x-m>
@@ -809,7 +809,7 @@
 			<and>
 				<property>sim/multiplay/generic/int[19]</property>
 				<less-than>
-						<property>/velocities/vertical-speed-fps</property>
+						<property>velocities/vertical-speed-fps</property>
 						<value>0.1</value>
 				</less-than>
 			</and>

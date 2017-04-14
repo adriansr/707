@@ -40,7 +40,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -71,7 +71,7 @@
 		    	<property>b707/hydraulic/rudder</property>
 		    	<value>2800</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -90,7 +90,7 @@
 		    	<property>b707/hydraulic/rudder</property>
 		    	<value>2800</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -110,7 +110,7 @@
 		    	<property>b707/hydraulic/system</property>
 		    	<value>2100</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -130,7 +130,7 @@
 		    	<property>b707/hydraulic/system</property>
 		    	<value>2100</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -176,7 +176,7 @@
         </mod-up>         
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -212,7 +212,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -247,7 +247,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -308,7 +308,7 @@
         </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -347,7 +347,7 @@
         </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -383,7 +383,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -418,7 +418,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -462,7 +462,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -497,7 +497,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -541,7 +541,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -576,7 +576,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -619,7 +619,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -635,7 +635,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>

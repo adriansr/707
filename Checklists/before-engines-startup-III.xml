@@ -23,18 +23,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-drive[0]</property>
+		    <property>b707/generator/gen-drive[0]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-drive[0]</property>
+		  <property>b707/generator/gen-drive[0]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -49,18 +49,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-drive[1]</property>
+		    <property>b707/generator/gen-drive[1]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-drive[1]</property>
+		  <property>b707/generator/gen-drive[1]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item>   
 	
@@ -75,18 +75,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-drive[2]</property>
+		    <property>b707/generator/gen-drive[2]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-drive[2]</property>
+		  <property>b707/generator/gen-drive[2]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item>  
 	
@@ -101,18 +101,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-drive[3]</property>
+		    <property>b707/generator/gen-drive[3]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-drive[3]</property>
+		  <property>b707/generator/gen-drive[3]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item>   
 	
@@ -127,18 +127,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-control[0]</property>
+		    <property>b707/generator/gen-control[0]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-control[0]</property>
+		  <property>b707/generator/gen-control[0]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item>  
 	
@@ -153,18 +153,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-control[1]</property>
+		    <property>b707/generator/gen-control[1]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-control[1]</property>
+		  <property>b707/generator/gen-control[1]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item>  
 	
@@ -179,18 +179,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-control[2]</property>
+		    <property>b707/generator/gen-control[2]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-control[2]</property>
+		  <property>b707/generator/gen-control[2]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -205,18 +205,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-control[3]</property>
+		    <property>b707/generator/gen-control[3]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-control[3]</property>
+		  <property>b707/generator/gen-control[3]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -231,18 +231,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-breaker[0]</property>
+		    <property>b707/generator/gen-breaker[0]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-breaker[0]</property>
+		  <property>b707/generator/gen-breaker[0]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 		
@@ -257,18 +257,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-breaker[1]</property>
+		    <property>b707/generator/gen-breaker[1]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-breaker[1]</property>
+		  <property>b707/generator/gen-breaker[1]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -283,18 +283,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-breaker[2]</property>
+		    <property>b707/generator/gen-breaker[2]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-breaker[2]</property>
+		  <property>b707/generator/gen-breaker[2]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -309,18 +309,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-breaker[3]</property>
+		    <property>b707/generator/gen-breaker[3]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-breaker[3]</property>
+		  <property>b707/generator/gen-breaker[3]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -335,18 +335,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-bus-tie[0]</property>
+		    <property>b707/generator/gen-bus-tie[0]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-bus-tie[0]</property>
+		  <property>b707/generator/gen-bus-tie[0]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -361,18 +361,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-bus-tie[1]</property>
+		    <property>b707/generator/gen-bus-tie[1]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-bus-tie[1]</property>
+		  <property>b707/generator/gen-bus-tie[1]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -387,18 +387,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-bus-tie[2]</property>
+		    <property>b707/generator/gen-bus-tie[2]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-bus-tie[2]</property>
+		  <property>b707/generator/gen-bus-tie[2]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 	
@@ -413,18 +413,18 @@
 		</marker>
 		<condition>
 		  <equals>
-		    <property>/b707/generator/gen-bus-tie[3]</property>
+		    <property>b707/generator/gen-bus-tie[3]</property>
 		    <value>1</value>
 		  </equals>
 		</condition>		
 		<binding>
 		  <command>property-assign</command>
-		  <property>/b707/generator/gen-bus-tie[3]</property>
+		  <property>b707/generator/gen-bus-tie[3]</property>
 		  <value>1</value>
 		</binding>   
 	    <binding>
 	      <command>property-toggle</command>
-	      <property>/sim/sound/switch1</property>
+	      <property>sim/sound/switch1</property>
 	    </binding>
 	</item> 
 		     

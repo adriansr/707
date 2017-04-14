@@ -19,7 +19,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -32,13 +32,13 @@
 		<object-name>needle</object-name>	
 		<object-name>needle.001</object-name>	
 		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -52,13 +52,13 @@
 		<object-name>needle.001</object-name>	
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/engineer-dim</property>
+			<property>systems/electrical/outputs/engineer-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>	
 

@@ -4,7 +4,7 @@
 # ============================================
 # The analog watch for the flightgear - rallye 
 # ============================================
-var sw = "/instrumentation/stopwatch/";
+var sw = "instrumentation/stopwatch/";
 
 
 #============================== only stopwatch actions ================================
@@ -13,13 +13,13 @@ var sw_start_stop = func {
 
   if(!running.getBoolValue()){
     # start
-    setprop(sw~"flight-time/start-time", getprop("/sim/time/elapsed-sec"));
+    setprop(sw~"flight-time/start-time", getprop("sim/time/elapsed-sec"));
     running.setBoolValue(1);
     sw_loop();
   }else{
     # stop
     var accu = getprop(sw~"flight-time/accu");
-    accu += getprop("/sim/time/elapsed-sec") - getprop(sw~"flight-time/start-time");
+    accu += getprop("sim/time/elapsed-sec") - getprop(sw~"flight-time/start-time");
     setprop(sw~"running",0);
     setprop(sw~"flight-time/accu", accu);
     sw_show(accu);
@@ -31,7 +31,7 @@ var sw_reset = func {
   setprop(sw~"flight-time/accu", 0);
 
   if(running.getBoolValue()){
-    setprop(sw~"flight-time/start-time", getprop("/sim/time/elapsed-sec"));
+    setprop(sw~"flight-time/start-time", getprop("sim/time/elapsed-sec"));
   }else{
     sw_show(0);
   }
@@ -40,7 +40,7 @@ var sw_reset = func {
 var sw_loop = func {
   var running = props.globals.getNode(sw~"running");
   if(running.getBoolValue()){
-    sw_show(getprop("/sim/time/elapsed-sec") - getprop(sw~"flight-time/start-time") + getprop(sw~"flight-time/accu"));
+    sw_show(getprop("sim/time/elapsed-sec") - getprop(sw~"flight-time/start-time") + getprop(sw~"flight-time/accu"));
     settimer(sw_loop, 0.04);
   }
 }

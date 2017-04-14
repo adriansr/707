@@ -266,7 +266,7 @@
   </flaps>
   
 	<aircraft-data>
-		<path>/instrumentation/operating-time/total</path>
+		<path>instrumentation/operating-time/total</path>
 	</aircraft-data>
  </sim>
 

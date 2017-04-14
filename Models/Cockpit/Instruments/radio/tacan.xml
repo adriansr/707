@@ -23,13 +23,13 @@
 	<object-name>vol-knob</object-name>
 	<condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		<property>/systems/electrical/outputs/cabin-dim</property>
+		<property>systems/electrical/outputs/cabin-dim</property>
 	</condition>
 	<emission>
 	  <red>0.3</red>
 	  <green>0.3</green>
 	  <blue>0.3</blue>
-	  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+	  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 	</emission>
 </animation>
 
@@ -38,13 +38,13 @@
 		<object-name>ActDigit1</object-name>
 		<object-name>ActDigit2</object-name>
 	<condition>
-		<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
+		<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.6</value></less-than>
 	</condition>
 	<emission>
 		<red>0.6</red>
 		<green>0.4</green>
 		<blue>0.3</blue>
-		<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+		<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 	</emission>
 </animation>
 
@@ -54,13 +54,13 @@
 		<object-name>ActDigit2</object-name>
 	<condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		<property>/systems/electrical/outputs/cabin-dim</property>
+		<property>systems/electrical/outputs/cabin-dim</property>
 	</condition>
 	<emission>
 	  <red>0.8</red>
 	  <green>0.7</green>
 	  <blue>0.5</blue>
-	  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+	  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 	</emission>
 </animation>
 
@@ -106,13 +106,13 @@
 		</greater-than>
     <or>
 		<and>
-      	  <property>/instrumentation/tacan/in-range</property>
+      	  <property>instrumentation/tacan/in-range</property>
 		  <greater-than>
-      	  	<property>/instrumentation/tacan/switch-position</property>
+      	  	<property>instrumentation/tacan/switch-position</property>
 			<value>0</value>
 	  	  </greater-than>
 	  	</and>
-      <property>/controls/test/warn-knob</property>
+      <property>controls/test/warn-knob</property>
     </or>
   </condition>
 </animation>
@@ -127,13 +127,13 @@
 	</greater-than>
 	  <or>
 		<and>
-	      <not><property>/instrumentation/tacan/in-range</property></not>
+	      <not><property>instrumentation/tacan/in-range</property></not>
 		  <greater-than>
-	    	  	<property>/instrumentation/tacan/switch-position</property>
+	    	  	<property>instrumentation/tacan/switch-position</property>
 			<value>0</value>
 	  	  </greater-than>
 	  	</and>
-	    <property>/controls/test/warn-knob</property>
+	    <property>controls/test/warn-knob</property>
 	  </or>
   </condition>
 </animation>
@@ -141,7 +141,7 @@
 <animation>
      <type>rotate</type>
      <object-name>switch</object-name>
-     <property>/instrumentation/tacan/xy-position</property>
+     <property>instrumentation/tacan/xy-position</property>
      <factor>-70</factor>
      <axis>
          <x>0.0</x>
@@ -178,7 +178,7 @@
          </binding>
          <binding>
            <command>property-toggle</command>
-           <property>/sim/sound/switch2</property>
+           <property>sim/sound/switch2</property>
          </binding>
      </action>
  </animation>
@@ -186,7 +186,7 @@
  <animation>
       <type>rotate</type>
       <object-name>vol-knob</object-name>
-      <property>/instrumentation/tacan/volume</property>
+      <property>instrumentation/tacan/volume</property>
       <factor>-270</factor>
       <axis>
           <x>1.0</x>
@@ -210,7 +210,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/volume</property>
+			<property>instrumentation/tacan/volume</property>
 			<step>0.1</step>
 			<min>0.01</min>
 			<max>1.0</max>
@@ -218,7 +218,7 @@
 		</binding>
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -227,7 +227,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/volume</property>
+			<property>instrumentation/tacan/volume</property>
 			<step>-0.1</step>
 			<min>0.01</min>
 			<max>1.0</max>
@@ -235,7 +235,7 @@
 		</binding>
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -244,7 +244,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/volume</property>
+			<property>instrumentation/tacan/volume</property>
 			<step>0.1</step>
 			<min>0.01</min>
 			<max>1.0</max>
@@ -252,7 +252,7 @@
 		</binding>
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -261,7 +261,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/volume</property>
+			<property>instrumentation/tacan/volume</property>
 			<step>-0.1</step>
 			<min>0.01</min>
 			<max>1.0</max>
@@ -269,7 +269,7 @@
 		</binding>
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 </animation>
@@ -277,7 +277,7 @@
  <animation>
       <type>rotate</type>
       <object-name>mode-knob</object-name>
-      <property>/instrumentation/tacan/switch-position</property>
+      <property>instrumentation/tacan/switch-position</property>
 		<interpolation>
 		  <entry><ind>  0</ind><dep>  0</dep></entry>
 		  <entry><ind>  1</ind><dep>32.5</dep></entry>
@@ -306,7 +306,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/switch-position</property>
+			<property>instrumentation/tacan/switch-position</property>
 			<step>1</step>
 			<min>0</min>
 			<max>3</max>
@@ -324,7 +324,7 @@
         </binding>	
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch1</property>
+			<property>sim/sound/switch1</property>
 		</binding>
 	</action>
 	<action>
@@ -333,7 +333,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/switch-position</property>
+			<property>instrumentation/tacan/switch-position</property>
 			<step>-1</step>
 			<min>0</min>
 			<max>3</max>
@@ -341,7 +341,7 @@
 		</binding>	
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch1</property>
+			<property>sim/sound/switch1</property>
 		</binding>
 	</action>
 </animation>
@@ -365,7 +365,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>ActDigit1</object-name>
-  <property>/instrumentation/tacan/frequencies/selected-channel</property>
+  <property>instrumentation/tacan/frequencies/selected-channel</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -378,7 +378,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>ActDigit2</object-name>
-  <property>/instrumentation/tacan/frequencies/selected-channel</property>
+  <property>instrumentation/tacan/frequencies/selected-channel</property>
   <factor>0.1</factor>
   <axis>
     <x>1</x>
@@ -390,7 +390,7 @@
  <animation>
       <type>rotate</type>
       <object-name>chan-knob</object-name>
-      <property>/instrumentation/tacan/frequencies/selected-channel</property>
+      <property>instrumentation/tacan/frequencies/selected-channel</property>
 	  <factor>-2.7</factor>
       <axis>
           <x>1.0</x>
@@ -415,7 +415,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/frequencies/selected-channel</property>
+			<property>instrumentation/tacan/frequencies/selected-channel</property>
 			<step>10</step>
 			<min>1</min>
 			<max>90</max>
@@ -423,7 +423,7 @@
 		</binding>       
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -432,7 +432,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/frequencies/selected-channel</property>
+			<property>instrumentation/tacan/frequencies/selected-channel</property>
 			<step>-10</step>
 			<min>1</min>
 			<max>90</max>
@@ -440,7 +440,7 @@
 		</binding>       
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -449,7 +449,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/frequencies/selected-channel</property>
+			<property>instrumentation/tacan/frequencies/selected-channel</property>
 			<step>1</step>
 			<min>1</min>
 			<max>99</max>
@@ -457,7 +457,7 @@
 		</binding>       
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 	<action>
@@ -466,7 +466,7 @@
 		<repeatable>true</repeatable>
 		<binding>	          
 			<command>property-adjust</command>
-			<property>/instrumentation/tacan/frequencies/selected-channel</property>
+			<property>instrumentation/tacan/frequencies/selected-channel</property>
 			<step>-1</step>
 			<min>1</min>
 			<max>99</max>
@@ -474,7 +474,7 @@
 		</binding>       
 	  	<binding>
 			<command>property-toggle</command>
-			<property>/sim/sound/switch3</property>
+			<property>sim/sound/switch3</property>
 		</binding>
 	</action>
 </animation>

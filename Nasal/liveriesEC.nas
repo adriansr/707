@@ -4,8 +4,8 @@ aircraft.livery.init("Aircraft/707/Models/LiveriesEC");
 
 
 var refuellingMsg = func{
-		var state = getprop("/systems/refuel/contact") or 0;
-		var fuelWeight = getprop("/consumables/fuel/total-fuel-kg") or 0;
+		var state = getprop("systems/refuel/contact") or 0;
+		var fuelWeight = getprop("consumables/fuel/total-fuel-kg") or 0;
 		if (state) {
 			if(fuelWeight < 60000){
 				setprop("sim/multiplay/generic/int[12]", 1);
@@ -18,6 +18,6 @@ var refuellingMsg = func{
 		}	 
 }
 
-setlistener( "/systems/refuel/contact", func{ 
+setlistener( "systems/refuel/contact", func{ 
 	refuellingMsg();
 });

@@ -3,9 +3,9 @@ aircraft.livery.init("Aircraft/707/Models/LiveriesTT");
 # Not the best place but liveries are independent to the aircraft
 
 var isEC = func {
-    var mpOther = props.globals.getNode("/ai/models").getChildren("multiplayer");
+    var mpOther = props.globals.getNode("ai/models").getChildren("multiplayer");
     var otherNr = size(mpOther);
-		var am = getprop("/tanker") or 0;
+		var am = getprop("tanker") or 0;
 
     # find EC-137D
     for(var v = 0; v < otherNr; v += 1) {
@@ -36,7 +36,7 @@ var isEC = func {
 	if(am) settimer( isEC, 0.4);
 }
 
-setlistener( "/tanker", func{ 
+setlistener( "tanker", func{ 
 	isEC();
 });
 

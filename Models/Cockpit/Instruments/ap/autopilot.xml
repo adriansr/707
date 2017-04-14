@@ -17,13 +17,13 @@
 		<object-name>sockle</object-name>
 		<object-name>switch</object-name>
 		<condition>
-			<not><property>/systems/electrical/outputs/cabin-dim</property></not>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
 		</condition>
 		<emission>
 			<red>0.2</red>
 			<green>0.2</green>
 			<blue>0.2</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>	
 
@@ -32,13 +32,13 @@
 		<object-name>sup</object-name>
 		<object-name>screws</object-name>
 		<condition>
-			<not><property>/systems/electrical/outputs/cabin-dim</property></not>
+			<not><property>systems/electrical/outputs/cabin-dim</property></not>
 		</condition>
 		<emission>
 			<red>0.05</red>
 			<green>0.05</green>
 			<blue>0.05</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -56,7 +56,7 @@
 <animation>
   <type>rotate</type>
   <object-name>turn.002</object-name>
-  <property>/autopilot/Bendix-PB-20/controls/mode-selector</property>
+  <property>autopilot/Bendix-PB-20/controls/mode-selector</property>
   <interpolation>
     <entry><ind> 0</ind><dep>   0.0</dep></entry>
     <entry><ind> 1</ind><dep> -28.0</dep></entry>
@@ -85,7 +85,7 @@
 	  <repeatable>true</repeatable>
 	  <binding>
 	    <command>property-adjust</command>
-			<property>/autopilot/Bendix-PB-20/controls/mode-selector</property>
+			<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
 	    <step>1</step>
 	    <min>0</min>
 	    <max>5</max>
@@ -93,7 +93,7 @@
 	  </binding>
 	  <binding>
 	    <command>property-toggle</command>
-	    <property>/sim/sound/switch2</property>
+	    <property>sim/sound/switch2</property>
 	  </binding>
 	</action>
 	<action>
@@ -101,7 +101,7 @@
 	  <repeatable>true</repeatable>
 	  <binding>
 	    <command>property-adjust</command>
-			<property>/autopilot/Bendix-PB-20/controls/mode-selector</property>
+			<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
 	    <step>-1</step>
 	    <min>0</min>
 	    <max>5</max>
@@ -109,7 +109,7 @@
 	  </binding>
 	  <binding>
 	    <command>property-toggle</command>
-	    <property>/sim/sound/switch2</property>
+	    <property>sim/sound/switch2</property>
 	  </binding>
 	</action>
 	<action>
@@ -117,7 +117,7 @@
 	  <repeatable>true</repeatable>
 	  <binding>
 	    <command>property-adjust</command>
-			<property>/autopilot/Bendix-PB-20/controls/mode-selector</property>
+			<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
 	    <step>1</step>
 	    <min>0</min>
 	    <max>5</max>
@@ -125,7 +125,7 @@
 	  </binding>
 	  <binding>
 	    <command>property-toggle</command>
-	    <property>/sim/sound/switch2</property>
+	    <property>sim/sound/switch2</property>
 	  </binding>
 	</action>
 	<action>
@@ -133,7 +133,7 @@
 	  <repeatable>true</repeatable>
 	  <binding>
 	    <command>property-adjust</command>
-			<property>/autopilot/Bendix-PB-20/controls/mode-selector</property>
+			<property>autopilot/Bendix-PB-20/controls/mode-selector</property>
 	    <step>-1</step>
 	    <min>0</min>
 	    <max>5</max>
@@ -141,7 +141,7 @@
 	  </binding>
 	  <binding>
 	    <command>property-toggle</command>
-	    <property>/sim/sound/switch2</property>
+	    <property>sim/sound/switch2</property>
 	  </binding>
 	</action>
 </animation>
@@ -150,7 +150,7 @@
 <animation>
   <type>rotate</type>
   <object-name>turn.001</object-name>
-  <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+  <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
   <factor>12</factor>
   <center>
     <x-m> 0.0</x-m>
@@ -173,14 +173,14 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+      <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
       <step type="double">-0.25</step>
       <min>-30.0</min>
       <max>30.0</max>
     </binding>
 	<binding>
 		<command>property-assign</command>
-			<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+			<property>autopilot/Bendix-PB-20/controls/alt-active</property>
 		<value>0</value>
 	</binding>
   </action>
@@ -190,14 +190,14 @@
     <repeatable>true</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+      <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
       <step type="double">0.25</step>
       <min>-30.0</min>
       <max>30.0</max>
     </binding>
 	<binding>
 		<command>property-assign</command>
-			<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+			<property>autopilot/Bendix-PB-20/controls/alt-active</property>
 		<value>0</value>
 	</binding>
   </action>
@@ -207,13 +207,13 @@
     <repeatable>true</repeatable>
 		<binding>
 			 <command>property-interpolate</command>
-			 <property>/autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+			 <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
   		<value>0</value>
 			<time>1</time>
 		</binding>
 		<binding>
 			<command>property-assign</command>
-				<property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+				<property>autopilot/Bendix-PB-20/controls/alt-active</property>
 			<value>0</value>
 		</binding>
   </action>
@@ -223,7 +223,7 @@
 <animation>
   <type>rotate</type>
   <object-name>turn</object-name>		
-  <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+  <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
   <factor>-1</factor>   
   <center>
     <x-m> 0.0</x-m>
@@ -245,7 +245,7 @@
 		<repeatable>true</repeatable>
 		<binding>
 			 <command>property-interpolate</command>
-			 <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+			 <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 			 <value>0</value>
 			 <time>0.5</time>
 		</binding>
@@ -259,7 +259,7 @@
                 <not><property>devices/status/keyboard/super</property></not>
             </condition>
             <command>property-adjust</command>
-            <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">0.5</step>
 		        <min>-35.0</min>
 		        <max>35.0</max>
@@ -272,7 +272,7 @@
                </or>
             </condition>
             <command>property-adjust</command>
-            <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">1.0</step>
 		        <min>-35.0</min>
 		        <max>35.0</max>
@@ -287,7 +287,7 @@
                 <not><property>devices/status/keyboard/super</property></not>
             </condition>
             <command>property-adjust</command>
-            <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">-0.5</step>
 		        <min>-35.0</min>
 		        <max>35.0</max>
@@ -300,7 +300,7 @@
                </or>
             </condition>
             <command>property-adjust</command>
-            <property>/autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
 		        <step type="double">-1.0</step>
 		        <min>-35.0</min>
 		        <max>35.0</max>
@@ -312,7 +312,7 @@
 <animation>
   <type>rotate</type>
   <object-name>switch.001</object-name>
-  <property>/autopilot/Bendix-PB-20/controls/active</property>
+  <property>autopilot/Bendix-PB-20/controls/active</property>
   <factor>90</factor>
   <center>
     <x-m> 0.0</x-m>
@@ -348,7 +348,7 @@
         </binding>
       <binding>
         <command>property-toggle</command>
-        <property>/sim/sound/switch2</property>
+        <property>sim/sound/switch2</property>
       </binding>
   </action>
 </animation>
@@ -357,7 +357,7 @@
 <animation>
   <type>rotate</type>
   <object-name>switch</object-name>
-  <property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+  <property>autopilot/Bendix-PB-20/controls/alt-active</property>
   <factor>-60</factor>
   <center>
     <x-m> 0.0</x-m>
@@ -380,7 +380,7 @@
       <button>0</button>      
       <binding>
         <command>property-toggle</command>
-        <property>/autopilot/Bendix-PB-20/controls/alt-active</property>
+        <property>autopilot/Bendix-PB-20/controls/alt-active</property>
       </binding> 
       <binding>
           <command>nasal</command>
@@ -393,7 +393,7 @@
       </binding>    
       <binding>
         <command>property-toggle</command>
-        <property>/sim/sound/switch1</property>
+        <property>sim/sound/switch1</property>
       </binding>
   </action>
 </animation>

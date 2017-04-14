@@ -22,7 +22,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -54,11 +54,11 @@
 				<and>
 					<not><property>b707/fuel/heater[0]</property></not>
 					<less-than>
-				  	<property>/environment/temperature-degc</property>
+				  	<property>environment/temperature-degc</property>
 				  	<value>-8</value>
 				  </less-than>
 				</and>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -102,7 +102,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -137,7 +137,7 @@
 		    </binding>          
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>

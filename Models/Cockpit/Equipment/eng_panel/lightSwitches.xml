@@ -35,7 +35,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -52,7 +52,7 @@
 		  <red>0.4</red>
 		  <green>0.4</green>
 		  <blue>0.4</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -89,8 +89,8 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<property>/instrumentation/doors/pilotwin/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/pilotwin/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -105,8 +105,8 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<property>/instrumentation/doors/copilotwin/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/copilotwin/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -121,8 +121,8 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<property>/instrumentation/doors/pasfront/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/pasfront/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -137,8 +137,8 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<property>/instrumentation/doors/pasrear/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/pasrear/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -153,8 +153,8 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		  	<property>/instrumentation/doors/nose/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/nose/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -173,7 +173,7 @@
 				<value>20</value>
 			</greater-than>
 		  <or>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -211,8 +211,8 @@
 					</equals>	
        </or>
 		  <or>
-		  	<property>/instrumentation/doors/cargo/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/cargo/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -234,8 +234,8 @@
 					</equals>	
        </or>
 		  <or>
-		  	<property>/instrumentation/doors/belly/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/belly/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -269,7 +269,7 @@
 			</equals>	
 		  <or>
 		  	<property>b707/refuelling/probe-left</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -289,7 +289,7 @@
 			</equals>	
 		  <or>
 		  	<property>b707/refuelling/probe-right</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -308,8 +308,8 @@
 				<value type="string">Aircraft/707/Models/707-TT.xml</value>
 			</equals>	
 		  <or>
-		  	<property>/instrumentation/doors/refuel-boom/position-norm</property>
-		    <property>/controls/test/warn-knob</property>
+		  	<property>instrumentation/doors/refuel-boom/position-norm</property>
+		    <property>controls/test/warn-knob</property>
 		    <property>b707/warning/door-test</property>
 		  </or>
 		</condition>
@@ -360,7 +360,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn</object-name>
-		<property>/controls/lighting/cabin-dim</property>
+		<property>controls/lighting/cabin-dim</property>
 		<factor>225</factor>
 		<axis>
 		 <x>0</x>
@@ -382,7 +382,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
+		    <property>controls/lighting/cabin-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -390,7 +390,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -398,7 +398,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
+		    <property>controls/lighting/cabin-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -406,7 +406,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -414,7 +414,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
+		    <property>controls/lighting/cabin-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -422,7 +422,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -430,7 +430,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/cabin-dim</property>
+		    <property>controls/lighting/cabin-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -438,7 +438,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>
@@ -447,7 +447,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn.001</object-name>
-		<property>/controls/lighting/panel-norm</property>
+		<property>controls/lighting/panel-norm</property>
 		<factor>225</factor>
 		<axis>
 		 <x>0</x>
@@ -469,7 +469,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/panel-norm</property>
+		    <property>controls/lighting/panel-norm</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -477,7 +477,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -485,7 +485,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/panel-norm</property>
+		    <property>controls/lighting/panel-norm</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -493,7 +493,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -501,7 +501,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/panel-norm</property>
+		    <property>controls/lighting/panel-norm</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -509,7 +509,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -517,7 +517,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/panel-norm</property>
+		    <property>controls/lighting/panel-norm</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -525,7 +525,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>
@@ -534,7 +534,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn.002</object-name>
-		<property>/controls/lighting/overhead-dim</property>
+		<property>controls/lighting/overhead-dim</property>
 		<factor>225</factor>
 		<axis>
 		 <x>0</x>
@@ -556,7 +556,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/overhead-dim</property>
+		    <property>controls/lighting/overhead-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -564,7 +564,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -572,7 +572,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/overhead-dim</property>
+		    <property>controls/lighting/overhead-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -580,7 +580,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -588,7 +588,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/overhead-dim</property>
+		    <property>controls/lighting/overhead-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -596,7 +596,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -604,7 +604,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/overhead-dim</property>
+		    <property>controls/lighting/overhead-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -612,7 +612,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>
@@ -621,7 +621,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>turn.003</object-name>
-		<property>/controls/lighting/engineer-dim</property>
+		<property>controls/lighting/engineer-dim</property>
 		<factor>225</factor>
 		<axis>
 		 <x>0</x>
@@ -643,7 +643,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/engineer-dim</property>
+		    <property>controls/lighting/engineer-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -651,7 +651,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -659,7 +659,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/engineer-dim</property>
+		    <property>controls/lighting/engineer-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -667,7 +667,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -675,7 +675,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/engineer-dim</property>
+		    <property>controls/lighting/engineer-dim</property>
 		    <step>0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -683,7 +683,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 		<action>
@@ -691,7 +691,7 @@
 		  <repeatable>true</repeatable>
 		  <binding>
 		    <command>property-adjust</command>
-		    <property>/controls/lighting/engineer-dim</property>
+		    <property>controls/lighting/engineer-dim</property>
 		    <step>-0.1</step>
 		    <min>0</min>
 		    <max>1</max>
@@ -699,7 +699,7 @@
 		  </binding>
 		  <binding>
 		    <command>property-toggle</command>
-		    <property>/sim/sound/switch3</property>
+		    <property>sim/sound/switch3</property>
 		  </binding>
 		</action>
 	</animation>

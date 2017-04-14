@@ -16,7 +16,7 @@
 			<and>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		      <greater-than>
-		        <property>/sim/time/sun-angle-rad</property>
+		        <property>sim/time/sun-angle-rad</property>
 		        <value>1.22</value>
 		      </greater-than>
 		    </and>
@@ -49,7 +49,7 @@
 		<object-name>light</object-name>
 	    <condition>
 	      <greater-than>
-	        <property>/sim/time/sun-angle-rad</property>
+	        <property>sim/time/sun-angle-rad</property>
 	        <value>1.22</value>
 	      </greater-than>
 	    </condition>

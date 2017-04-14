@@ -2,23 +2,23 @@
 # Avril 2013
 # This file is licenced under the terms of the GNU General Public Licence V2 or later
 ################################ Reverser ####################################
-setlistener("/instrumentation/mptcas/on", func(state) {
+setlistener("instrumentation/mptcas/on", func(state) {
   var state = state.getBoolValue();  
   if(state) tcas();
 }, 0, 1);
 
 var tcas = func {
 
-		var run = getprop("/instrumentation/mptcas/on") or 0;
+		var run = getprop("instrumentation/mptcas/on") or 0;
 
-		var pos_lat = getprop("/position/latitude-deg") or 0;
-		var pos_lon = getprop("/position/longitude-deg") or 0;
+		var pos_lat = getprop("position/latitude-deg") or 0;
+		var pos_lon = getprop("position/longitude-deg") or 0;
 		
 		var our_pos = geo.aircraft_position();
-		var my_hdg = getprop("/orientation/heading-deg") or 0;
+		var my_hdg = getprop("orientation/heading-deg") or 0;
 		
-		var display_factor = getprop("/instrumentation/mptcas/display-factor") or 0;
-		var display_factor_awacs = getprop("/instrumentation/mptcas/display-factor-awacs") or 0;
+		var display_factor = getprop("instrumentation/mptcas/display-factor") or 0;
+		var display_factor_awacs = getprop("instrumentation/mptcas/display-factor-awacs") or 0;
 		
 		var aircraft_list = {};
 	
@@ -73,7 +73,7 @@ var tcas = func {
 				  
 				  var model_short = getprop("ai/models/multiplayer[" ~ n ~ "]/sim/model/path");
 				  if(model_short != nil) {
-						var u = split("/", model_short); # give array
+						var u = split("", model_short); # give array
 						var s = size(u); # how many elements in array
 						var o = u[s-1];	 # the last element
 						var m = size(o); # how long is this string in the last element
@@ -87,20 +87,20 @@ var tcas = func {
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.23){ 
-					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 1);
+					setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show", 1);
 				}else{
-					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);				
+					setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);				
 				}
 				if (displayAwacs < 2.0){ 
-					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 1);
+					setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 1);
 				}else{
-					setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 0);				
+					setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 0);				
 				}
 				
 			}else{
 			
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 0);
-				setprop("/instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);		
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show-awacs", 0);
+				setprop("instrumentation/mptcas/mp[" ~ n ~ "]/show", 0);		
 			}
 	
 		}
@@ -154,19 +154,19 @@ var tcas = func {
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.23){ 
-					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 1);
+					setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show", 1);
 				}else{
-					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);				
+					setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);				
 				}
 				if (displayAwacs < 2.0){ 
-					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 1);
+					setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 1);
 				}else{
-					setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 0);				
+					setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 0);				
 				}				
 			}else{
 			
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 0);
-				setprop("/instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);		
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show-awacs", 0);
+				setprop("instrumentation/mptcas/ai[" ~ n ~ "]/show", 0);		
 			}
 	
 		}
@@ -220,26 +220,26 @@ var tcas = func {
 				
 				# select object if in range of radar / 3.24 found by trial and error depends on range select knob
 				if (display < 3.23){ 
-					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 1);
+					setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show", 1);
 				}else{
-					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);				
+					setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);				
 				}
 				if (displayAwacs < 2.0){ 
-					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 1);
+					setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 1);
 				}else{
-					setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);				
+					setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);				
 				}				
 			}else{
 			
-				setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);
-				setprop("/instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);		
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show-awacs", 0);
+				setprop("instrumentation/mptcas/ta[" ~ n ~ "]/show", 0);		
 			}
 	
 		}
 		
 		if(getprop("sim/aircraft") == "EC-137D"){
 			# first reset the old inputs
-			foreach(var r; props.globals.getNode("/instrumentation/mptcas/table").getChildren("row")){
+			foreach(var r; props.globals.getNode("instrumentation/mptcas/table").getChildren("row")){
 				if(r.getNode("col[0]") != nil){
 					r.getNode("col[0]").setValue("------------");
 				}
@@ -261,12 +261,12 @@ var tcas = func {
 			}
 
 			# write the heading
-			setprop("/instrumentation/mptcas/table/row[0]/col[0]","CALLSIGN");	
-			setprop("/instrumentation/mptcas/table/row[0]/col[1]","DISTANCE");
-			setprop("/instrumentation/mptcas/table/row[0]/col[2]","ALTITUDE");	
-			setprop("/instrumentation/mptcas/table/row[0]/col[3]","HDG | DIR");
-			setprop("/instrumentation/mptcas/table/row[0]/col[4]","TAS");	
-			setprop("/instrumentation/mptcas/table/row[0]/col[5]","AIRCRAFT | ID");
+			setprop("instrumentation/mptcas/table/row[0]/col[0]","CALLSIGN");	
+			setprop("instrumentation/mptcas/table/row[0]/col[1]","DISTANCE");
+			setprop("instrumentation/mptcas/table/row[0]/col[2]","ALTITUDE");	
+			setprop("instrumentation/mptcas/table/row[0]/col[3]","HDG | DIR");
+			setprop("instrumentation/mptcas/table/row[0]/col[4]","TAS");	
+			setprop("instrumentation/mptcas/table/row[0]/col[5]","AIRCRAFT | ID");
 			
 			#return a list of the hash keys sorted by altitude_m
 			var sortedkeys = sort(keys(aircraft_list), func (a,b) { aircraft_list[a].dis - aircraft_list[b].dis; });
@@ -281,12 +281,12 @@ var tcas = func {
 				var text4 = sprintf("%.0f", aircraft_list[i].tas);
 				var text5 = aircraft_list[i].at;
 						
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[0]",aircraft_list[i].cs);	
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[1]",text1);
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[2]",text2);	
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[3]",text3);
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[4]",text4);	
-				setprop("/instrumentation/mptcas/table/row["~n~"]/col[5]",text5);
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[0]",aircraft_list[i].cs);	
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[1]",text1);
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[2]",text2);	
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[3]",text3);
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[4]",text4);	
+				setprop("instrumentation/mptcas/table/row["~n~"]/col[5]",text5);
 				n += 1;	
 			}
 		}

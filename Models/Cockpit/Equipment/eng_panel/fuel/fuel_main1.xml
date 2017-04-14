@@ -22,13 +22,13 @@
 		<object-name>needle</object-name>
 		<object-name>needle.001</object-name>
 		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -40,13 +40,13 @@
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/engineer-dim</property>
+			<property>systems/electrical/outputs/engineer-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>	
 
@@ -55,7 +55,7 @@
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/cabin-dim</property>
+			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 	</animation>
 
@@ -73,7 +73,7 @@
 				<value>20</value>
 			</greater-than>
 		</condition>
-		<property>/consumables/fuel/tank[5]/level-kg</property>
+		<property>consumables/fuel/tank[5]/level-kg</property>
 		<interpolation>
 		  <entry><ind>    0.0</ind><dep>   0.0</dep></entry>
 		  <entry><ind> 8000.0</ind><dep> 320.0</dep></entry>
@@ -94,7 +94,7 @@
 				<value>20</value>
 			</greater-than>
 		</condition>
-		<property>/consumables/fuel/tank[5]/level-kg</property>
+		<property>consumables/fuel/tank[5]/level-kg</property>
 		<factor>100</factor>    
 		<center>
 		  <x-m> 0.0</x-m>

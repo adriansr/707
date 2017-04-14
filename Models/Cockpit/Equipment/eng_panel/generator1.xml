@@ -31,7 +31,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -40,13 +40,13 @@
 		<object-name>face</object-name>
 		<object-name>needle</object-name>
 		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -56,13 +56,13 @@
 		<object-name>needle</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/engineer-dim</property>
+			<property>systems/electrical/outputs/engineer-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -102,7 +102,7 @@
 		    	<property>b707/generator/gen-bus-tie[0]</property>
 		    	<value>1</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -120,7 +120,7 @@
 				  	<property>b707/generator/gen-bus-tie[0]</property>
 				  	<value>0</value>
 				  </greater-than>
-				  <not><property>/controls/test/warn-knob</property></not>
+				  <not><property>controls/test/warn-knob</property></not>
 				</and>
 			</or>
 		</condition>
@@ -164,7 +164,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -219,7 +219,7 @@
         </mod-up>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -238,7 +238,7 @@
 		    	<property>b707/generator/gen-breaker[0]</property>
 		    	<value>1</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -256,7 +256,7 @@
 				  	<property>b707/generator/gen-breaker[0]</property>
 				  	<value>0</value>
 				  </greater-than>
-				  <not><property>/controls/test/warn-knob</property></not>
+				  <not><property>controls/test/warn-knob</property></not>
 				</and>
 			</or>
 		</condition>
@@ -312,7 +312,7 @@
         </mod-up>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -331,7 +331,7 @@
 		    	<property>b707/generator/gen-control[0]</property>
 		    	<value>1</value>
 		    </less-than>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -349,7 +349,7 @@
 				  	<property>b707/generator/gen-control[0]</property>
 				  	<value>0</value>
 				  </greater-than>
-				  <not><property>/controls/test/warn-knob</property></not>
+				  <not><property>controls/test/warn-knob</property></not>
 				</and>
 			</or>
 		</condition>
@@ -393,7 +393,7 @@
 		    </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch3</property>
+		      <property>sim/sound/switch3</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -450,7 +450,7 @@
         </mod-up>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
@@ -459,7 +459,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>needle</object-name>
-		<property>/engines/engine[0]/kw</property>
+		<property>engines/engine[0]/kw</property>
 		<interpolation>
 		  <entry><ind> -0.1</ind><dep>  0.0</dep></entry>
 		  <entry><ind>  0.0</ind><dep> 15.0</dep></entry>
@@ -517,7 +517,7 @@
         </binding>           
 		    <binding>
           <command>property-toggle</command>
-          <property>/sim/sound/switch3</property>
+          <property>sim/sound/switch3</property>
         </binding>
 		  </action>      
 		  <action>
@@ -538,7 +538,7 @@
         </binding>            
 		    <binding>
           <command>property-toggle</command>
-          <property>/sim/sound/switch3</property>
+          <property>sim/sound/switch3</property>
         </binding>
 		  </action>
 		  <action>
@@ -559,7 +559,7 @@
         </binding>            
 		    <binding>
           <command>property-toggle</command>
-          <property>/sim/sound/switch3</property>
+          <property>sim/sound/switch3</property>
         </binding>
 		  </action>
 	</animation>

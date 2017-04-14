@@ -144,22 +144,22 @@
 				</greater-than>
 				<property>/sim/rendering/rembrandt/enabled</property>
 				<or>
-					<property>/controls/test/warn-knob</property>
+					<property>controls/test/warn-knob</property>
 					<and>
 						<property>b707/warning/state</property>
-						<property>/controls/engines/engine[0]/fire</property>
+						<property>controls/engines/engine[0]/fire</property>
 					</and>
 					<and>
 						<property>b707/warning/state</property>
-						<property>/controls/engines/engine[1]/fire</property>
+						<property>controls/engines/engine[1]/fire</property>
 					</and>
 					<and>
 						<property>b707/warning/state</property>
-						<property>/controls/engines/engine[2]/fire</property>
+						<property>controls/engines/engine[2]/fire</property>
 					</and>
 					<and>
 						<property>b707/warning/state</property>
-						<property>/controls/engines/engine[3]/fire</property>
+						<property>controls/engines/engine[3]/fire</property>
 					</and>
 					<greater-than>
 						<property>b707/pressurization/cabin-altitude</property>
@@ -887,7 +887,7 @@
 			<z>0.33</z>
 		</direction>
     <dim-factor>
-      <property>/systems/electrical/outputs/cabin-dim</property>
+      <property>systems/electrical/outputs/cabin-dim</property>
       <factor>1.0</factor>
       <offset>0</offset>
       <min>0</min>

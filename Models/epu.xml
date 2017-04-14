@@ -45,7 +45,7 @@
 			<and>
 				<not><property>/sim/rendering/rembrandt/enabled</property></not>
 		      <greater-than>
-		        <property>/sim/time/sun-angle-rad</property>
+		        <property>sim/time/sun-angle-rad</property>
 		        <value>1.22</value>
 		      </greater-than>
 		    </and>
@@ -62,7 +62,7 @@
 		<object-name>blah.010</object-name>
 	    <condition>
 	      <greater-than>
-	        <property>/sim/time/sun-angle-rad</property>
+	        <property>sim/time/sun-angle-rad</property>
 	        <value>1.22</value>
 	      </greater-than>
 	    </condition>
@@ -78,7 +78,7 @@
 		<object-name>blah.003</object-name>
 	    <condition>
 	      <greater-than>
-	        <property>/sim/time/sun-angle-rad</property>
+	        <property>sim/time/sun-angle-rad</property>
 	        <value>1.22</value>
 	      </greater-than>
 	    </condition>
@@ -94,7 +94,7 @@
 		<object-name>blah.012</object-name>
 	    <condition>
 	      <greater-than>
-	        <property>/sim/time/sun-angle-rad</property>
+	        <property>sim/time/sun-angle-rad</property>
 	        <value>1.22</value>
 	      </greater-than>
 	    </condition>

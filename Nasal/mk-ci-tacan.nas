@@ -26,17 +26,17 @@ var indiBearingDeg = func(a,b){
 };
 
 
-setlistener("/instrumentation/tacan/indicated-bearing-true-deg", func(tacanDegree) {
+setlistener("instrumentation/tacan/indicated-bearing-true-deg", func(tacanDegree) {
       var tacanDegree = tacanDegree.getValue() or 0;
-      var aircraftDirDeg = getprop("/orientation/heading-deg");
-      var inRange = getprop("/instrumentation/tacan/in-range") or 0;
+      var aircraftDirDeg = getprop("orientation/heading-deg");
+      var inRange = getprop("instrumentation/tacan/in-range") or 0;
 
       var indiDeg = indiBearingDeg(aircraftDirDeg,tacanDegree);
 
       if (inRange){
-        setprop("/instrumentation/tacan/display/correction", indiDeg);
+        setprop("instrumentation/tacan/display/correction", indiDeg);
       }else{
-        setprop("/instrumentation/tacan/display/correction", 0);
+        setprop("instrumentation/tacan/display/correction", 0);
       }
 });
 

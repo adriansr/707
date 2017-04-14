@@ -401,7 +401,7 @@
 	<object-name>NavLightBackVolume</object-name>
 	<condition>
 		<and>
-			<property>sim/rendering/rembrandt/enabled</property>
+			<property>/sim/rendering/rembrandt/enabled</property>
 			<property>sim/multiplay/generic/int[2]</property>
 		</and>
 	</condition>
@@ -421,7 +421,7 @@
 	<object-name>LightVolume</object-name>
 	<condition>
 		<and>
-			<property>sim/rendering/rembrandt/enabled</property>
+			<property>/sim/rendering/rembrandt/enabled</property>
 		  <property>sim/multiplay/generic/int[0]</property>
 		  <property>gear/gear[0]/position-norm</property>
 		</and>

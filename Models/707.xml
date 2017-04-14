@@ -169,7 +169,7 @@
 		<object-name>vertstab</object-name>
 		<condition>
 		  	<not>
-      			<property>sim/rendering/rembrandt/enabled</property>
+      			<property>/sim/rendering/rembrandt/enabled</property>
       		</not>
 		</condition>
 		<emission>
@@ -219,15 +219,15 @@
 		<object-name>fuselage.inner</object-name>
 		<condition>
 			<or>
-				<property>/sim/multiplay/generic/int[9]</property>
+				<property>sim/multiplay/generic/int[9]</property>
 				<and>
 					<not>
 						<equals>
-							<property>/sim/current-view/name</property>
+							<property>sim/current-view/name</property>
 							<value type="string">Passengers View</value>
 						</equals>
 					</not>
-					<not><property>/sim/multiplay/generic/int[9]</property></not>
+					<not><property>sim/multiplay/generic/int[9]</property></not>
 				</and>
 			</or>
 		</condition>
@@ -819,7 +819,7 @@
 			<and>
 				<property>sim/multiplay/generic/int[19]</property>
 				<less-than>
-						<property>/velocities/vertical-speed-fps</property>
+						<property>velocities/vertical-speed-fps</property>
 						<value>0.1</value>
 				</less-than>
 			</and>
@@ -2176,10 +2176,10 @@
 		<object-name>theCabin</object-name>
 		<condition>
 			<equals>
-				<property>/sim/current-view/name</property>
+				<property>sim/current-view/name</property>
 				<value type="string">Passengers View</value>
 			</equals>
-			<not><property>/sim/multiplay/generic/int[9]</property></not>
+			<not><property>sim/multiplay/generic/int[9]</property></not>
 		</condition>	
 	</animation>
 
@@ -2193,10 +2193,10 @@
 		<object-name>theContainerInside</object-name>
 		<condition>
 			<equals>
-				<property>/sim/current-view/name</property>
+				<property>sim/current-view/name</property>
 				<value type="string">Passengers View</value>
 			</equals>
-			<property>/sim/multiplay/generic/int[9]</property>
+			<property>sim/multiplay/generic/int[9]</property>
 		</condition>	
 	</animation>
 	

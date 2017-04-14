@@ -29,7 +29,7 @@
 		  <red>0.3</red>
 		  <green>0.3</green>
 		  <blue>0.3</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 	

@@ -16,13 +16,13 @@
 		<object-name>ASI.Needle</object-name>
 		<object-name>IAS.Needle</object-name>
 		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -34,13 +34,13 @@
 		<object-name>shadow</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/cabin-dim</property>
+			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>	
 
@@ -57,7 +57,7 @@
 <animation>
   <type>rotate</type>
   <object-name>ASI.Needle</object-name>
-  <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
   <interpolation>
     <entry><ind>  0</ind><dep>    0</dep></entry>
     <entry><ind> 50</ind><dep> 30.0</dep></entry>
@@ -85,7 +85,7 @@
 <animation>
   <type>rotate</type>
   <object-name>IAS.Needle</object-name>
-  <property>/autopilot/settings/target-speed-kt</property>
+  <property>autopilot/settings/target-speed-kt</property>
   <interpolation>
     <entry><ind>  0</ind><dep>    0</dep></entry>
     <entry><ind> 50</ind><dep> 30.0</dep></entry>
@@ -124,7 +124,7 @@
             <not><property>devices/status/keyboard/super</property></not>
 		        </condition>
 	          <command>property-adjust</command>
-	          <property>/autopilot/settings/target-speed-kt</property>
+	          <property>autopilot/settings/target-speed-kt</property>
 	          <step>1</step>
 	          <min>0</min>
 	          <max>500</max>
@@ -138,7 +138,7 @@
            </or>
 		        </condition>
 	          <command>property-adjust</command>
-	          <property>/autopilot/settings/target-speed-kt</property>
+	          <property>autopilot/settings/target-speed-kt</property>
 	          <step>5</step>
 	          <min>0</min>
 	          <max>500</max>
@@ -146,7 +146,7 @@
         </binding>
         <binding>
           <command>property-toggle</command>
-          <property>/sim/sound/switch3</property>
+          <property>sim/sound/switch3</property>
         </binding>
     </action>
     <action>
@@ -158,7 +158,7 @@
             <not><property>devices/status/keyboard/super</property></not>
 		        </condition>
         <command>property-adjust</command>
-        <property>/autopilot/settings/target-speed-kt</property>
+        <property>autopilot/settings/target-speed-kt</property>
         <step>-1</step>
         <min>0</min>
         <max>500</max>
@@ -172,7 +172,7 @@
            </or>
 		        </condition>
         <command>property-adjust</command>
-        <property>/autopilot/settings/target-speed-kt</property>
+        <property>autopilot/settings/target-speed-kt</property>
         <step>-5</step>
         <min>0</min>
         <max>500</max>
@@ -185,7 +185,7 @@
       <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>/autopilot/settings/target-speed-kt</property>
+        <property>autopilot/settings/target-speed-kt</property>
         <step>10</step>
         <min>0</min>
         <max>500</max>
@@ -198,7 +198,7 @@
       <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
-        <property>/autopilot/settings/target-speed-kt</property>
+        <property>autopilot/settings/target-speed-kt</property>
         <step>-10</step>
         <min>0</min>
         <max>500</max>

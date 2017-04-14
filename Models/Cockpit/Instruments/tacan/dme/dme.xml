@@ -20,13 +20,13 @@
 		<object-name>screws</object-name>
 		<object-name>norange</object-name>
 		<condition>
-			<less-than><property>/systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
+			<less-than><property>systems/electrical/outputs/cabin-dim</property><value>0.8</value></less-than>
 		</condition>
 		<emission>
 			<red>0.6</red>
 			<green>0.4</green>
 			<blue>0.3</blue>
-			<factor-prop>/systems/electrical/outputs/panel-dim</factor-prop>
+			<factor-prop>systems/electrical/outputs/panel-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -42,13 +42,13 @@
 		<object-name>norange</object-name>
 		<condition>
 			<not><property>/sim/rendering/rembrandt/enabled</property></not>
-			<property>/systems/electrical/outputs/cabin-dim</property>
+			<property>systems/electrical/outputs/cabin-dim</property>
 		</condition>
 		<emission>
 		  <red>0.8</red>
 		  <green>0.8</green>
 		  <blue>0.8</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -62,10 +62,10 @@
 					<value>22</value>
 				</less-than>
 				<less-than>
-					<property>/instrumentation/tacan/switch-position</property>
+					<property>instrumentation/tacan/switch-position</property>
 					<value>1</value>
 				</less-than>
-	            <not><property>/instrumentation/tacan/in-range</property></not>
+	            <not><property>instrumentation/tacan/in-range</property></not>
 			</or>
 		</condition>
 	</animation>
@@ -73,7 +73,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>Tacan.100</object-name>
-        <property>/instrumentation/tacan/indicated-distance-nm</property>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
         <factor>0.01</factor>
         <step>10</step>
 		    <bias>0.005</bias>
@@ -87,7 +87,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>Tacan.10</object-name>
-        <property>/instrumentation/tacan/indicated-distance-nm</property>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
         <factor>0.1</factor>
         <step>1</step>
 		    <bias>0.005</bias>
@@ -101,7 +101,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>Tacan.1</object-name>
-        <property>/instrumentation/tacan/indicated-distance-nm</property>
+        <property>instrumentation/tacan/indicated-distance-nm</property>
         <factor>1</factor>
         <step>0.1</step>
         <axis>

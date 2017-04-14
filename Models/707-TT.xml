@@ -285,7 +285,7 @@
 		  <red>0.4</red>
 		  <green>0.4</green>
 		  <blue>0.4</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -299,7 +299,7 @@
 		  <red>0.1</red>
 		  <green>0.1</green>
 		  <blue>0.1</blue>
-		  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 		</emission>
 	</animation>
 	
@@ -1024,7 +1024,7 @@
 			<and>
 				<property>sim/multiplay/generic/int[19]</property>
 				<less-than>
-						<property>/velocities/vertical-speed-fps</property>
+						<property>velocities/vertical-speed-fps</property>
 						<value>0.1</value>
 				</less-than>
 			</and>

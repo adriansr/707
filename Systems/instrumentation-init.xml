@@ -81,7 +81,7 @@
   <serviceable type="bool">true</serviceable>
   <frequencies>
     <selected-mhz type="double">114.30</selected-mhz>
-    <source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+    <source type="string">instrumentation/nav[0]/frequencies/selected-mhz</source>
   </frequencies>
   <power-btn type="bool">true</power-btn>
   <indicated-distance-nm type="double">0.0</indicated-distance-nm>
@@ -98,7 +98,7 @@
   <serviceable type="bool">true</serviceable>
   <frequencies>
     <selected-mhz type="double">110.05</selected-mhz>
-    <source type="string">/instrumentation/nav[1]/frequencies/selected-mhz</source>
+    <source type="string">instrumentation/nav[1]/frequencies/selected-mhz</source>
   </frequencies>
   <power-btn type="bool">true</power-btn>
   <indicated-distance-nm type="double">0.0</indicated-distance-nm>

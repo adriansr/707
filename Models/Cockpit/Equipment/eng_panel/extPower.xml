@@ -21,7 +21,7 @@
 		  <red>0.2</red>
 		  <green>0.2</green>
 		  <blue>0.2</blue>
-		  <factor-prop>/systems/electrical/outputs/engineer-dim</factor-prop>
+		  <factor-prop>systems/electrical/outputs/engineer-dim</factor-prop>
 		</emission>
 	</animation>
 
@@ -59,7 +59,7 @@
 		<condition>		
 		  <or>
 		    <property>b707/external-power-connected</property>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -75,7 +75,7 @@
 		  <or>
 		    <and>
 		    	<property>b707/external-power-connected</property>
-		    	<property>/controls/electric/battery-switch</property>		    
+		    	<property>controls/electric/battery-switch</property>		    
 				  <property>b707/ground-connect</property>	
 				  <equals>	    
 		    		<property>b707/ess-power-switch</property>
@@ -93,7 +93,7 @@
 		    		<value>0</value>
 		    	</equals>
 				</and>
-		    <property>/controls/test/warn-knob</property>
+		    <property>controls/test/warn-knob</property>
 		  </or>
 		</condition>
 	</animation>
@@ -142,7 +142,7 @@
         </binding>
 		    <binding>
 		      <command>property-toggle</command>
-		      <property>/sim/sound/switch2</property>
+		      <property>sim/sound/switch2</property>
 		    </binding>
 		  </action>
 	</animation>
