@@ -1,7 +1,6 @@
 ####    autopilot/route-manager help-functions adapted for 707                                 ####
 ####    Author: Markus Bulik                                                                   ####
 ####    This file is licenced under the terms of the GNU General Public Licence V2 or later    ####
-
 ##############################################################################
 ## Route-Manager - AP - routines                                            ##
 ## AP- route-manager driven (in passive-mode, controls 'true-heading-hold', ##

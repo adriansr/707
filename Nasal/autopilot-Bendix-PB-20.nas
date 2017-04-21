@@ -1,7 +1,6 @@
 ####    autopilot/BendixPB20.nas help-functions adapted for 707                                ####
 ####    Author: Markus Bulik                                                                   ####
 ####    This file is licenced under the terms of the GNU General Public Licence V2 or later    ####
-
 ##############################################################################
 ##                                                                          ##
 ## AP - routines for 'Bendix PB 20' autopilot system                        ##

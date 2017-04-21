@@ -6,7 +6,6 @@
 ##  This file is licensed under the GPL license version 2 or later.
 ##
 ###############################################################################
-
 ## MP properties
 var lat_mpp     = "position/latitude-deg";
 var lon_mpp     = "position/longitude-deg";

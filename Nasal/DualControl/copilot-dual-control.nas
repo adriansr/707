@@ -7,7 +7,6 @@
 ##  This file is licensed under the GPL license version 2 or later.
 ##
 ###############################################################################
-
 # Renaming (almost :)
 var DCT = dual_control_tools;
 var ADC = aircraft_dual_control;
