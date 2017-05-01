@@ -115,28 +115,22 @@ var togglereverser = func {
 
 var toggleLandingLights = func {
 
-  if(!getprop("controls/lighting/switches/landing-light")){
-  	setprop("controls/lighting/switches/landing-light",1); 
+  if(!getprop("controls/lighting/landing-light")){
+  	setprop("controls/lighting/landing-light",1); 
   }else{
-		setprop("controls/lighting/switches/landing-light",0);  
+		setprop("controls/lighting/landing-light",0);  
   }
 
-  if(!getprop("controls/lighting/switches/landing-light[1]")){
-  	setprop("controls/lighting/switches/landing-light[1]",1); 
+  if(!getprop("controls/lighting/landing-light[1]")){
+  	setprop("controls/lighting/landing-light[1]",1); 
   }else{
-		setprop("controls/lighting/switches/landing-light[1]",0);  
+		setprop("controls/lighting/landing-light[1]",0);  
   }
 
-  if(!getprop("controls/lighting/switches/landing-light[2]")){
-  	setprop("controls/lighting/switches/landing-light[2]",1); 
+  if(!getprop("controls/lighting/landing-light[2]")){
+  	setprop("controls/lighting/landing-light[2]",1); 
   }else{
-		setprop("controls/lighting/switches/landing-light[2]",0);  
-  }
-  
-  if(!getprop("controls/lighting/switches/landing-light[3]")){
-  	setprop("controls/lighting/switches/landing-light[3]",1); 
-  }else{
-		setprop("controls/lighting/switches/landing-light[3]",0);  
+		setprop("controls/lighting/landing-light[2]",0);  
   }
 }
 
