@@ -133,7 +133,7 @@ StableTrigger.new = func (src, action) {
 StableTrigger.update = func () {
   var v   = me.src.getValue();
   if (!is_num(v)) return;
-  var t = getprop("sim/time/elapsed-sec"); # NOTE: simulated time.
+  var t = getprop("/sim/time/elapsed-sec"); # NOTE: simulated time.
 
   if ((me.old == v) and
       ((t - me.stable_since) > me.MIN_STABLE) and (me.wait == 1)) {
@@ -324,7 +324,7 @@ SwitchDecoder.new = func (src, actions) {
   return obj;
 }
 SwitchDecoder.update = func () {
-  var t = getprop("sim/time/elapsed-sec"); # NOTE: simulated time.
+  var t = getprop("/sim/time/elapsed-sec"); # NOTE: simulated time.
   var v = me.src.getValue();
   if (!is_num(v)) return;
 
@@ -392,7 +392,7 @@ TDMEncoder.new = func (inputs, dest) {
   return obj;
 }
 TDMEncoder.update = func () {
-  var t = getprop("sim/time/elapsed-sec"); # NOTE: simulated time.
+  var t = getprop("/sim/time/elapsed-sec"); # NOTE: simulated time.
   if (t > me.last_time + me.MIN_INT) {
     var n = size(me.inputs);
     while (1) {
@@ -580,7 +580,7 @@ copilot_dialog.destroy = func {
 copilot_dialog.show = func (copilot_type) {
 #    print("Showing MPCopilots dialog!");
     if (!COPILOT_DLG) {
-        COPILOT_DLG = int(getprop("sim/time/elapsed-sec"));
+        COPILOT_DLG = int(getprop("/sim/time/elapsed-sec"));
         me.init(copilot_type);
         me.create();
         me._update_(COPILOT_DLG);

@@ -445,7 +445,7 @@ var gauge_erec = func {
 ####################################### total operating time ###################################
 var operating_time_counter = func {
 	#print("operating time counter works");
-  var act_time    	= props.globals.getNode("sim/time/elapsed-sec");
+  var act_time    	= props.globals.getNode("/sim/time/elapsed-sec");
   var start_time  	= props.globals.getNode("instrumentation/operating-time/start-time");
   var old_total   	= props.globals.getNode("instrumentation/operating-time/total");
   var old_total_h   = props.globals.getNode("instrumentation/operating-time/total-h");

@@ -826,7 +826,7 @@ var apuLoop = func{
  	if (setting != 0){
 		if (setting == 1){
 		 var rpm = getprop("engines/APU/rpm");
-		 rpm += getprop("sim/time/delta-realtime-sec") * 7;
+		 rpm += getprop("/sim/time/delta-realtime-sec") * 7;
 		 if (rpm >= 101.7){
 		  	rpm = 101.7;
 				setprop("b707/apu/off-start-run",2); # automatic spring for the apu-master-switch
@@ -846,7 +846,7 @@ var apuLoop = func{
   	props.globals.getNode("engines/APU/running").setBoolValue(0);
 
 		var rpm = getprop("engines/APU/rpm");
-		rpm -= getprop("sim/time/delta-realtime-sec") * 5;
+		rpm -= getprop("/sim/time/delta-realtime-sec") * 5;
 		if (rpm < 0){
    		rpm = 0;
    	}
@@ -859,26 +859,26 @@ var apuLoop = func{
 		 var temp = getprop("engines/APU/temp") or 0;
 		 var abv = getprop("b707/apu/apu-bleed-valve") or 0;
 		 if(!generator){
-			 temp += getprop("sim/time/delta-realtime-sec") * 4;
+			 temp += getprop("/sim/time/delta-realtime-sec") * 4;
 			 if (temp >= 410){
-				temp -= getprop("sim/time/delta-realtime-sec") * 6;
+				temp -= getprop("/sim/time/delta-realtime-sec") * 6;
 				}
 			}elsif(abv){
-			 temp += getprop("sim/time/delta-realtime-sec") * 6;
+			 temp += getprop("/sim/time/delta-realtime-sec") * 6;
 			 if (temp >= 590){
-				temp -= getprop("sim/time/delta-realtime-sec") * 8;
+				temp -= getprop("/sim/time/delta-realtime-sec") * 8;
 				}
 			}else{
-			 temp += getprop("sim/time/delta-realtime-sec") * 8;
+			 temp += getprop("/sim/time/delta-realtime-sec") * 8;
 			 if (temp >= 780){
-				temp -= getprop("sim/time/delta-realtime-sec") * 10;
+				temp -= getprop("/sim/time/delta-realtime-sec") * 10;
 				}
 			}
 		 setprop("engines/APU/temp", temp);
 
   }else{
 		var temp = getprop("engines/APU/temp") or 0;
-		temp -= getprop("sim/time/delta-realtime-sec") * 3;
+		temp -= getprop("/sim/time/delta-realtime-sec") * 3;
 	 	if (temp < 0){
 		 temp = 0;
 		}
