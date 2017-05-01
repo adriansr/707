@@ -86,7 +86,7 @@ var BrakeSystem =
     # update brake energy
     update : func()
     {
-        var CurrentTime = getprop("sim/time/elapsed-sec");
+        var CurrentTime = getprop("/sim/time/elapsed-sec");
         var dt = CurrentTime - me.LastSimTime;
 
         if (dt<1.0)

@@ -347,7 +347,7 @@ var waypointVspeedPrev = waypointVspeedMaxValue;
 
 # need this for workarround for error in 'settimer()' ?!?
 var apHeadingWaypointSetVSpeed_force = 0;
-var apHeadingWaypointSetVSpeed_lastCalled = getprop("sim/time/elapsed-sec");
+var apHeadingWaypointSetVSpeed_lastCalled = getprop("/sim/time/elapsed-sec");
 
 
 var apHeadingWaypointSetVSpeed = func {
@@ -355,7 +355,7 @@ var apHeadingWaypointSetVSpeed = func {
 		getprop("autopilot/route-manager/active") == 1 and getprop("/autopilot/route-manager/airborne") == 1) {
 
 		if (apHeadingWaypointSetVSpeed_force == 0) {
-			var now = getprop("sim/time/elapsed-sec");
+			var now = getprop("/sim/time/elapsed-sec");
 			if (now - apHeadingWaypointSetVSpeed_lastCalled < 28) {
 				return;
 			}
