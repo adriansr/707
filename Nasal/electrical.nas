@@ -33,13 +33,13 @@ var PanelDim = props.globals.initNode("systems/electrical/outputs/panel-dim",0,"
 var OverheadDim = props.globals.initNode("systems/electrical/outputs/overhead-dim",0,"DOUBLE");
 var EngineerDim = props.globals.initNode("systems/electrical/outputs/engineer-dim",0,"DOUBLE");
 
-var LightLanding = props.globals.initNode("controls/lighting/landing-light",0,"BOOL");
-var LightLandingOne = props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL");
-var LightLandingTwo = props.globals.initNode("controls/lighting/landing-light[2]",0,"BOOL");
-var LightNav = props.globals.initNode("controls/lighting/nav-lights",0,"BOOL");
-var LightBeacon = props.globals.initNode("controls/lighting/beacon",0,"BOOL");
-var LightStrobe = props.globals.initNode("controls/lighting/strobe",0,"BOOL");
-var LightLogo = props.globals.initNode("controls/lighting/logo-lights",0,"BOOL");
+var LightLanding = props.globals.initNode("controls/lighting/switches/landing-light",0,"BOOL");
+var LightLandingOne = props.globals.initNode("controls/lighting/switches/landing-light[1]",0,"BOOL");
+var LightLandingTwo = props.globals.initNode("controls/lighting/switches/landing-light[2]",0,"BOOL");
+var LightNav = props.globals.initNode("controls/lighting/switches/nav-lights",0,"BOOL");
+var LightBeacon = props.globals.initNode("controls/lighting/switches/beacon",0,"BOOL");
+var LightStrobe = props.globals.initNode("controls/lighting/switches/strobe",0,"BOOL");
+var LightLogo = props.globals.initNode("controls/lighting/switches/logo-lights",0,"BOOL");
 
 var ExternalConnected = props.globals.initNode("b707/external-power-connected",0,"BOOL");
 

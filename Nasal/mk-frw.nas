@@ -33,13 +33,13 @@ var frw_start_stop = func {
 
   if(!running.getBoolValue()){
     # start
-    setprop(p~"flight-time/start-time", getprop("/sim/time/elapsed-sec"));
+    setprop(p~"flight-time/start-time", getprop("sim/time/elapsed-sec"));
     running.setBoolValue(1);
     frw_loop();
   }else{
     # stop
     var accu = getprop(p~"flight-time/accu");
-    accu += getprop("/sim/time/elapsed-sec") - getprop(p~"flight-time/start-time");
+    accu += getprop("sim/time/elapsed-sec") - getprop(p~"flight-time/start-time");
     setprop(p~"running",0);
     setprop(p~"flight-time/accu", accu);
     frw_show(accu);
@@ -51,7 +51,7 @@ var frw_reset = func {
   setprop(p~"flight-time/accu", 0);
 
   if(running.getBoolValue()){
-    setprop(p~"flight-time/start-time", getprop("/sim/time/elapsed-sec"));
+    setprop(p~"flight-time/start-time", getprop("sim/time/elapsed-sec"));
   }else{
     frw_show(0);
   }
@@ -60,7 +60,7 @@ var frw_reset = func {
 var frw_loop = func {
   var running = props.globals.getNode(p~"running");
   if(running.getBoolValue()){
-    frw_show(getprop("/sim/time/elapsed-sec") - getprop(p~"flight-time/start-time") + getprop(p~"flight-time/accu"));
+    frw_show(getprop("sim/time/elapsed-sec") - getprop(p~"flight-time/start-time") + getprop(p~"flight-time/accu"));
     settimer(frw_loop, 0.02);
   }
 }
@@ -112,7 +112,7 @@ var frw_control = func {
       }
       if(frw_agl < 4 and running.getBoolValue() and airspeed < 40.0 or crashed.getBoolValue()){
         var accu = getprop(p~"flight-time/accu");
-        accu += getprop("/sim/time/elapsed-sec") - getprop(p~"flight-time/start-time");
+        accu += getprop("sim/time/elapsed-sec") - getprop(p~"flight-time/start-time");
         setprop(p~"running",0);
         setprop(p~"flight-time/accu", accu);
         frw_show(accu);
