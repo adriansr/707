@@ -142,28 +142,10 @@ if you contacted me before making any changes to this software.
                 <type>bool</type><property type="string">b707/shake-effect/effect</property>
             </signal>
             <signal>
-                <type>bool</type><property type="string">/controls/lighting/strobe</property>
-            </signal>
-            <signal>
-                <type>bool</type><property type="string">/controls/lighting/beacon</property>
-            </signal>
-            <signal>
-                <type>bool</type><property type="string">/controls/lighting/taxi-lights</property>
-            </signal>
-            <signal>
                 <type>double</type><property type="string">/systems/electrical/outputs/cabin-dim</property>
             </signal>
             <signal>
                 <type>double</type><property type="string">/systems/electrical/outputs/panel-dim</property>
-            </signal>
-            <signal>
-                <type>bool</type><property type="string">/controls/lighting/landing-light[0]</property>
-            </signal>
-            <signal>
-                <type>bool</type><property type="string">/controls/lighting/landing-light[1]</property>
-            </signal>
-            <signal>
-                <type>bool</type><property type="string">/controls/lighting/landing-light[2]</property>
             </signal>
             <signal>
                 <type>int</type><property type="string">/autopilot/settings/heading-bug-deg</property>
