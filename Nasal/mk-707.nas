@@ -443,8 +443,8 @@ var gauge_erec = func {
 }
 
 ####################################### total operating time ###################################
-var operating_time_counter = func {
-	#print("operating time counter works");
+var operating_time_counter = maketimer (60.0, func {
+  #print("operating time counter works");
   var act_time    	= props.globals.getNode("/sim/time/elapsed-sec");
   var start_time  	= props.globals.getNode("instrumentation/operating-time/start-time");
   var old_total   	= props.globals.getNode("instrumentation/operating-time/total");
@@ -460,11 +460,9 @@ var operating_time_counter = func {
   old_total.setValue(new_total);
   old_total_h.setValue(hours);
   old_total_m.setValue(minutes);
-  
-	settimer( operating_time_counter, 60);
-}
+});
 
-operating_time_counter();
+operating_time_counter.start();
 
 ####################################### speedbrake helper #######################################
 var stepSpeedbrakes = func(step) {
@@ -612,6 +610,8 @@ var eng_vib = func {
 	var a2 = 0;
 	var a3 = 0;
 	var a4 = 0;
+	
+	#print("eng_vib läuft");
 
 	if(state == 1 and !vibte) {
 		if(evib1 > 10 and dc > 20) a1 = my_mini_rand(0.46, 0.54);
@@ -621,9 +621,8 @@ var eng_vib = func {
 		interpolate("b707/vibrations/vib[0]", a1, 2.5);
 		interpolate("b707/vibrations/vib[1]", a2, 2.5);
 		interpolate("b707/vibrations/vib[2]", a3, 2.5);
-		interpolate("b707/vibrations/vib[3]", a4, 3.5);
-		settimer( eng_vib, 2.5);
-		
+		interpolate("b707/vibrations/vib[3]", a4, 3.5);	
+		timer_eng_vib.restart(2.5);
 	}elsif(state == 2 and !vibte) {
 		if(evib1 > 10 and dc > 20) a1 = my_mini_rand(0.25, 0.35);
 		if(evib2 > 10 and dc > 20) a2 = my_mini_rand(0.25, 0.35);
@@ -632,19 +631,22 @@ var eng_vib = func {
 		interpolate("b707/vibrations/vib[0]", a1, 2.5);
 		interpolate("b707/vibrations/vib[1]", a2, 2.5);
 		interpolate("b707/vibrations/vib[2]", a3, 2.5);
-		interpolate("b707/vibrations/vib[3]", a4, 2.5);
-		settimer( eng_vib, 2.5);
-		
+		interpolate("b707/vibrations/vib[3]", a4, 2.5);	
+		timer_eng_vib.restart(2.5);
 	}else{
 		interpolate("b707/vibrations/vib[0]", a1, 0.5);
 		interpolate("b707/vibrations/vib[1]", a2, 0.5);
 		interpolate("b707/vibrations/vib[2]", a3, 0.5);
 		interpolate("b707/vibrations/vib[3]", a4, 0.5);
+		timer_eng_vib.stop();
 	}
+};
 
-}
+var timer_eng_vib = maketimer(1, eng_vib);
+timer_eng_vib.singleShot = 1;
 
-setlistener("b707/vibrations/vib-sel", eng_vib,1,0);
+
+setlistener("b707/vibrations/vib-sel", func{timer_eng_vib.start()});
 
 ############################## view helper ###############################
 var changeView = func (n){
