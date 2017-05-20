@@ -185,7 +185,7 @@ if you contacted me before making any changes to this software.
 		<object-name>vertstab</object-name>
 		<condition>
 		  	<not>
-      			<property>/sim/rendering/rembrandt/enabled</property>
+      			<property>sim/rendering/rembrandt/enabled</property>
       		</not>
 		</condition>
 		<emission>
@@ -239,7 +239,7 @@ if you contacted me before making any changes to this software.
 				<and>
 					<not>
 						<equals>
-							<property>sim/current-view/name</property>
+							<property>/sim/current-view/name</property>
 							<value type="string">Passengers View</value>
 						</equals>
 					</not>
@@ -2192,7 +2192,7 @@ if you contacted me before making any changes to this software.
 		<object-name>theCabin</object-name>
 		<condition>
 			<equals>
-				<property>sim/current-view/name</property>
+				<property>/sim/current-view/name</property>
 				<value type="string">Passengers View</value>
 			</equals>
 			<not><property>sim/multiplay/generic/int[9]</property></not>
@@ -2209,7 +2209,7 @@ if you contacted me before making any changes to this software.
 		<object-name>theContainerInside</object-name>
 		<condition>
 			<equals>
-				<property>sim/current-view/name</property>
+				<property>/sim/current-view/name</property>
 				<value type="string">Passengers View</value>
 			</equals>
 			<property>sim/multiplay/generic/int[9]</property>
