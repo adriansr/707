@@ -1,11 +1,27 @@
-<?xml version="1.0"?>
-<!--###################################################################################
-		Lake of Constance Hangar :: M.Kraus
-		Septemper 2013
-		This file is licenced under the terms of the GNU General Public Licence V2 or later
-		###################################################################################
--->
-<!-- Boeing 707 by the Lake of Constance Hangar :: M.Kraus July 2013 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!--####################################################################
+Lake of Constance Hangar
+Boeing 707 for Flightgear
+Copyright (C) 2013 M.Kraus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Every software has a developer, also free software. 
+As a gesture of courtesy and respect, I would be delighted 
+if you contacted me before making any changes to this software. 
+<info (at) marc-kraus.de> April, 2017
+########################################################################-->
 <PropertyList>
 
 <path>radio-volume.ac</path>
@@ -43,13 +59,13 @@
 	<object-name>sup</object-name>
 	<condition>
 		<not><property>/sim/rendering/rembrandt/enabled</property></not>
-		<property>/systems/electrical/outputs/cabin-dim</property>
+		<property>systems/electrical/outputs/cabin-dim</property>
 	</condition>
 	<emission>
 	  <red>0.3</red>
 	  <green>0.3</green>
 	  <blue>0.3</blue>
-	  <factor-prop>/systems/electrical/outputs/cabin-dim</factor-prop>
+	  <factor-prop>systems/electrical/outputs/cabin-dim</factor-prop>
 	</emission>
 </animation>
 
@@ -109,14 +125,14 @@
 		</greater-than>
 	    <or>
 		    <and>
-	      	  <property>/instrumentation/comm[0]/serviceable</property>
-	      	  <property>/instrumentation/comm[0]/ptt</property>				  
+	      	  <property>instrumentation/comm[0]/serviceable</property>
+	      	  <property>instrumentation/comm[0]/ptt</property>				  
 			<less-than>
-		      	<property>/instrumentation/comm[0]/slant-distance-m</property>
+		      	<property>instrumentation/comm[0]/slant-distance-m</property>
 				<value>105000</value>
 		    </less-than>
 			</and>
-	      <property>/controls/test/warn-knob</property>
+	      <property>controls/test/warn-knob</property>
 	    </or>
 	  </condition>
 	</animation>
@@ -124,7 +140,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob</object-name>
-		<property>/instrumentation/comm[0]/volume</property>
+		<property>instrumentation/comm[0]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -148,7 +164,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[0]/volume</property>
+				<property>instrumentation/comm[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -156,7 +172,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -165,7 +181,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[0]/volume</property>
+				<property>instrumentation/comm[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -173,7 +189,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -182,7 +198,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[0]/volume</property>
+				<property>instrumentation/comm[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -190,7 +206,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -199,7 +215,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[0]/volume</property>
+				<property>instrumentation/comm[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -207,7 +223,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -215,7 +231,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch</object-name>
-	  <property>/instrumentation/comm[0]/serviceable</property>
+	  <property>instrumentation/comm[0]/serviceable</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -237,11 +253,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/comm[0]/serviceable</property>
+	        <property>instrumentation/comm[0]/serviceable</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -258,13 +274,13 @@
 			</greater-than>
 		    <or>
 			    <and>
-		      	  <property>/instrumentation/comm[1]/serviceable</property>
+		      	  <property>instrumentation/comm[1]/serviceable</property>
 				  <greater-than>
-		      	  	<property>/instrumentation/comm[1]/signal-quality-norm</property>
+		      	  	<property>instrumentation/comm[1]/signal-quality-norm</property>
 					<value>0.4</value>
 				  </greater-than>
 				</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -273,7 +289,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.001</object-name>
-		<property>/instrumentation/comm[1]/volume</property>
+		<property>instrumentation/comm[1]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -297,7 +313,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[1]/volume</property>
+				<property>instrumentation/comm[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -305,7 +321,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -314,7 +330,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[1]/volume</property>
+				<property>instrumentation/comm[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -322,7 +338,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -331,7 +347,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[1]/volume</property>
+				<property>instrumentation/comm[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -339,7 +355,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -348,7 +364,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/comm[1]/volume</property>
+				<property>instrumentation/comm[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -356,7 +372,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -364,7 +380,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.001</object-name>
-	  <property>/instrumentation/comm[1]/serviceable</property>
+	  <property>instrumentation/comm[1]/serviceable</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -386,11 +402,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/comm[1]/serviceable</property>
+	        <property>instrumentation/comm[1]/serviceable</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -407,10 +423,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/nav[0]/in-range</property>
-			  	  <property>/instrumentation/nav[0]/ident</property>
+			  	  <property>instrumentation/nav[0]/in-range</property>
+			  	  <property>instrumentation/nav[0]/ident</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -419,7 +435,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.002</object-name>
-		<property>/instrumentation/nav[0]/volume</property>
+		<property>instrumentation/nav[0]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -443,7 +459,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[0]/volume</property>
+				<property>instrumentation/nav[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -451,7 +467,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -460,7 +476,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[0]/volume</property>
+				<property>instrumentation/nav[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -468,7 +484,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -477,7 +493,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[0]/volume</property>
+				<property>instrumentation/nav[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -485,7 +501,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -494,7 +510,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[0]/volume</property>
+				<property>instrumentation/nav[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -502,7 +518,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -510,7 +526,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.002</object-name>
-	  <property>/instrumentation/nav[0]/ident</property>
+	  <property>instrumentation/nav[0]/ident</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -532,11 +548,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/nav[0]/ident</property>
+	        <property>instrumentation/nav[0]/ident</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -553,10 +569,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/nav[1]/in-range</property>
-			  	  <property>/instrumentation/nav[1]/ident</property>
+			  	  <property>instrumentation/nav[1]/in-range</property>
+			  	  <property>instrumentation/nav[1]/ident</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -565,7 +581,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.003</object-name>
-		<property>/instrumentation/nav[1]/volume</property>
+		<property>instrumentation/nav[1]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -589,7 +605,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[1]/volume</property>
+				<property>instrumentation/nav[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -597,7 +613,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -606,7 +622,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[1]/volume</property>
+				<property>instrumentation/nav[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -614,7 +630,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -623,7 +639,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[1]/volume</property>
+				<property>instrumentation/nav[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -631,7 +647,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -640,7 +656,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/nav[1]/volume</property>
+				<property>instrumentation/nav[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -648,7 +664,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -656,7 +672,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.003</object-name>
-	  <property>/instrumentation/nav[1]/ident</property>
+	  <property>instrumentation/nav[1]/ident</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -678,11 +694,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/nav[1]/ident</property>
+	        <property>instrumentation/nav[1]/ident</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -699,10 +715,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/dme[0]/in-range</property>
-			  	  <property>/instrumentation/dme[0]/ident</property>
+			  	  <property>instrumentation/dme[0]/in-range</property>
+			  	  <property>instrumentation/dme[0]/ident</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -711,7 +727,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.004</object-name>
-		<property>/instrumentation/dme[0]/volume</property>
+		<property>instrumentation/dme[0]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -735,7 +751,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[0]/volume</property>
+				<property>instrumentation/dme[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -743,7 +759,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -752,7 +768,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[0]/volume</property>
+				<property>instrumentation/dme[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -760,7 +776,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -769,7 +785,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[0]/volume</property>
+				<property>instrumentation/dme[0]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -777,7 +793,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -786,7 +802,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[0]/volume</property>
+				<property>instrumentation/dme[0]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -794,7 +810,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -802,7 +818,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.004</object-name>
-	  <property>/instrumentation/dme[0]/ident</property>
+	  <property>instrumentation/dme[0]/ident</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -824,11 +840,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/dme[0]/ident</property>
+	        <property>instrumentation/dme[0]/ident</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -845,10 +861,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/dme[1]/in-range</property>
-			  	  <property>/instrumentation/dme[1]/ident</property>
+			  	  <property>instrumentation/dme[1]/in-range</property>
+			  	  <property>instrumentation/dme[1]/ident</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -857,7 +873,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.005</object-name>
-		<property>/instrumentation/dme[1]/volume</property>
+		<property>instrumentation/dme[1]/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -881,7 +897,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[1]/volume</property>
+				<property>instrumentation/dme[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -889,7 +905,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -898,7 +914,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[1]/volume</property>
+				<property>instrumentation/dme[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -906,7 +922,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -915,7 +931,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[1]/volume</property>
+				<property>instrumentation/dme[1]/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -923,7 +939,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -932,7 +948,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/dme[1]/volume</property>
+				<property>instrumentation/dme[1]/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -940,7 +956,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -948,7 +964,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.005</object-name>
-	  <property>/instrumentation/dme[1]/ident</property>
+	  <property>instrumentation/dme[1]/ident</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -970,11 +986,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/dme[1]/ident</property>
+	        <property>instrumentation/dme[1]/ident</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -991,10 +1007,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/adf[0]/in-range</property>
-			  	  <property>/instrumentation/adf[0]/ident-audible</property>
+			  	  <property>instrumentation/adf[0]/in-range</property>
+			  	  <property>instrumentation/adf[0]/ident-audible</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -1003,7 +1019,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.006</object-name>
-		<property>/instrumentation/adf[0]/volume-norm</property>
+		<property>instrumentation/adf[0]/volume-norm</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -1027,7 +1043,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[0]/volume-norm</property>
+				<property>instrumentation/adf[0]/volume-norm</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1035,7 +1051,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1044,7 +1060,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[0]/volume-norm</property>
+				<property>instrumentation/adf[0]/volume-norm</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1052,7 +1068,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1061,7 +1077,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[0]/volume-norm</property>
+				<property>instrumentation/adf[0]/volume-norm</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1069,7 +1085,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1078,7 +1094,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[0]/volume-norm</property>
+				<property>instrumentation/adf[0]/volume-norm</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1086,7 +1102,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -1094,7 +1110,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.006</object-name>
-	  <property>/instrumentation/adf[0]/ident-audible</property>
+	  <property>instrumentation/adf[0]/ident-audible</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -1116,11 +1132,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/adf[0]/ident-audible</property>
+	        <property>instrumentation/adf[0]/ident-audible</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -1137,10 +1153,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/adf[1]/in-range</property>
-			  	  <property>/instrumentation/adf[1]/ident-audible</property>
+			  	  <property>instrumentation/adf[1]/in-range</property>
+			  	  <property>instrumentation/adf[1]/ident-audible</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -1149,7 +1165,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.007</object-name>
-		<property>/instrumentation/adf[1]/volume-norm</property>
+		<property>instrumentation/adf[1]/volume-norm</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -1173,7 +1189,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[1]/volume-norm</property>
+				<property>instrumentation/adf[1]/volume-norm</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1181,7 +1197,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1190,7 +1206,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[1]/volume-norm</property>
+				<property>instrumentation/adf[1]/volume-norm</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1198,7 +1214,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1207,7 +1223,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[1]/volume-norm</property>
+				<property>instrumentation/adf[1]/volume-norm</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1215,7 +1231,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1224,7 +1240,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/adf[1]/volume-norm</property>
+				<property>instrumentation/adf[1]/volume-norm</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1232,7 +1248,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -1240,7 +1256,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.007</object-name>
-	  <property>/instrumentation/adf[1]/ident-audible</property>
+	  <property>instrumentation/adf[1]/ident-audible</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -1262,11 +1278,11 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/adf[1]/ident-audible</property>
+	        <property>instrumentation/adf[1]/ident-audible</property>
 	      </binding>  
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>
@@ -1283,10 +1299,10 @@
 			</greater-than>
 		    <or>
 				<and>
-			  	  <property>/instrumentation/marker-beacon/in-range</property>
-			  	  <property>/instrumentation/marker-beacon/audio-btn</property>
+			  	  <property>instrumentation/marker-beacon/in-range</property>
+			  	  <property>instrumentation/marker-beacon/audio-btn</property>
 			  	</and>
-		      <property>/controls/test/warn-knob</property>
+		      <property>controls/test/warn-knob</property>
 		    </or>
 		  </and>
 	  </condition>
@@ -1295,7 +1311,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>knob.008</object-name>
-		<property>/instrumentation/marker-beacon/volume</property>
+		<property>instrumentation/marker-beacon/volume</property>
 		<factor>-270</factor>
 		<center>
 			<x-m> 0.0</x-m>
@@ -1319,7 +1335,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/marker-beacon/volume</property>
+				<property>instrumentation/marker-beacon/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1327,7 +1343,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1336,7 +1352,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/marker-beacon/volume</property>
+				<property>instrumentation/marker-beacon/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1344,7 +1360,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1353,7 +1369,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/marker-beacon/volume</property>
+				<property>instrumentation/marker-beacon/volume</property>
 				<step>0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1361,7 +1377,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 		<action>
@@ -1370,7 +1386,7 @@
 			<repeatable>true</repeatable>
 			<binding>	          
 				<command>property-adjust</command>
-				<property>/instrumentation/marker-beacon/volume</property>
+				<property>instrumentation/marker-beacon/volume</property>
 				<step>-0.1</step>
 				<min>0.01</min>
 				<max>1.0</max>
@@ -1378,7 +1394,7 @@
 			</binding>
 		  	<binding>
 				<command>property-toggle</command>
-				<property>/sim/sound/switch3</property>
+				<property>sim/sound/switch3</property>
 			</binding>
 		</action>
 	</animation>
@@ -1386,7 +1402,7 @@
 	<animation>
 	  <type>rotate</type>
 	  <object-name>switch.008</object-name>
-	  <property>/instrumentation/marker-beacon/audio-btn</property>
+	  <property>instrumentation/marker-beacon/audio-btn</property>
 	  <factor>-40</factor>
 	  <center>
 	    <x-m> 0.0264</x-m>
@@ -1408,15 +1424,15 @@
 	      <button>0</button>      
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/marker-beacon/audio-btn</property>
+	        <property>instrumentation/marker-beacon/audio-btn</property>
 	      </binding>
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/instrumentation/marker-beacon/power-btn</property>
+	        <property>instrumentation/marker-beacon/power-btn</property>
 	      </binding> 
 	      <binding>
 	        <command>property-toggle</command>
-	        <property>/sim/sound/switch1</property>
+	        <property>sim/sound/switch1</property>
 	      </binding>
 	  </action>
 	</animation>

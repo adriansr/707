@@ -1,3 +1,26 @@
+#################################################################################
+#		Lake of Constance Hangar												#
+#		Boeing 707 for Flightgear												#
+#		Copyright (C) 2013 M.Kraus												#	
+#																				#
+#		This program is free software: you can redistribute it and/or modify	#
+#		it under the terms of the GNU General Public License as published by	#
+#		the Free Software Foundation, either version 3 of the License, or		#
+#		(at your option) any later version.										#
+#																				#
+#		This program is distributed in the hope that it will be useful,			#
+#		but WITHOUT ANY WARRANTY; without even the implied warranty of			#
+#		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the			#
+#		GNU General Public License for more details.							#
+#																				#
+#		You should have received a copy of the GNU General Public License		#
+#		along with this program.  If not, see <http://www.gnu.org/licenses/>.	#
+#																				#
+#		Every software has a developer, also free software. 					#
+#		As a gesture of courtesy and respect, I would be delighted 				#		
+#		if you contacted me before making any changes to this software. 		#
+#		<info (at) marc-kraus.de> April, 2017									#
+#################################################################################
 # Overwrite the original menu
 gui.menuBind("fuel-and-payload", "b707.WeightFuelDialog()");
 
@@ -15,6 +38,9 @@ var trace = func (message) {
     print (message);
   }
 }
+
+var crossfeed_per_tank_pps = props.globals.initNode ("/b707/fuel/crossfeed-flow-per-tank-pps", 5, "DOUBLE");
+var automatic_management   = props.globals.initNode ("/b707/fuel/automatic-management",        0, "BOOL");
 
 var fdm = getprop("/sim/flight-model");
 var c0 = props.globals.getNode("/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"); # crew
@@ -980,6 +1006,8 @@ var crossfeed_control_valves = func (tanknr) {
 	}	
 }
 
+var crossfeed_action_period = 4.0;
+
 var available_receive_capacity_lbs = func (tank)
 {
   var avail_now = getprop ("/consumables/fuel/tank[" ~ tank ~ "]/capacity-gal_us")
@@ -992,19 +1020,19 @@ var available_receive_capacity_lbs = func (tank)
   if (engine_for_tank[tank] == -1) { return avail_now; }
   else {
      # The other thanks being connected to an engine, consider the present consumption for 4 s
-     return avail_now + getprop("/engines/engine[" ~ engine_for_tank[tank] ~ "]/fuel-flow_pph")/3600*4
+     return avail_now + getprop("/engines/engine[" ~ engine_for_tank[tank] ~ "]/fuel-flow_pph")/3600*crossfeed_action_period;
   }
 }
 
 
-var crossfeed_action = maketimer (4.0, func {
+var crossfeed_action = maketimer (crossfeed_action_period, func {
 
 	var refuelAction = getprop("/b707/ground-service/fuel-truck/connect") or 0;
 
 	var pow = getprop("/b707/ess-bus") or 0;
 	var diff = 0;
-        var R1_to_M1 = 0;
-        var R4_to_M4 = 0;
+	var R1_to_M1 = 0;
+	var R4_to_M4 = 0;
 
 	###### drain reserve Tanks to Main Tank 1 and 4 by gravity
 	
@@ -1013,19 +1041,19 @@ var crossfeed_action = maketimer (4.0, func {
 	  diff = 15564 - tfM1.getValue(); #15564 is the capacity of the Main Tank 1 and 4
 	  
 	  if(tfR1.getValue() >= 50 and diff >= 50){
-	  		var mNeu = tfM1.getValue() + 50;
+			var mNeu = tfM1.getValue() + 50;
 			var rNeu = tfR1.getValue() - 50;
 		}elsif(tfR1.getValue() >= 50 and diff <= 50){
 				var mNeu = tfM1.getValue() + diff;
-	    	var rNeu = tfR1.getValue() - diff;
+		var rNeu = tfR1.getValue() - diff;
 		}else{
 				var mNeu = tfM1.getValue() + tfR1.getValue();
-	    	var rNeu = 0;
+		var rNeu = 0;
 		}
-                mNeu -= getprop("/engines/engine[0]/fuel-flow_pph")/3600*4;
-		interpolate("/consumables/fuel/tank[6]/level-lbs", rNeu, 4);
-	  	interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, 4);
-                R1_to_M1 = 1;
+		mNeu -= getprop("/engines/engine[0]/fuel-flow_pph")/3600*crossfeed_action_period;
+		interpolate("/consumables/fuel/tank[6]/level-lbs", rNeu, crossfeed_action_period);
+		interpolate("/consumables/fuel/tank[5]/level-lbs", mNeu, crossfeed_action_period);
+		R1_to_M1 = 1;
 	}
 	
 	if(pow > 20 and v5.getBoolValue() and vp5.getBoolValue() and tfR4.getValue() and !refuelAction){
@@ -1033,19 +1061,19 @@ var crossfeed_action = maketimer (4.0, func {
 	  diff = 15564 - tfM4.getValue(); #15564 is the capacity of the Main Tank 1 and 4
 	  
 	  if(tfR4.getValue() >= 50 and diff >= 50){
-	  		var mNeu = tfM4.getValue() + 50;
+			var mNeu = tfM4.getValue() + 50;
 				var rNeu = tfR4.getValue() - 50;
 		}elsif(tfR4.getValue() >= 50 and diff <= 50){
 				var mNeu = tfM4.getValue() + diff;
-	    	var rNeu = tfR4.getValue() - diff;
+		var rNeu = tfR4.getValue() - diff;
 		}else{
 				var mNeu = tfM4.getValue() + tfR4.getValue();
-	    	var rNeu = 0;
+		var rNeu = 0;
 		}
-                mNeu -= getprop("/engines/engine[3]/fuel-flow_pph")/3600*4;
-		interpolate("/consumables/fuel/tank[0]/level-lbs", rNeu, 4);
-	    interpolate("/consumables/fuel/tank[1]/level-lbs", mNeu, 4);
-            R4_to_M4 = 1;
+		mNeu -= getprop("/engines/engine[3]/fuel-flow_pph")/3600*crossfeed_action_period;
+		interpolate("/consumables/fuel/tank[0]/level-lbs", rNeu, crossfeed_action_period);
+	    interpolate("/consumables/fuel/tank[1]/level-lbs", mNeu, crossfeed_action_period);
+	    R4_to_M4 = 1;
 	}
 	
 	####### test the status of the tanks
@@ -1111,47 +1139,61 @@ var crossfeed_action = maketimer (4.0, func {
 		
 		# if a crossfeed action is possible 
 		if(tankgetfuel.size() > 0 and tankgivefuel.size() > 0){
+			trace ("--- crossfeed loop ---");
+			var max_flow_per_tank = crossfeed_action_period * crossfeed_per_tank_pps.getValue();
 			var max_tankgetfuel_lbs = [
+				0,
 				available_receive_capacity_lbs (1),
 				available_receive_capacity_lbs (2),
 				available_receive_capacity_lbs (3),
 				available_receive_capacity_lbs (4),
-				available_receive_capacity_lbs (5)
+				available_receive_capacity_lbs (5),
+				0
 			];
 			var total_tankgetfuel_lbs = 0;
 			foreach (var item; max_tankgetfuel_lbs) {
 				total_tankgetfuel_lbs += item;
 			}
-                        trace ("--- crossfeed loop ---");
-                        trace ("max_tankgetfuel_lbs=" ~ debug.string (max_tankgetfuel_lbs) ~ ", total_tankgetfuel_lbs=" ~ total_tankgetfuel_lbs);
-			var givefuel_per_tank_lbs = 20; # By default, each giving tank can give this much in 4 seconds.
+			trace ("max_tankgetfuel_lbs=" ~ debug.string (max_tankgetfuel_lbs) ~ ", total_tankgetfuel_lbs=" ~ total_tankgetfuel_lbs);
+			var givefuel_per_tank_lbs = max_flow_per_tank;
+			# By default, each giving tank can give this much in a crossfeed_action_period.
+
 			if (givefuel_per_tank_lbs * tankgivefuel.size() > total_tankgetfuel_lbs) {
 				# If the receiving tanks cannot accept all the fuel the sending tanks can give, make the sending tanks give less.
 				givefuel_per_tank_lbs = total_tankgetfuel_lbs / tankgivefuel.size();
-                                trace ("Limiting givefuel_per_tank_lbs to " ~ givefuel_per_tank_lbs ~ " because receiving tanks are almost full");
+				trace ("Limiting givefuel_per_tank_lbs to " ~ givefuel_per_tank_lbs ~ " because receiving tanks are almost full");
 			}
 			if (total_tankgetfuel_lbs > givefuel_per_tank_lbs * tankgivefuel.size ()) {
 				# If the sending tanks cannot give enough to refill the receiving tanks completely, limit the amount of fuel transferred.
 				total_tankgetfuel_lbs = givefuel_per_tank_lbs * tankgivefuel.size ();
-                                trace ("Limiting total_tankgetfuel_lbs to " ~ total_tankgetfuel_lbs ~ " due to limited fuel flow between tanks");
+				trace ("Limiting total_tankgetfuel_lbs to " ~ total_tankgetfuel_lbs ~ " due to limited fuel flow between tanks");
 			}
 			foreach (var item; tankgivefuel.vector) {
 				var f = getprop("/consumables/fuel/tank["~item~"]/level-lbs") - givefuel_per_tank_lbs;
+				if (f < 0) { f = 0; }
 				if (engine_for_tank[item] != -1) {
-					# consider the consumption in 4 sec
-					f -= getprop("/engines/engine[" ~ engine_for_tank[item] ~ "]/fuel-flow_pph")/3600*4;
+					# consider the consumption in a crossfeed_action_period
+					f -= getprop("/engines/engine[" ~ engine_for_tank[item] ~ "]/fuel-flow_pph")/3600*crossfeed_action_period;
 				}
-				interpolate("/consumables/fuel/tank["~item~"]/level-lbs", f, 4);
-                                trace ("Tank " ~ item ~ " gives " ~ givefuel_per_tank_lbs ~ " lbs to " ~ f);
+				interpolate("/consumables/fuel/tank["~item~"]/level-lbs", f, crossfeed_action_period);
+				trace ("Tank " ~ item ~ " gives " ~ givefuel_per_tank_lbs ~ " lbs to " ~ f);
 			}
 			foreach (var item; tankgetfuel.vector) {
-				var f = getprop("/consumables/fuel/tank["~item~"]/level-lbs") + total_tankgetfuel_lbs / tankgetfuel.size();
+				var f = total_tankgetfuel_lbs / tankgetfuel.size();
+				if (f > max_tankgetfuel_lbs[item]) { f = max_tankgetfuel_lbs[item]; }
 				if (engine_for_tank[item] != -1) {
-					# consider the consumption in 4 sec
-					f -= getprop("/engines/engine[" ~ engine_for_tank[item] ~ "]/fuel-flow_pph")/3600*4;
+					# consider the consumption in a crossfeed_action_period
+					f -= getprop("/engines/engine[" ~ engine_for_tank[item] ~ "]/fuel-flow_pph")/3600*crossfeed_action_period;
 				}
-				interpolate("/consumables/fuel/tank["~item~"]/level-lbs", f, 4);
-                                trace ("Tank " ~ item ~ " receives " ~ total_tankgetfuel_lbs / tankgetfuel.size() ~ " lbs to " ~ f);
+				f += getprop("/consumables/fuel/tank["~item~"]/level-lbs");
+				interpolate("/consumables/fuel/tank["~item~"]/level-lbs", f, crossfeed_action_period);
+				trace ("Tank " ~ item ~ " receives " ~ total_tankgetfuel_lbs / tankgetfuel.size() ~ " lbs to " ~ f);
+			}
+		}
+		if (tankgetfuel.size() > 0 and tankgivefuel.size() == 0 and automatic_management.getValue()) {
+			# This is a cheat, normally the flight engineer should do this manually: make sure all boost pumps are on.
+			foreach (var pump; props.globals.getNode ("/b707/fuel/valves").getChildren ("boost-pump")) {
+				pump.setValue (1);
 			}
 		}
 	}	
@@ -1170,21 +1212,21 @@ var crossfeed_action = maketimer (4.0, func {
 			
 		setprop("/consumables/fuel/tank[6]/level-lbs", 0);
 		setprop("/consumables/fuel/tank[5]/level-lbs", 0);
-	  	setprop("/consumables/fuel/tank[4]/level-lbs", 0);		
-	  	setprop("/consumables/fuel/tank[3]/level-lbs", 0);
-	  	setprop("/consumables/fuel/tank[2]/level-lbs", 0);
-	  	setprop("/consumables/fuel/tank[1]/level-lbs", 0);
-	  	setprop("/consumables/fuel/total-fuel-lbs",0);
+		setprop("/consumables/fuel/tank[4]/level-lbs", 0);		
+		setprop("/consumables/fuel/tank[3]/level-lbs", 0);
+		setprop("/consumables/fuel/tank[2]/level-lbs", 0);
+		setprop("/consumables/fuel/tank[1]/level-lbs", 0);
+		setprop("/consumables/fuel/total-fuel-lbs",0);
 
 		interpolate("/consumables/fuel/tank[6]/level-lbs", ttempR1, 1);
 		interpolate("/consumables/fuel/tank[5]/level-lbs", ttempM1, 1);
-	  	interpolate("/consumables/fuel/tank[4]/level-lbs", ttempM2, 1);		
-	  	interpolate("/consumables/fuel/tank[3]/level-lbs", ttempC, 1);
-	  	interpolate("/consumables/fuel/tank[2]/level-lbs", ttempM3, 1);
-	  	interpolate("/consumables/fuel/tank[1]/level-lbs", ttempM4, 1);
-	  	interpolate("/consumables/fuel/tank[0]/level-lbs", ttempR4, 1);
-	  	
-	  	settimer(func{ setprop("/b707/fuel/quantity-test",0) }, 0);			
+		interpolate("/consumables/fuel/tank[4]/level-lbs", ttempM2, 1);		
+		interpolate("/consumables/fuel/tank[3]/level-lbs", ttempC, 1);
+		interpolate("/consumables/fuel/tank[2]/level-lbs", ttempM3, 1);
+		interpolate("/consumables/fuel/tank[1]/level-lbs", ttempM4, 1);
+		interpolate("/consumables/fuel/tank[0]/level-lbs", ttempR4, 1);
+		
+		settimer(func{ setprop("/b707/fuel/quantity-test",0) }, 0);			
 	}
 });
 
