@@ -197,7 +197,7 @@ if you contacted me before making any changes to this software.
       <y-m>0.0</y-m>
       <z-m>0.0</z-m>
     </center>
-    <axis><x>-1</x></axis>
+    <axis><x>1</x></axis>
   </animation>
   
 	<animation>
