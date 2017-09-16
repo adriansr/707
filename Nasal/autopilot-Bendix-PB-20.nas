@@ -58,6 +58,12 @@ var listenerApPB20ActiveFunc = func {
 }
 setlistener("autopilot/Bendix-PB-20/controls/active", listenerApPB20ActiveFunc);
 
+var resetRollKnob = func {
+	removelistener(rollKnobListenerHandle);
+	setprop("autopilot/Bendix-PB-20/settings/roll-knob-deg", 0);
+	rollKnobListenerHandle = setlistener("autopilot/Bendix-PB-20/settings/roll-knob-deg", listenerApPB20MANRollFunc);
+}
+
 # Mode-selector
 #
 # !!! FEHLER: bei zurückschalten von Mode 4,5 auf 3,2,1 bleibt GS eingeschaltet anstatt ALT (bei eingeschaltetem Alt-Switch) !!!
@@ -88,6 +94,7 @@ var listenerApPB20ModeFunc = func {
 			else {
 				gui.popupTip("You must be airborne and a route must be active to activate this mode !");
 			}
+			resetRollKnob();
 		}
 		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 1) {
 			# HDG - Mode
@@ -102,6 +109,7 @@ var listenerApPB20ModeFunc = func {
 				setprop("autopilot/locks/altitude", "altitude-hold");
 			}
 			setprop("autopilot/locks/passive-mode", 0);
+			resetRollKnob();
 		}
 		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
 			# MAN - Mode
@@ -139,6 +147,7 @@ var listenerApPB20ModeFunc = func {
 				setprop("autopilot/locks/altitude", "altitude-hold");
 			}
 			setprop("autopilot/locks/passive-mode", 0);
+			resetRollKnob();
 		}
 		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 4) {
 			# GS AUTO - Mode
@@ -149,6 +158,7 @@ var listenerApPB20ModeFunc = func {
 			# resets
 			setprop("autopilot/locks/passive-mode", 0);
 			setprop("autopilot/Bendix-PB-20/controls/alt-active", 0);
+			resetRollKnob();
 		}
 		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 5) {
 			# GS MAN - Mode
@@ -165,6 +175,7 @@ var listenerApPB20ModeFunc = func {
 
 			# resets
 			setprop("autopilot/locks/passive-mode", 0);
+			resetRollKnob();
 		}
 	}
 	else {
@@ -204,7 +215,7 @@ var listenerApPB20MANRollFunc = func {
 		setprop("autopilot/internal/wing-leveler-target-roll-deg", getprop("autopilot/Bendix-PB-20/settings/roll-knob-deg"));
 	}
 }
-setlistener("autopilot/Bendix-PB-20/settings/roll-knob-deg", listenerApPB20MANRollFunc);
+var rollKnobListenerHandle = setlistener("autopilot/Bendix-PB-20/settings/roll-knob-deg", listenerApPB20MANRollFunc);
 
 # MAN - Mode - pitch-selector
 var listenerApPB20MANPitchFunc = func {
