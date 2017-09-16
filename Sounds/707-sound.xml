@@ -1905,6 +1905,7 @@ if you contacted me before making any changes to this software.
 			<property>b707/trim/elevator-trim-turn</property>
 			<volume>
 				<property>sim/current-view/internal</property>
+				<factor>0.1</factor>
 			</volume>
 		</trim-wheels>
 		
