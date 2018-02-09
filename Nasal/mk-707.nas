@@ -935,8 +935,8 @@ var nacelle_deicing = func {
 		
 		if (!engineInlet and e.getIndex() < 4) {
 		  var n = e.getIndex() + 1;
-		  if(tat <= -10) iceAlertEngines = 1;
-		  if(tat <= -30) setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
+		  if(tat <= -20) iceAlertEngines = 1;
+		  if(tat <= -45) setprop("controls/engines/engine["~e.getIndex()~"]/cutoff", 1);
 		}
 		
 		var temperature = deg * 110/1400; # engines have 1400 degree f max temperature
@@ -1008,8 +1008,8 @@ var nacelle_deicing = func {
 	  		newfuelTemp = (newfuelTemp > 20) ? 20 : newfuelTemp;
 	  }
 	  
-	  if(newfuelTemp <  -8)  iceAlertFuel = 1;
-	  if(newfuelTemp < -25)  setprop("controls/engines/engine["~hnr~"]/cutoff", 1);
+	  if(newfuelTemp < -20)  iceAlertFuel = 1;
+	  if(newfuelTemp < -45)  setprop("controls/engines/engine["~hnr~"]/cutoff", 1);
 	  
 		setprop("b707/fuel/temp["~tnr~"]", newfuelTemp);
   	if (sel == tnr) interpolate("b707/fuel/temperature", newfuelTemp, 15);
