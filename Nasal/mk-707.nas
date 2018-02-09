@@ -92,7 +92,7 @@ var togglereverser = func {
 		setprop(r5,"engine[2]", "true");
 		setprop(r5,"engine[3]", "true");
 	} else {
-		if (val1 == 1.0 and t1 == 0){
+		if (val1 == 1.0 and t1 < 0.25){
 		interpolate(rv1, 0.0, 1.4);
 		interpolate(rv2, 0.0, 1.4); 
 		interpolate(rv3, 0.0, 1.4);
