@@ -34,7 +34,7 @@ if you contacted me before making any changes to this software.
     	injected?       no
 -->
 <turbine_engine name="MK508">
-  <milthrust> 17500.0 </milthrust>
+  <milthrust> 19000.0 </milthrust>
   <bypassratio>     0.3 </bypassratio>
   <tsfc>            0.7 </tsfc> <!-- original is 0.82 -->
   <bleed>           0.04</bleed>
