@@ -137,4 +137,114 @@ if you contacted me before making any changes to this software.
   </binding>
 </key>
 
+ <key n="51">
+  <name>3</name>
+  <desc>Decrease throttle or autopilot autothrottle</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+   <command>nasal</command>
+   <script>
+     controls.incThrottle(-0.005, -1.0)
+   </script>
+  </binding>
+  <mod-shift>
+   <desc>Look back right</desc>
+   <binding>
+    <command>property-assign</command>
+    <property>/sim/current-view/goal-heading-offset-deg</property>
+    <property>/sim/view/config/back-right-direction-deg</property>
+   </binding>
+  </mod-shift>
+ </key>
+
+ <key n="57">
+  <name>9</name>
+  <desc>Increase throttle or autopilot autothrottle</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+  <command>nasal</command>
+   <script>
+     controls.incThrottle(0.005, 1.0)
+   </script>
+  </binding>
+  <mod-shift>
+   <desc>Look front right</desc>
+   <binding>
+    <command>property-assign</command>
+    <property>/sim/current-view/goal-heading-offset-deg</property>
+    <property>/sim/view/config/front-right-direction-deg</property>
+   </binding>
+  </mod-shift>
+ </key>
+
+ <key n="113">
+  <name>Q</name>
+  <desc>AP roll left</desc>
+  <repeatable type="bool">true</repeatable>
+    <binding>
+       <command>property-adjust</command>
+         <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <step type="double">-1.0</step>
+            <min>-35.0</min>
+            <max>35.0</max>
+        </binding>
+
+ </key>
+
+<key n="119">
+ <name>W</name>
+ <desc>AP roll center</desc>
+ <repeatable type="bool">true</repeatable>
+ <binding>
+        <command>property-interpolate</command>
+        <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+        <value>0</value>
+        <time>0.5</time>
+ </binding>
+</key>
+
+
+ <key n="101">
+  <name>E</name>
+  <desc>AP roll right</desc>
+  <repeatable type="bool">true</repeatable>
+ <repeatable type="bool">true</repeatable>
+    <binding>
+        <command>property-adjust</command>
+        <property>autopilot/Bendix-PB-20/settings/roll-knob-deg</property>
+            <step type="double">1.0</step>
+            <min>-35.0</min>
+            <max>35.0</max>
+    </binding>
+ </key>
+
+
+ <key n="114">
+  <name>R</name>
+  <desc>AP pitch up</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+    <command>property-adjust</command>
+    <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+    <step type="double">0.15</step>
+    <min>-30.0</min>
+    <max>30.0</max>
+ </binding>
+</key>
+
+ <key n="102">
+  <name>F</name>
+  <desc>AP pitch down</desc>
+  <repeatable type="bool">true</repeatable>
+  <binding>
+    <command>property-adjust</command>
+    <property>autopilot/Bendix-PB-20/settings/pitch-wheel-deg</property>
+    <step type="double">-0.15</step>
+    <min>-30.0</min>
+    <max>30.0</max>
+ </binding>
+</key>
+
+
+
 </PropertyList>
