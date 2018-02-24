@@ -235,9 +235,6 @@ var show_alti = func {
 }
 
 var show_lat_lon = func {
-	var lat = getprop("position/latitude-string");
-	var lon = getprop("position/longitude-string");
-	var mv = getprop("environment/magnetic-variation-deg") or 0;
 	var f1 = getprop("instrumentation/compass-control[0]/lat-knob") or 0;
 	var f2 = getprop("instrumentation/compass-control[1]/lat-knob") or 0;
 	f1 = (!f1)? 1 : -1;
@@ -246,8 +243,7 @@ var show_lat_lon = func {
 	var dgc2 = getprop("instrumentation/compass-control[1]/lat-turn") or 0;
 	dgc1 = dgc1*f1;
 	dgc2 = dgc2*f2;
-	mv = int(mv);
-	help_win.write(sprintf("lat: "~lat~" lon: "~lon~" / Magnetic variation is "~mv~" / Compass Controller 1 lat: "~dgc1~" / Compass Controller 2 lat: "~dgc2)); 
+	help_win.write(sprintf("Compass Controller 1 lat: "~dgc1~" / Compass Controller 2 lat: "~dgc2));
 }
 
 var show_tat = func {
