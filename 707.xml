@@ -813,7 +813,7 @@ if you contacted me before making any changes to this software.
            <property>metrics/Sw-sqft</property>
            <property>aero/cl-squared</property>
 	  			 <property>/b707/anti-ice/drag-coefficient</property> <!-- if ice is on wings -->
-           <value>0.042</value>
+           <value>0.000</value>
          </product>
     </function>
 

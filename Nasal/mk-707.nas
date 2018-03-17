@@ -961,29 +961,6 @@ var nacelle_deicing = func {
 	interpolate("b707/anti-ice/temp-out-r", wingTempOutR, 15);
 	interpolate("b707/anti-ice/temp-in-r", wingTempInR, 15);
 	
-	# calculate the drag-coefficient of our aircraft with ice - no ice/  1 is perfect, wc is the worst case
-	if(tat < 1){
-	    # overwrite the variable from real temperature to factor 1 to wc for coefficent calc
-			wingTempOutL = (wingTempOutL < -4) ? abs(wingTempOutL)/4 : 1;
-			wingTempInL = (wingTempInL < -4) ? abs(wingTempInL)/4 : 1;
-			wingTempOutR = (wingTempOutR < -4) ? abs(wingTempOutR)/4 : 1;
-			wingTempInR = (wingTempInR < -4) ? abs(wingTempInR)/4 : 1;
-
-			var newcoef = (wingTempOutL + wingTempInL + wingTempInR + wingTempOutR)/4;
-			# print("Coeff: " ~newcoef);
-			newcoef = (newcoef > wc) ? wc : newcoef;
-			newcoef = ((coef - newcoef) > 1) ? newcoef + 1 : newcoef;   # go back after switch on heating max 1 point/15 sec
-			
-			if(coef != newcoef) interpolate("b707/anti-ice/drag-coefficient", newcoef, 15);
-			
-			if(coef < newcoef) iceAlertWings = 1; # only message, if value rise up
-			
-	}else{
-		if(coef > 1){
-			interpolate("b707/anti-ice/drag-coefficient", 1, 15);
-		}
-	}
-	
 	### Fuel temperature
 	var sel = getprop("b707/fuel/temperatur-selector") or 0; 
   # 0 = Main Tank 1, 1 = Engine 1, 2 = Engine 2 ... Main Tank has no heater
