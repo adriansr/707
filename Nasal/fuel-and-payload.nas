@@ -1360,6 +1360,8 @@ var dump_loop_r = maketimer(2.1, func(){
 
 
 ############  Start up the loops ################
+# do not burn fuel while sim is paused.
+engines_alive.simulatedTime = 1;
 engines_alive.start();
 crossfeed_action.start();
 
