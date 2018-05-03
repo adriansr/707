@@ -1059,9 +1059,12 @@ var calc_pressurization	= func{
 	
 		if(ms){
 		
-			var autorate = vs/6.32;
+			var autorate = vs/5;
 
 			if(mode){ 					# in takeoff or flight mode
+                                if (autorate < 50.0) {
+                                    autorate = 50.0;
+                                }
 				if(calt < max){
 					rate = (rate > 0) ? rate : autorate;
 					calt = calt + (t*rate/60);
@@ -1070,6 +1073,9 @@ var calc_pressurization	= func{
 				}
 
 			}else{							# in landing mode
+                                if (autorate > -50.0) {
+                                    autorate = 50.0;
+                                }
 				if(calt > max){
 					rate = (rate < 0) ? rate : autorate;
 					calt = calt + (t*rate/60);
@@ -1079,7 +1085,7 @@ var calc_pressurization	= func{
 
 			}
 			
-			max = alt/6.3;
+			max = alt/5;
 			max = (agl < 100) ? alt - 200 : max;
 			
 			interpolate("b707/pressurization/cabin-max", max, t);  # the white scale is set automatically
@@ -1101,7 +1107,7 @@ var calc_pressurization	= func{
 		}
 		
 	}else{
-		calt = alt;
+		calt += (alt - calt) * 0.01;
 		#print("calc_pressurization is not working");
 		interpolate("b707/pressurization/cabin-altitude", alt, t);
 		interpolate("b707/pressurization/climb-rate", vs, t);
