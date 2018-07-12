@@ -80,8 +80,9 @@ var listenerApPB20ModeFunc = func {
 
 	if (getprop("autopilot/Bendix-PB-20/controls/active") == 1) {
 		#print ("-> listenerApPB20ModeFunc -> Mode-selector=", getprop("autopilot/Bendix-PB-20/controls/mode-selector"));
-
-		if (	getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 0) {
+                
+                var mode = getprop("autopilot/Bendix-PB-20/controls/mode-selector");
+		if (mode == 0) {
 			# NAV - Mode
 
 			if (getprop("autopilot/route-manager/active") == 1 and getprop("autopilot/route-manager/airborne") == 1) {
@@ -96,22 +97,16 @@ var listenerApPB20ModeFunc = func {
 			}
 			resetRollKnob();
 		}
-		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 1) {
+		if (mode == 1) {
 			# HDG - Mode
 
 			setprop("autopilot/locks/heading", "dg-heading-hold");
 
 			# resets
-			if (getprop("autopilot/Bendix-PB-20/controls/alt-active") == 0) {
-				setprop("autopilot/locks/altitude", "");
-			}
-			else {
-				setprop("autopilot/locks/altitude", "altitude-hold");
-			}
 			setprop("autopilot/locks/passive-mode", 0);
 			resetRollKnob();
 		}
-		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
+		if (mode == 2) {
 			# MAN - Mode
 
 			#var rollKnobDeg = getprop("instrumentation/turn-indicator/indicated-turn-rate") * 36.63;
@@ -121,35 +116,19 @@ var listenerApPB20ModeFunc = func {
 
 			setprop("autopilot/locks/heading", "wing-leveler");
 
-			if (getprop("autopilot/Bendix-PB-20/controls/alt-active") == 0) {
-				setprop("autopilot/Bendix-PB-20/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
-				listenerApPB20MANPitchFunc();
-
-				setprop("autopilot/locks/altitude", "pitch-hold");
-			}
-			else {
-				setprop("autopilot/locks/altitude", "altitude-hold");
-			}
-
 			# resets
 			setprop("autopilot/locks/passive-mode", 0);
 		}
-		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 3) {
+		if (mode == 3) {
 			# LOC VOR - Mode
 
 			setprop("autopilot/locks/heading", "nav1-hold");
 
 			# resets
-			if (getprop("autopilot/Bendix-PB-20/controls/alt-active") == 0) {
-				setprop("autopilot/locks/altitude", "");
-			}
-			else {
-				setprop("autopilot/locks/altitude", "altitude-hold");
-			}
 			setprop("autopilot/locks/passive-mode", 0);
 			resetRollKnob();
 		}
-		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 4) {
+		if (mode == 4) {
 			# GS AUTO - Mode
 
 			setprop("autopilot/locks/heading", "nav1-hold");
@@ -160,7 +139,7 @@ var listenerApPB20ModeFunc = func {
 			setprop("autopilot/Bendix-PB-20/controls/alt-active", 0);
 			resetRollKnob();
 		}
-		if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 5) {
+		if (mode == 5) {
 			# GS MAN - Mode
 
 			setprop("autopilot/locks/heading", "nav1-hold");
@@ -177,6 +156,19 @@ var listenerApPB20ModeFunc = func {
 			setprop("autopilot/locks/passive-mode", 0);
 			resetRollKnob();
 		}
+
+                # Use pitch control for all basic modes (MAN, HDG, VOR)
+                if (mode > 0 and mode < 4) {
+                    if (getprop("autopilot/Bendix-PB-20/controls/alt-active") == 0) {
+                            setprop("autopilot/Bendix-PB-20/settings/pitch-wheel-deg", getprop("orientation/pitch-deg"));
+                            listenerApPB20MANPitchFunc();
+
+                            setprop("autopilot/locks/altitude", "pitch-hold");
+                    }
+                    else {
+                            setprop("autopilot/locks/altitude", "altitude-hold");
+                    }
+                }
 	}
 	else {
 		# switched off
@@ -219,9 +211,8 @@ var rollKnobListenerHandle = setlistener("autopilot/Bendix-PB-20/settings/roll-k
 
 # MAN - Mode - pitch-selector
 var listenerApPB20MANPitchFunc = func {
-
-	if (	getprop("autopilot/Bendix-PB-20/controls/active") == 1 and
-		getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
+        mode = getprop("autopilot/Bendix-PB-20/controls/mode-selector");
+	if (	getprop("autopilot/Bendix-PB-20/controls/active") == 1 and mode > 0 and mode < 4) {
 		if (getprop("autopilot/Bendix-PB-20/controls/alt-active") == 0) {
 
 			var pitchDeg = getprop("autopilot/Bendix-PB-20/settings/pitch-wheel-deg");
@@ -257,7 +248,8 @@ var listenerApPB20AltFunc = func {
 			setprop("autopilot/locks/altitude", "altitude-hold");
 		}
 		else {
-			if (getprop("autopilot/Bendix-PB-20/controls/mode-selector") == 2) {
+                        mode = getprop("autopilot/Bendix-PB-20/controls/mode-selector");
+			if (mode > 0 and mode < 4) {
 				setprop("autopilot/locks/altitude", "pitch-hold");
 			}
 			else {
