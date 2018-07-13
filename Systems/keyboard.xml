@@ -66,6 +66,16 @@ if you contacted me before making any changes to this software.
   </binding>
 </key>
 
+<key n="32"> <!-- space -->
+    <name>disable autopilot</name>
+    <desc>Disable autopilot</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.disableAP();</script>
+  </binding>
+</key>
+
+
 <key n="257">
     <name>F1</name>
     <desc>Checklists</desc>

@@ -372,9 +372,7 @@ setlistener("autopilot/settings/pitch-hold", listenerApPB20SetPitchFunc);
 
 ### Bendix PB 20 ###
 
-setlistener("controls/special/yoke-switch1", func (s1){
-    var s1 = s1.getBoolValue();
-    if (s1 == 1){
+disableAP = func {
       setprop("autopilot/Bendix-PB-20/controls/active", 0);
       setprop("autopilot/Bendix-PB-20/controls/alt-active", 0);
 		  setprop("autopilot/Bendix-PB-20/controls/mode-selector", 2);
@@ -382,6 +380,12 @@ setlistener("controls/special/yoke-switch1", func (s1){
 			setprop("autopilot/settings/target-pitch-deg", 0);
 			setprop("autopilot/locks/altitude", "");
 			setprop("autopilot/locks/speed", "");
+}
+
+setlistener("controls/special/yoke-switch1", func (s1){
+    var s1 = s1.getBoolValue();
+    if (s1 == 1){
+        disableAP();
     }
 });
 
