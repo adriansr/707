@@ -55,9 +55,9 @@ var BrakeSystem =
     {
        var m = { parents : [BrakeSystem]};
        # deceleration caused by brakes alone (knots/s2)
-       m.BrakeDecel    = 1.0; # kt/s^2
+       m.BrakeDecel    = 0.8; # kt/s^2
        # Higher value means quicker cooling
-       m.CoolingFactor = 0.007;
+       m.CoolingFactor = 0.006;
        # Scaling divisor. Use this to scale the energy output.
        # Manually tune this value: a total energy output
        # at "gear/brake-thermal-energy" > 1.0 means overheated brakes,
