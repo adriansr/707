@@ -255,6 +255,23 @@ if you contacted me before making any changes to this software.
  </binding>
 </key>
 
+<key n="109">
+	<name>m</name>
+	<desc>Set full throttle</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.setMaxPower();</script>
+  </binding>
+</key>
+
+<key n="110">
+	<name>n</name>
+	<desc>Set idle throttle</desc>
+  <binding>
+      <command>nasal</command>
+      <script>b707.setIdlePower();</script>
+  </binding>
+</key>
 
 
 </PropertyList>
