@@ -54,7 +54,7 @@ var updateRMI = func {
 
   if (getprop("instrumentation/rmi/rmi-needle[0]/switch")) {
     if (getprop("instrumentation/adf[0]/in-range")) {
-      needle1 = getprop("instrumentation/adf[0]/indicated-bearing-deg");
+      needle1 = mymod(indiBearingDeg(getprop("instrumentation/adf[0]/indicated-bearing-deg"),getprop("/orientation/heading-magnetic-deg")) - 90, 360);
     }
   }
 
@@ -63,7 +63,7 @@ var updateRMI = func {
   else {
     if (getprop("instrumentation/nav[0]/in-range")) {
       # Needle actual = needle bearing
-      needle1 = indiBearingDeg(getprop("instrumentation/nav[0]/heading-deg"),getprop("/orientation/heading-magnetic-deg")); 
+      needle1 = indiBearingDeg(getprop("instrumentation/nav[0]/heading-deg"),getprop("/orientation/heading-deg"));
     }
   }
 
@@ -71,7 +71,7 @@ var updateRMI = func {
 
   if (getprop("instrumentation/rmi/rmi-needle[1]/switch")) {
     if (getprop("instrumentation/adf[1]/in-range")) {
-      needle2 = getprop("instrumentation/adf[1]/indicated-bearing-deg");
+      needle2 = mymod(indiBearingDeg(getprop("instrumentation/adf[1]/indicated-bearing-deg"),getprop("/orientation/heading-magnetic-deg")) - 90, 360);
     }
   }
 
@@ -80,16 +80,16 @@ var updateRMI = func {
   else {
     if (getprop("instrumentation/nav[1]/in-range")) {
       # Needle actual = needle bearing
-      needle2 = indiBearingDeg(getprop("instrumentation/nav[1]/heading-deg"),getprop("/orientation/heading-magnetic-deg")); 
+      needle2 = indiBearingDeg(getprop("instrumentation/nav[1]/heading-deg"),getprop("/orientation/heading-deg"));
     }
   }
-  
+
   if(needle1 > 360) needle1 = needle1 - 360;
   if(needle2 > 360) needle2 = needle2 - 360;
-  
-  #screen.log.write("needle1 " ~needle1, 1.0, 0.1, 0.1);  
+
+  #screen.log.write("needle1 " ~needle1, 1.0, 0.1, 0.1);
   #screen.log.write("needle2 " ~needle2, 1.0, 0.1, 0.1);
-  
+
 # Save Needle settings
   interpolate("instrumentation/rmi/rmi-needle[0]/value", needle1, 1);
   interpolate("instrumentation/rmi/rmi-needle[1]/value", needle2, 1);
