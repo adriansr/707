@@ -60,13 +60,13 @@ if you contacted me before making any changes to this software.
  -->
 
 	<metrics>
-   <wingarea  unit="FT2"> 3046.48 </wingarea>
-   <wingspan  unit="FT" >  142.40 </wingspan>
+   <wingarea  unit="FT2"> 2246.48 </wingarea>
+   <wingspan  unit="FT" >  102.40 </wingspan>
    <wing_incidence>          2.00 </wing_incidence>
    <chord     unit="FT" >   21.39 </chord>
    <htailarea unit="FT2">  761.62 </htailarea>
    <htailarm  unit="FT" >   68.82 </htailarm>
-   <vtailarea unit="FT2">  609.30 </vtailarea>
+   <vtailarea unit="FT2">  409.30 </vtailarea>
    <vtailarm  unit="FT" >   68.82 </vtailarm>
 
 		<location name="AERORP" unit="IN">
@@ -232,8 +232,8 @@ if you contacted me before making any changes to this software.
      <y> -72.88 </y>
      <z> -43.65 </z>
     </location>
-    <static_friction>  0.55 </static_friction>
-    <dynamic_friction> 0.50 </dynamic_friction>
+    <static_friction>  0.35 </static_friction>
+    <dynamic_friction> 0.30 </dynamic_friction>
    <spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
  </contact>
@@ -244,8 +244,8 @@ if you contacted me before making any changes to this software.
      <y>  72.88 </y>
      <z> -43.65 </z>
     </location>
-    <static_friction>  0.55 </static_friction>
-    <dynamic_friction> 0.50 </dynamic_friction>
+    <static_friction>  0.35 </static_friction>
+    <dynamic_friction> 0.30 </dynamic_friction>
    <spring_coeff unit="LBS/FT">      360600.00 </spring_coeff>
    <damping_coeff unit="LBS/FT/SEC"> 80000.00 </damping_coeff>
  </contact>
@@ -257,7 +257,7 @@ if you contacted me before making any changes to this software.
    <engine file="MK508">
     <location unit="IN">
       <x>  22.11 </x>
-      <y>-586.50 </y>
+      <y>-286.50 </y>
       <z> -46.00 </z>
     </location>
     <orient unit="DEG">
@@ -269,7 +269,7 @@ if you contacted me before making any changes to this software.
     <thruster file="direct">
      <location unit="IN">
       <x>  22.11 </x>
-      <y>-586.50 </y>
+      <y>-286.50 </y>
       <z> -46.00 </z>
      </location>
      <orient unit="DEG">
@@ -283,7 +283,7 @@ if you contacted me before making any changes to this software.
    <engine file="MK508">
     <location unit="IN">
       <x>-164.20 </x>
-      <y>-393.62 </y>
+      <y>-193.62 </y>
       <z> -77.00 </z>
     </location>
     <orient unit="DEG">
@@ -295,7 +295,7 @@ if you contacted me before making any changes to this software.
     <thruster file="direct">
      <location unit="IN">
       <x>-164.20 </x>
-      <y>-393.62 </y>
+      <y>-193.62 </y>
       <z> -77.00 </z>
      </location>
      <orient unit="DEG">
@@ -309,7 +309,7 @@ if you contacted me before making any changes to this software.
    <engine file="MK508">
     <location unit="IN">
       <x>-164.20 </x>
-      <y> 393.62 </y>
+      <y> 193.62 </y>
       <z> -77.00 </z>
     </location>
     <orient unit="DEG">
@@ -321,7 +321,7 @@ if you contacted me before making any changes to this software.
     <thruster file="direct">
      <location unit="IN">
       <x>-164.20 </x>
-      <y> 393.62 </y>
+      <y> 193.62 </y>
       <z> -77.00 </z>
      </location>
      <orient unit="DEG">
@@ -335,7 +335,7 @@ if you contacted me before making any changes to this software.
    <engine file="MK508">
     <location unit="IN">
       <x>  22.11 </x>
-      <y> 586.50 </y>
+      <y> 286.50 </y>
       <z> -46.00 </z>
     </location>
     <orient unit="DEG">
@@ -347,7 +347,7 @@ if you contacted me before making any changes to this software.
     <thruster file="direct">
      <location unit="IN">
       <x>  22.11 </x>
-      <y> 586.50 </y>
+      <y> 286.50 </y>
       <z> -46.00 </z>
      </location>
      <orient unit="DEG">
@@ -674,10 +674,10 @@ if you contacted me before making any changes to this software.
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
               -0.20   -0.780
-               0.00    0.170
-               0.23    1.400
-               0.50    0.740
-               0.60    0.340
+               0.10    0.090
+               0.43    1.150
+               0.70    0.540
+               0.95    0.170
                
                <!--
               -0.20   -0.680
@@ -699,10 +699,10 @@ if you contacted me before making any changes to this software.
                   <independentVar>fcs/flap-pos-deg</independentVar>
                   <tableData>
                       0.0000	0.000	
-                      2.0000	0.040	
-                      4.0000	0.080	
-                      6.0000	0.100	
-                     10.0000	0.200	
+                      2.0000	0.070	
+                      4.0000	0.130	
+                      6.0000	0.210	
+                     10.0000	0.350	
                   </tableData>
               </table>
         </product>
@@ -752,7 +752,7 @@ if you contacted me before making any changes to this software.
  					 <property>/engines/engine[2]/n1</property> <!--only with the stronger TJ4 engines-->
  					 <property>/engines/engine[3]/n1</property> <!--only with the stronger TJ4 engines-->
  					 <property>/sim/multiplay/generic/int[8]</property> <!--only with the stronger TJ4 engines-->
-           <value>0.000000002</value>
+           <value>0.000000000</value>
        </product>
     </function>
 	
@@ -762,9 +762,9 @@ if you contacted me before making any changes to this software.
             <table>
                 <independentVar>position/h-agl-ft</independentVar>
                 <tableData>
-                  0             0.105        
-                  10            0.149        
-                  20            0.203        
+                  0             0.085        
+                  10            0.129        
+                  20            0.173        
                   27            0       
                 </tableData>
             </table>
@@ -779,7 +779,7 @@ if you contacted me before making any changes to this software.
            <property>aero/qbar-psf</property>
            <property>metrics/Sw-sqft</property>
  		   <property>/b707/stabilizer/cutout</property> <!-- stabilization nose up down with different weights -->
-           <value>0.2</value>
+           <value>0.15</value>
        </product>
     </function>
 
@@ -796,11 +796,11 @@ if you contacted me before making any changes to this software.
           <table>
             <independentVar lookup="row">aero/alpha-rad</independentVar>
             <tableData>
-             -1.57    1.500
-             -0.26    0.022
-              0.00    0.017
-              0.26    0.022
-              1.57    1.500
+             -1.57   -1.500
+             -0.26    0.007
+              0.00    0.003
+              0.26    0.012
+              1.57    1.100
             </tableData>
           </table>
        </product>
@@ -827,9 +827,9 @@ if you contacted me before making any changes to this software.
             <independentVar lookup="row">velocities/mach</independentVar>
             <tableData>
                 0.00      0.000
-                0.79      0.000
-                1.10      0.023
-                1.80      0.015
+                1.00      0.000
+                2.00      0.013
+                3.00      0.018
             </tableData>
           </table>
         </product>

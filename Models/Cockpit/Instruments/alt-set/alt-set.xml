@@ -268,7 +268,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>1</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>
             <binding>
@@ -282,7 +282,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>10</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>
             <binding>
@@ -304,7 +304,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>-1</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>            
             <binding>
@@ -318,7 +318,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>-10</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>
             <binding>
@@ -337,7 +337,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>100</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>
             <binding>		          
@@ -351,7 +351,7 @@ if you contacted me before making any changes to this software.
 		          <property>autopilot/settings/target-altitude-ft</property>
 		          <step>1000</step>
 		          <min>0.0</min>
-		          <max>50000.0</max>
+		          <max>70000.0</max>
 		          <wrap>false</wrap>
             </binding>
             <binding>
@@ -370,7 +370,7 @@ if you contacted me before making any changes to this software.
             <property>autopilot/settings/target-altitude-ft</property>
             <step>-100</step>
             <min>0.0</min>
-            <max>50000.0</max>
+            <max>70000.0</max>
             <wrap>false</wrap>
             </binding>            
             <binding>		          
@@ -384,7 +384,7 @@ if you contacted me before making any changes to this software.
             <property>autopilot/settings/target-altitude-ft</property>
             <step>-1000</step>
             <min>0.0</min>
-            <max>50000.0</max>
+            <max>70000.0</max>
             <wrap>false</wrap>
             </binding>
             <binding>

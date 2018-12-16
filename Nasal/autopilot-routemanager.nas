@@ -740,13 +740,13 @@ var adjustElevatorPosition = func {
 			#print("adjustElevatorPosition=", elevatorTrimPosAverage);
 			if (elevatorTrimPosAverage < (elevatorTrimPosMax * (-1))) {
 				if (elevatorPos >= -0.99) {
-					interpolate("autopilot/internal/elevator-position", elevatorPos - 0.01, 0.9);
+#interpolate("autopilot/internal/elevator-position", elevatorPos - 0.01, 0.9);
 					#print("adjustElevatorPosition=", getprop("autopilot/internal/elevator-position"));
 				}
 			}
 			elsif (elevatorTrimPosAverage > elevatorTrimPosMax) {
 				if (elevatorPos <= 0.99) {
-					interpolate("autopilot/internal/elevator-position", elevatorPos + 0.01, 0.9);
+#interpolate("autopilot/internal/elevator-position", elevatorPos + 0.01, 0.9);
 					#print("adjustElevatorPosition=", getprop("autopilot/internal/elevator-positionr"));
 				}
 			}
